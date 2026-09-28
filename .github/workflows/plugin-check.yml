@@ -32,3 +32,5 @@ jobs:
           # Repository furniture and the catalogue that goes to
           # translate.wordpress.org are not part of what a site installs.
           exclude-directories: '.github,.wordpress-org,translations'
+          # Repository furniture: none of it is in the zip a site installs.
+          exclude-files: '.gitattributes,.gitignore,phpcs.xml.dist'

@@ -88,7 +88,7 @@ class Dicex_Connect_Integration_Digits extends Dicex_Connect_Integration_Base {
 	 */
 	public function send( $handled, $option_slug, $gateway_id, $countrycode, $mobile, $message, $test_call = false ) {
 		// Another gateway's send. Leave whatever was decided untouched.
-		if ( (int) $gateway_id !== self::GATEWAY_ID ) {
+		if ( self::GATEWAY_ID !== (int) $gateway_id ) {
 			return $handled;
 		}
 

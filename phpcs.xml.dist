@@ -47,6 +47,16 @@
 		</properties>
 	</rule>
 
+
+	<!--
+	One short array per line, where every item is one thing: the club's starter
+	levels read better as five lines than as twenty-five. Still reported, so a
+	genuinely unreadable array is visible, but it does not fail the run.
+	-->
+	<rule ref="WordPress.Arrays.ArrayDeclarationSpacing.AssociativeArrayFound">
+		<type>warning</type>
+	</rule>
+
 	<config name="minimum_wp_version" value="5.8"/>
 	<config name="testVersion" value="7.4-"/>
 </ruleset>

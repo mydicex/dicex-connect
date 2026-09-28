@@ -163,7 +163,7 @@ class Dicex_Connect_Club_Language {
 	 */
 	public static function multilingual() {
 		if ( null === self::$multilingual ) {
-			$wpml = apply_filters( 'wpml_active_languages', null );
+			$wpml = apply_filters( 'wpml_active_languages', null ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- WPML's own filter, read by the name WPML documents; this plugin is asking it a question, not inventing a hook.
 
 			self::$multilingual = ( is_array( $wpml ) && count( $wpml ) > 1 )
 				|| function_exists( 'pll_languages_list' )
@@ -193,7 +193,7 @@ class Dicex_Connect_Club_Language {
 			return Dicex_Connect_Club_Settings::clean_locale( $code );
 		}
 
-		$languages = apply_filters( 'wpml_active_languages', null );
+		$languages = apply_filters( 'wpml_active_languages', null ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- WPML's own filter, read by the name WPML documents; this plugin is asking it a question, not inventing a hook.
 
 		if ( is_array( $languages ) && isset( $languages[ $code ]['default_locale'] ) ) {
 			return Dicex_Connect_Club_Settings::clean_locale( $languages[ $code ]['default_locale'] );
@@ -214,7 +214,7 @@ class Dicex_Connect_Club_Language {
 			$locales[] = Dicex_Connect_Club_Settings::clean_locale( $locale );
 		}
 
-		$wpml = apply_filters( 'wpml_active_languages', null );
+		$wpml = apply_filters( 'wpml_active_languages', null ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- WPML's own filter, read by the name WPML documents; this plugin is asking it a question, not inventing a hook.
 
 		if ( is_array( $wpml ) ) {
 			foreach ( $wpml as $language ) {
@@ -256,7 +256,7 @@ class Dicex_Connect_Club_Language {
 	 * @return mixed What the callback returned.
 	 */
 	public static function with_locale( $locale, $callback ) {
-		$switched = '' !== (string) $locale && function_exists( 'switch_to_locale' ) && $locale !== determine_locale() && switch_to_locale( $locale );
+		$switched = '' !== (string) $locale && function_exists( 'switch_to_locale' ) && determine_locale() !== $locale && switch_to_locale( $locale );
 
 		try {
 			return call_user_func( $callback );
