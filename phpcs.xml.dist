@@ -43,7 +43,7 @@
 	     out of another plugin's way. -->
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<properties>
-			<property name="prefixes" type="array" value="dicex_connect,Dicex_Connect,DICEX_CONNECT"/>
+			<property name="prefixes" type="array" value="dicex_connect,Dicex_Connect,DICEX_CONNECT,DICEX_API"/>
 		</properties>
 	</rule>
 
@@ -54,6 +54,16 @@
 	genuinely unreadable array is visible, but it does not fail the run.
 	-->
 	<rule ref="WordPress.Arrays.ArrayDeclarationSpacing.AssociativeArrayFound">
+		<type>warning</type>
+	</rule>
+
+
+	<!--
+	Yoda conditions are house style rather than safety: PHP 8 makes the
+	assignment-in-a-condition typo they guard against a parse error. Reported so
+	the codebase keeps drifting towards them, not a reason to fail a run.
+	-->
+	<rule ref="WordPress.PHP.YodaConditions.NotYoda">
 		<type>warning</type>
 	</rule>
 

@@ -127,7 +127,7 @@ $enable_block  = Dicex_Connect_Integration_Registry::enable_blocker();
 						}
 					}
 					$rest  = array_diff( $region_channels, $chosen );
-					$order = array_merge( $chosen, $rest );
+					$channel_order = array_merge( $chosen, $rest );
 					?>
 					<?php if ( empty( $region_channels ) ) : ?>
 						<p class="dicex-connect-region-note">
@@ -144,7 +144,7 @@ $enable_block  = Dicex_Connect_Integration_Registry::enable_blocker();
 						<p class="description"><?php esc_html_e( 'Drag to reorder, or use the arrows. If the first one does not go through, the next is tried.', 'dicex-connect' ); ?></p>
 						<ol class="dicex-connect-channel-list">
 							<?php
-							foreach ( $order as $channel_key ) :
+							foreach ( $channel_order as $channel_key ) :
 								$channel_line = Dicex_Connect_Lines::get_selected( $channel_key );
 								?>
 								<li data-channel="<?php echo esc_attr( $channel_key ); ?>">
@@ -225,10 +225,10 @@ $enable_block  = Dicex_Connect_Integration_Registry::enable_blocker();
 					<?php if ( empty( $integration['hide_recipients'] ) ) : ?>
 						<fieldset class="dicex-connect-recipient-set">
 						<legend><?php esc_html_e( 'Recipients', 'dicex-connect' ); ?></legend>
-						<?php foreach ( $recipient_labels as $type => $recipient_label ) : ?>
+						<?php foreach ( $recipient_labels as $recipient_type => $recipient_label ) : ?>
 							<label>
-								<input type="checkbox" class="dicex-connect-integration-recipient" value="<?php echo esc_attr( $type ); ?>"
-									<?php checked( in_array( $type, (array) $settings['recipients'], true ) ); ?>>
+								<input type="checkbox" class="dicex-connect-integration-recipient" value="<?php echo esc_attr( $recipient_type ); ?>"
+									<?php checked( in_array( $recipient_type, (array) $settings['recipients'], true ) ); ?>>
 								<?php echo esc_html( $recipient_label ); ?>
 							</label>
 						<?php endforeach; ?>
@@ -241,8 +241,8 @@ $enable_block  = Dicex_Connect_Integration_Registry::enable_blocker();
 						<textarea id="dicex-connect-template-<?php echo esc_attr( $slug ); ?>" class="dicex-connect-integration-template" rows="3"><?php echo esc_textarea( $settings['template'] ); ?></textarea>
 						<span class="dicex-connect-tag-list">
 							<?php esc_html_e( 'Tags you can use:', 'dicex-connect' ); ?>
-							<?php foreach ( $integration['tags'] as $tag ) : ?>
-								<code dir="ltr"><?php echo esc_html( $tag ); ?></code>
+							<?php foreach ( $integration['tags'] as $message_tag ) : ?>
+								<code dir="ltr"><?php echo esc_html( $message_tag ); ?></code>
 							<?php endforeach; ?>
 						</span>
 					</p>
