@@ -2,6 +2,9 @@
 
 A customer club with levels you define, plus SMS, WhatsApp and Telegram alerts for orders, forms and logins — through your own DiceX account.
 
+[![Plugin Check](https://github.com/mydicex/dicex-connect/actions/workflows/plugin-check.yml/badge.svg)](https://github.com/mydicex/dicex-connect/actions/workflows/plugin-check.yml)
+[![Coding standards](https://github.com/mydicex/dicex-connect/actions/workflows/wpcs.yml/badge.svg)](https://github.com/mydicex/dicex-connect/actions/workflows/wpcs.yml)
+[![PHP lint](https://github.com/mydicex/dicex-connect/actions/workflows/lint-php.yml/badge.svg)](https://github.com/mydicex/dicex-connect/actions/workflows/lint-php.yml)
 [![WordPress plugin](https://img.shields.io/wordpress/plugin/v/dicex-connect?label=WordPress.org)](https://wordpress.org/plugins/dicex-connect/)
 [![Tested up to](https://img.shields.io/wordpress/plugin/tested/dicex-connect)](https://wordpress.org/plugins/dicex-connect/)
 [![Required PHP](https://img.shields.io/wordpress/plugin/required-php/dicex-connect)](https://wordpress.org/plugins/dicex-connect/)
