@@ -1,0 +1,34 @@
+# WordPress.org's own Plugin Check, the same tool the review team runs.
+#
+# This is the workflow that matters most here: sixteen of its checks are backed
+# by PHP_CodeSniffer, which cannot run on the machine this plugin is written on
+# — there they report zero findings whether or not anything is wrong. On a real
+# PHP runner they actually look.
+name: Plugin Check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  plugin-check:
+    name: Plugin Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run Plugin Check
+        uses: WordPress/plugin-check-action@v1
+        with:
+          # The repository root is the plugin, so the checker needs the slug the
+          # directory publishes under rather than the checkout folder's name.
+          slug: dicex-connect
+          # Repository furniture and the catalogue that goes to
+          # translate.wordpress.org are not part of what a site installs.
+          exclude-directories: '.github,.wordpress-org,translations'

@@ -1,0 +1,28 @@
+# WordPress Coding Standards, with the plugin's own ruleset in phpcs.xml.dist.
+name: Coding standards
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  phpcs:
+    name: PHPCS
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: WPCS check
+        uses: 10up/wpcs-action@stable
+        with:
+          enable_warnings: true
+          use_local_config: 'true'
+          standard: 'WordPress'

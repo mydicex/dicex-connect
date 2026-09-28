@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<ruleset name="DiceX Connect">
+	<description>WordPress Coding Standards, as this plugin follows them.</description>
+
+	<file>.</file>
+
+	<exclude-pattern>/.github/*</exclude-pattern>
+	<exclude-pattern>/.wordpress-org/*</exclude-pattern>
+	<exclude-pattern>/translations/*</exclude-pattern>
+	<exclude-pattern>/languages/*</exclude-pattern>
+	<exclude-pattern>/vendor/*</exclude-pattern>
+	<exclude-pattern>/node_modules/*</exclude-pattern>
+
+	<arg name="extensions" value="php"/>
+	<arg name="colors"/>
+	<arg value="sp"/>
+
+	<rule ref="WordPress">
+		<!--
+		Class files are named after the thing, not after the full prefixed class:
+		class-dicex-support.php holds Dicex_Connect_Support. The prefix is on
+		every class name in the plugin, so repeating it in ninety file names
+		would make the tree harder to read and nothing safer.
+		-->
+		<exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+	</rule>
+
+	<!-- One text domain, checked on every translation call. -->
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array" value="dicex-connect"/>
+		</properties>
+	</rule>
+
+	<!-- Everything global carries one of these, which is what keeps the plugin
+	     out of another plugin's way. -->
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array" value="dicex_connect,Dicex_Connect,DICEX_CONNECT"/>
+		</properties>
+	</rule>
+
+	<config name="minimum_wp_version" value="5.8"/>
+	<config name="testVersion" value="7.4-"/>
+</ruleset>

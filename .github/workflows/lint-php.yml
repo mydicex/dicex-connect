@@ -1,0 +1,36 @@
+# A syntax check on every PHP version the plugin claims to support. Cheap, and
+# it catches what a coding-standards run does not.
+name: PHP lint
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: PHP ${{ matrix.php }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # The plugin header says PHP 7.4 or newer.
+        php: ['7.4', '8.0', '8.1', '8.2', '8.3', '8.4']
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          tools: php-parallel-lint
+          coverage: none
+
+      - name: Lint
+        run: parallel-lint --exclude vendor --exclude node_modules .
