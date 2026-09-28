@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * no UPDATE with ORDER BY or JOIN — so what is tested on Playground is what runs
  * on a real host.
  */
-// phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.DirectDatabaseQuery.SchemaChange -- These are this plugin's own tables. Their names come from $wpdb->prefix, every value goes through $wpdb->prepare(), and the data changes on every sync, so an object cache would only serve stale rows.
+// phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQL.NotPrepared, WordPress.DB.DirectDatabaseQuery.SchemaChange -- These are this plugin's own tables. Their names come from $wpdb->prefix, every value goes through $wpdb->prepare(), and the data changes on every sync, so an object cache would only serve stale rows. NotPrepared is here for the same reason as its sibling: a sniff cannot tell a table name built from a prefix from a value typed by somebody, and this file is where every query in the plugin lives.
 class Dicex_Connect_Club_Store {
 
 	/**
