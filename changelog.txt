@@ -3,6 +3,18 @@
 The full history. The current release is also in readme.txt, which the
 WordPress.org handbook asks to keep short.
 
+= 1.8.2 =
+
+A Persian screen gets back the line saying what a Gulf top-up is worth elsewhere.
+
+**Bugfixes**
+
+* On a Persian screen with the region set to GCC, the Credit tab dropped the line saying what an amount is worth in US dollars and euros, and the figure under the amount field stopped following what you typed. The currency's name is translated and its code is not; the two were the same value, so nothing recognised a translated name as Omani rial.
+
+**Other**
+
+* The plugin's source is now public at github.com/mydicex/dicex-connect, where WordPress's own Plugin Check, the WordPress coding standards and a PHP syntax check run on every change.
+
 = 1.8.1 =
 
 A clearer Integrations tab when a card cannot be switched on yet.

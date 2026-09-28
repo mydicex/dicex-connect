@@ -16,7 +16,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Function-scoped template variables; see the note above.
 
+// The label is what the screen prints; the code is what the converter reads.
 $region_currency = Dicex_Connect_Region::currency();
+$currency_code   = Dicex_Connect_Region::currency_code();
 
 $amount_placeholder = ( '' === $region_currency )
 	? __( 'Amount', 'dicex-connect' )
@@ -54,9 +56,9 @@ $region_gateways = Dicex_Connect_Credit::payment_providers();
 	 * for the region's minimum so the line says something before anybody types,
 	 * and moved by the admin script from there.
 	 */
-	if ( Dicex_Connect_Currency::can_convert( $region_currency ) ) :
+	if ( Dicex_Connect_Currency::can_convert( $currency_code ) ) :
 		$worth_amount = Dicex_Connect_Region::min_charge();
-		$worth        = Dicex_Connect_Currency::equivalents( $worth_amount, $region_currency );
+		$worth        = Dicex_Connect_Currency::equivalents( $worth_amount, $currency_code );
 		?>
 		<p class="dicex-connect-credit-worth" id="dicex-connect-credit-worth">
 			<span class="dashicons dashicons-info-outline" aria-hidden="true"></span>

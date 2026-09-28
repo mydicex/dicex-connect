@@ -4,7 +4,7 @@ Tags: customer club, crm, sms, whatsapp, woocommerce
 Requires at least: 5.8
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.8.1
+Stable tag: 1.8.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -128,11 +128,11 @@ DiceX does not sell the same services everywhere. The region you pick — Iran, 
 
 == Changelog ==
 
-= 1.8.1 =
+= 1.8.2 =
 
-A card's switch that cannot be turned on yet now says why, on the card. The full notes, and every earlier release, are in changelog.txt.
+A Persian screen gets back the line saying what a Gulf top-up is worth elsewhere. The full notes, and every earlier release, are in changelog.txt.
 
 == Upgrade Notice ==
 
-= 1.8.1 =
-A card's switch that cannot be turned on yet now says why, on the card, instead of doing nothing when pressed.
+= 1.8.2 =
+On a Persian screen with the region set to GCC, the Credit tab shows again what an amount is worth in dollars and euros.

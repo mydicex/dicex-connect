@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DiceX Connect\n"
 "Report-Msgid-Bugs-To: https://dicex.me/\n"
-"POT-Creation-Date: 2026-09-19 20:06+0000\n"
+"POT-Creation-Date: 2026-09-28 11:50+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -48,316 +48,316 @@ msgstr ""
 msgid "Logs"
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:162
+#: includes/admin/class-dicex-admin-menu.php:163
 msgid "Checking..."
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:163 includes/admin/views/tab-connection.php:54
+#: includes/admin/class-dicex-admin-menu.php:164 includes/admin/views/tab-connection.php:54
 msgid "Check connection"
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:164
+#: includes/admin/class-dicex-admin-menu.php:165
 msgid "Sending..."
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:165 includes/admin/views/tab-lines.php:245
+#: includes/admin/class-dicex-admin-menu.php:166 includes/admin/views/tab-lines.php:245
 msgid "Send test"
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:166 includes/admin/views/tab-credit.php:196
+#: includes/admin/class-dicex-admin-menu.php:167 includes/admin/views/tab-credit.php:198
 msgid "Pay online"
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:167
+#: includes/admin/class-dicex-admin-menu.php:168
 msgid "Error"
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:168 includes/admin/views/tab-club.php:671
+#: includes/admin/class-dicex-admin-menu.php:169 includes/admin/views/tab-club.php:671
 msgid "Loading..."
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:169 includes/admin/views/tab-lines.php:145
+#: includes/admin/class-dicex-admin-menu.php:170 includes/admin/views/tab-lines.php:145
 msgid "Choose a network first"
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:170
+#: includes/admin/class-dicex-admin-menu.php:171
 msgid "Choose a line"
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:171 includes/admin/views/tab-lines.php:109 includes/admin/views/tab-lines.php:195
+#: includes/admin/class-dicex-admin-menu.php:172 includes/admin/views/tab-lines.php:109 includes/admin/views/tab-lines.php:195
 msgid "Shared line"
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:172 includes/admin/views/tab-lines.php:197
+#: includes/admin/class-dicex-admin-menu.php:173 includes/admin/views/tab-lines.php:197
 msgid "No line yet — activate one in your DiceX panel"
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:173
+#: includes/admin/class-dicex-admin-menu.php:174
 msgid "Saving..."
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:174 includes/admin/views/tab-integrations.php:268
+#: includes/admin/class-dicex-admin-menu.php:175 includes/admin/views/tab-integrations.php:268
 msgid "Save this card"
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:175 includes/admin/views/tab-integrations.php:53
+#: includes/admin/class-dicex-admin-menu.php:176 includes/admin/views/tab-integrations.php:53
 msgid "Save numbers"
 msgstr ""
 
 #. translators: 1: amount with its currency, for example "5 OMR". 2: the same amount in US dollars, already emphasised. 3: the same amount in euros, already emphasised.
-#: includes/admin/class-dicex-admin-menu.php:178 includes/admin/views/tab-credit.php:89
+#: includes/admin/class-dicex-admin-menu.php:179 includes/admin/views/tab-credit.php:91
 msgid "%1$s is roughly %2$s, or %3$s."
 msgstr ""
 
 #. translators: %s: an amount of money, for example 13.00
-#: includes/admin/class-dicex-admin-menu.php:180 includes/admin/views/tab-credit.php:74
+#: includes/admin/class-dicex-admin-menu.php:181 includes/admin/views/tab-credit.php:76
 msgid "%s US dollars"
 msgstr ""
 
 #. translators: %s: an amount of money, for example 11.22
-#: includes/admin/class-dicex-admin-menu.php:182 includes/admin/views/tab-credit.php:82
+#: includes/admin/class-dicex-admin-menu.php:183 includes/admin/views/tab-credit.php:84
 msgid "%s euros"
 msgstr ""
 
 #. translators: 1: a name, such as WhatsApp or a club level. 2: its place in the list. 3: how many there are.
-#: includes/admin/class-dicex-admin-menu.php:184 includes/admin/class-dicex-admin-menu.php:263
+#: includes/admin/class-dicex-admin-menu.php:185 includes/admin/class-dicex-admin-menu.php:264
 msgid "%1$s: %2$s of %3$s"
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:185 includes/admin/views/tab-support.php:128
+#: includes/admin/class-dicex-admin-menu.php:186 includes/admin/views/tab-support.php:128
 msgid "Send to DiceX support"
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:186
+#: includes/admin/class-dicex-admin-menu.php:187
 msgid "Fill in your email, a subject and a message."
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:207
+#: includes/admin/class-dicex-admin-menu.php:208
 msgid "None"
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:208
+#: includes/admin/class-dicex-admin-menu.php:209
 msgid "Add a level first"
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:209
+#: includes/admin/class-dicex-admin-menu.php:210
 msgid "(no name yet)"
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:210
+#: includes/admin/class-dicex-admin-menu.php:211
 msgid "Everybody else"
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:211
+#: includes/admin/class-dicex-admin-menu.php:212
 msgid "Removed numbers"
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:212
+#: includes/admin/class-dicex-admin-menu.php:213
 msgid "Conditions do not apply here. A number comes here when you move it, or when the customer leaves the club from their account."
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:213
+#: includes/admin/class-dicex-admin-menu.php:214
 msgid "No conditions: everybody who reaches this level joins it, so the conditions of the levels below it are never checked."
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:214
+#: includes/admin/class-dicex-admin-menu.php:215
 msgid "No members yet."
 msgstr ""
 
 #. translators: 1: this page number, 2: how many pages there are
-#: includes/admin/class-dicex-admin-menu.php:216
+#: includes/admin/class-dicex-admin-menu.php:217
 msgid "Page %1$s of %2$s"
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:217
+#: includes/admin/class-dicex-admin-menu.php:218
 msgid "Automatic"
 msgstr ""
 
 #. translators: %s: the level the conditions put this customer in
-#: includes/admin/class-dicex-admin-menu.php:219
+#: includes/admin/class-dicex-admin-menu.php:220
 msgid "Automatic (now %s)"
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:220
+#: includes/admin/class-dicex-admin-menu.php:221
 msgid "Placed by hand"
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:221
+#: includes/admin/class-dicex-admin-menu.php:222
 msgid "(no name)"
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:222
+#: includes/admin/class-dicex-admin-menu.php:223
 msgid "Guest"
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:223
+#: includes/admin/class-dicex-admin-menu.php:224
 msgid "Levels in your DiceX club, and how many customers each holds there:"
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:224
+#: includes/admin/class-dicex-admin-menu.php:225
 msgid "Your DiceX club has no levels yet."
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:225
+#: includes/admin/class-dicex-admin-menu.php:226
 msgid "Filter"
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:226
+#: includes/admin/class-dicex-admin-menu.php:227
 msgid "Search products by name or SKU"
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:227
+#: includes/admin/class-dicex-admin-menu.php:228
 msgid "Nothing matches."
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:228
+#: includes/admin/class-dicex-admin-menu.php:229
 msgid "City name"
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:229
+#: includes/admin/class-dicex-admin-menu.php:230
 msgid "Add"
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:230
+#: includes/admin/class-dicex-admin-menu.php:231
 msgid "Add every spelling your customers use, in each language — for example Tehran and تهران. Capital letters, spaces and the Arabic or Persian forms of a letter do not matter."
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:231 includes/modules/club/class-dicex-club-cli.php:93
+#: includes/admin/class-dicex-admin-menu.php:232 includes/modules/club/class-dicex-club-cli.php:93
 msgid "Done"
 msgstr ""
 
 #. translators: %s: one entry in a list, such as a city or a product
-#: includes/admin/class-dicex-admin-menu.php:233
+#: includes/admin/class-dicex-admin-menu.php:234
 msgid "Remove %s"
 msgstr ""
 
 #. translators: %s: how many more entries are chosen than are shown
-#: includes/admin/class-dicex-admin-menu.php:235
+#: includes/admin/class-dicex-admin-menu.php:236
 msgid "+%s more"
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:238
+#: includes/admin/class-dicex-admin-menu.php:239
 msgid "There is nothing to choose from here yet."
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:239
+#: includes/admin/class-dicex-admin-menu.php:240
 msgid "The store has none of these yet."
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:240
+#: includes/admin/class-dicex-admin-menu.php:241
 msgid "Counting…"
 msgstr ""
 
 #. translators: 1: members counted so far, 2: all members
-#: includes/admin/class-dicex-admin-menu.php:242
+#: includes/admin/class-dicex-admin-menu.php:243
 msgid "Counting: %1$s of %2$s"
 msgstr ""
 
 #. translators: %s: how many customers the level would hold
-#: includes/admin/class-dicex-admin-menu.php:244
+#: includes/admin/class-dicex-admin-menu.php:245
 msgid "Customers: %s"
 msgstr ""
 
 #. translators: 1: members counted, 2: how many of them these levels would put in another level
-#: includes/admin/class-dicex-admin-menu.php:246
+#: includes/admin/class-dicex-admin-menu.php:247
 msgid "Members counted: %1$s. Would move to another level if you save: %2$s. Nothing has been saved or sent."
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:247 includes/modules/club/class-dicex-club-cli.php:235
+#: includes/admin/class-dicex-admin-menu.php:248 includes/modules/club/class-dicex-club-cli.php:235
 msgid "Send every customer in the club to DiceX now? A number that reaches DiceX cannot be taken back out."
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:248
+#: includes/admin/class-dicex-admin-menu.php:249
 msgid "A group with no conditions would hold every customer in the club, so it cannot be saved. Give it at least one condition."
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:249
+#: includes/admin/class-dicex-admin-menu.php:250
 msgid "Nobody meets an age condition while the club knows no dates of birth. Ask for the date of birth below, or name the meta key another plugin keeps them under."
 msgstr ""
 
 #. translators: %s: how many memberships are still to reach DiceX
-#: includes/admin/class-dicex-admin-menu.php:251
+#: includes/admin/class-dicex-admin-menu.php:252
 msgid "%s on the way"
 msgstr ""
 
 #. translators: %s: how many contacts are in the DiceX group but no longer match it
-#: includes/admin/class-dicex-admin-menu.php:253
+#: includes/admin/class-dicex-admin-menu.php:254
 msgid "%s no longer matching"
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:254
+#: includes/admin/class-dicex-admin-menu.php:255
 msgid "They no longer match this group. DiceX has no way to take a contact out of a group, so they are still in it there."
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:255
+#: includes/admin/class-dicex-admin-menu.php:256
 msgid "On its way to DiceX."
 msgstr ""
 
 #. translators: %s: how many languages have a message written for them
-#: includes/admin/class-dicex-admin-menu.php:257
+#: includes/admin/class-dicex-admin-menu.php:258
 msgid "%s written"
 msgstr ""
 
 #. translators: %s: a level's name
 #. translators: %s: a channel name, such as WhatsApp
-#: includes/admin/class-dicex-admin-menu.php:259 includes/admin/class-dicex-settings-page.php:56
+#: includes/admin/class-dicex-admin-menu.php:260 includes/admin/class-dicex-settings-page.php:56
 msgid "Move %s up"
 msgstr ""
 
 #. translators: %s: a level's name
 #. translators: %s: a channel name, such as WhatsApp
-#: includes/admin/class-dicex-admin-menu.php:261 includes/admin/class-dicex-settings-page.php:65
+#: includes/admin/class-dicex-admin-menu.php:262 includes/admin/class-dicex-settings-page.php:65
 msgid "Move %s down"
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:264
+#: includes/admin/class-dicex-admin-menu.php:265
 msgid "Apply"
 msgstr ""
 
 #. translators: %s: a member's mobile number
-#: includes/admin/class-dicex-admin-menu.php:266
+#: includes/admin/class-dicex-admin-menu.php:267
 msgid "Level for %s"
 msgstr ""
 
 #. translators: 1: a member's mobile number, 2: a level's name
-#: includes/admin/class-dicex-admin-menu.php:268
+#: includes/admin/class-dicex-admin-menu.php:269
 msgid "%1$s is now kept in %2$s."
 msgstr ""
 
 #. translators: 1: a member's mobile number, 2: the level the conditions put them in
-#: includes/admin/class-dicex-admin-menu.php:270
+#: includes/admin/class-dicex-admin-menu.php:271
 msgid "%1$s is back on automatic, in %2$s."
 msgstr ""
 
 #. translators: %s: the list being filtered, such as "Bought from categories"
-#: includes/admin/class-dicex-admin-menu.php:272
+#: includes/admin/class-dicex-admin-menu.php:273
 msgid "Filter: %s"
 msgstr ""
 
 #. translators: %s: a parent category's name
-#: includes/admin/class-dicex-admin-menu.php:274
+#: includes/admin/class-dicex-admin-menu.php:275
 msgid "in %s"
 msgstr ""
 
 #. translators: %s: a city, the way it is already listed
-#: includes/admin/class-dicex-admin-menu.php:276
+#: includes/admin/class-dicex-admin-menu.php:277
 msgid "Already listed as %s."
 msgstr ""
 
 #. translators: %s: how many members match
-#: includes/admin/class-dicex-admin-menu.php:278
+#: includes/admin/class-dicex-admin-menu.php:279
 msgid "Members found: %s"
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:279
+#: includes/admin/class-dicex-admin-menu.php:280
 msgid "No members match."
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:280 includes/admin/class-dicex-club-page.php:693 includes/admin/views/tab-club.php:223 includes/modules/club/class-dicex-club-cli.php:69
+#: includes/admin/class-dicex-admin-menu.php:281 includes/admin/class-dicex-club-page.php:693 includes/admin/views/tab-club.php:223 includes/modules/club/class-dicex-club-cli.php:69
 msgid "In DiceX"
 msgstr ""
 
-#: includes/admin/class-dicex-admin-menu.php:281
+#: includes/admin/class-dicex-admin-menu.php:282
 msgid "No longer matching"
 msgstr ""
 
@@ -1240,50 +1240,50 @@ msgstr ""
 msgid "Top up"
 msgstr ""
 
-#: includes/admin/views/tab-credit.php:22
+#: includes/admin/views/tab-credit.php:24
 msgid "Amount"
 msgstr ""
 
 #. translators: %s: currency such as IRR
-#: includes/admin/views/tab-credit.php:25
+#: includes/admin/views/tab-credit.php:27
 msgid "Amount in %s"
 msgstr ""
 
-#: includes/admin/views/tab-credit.php:32
+#: includes/admin/views/tab-credit.php:34
 msgid "Top up online"
 msgstr ""
 
-#: includes/admin/views/tab-credit.php:34
+#: includes/admin/views/tab-credit.php:36
 msgid "This sends you to the DiceX payment gateway. Try a small amount once before relying on it."
 msgstr ""
 
-#: includes/admin/views/tab-credit.php:45
+#: includes/admin/views/tab-credit.php:47
 msgid "Another amount"
 msgstr ""
 
 #. translators: %s: the date the euro rate was read, in the site's own date format.
-#: includes/admin/views/tab-credit.php:101
+#: includes/admin/views/tab-credit.php:103
 msgid "The rial is pegged to the dollar, so that figure is exact. The euro figure is approximate, from the European Central Bank reference rate of %s."
 msgstr ""
 
 #. translators: %s: region name such as Iran, GCC
-#: includes/admin/views/tab-credit.php:113
+#: includes/admin/views/tab-credit.php:115
 msgid "No payment gateway is available for the %s region yet. You can still top up from the DiceX panel."
 msgstr ""
 
-#: includes/admin/views/tab-credit.php:121
+#: includes/admin/views/tab-credit.php:123
 msgid "Pay through"
 msgstr ""
 
-#: includes/admin/views/tab-credit.php:146
+#: includes/admin/views/tab-credit.php:148
 msgid "Not available yet"
 msgstr ""
 
-#: includes/admin/views/tab-credit.php:203
+#: includes/admin/views/tab-credit.php:205
 msgid "Holding a discount coupon? A coupon can only be applied in the DiceX panel, not from here, so top up there instead and the discount is taken off the amount."
 msgstr ""
 
-#: includes/admin/views/tab-credit.php:205
+#: includes/admin/views/tab-credit.php:207
 msgid "Top up in the DiceX panel"
 msgstr ""
 
@@ -1753,24 +1753,24 @@ msgstr ""
 msgid "IRR"
 msgstr ""
 
-#: includes/core/class-dicex-region.php:94
+#: includes/core/class-dicex-region.php:95
 msgid "GCC"
 msgstr ""
 
-#: includes/core/class-dicex-region.php:110
+#: includes/core/class-dicex-region.php:111
 msgid "OMR"
 msgstr ""
 
-#: includes/core/class-dicex-region.php:113
+#: includes/core/class-dicex-region.php:115
 msgid "DiceX has no international SMS operator for this region yet. WhatsApp and Telegram are available; SMS and voice are not."
 msgstr ""
 
 #. translators: A region name. DiceX's product page calls it World Wide and keeps those two words in English in every language.
-#: includes/core/class-dicex-region.php:117
+#: includes/core/class-dicex-region.php:119
 msgid "World Wide"
 msgstr ""
 
-#: includes/core/class-dicex-region.php:121
+#: includes/core/class-dicex-region.php:124
 msgid "WhatsApp and Telegram are available for this region. DiceX does not offer SMS, voice or payment here yet."
 msgstr ""
 

@@ -3,7 +3,7 @@
  * Plugin Name: DiceX Connect – Customer Club and Event Notifications
  * Plugin URI: https://wp.dicex.me/
  * Description: A customer club with levels you define, plus SMS, WhatsApp and Telegram alerts for orders, forms and logins, through your own DiceX account.
- * Version: 1.8.1
+ * Version: 1.8.2
  * Requires at least: 5.8
  * Requires PHP: 7.4
  * Author: DiceX
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'DICEX_CONNECT_VERSION', '1.8.1' );
+define( 'DICEX_CONNECT_VERSION', '1.8.2' );
 define( 'DICEX_CONNECT_FILE', __FILE__ );
 define( 'DICEX_CONNECT_DIR', plugin_dir_path( __FILE__ ) );
 define( 'DICEX_CONNECT_URL', plugin_dir_url( __FILE__ ) );

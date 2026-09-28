@@ -150,7 +150,8 @@ class Dicex_Connect_Admin_Menu {
 				 * under the amount field can follow what somebody types without
 				 * asking the server. Empty for a currency with no defensible rate.
 				 */
-				'rates'     => Dicex_Connect_Currency::rates( Dicex_Connect_Region::currency() ),
+				'rates'     => Dicex_Connect_Currency::rates( Dicex_Connect_Region::currency_code() ),
+				// The name the script prints beside a figure, in the reader's language.
 				'currency'  => Dicex_Connect_Region::currency(),
 				/*
 				 * Which channels can send with no line of their own. The script

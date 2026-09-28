@@ -84,6 +84,7 @@ class Dicex_Connect_Region {
 				 * the trunk zero is off, and it is also what keeps a landline or an
 				 * order total from being mistaken for a phone number on a form.
 				 */
+				'code'     => 'IRR',
 				'dial'     => self::IRAN_DIAL,
 				'national' => '/^9[0-9]{9}$/',
 				'min'      => 6000000,
@@ -108,6 +109,7 @@ class Dicex_Connect_Region {
 				 * it.
 				 */
 				'currency' => __( 'OMR', 'dicex-connect' ),
+				'code'     => 'OMR',
 				'min'      => 5,
 				'amounts'  => array( 5, 10, 20, 50 ),
 				'note'     => __( 'DiceX has no international SMS operator for this region yet. WhatsApp and Telegram are available; SMS and voice are not.', 'dicex-connect' ),
@@ -118,6 +120,7 @@ class Dicex_Connect_Region {
 				'channels' => array( 'whatsapp', 'telegram' ),
 				'gateways' => array(),
 				'currency' => '',
+				'code'     => '',
 				'note'     => __( 'WhatsApp and Telegram are available for this region. DiceX does not offer SMS, voice or payment here yet.', 'dicex-connect' ),
 			),
 		);
@@ -206,12 +209,34 @@ class Dicex_Connect_Region {
 	}
 
 	/**
+	 * The currency as a person reads it — translated, because "ریال عمان" is
+	 * what an Omani amount is called on a Persian screen. For anything that has
+	 * to recognise the currency rather than print it, use currency_code().
+	 *
 	 * @return string Currency amounts are counted in, or '' when that is not settled.
 	 */
 	public static function currency() {
 		$current = self::current();
 
 		return $current['currency'];
+	}
+
+	/**
+	 * The currency as ISO 4217 writes it, the same in every language.
+	 *
+	 * Separate from currency() since 1.8.2, and the reason is a real bug: the
+	 * label is translated, so on a Persian screen currency() returned
+	 * "ریال عمان", Dicex_Connect_Currency did not recognise it as OMR, and the
+	 * line telling a Gulf account what its top-up is worth in dollars and euros
+	 * simply vanished. Anything comparing or converting takes this; anything
+	 * printing takes currency().
+	 *
+	 * @return string 'IRR', 'OMR', or '' where the unit is unsettled.
+	 */
+	public static function currency_code() {
+		$current = self::current();
+
+		return isset( $current['code'] ) ? (string) $current['code'] : '';
 	}
 
 	/**

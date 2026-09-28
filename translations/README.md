@@ -13,7 +13,7 @@ Source: <https://make.wordpress.org/polyglots/handbook/plugin-theme-authors-guid
 ## State
 
 Rebuilt on 2026-09-19 against `dicex-connect/languages/dicex-connect.pot` at
-version 1.8.1. **584 of 584 strings translated**, verified by reading the `.mo`
+version 1.8.2. **584 of 584 strings translated**, verified by reading the `.mo`
 back the way WordPress reads it. Nothing is outstanding. "World Wide", the
 region, stays in English on purpose: the product page keeps those two words in
 every language. Since 2026-09-19 the catalogue also carries the plugin header —
