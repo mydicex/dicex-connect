@@ -1,0 +1,1780 @@
+# Persian translation of DiceX Connect.
+# This file is distributed under the same license as the plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: DiceX Connect\n"
+"PO-Revision-Date: 2026-09-19 20:06+0000\n"
+"Last-Translator: DiceX\n"
+"Language-Team: Persian\n"
+"Language: fa_IR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Domain: dicex-connect\n"
+
+msgid "DiceX Connect – Customer Club and Event Notifications"
+msgstr "DiceX Connect – باشگاه مشتریان و اطلاع‌رسانی رویدادها"
+
+msgid "https://wp.dicex.me/"
+msgstr "https://wp.dicex.me/"
+
+msgid "A customer club with levels you define, plus SMS, WhatsApp and Telegram alerts for orders, forms and logins, through your own DiceX account."
+msgstr "باشگاه مشتریان با سطح‌هایی که خودتان تعریف می‌کنید، به‌همراه هشدار پیامکی، واتس‌اپ و تلگرام برای سفارش‌ها، فرم‌ها و ورودها، از طریق حساب دایس‌اکس خودتان."
+
+msgid "DiceX"
+msgstr "دایس‌اکس"
+
+msgid "https://dicex.me/"
+msgstr "https://dicex.me/"
+
+msgid "Getting started"
+msgstr "شروع کار"
+
+msgid "Settings"
+msgstr "تنظیمات"
+
+msgid "Logs"
+msgstr "لاگ‌ها"
+
+msgid "Checking..."
+msgstr "در حال بررسی..."
+
+msgid "Check connection"
+msgstr "بررسی اتصال"
+
+msgid "Sending..."
+msgstr "در حال ارسال..."
+
+msgid "Send test"
+msgstr "ارسال تست"
+
+msgid "Pay online"
+msgstr "پرداخت آنلاین"
+
+msgid "Error"
+msgstr "خطا"
+
+msgid "Loading..."
+msgstr "در حال بارگذاری..."
+
+msgid "Choose a network first"
+msgstr "ابتدا شبکه را انتخاب کنید"
+
+msgid "Choose a line"
+msgstr "انتخاب خط"
+
+msgid "Shared line"
+msgstr "خط عمومی"
+
+msgid "No line yet — activate one in your DiceX panel"
+msgstr "هنوز خطی ندارد — از پنل دایس‌اکس یکی فعال کنید"
+
+msgid "Saving..."
+msgstr "در حال ذخیره..."
+
+msgid "Save this card"
+msgstr "ذخیرهٔ این کارت"
+
+msgid "Save numbers"
+msgstr "ذخیرهٔ شماره‌ها"
+
+msgid "%1$s is roughly %2$s, or %3$s."
+msgstr "%1$s تقریباً برابر است با %2$s، یا %3$s."
+
+msgid "%s US dollars"
+msgstr "%s دلار آمریکا"
+
+msgid "%s euros"
+msgstr "%s یورو"
+
+msgid "%1$s: %2$s of %3$s"
+msgstr "%1$s: %2$s از %3$s"
+
+msgid "Send to DiceX support"
+msgstr "ارسال به پشتیبانی دایس‌اکس"
+
+msgid "Fill in your email, a subject and a message."
+msgstr "ایمیل خود، یک موضوع و متن پیام را بنویسید."
+
+msgid "None"
+msgstr "هیچ‌کدام"
+
+msgid "Add a level first"
+msgstr "اول یک سطح اضافه کنید"
+
+msgid "(no name yet)"
+msgstr "(هنوز بی‌نام)"
+
+msgid "Everybody else"
+msgstr "بقیهٔ مشتریان"
+
+msgid "Removed numbers"
+msgstr "شماره‌های حذف‌شده"
+
+msgid "Conditions do not apply here. A number comes here when you move it, or when the customer leaves the club from their account."
+msgstr "شرط‌ها اینجا اعمال نمی‌شوند. شماره وقتی به این سطح می‌آید که شما آن را منتقل کنید، یا مشتری خودش از حساب کاربری‌اش از باشگاه خارج شود."
+
+msgid "No conditions: everybody who reaches this level joins it, so the conditions of the levels below it are never checked."
+msgstr "بدون شرط: هر کسی به این سطح برسد در آن قرار می‌گیرد، پس شرط سطح‌های پایین‌تر هرگز بررسی نمی‌شود."
+
+msgid "No members yet."
+msgstr "هنوز عضوی وجود ندارد."
+
+msgid "Page %1$s of %2$s"
+msgstr "صفحهٔ %1$s از %2$s"
+
+msgid "Automatic"
+msgstr "خودکار"
+
+msgid "Automatic (now %s)"
+msgstr "خودکار (اکنون %s)"
+
+msgid "Placed by hand"
+msgstr "به‌صورت دستی تعیین شده"
+
+msgid "(no name)"
+msgstr "(بی‌نام)"
+
+msgid "Guest"
+msgstr "مهمان"
+
+msgid "Levels in your DiceX club, and how many customers each holds there:"
+msgstr "سطح‌های باشگاه دایس‌اکس شما و تعداد مشتریان هر سطح در آنجا:"
+
+msgid "Your DiceX club has no levels yet."
+msgstr "باشگاه دایس‌اکس شما هنوز سطحی ندارد."
+
+msgid "Filter"
+msgstr "جست‌وجو در فهرست"
+
+msgid "Search products by name or SKU"
+msgstr "جست‌وجوی محصول با نام یا شناسهٔ کالا (SKU)"
+
+msgid "Nothing matches."
+msgstr "موردی پیدا نشد."
+
+msgid "City name"
+msgstr "نام شهر"
+
+msgid "Add"
+msgstr "افزودن"
+
+msgid "Add every spelling your customers use, in each language — for example Tehran and تهران. Capital letters, spaces and the Arabic or Persian forms of a letter do not matter."
+msgstr "هر املایی را که مشتریان به کار می‌برند، به هر زبانی، اضافه کنید — مثلاً Tehran و تهران. حروف بزرگ و کوچک، فاصله‌ها و شکل عربی یا فارسی حروف اهمیتی ندارد."
+
+msgid "Done"
+msgstr "تمام"
+
+msgid "Remove %s"
+msgstr "حذف %s"
+
+msgid "+%s more"
+msgstr "+%s مورد دیگر"
+
+msgid "There is nothing to choose from here yet."
+msgstr "هنوز گزینه‌ای برای انتخاب وجود ندارد."
+
+msgid "The store has none of these yet."
+msgstr "فروشگاه هنوز موردی از این نوع ندارد."
+
+msgid "Counting…"
+msgstr "در حال شمارش…"
+
+msgid "Counting: %1$s of %2$s"
+msgstr "در حال شمارش: %1$s از %2$s"
+
+msgid "Customers: %s"
+msgstr "مشتری: %s"
+
+msgid "Members counted: %1$s. Would move to another level if you save: %2$s. Nothing has been saved or sent."
+msgstr "اعضای شمرده‌شده: %1$s. با ذخیره به سطح دیگری می‌روند: %2$s. هنوز چیزی ذخیره یا ارسال نشده است."
+
+msgid "Send every customer in the club to DiceX now? A number that reaches DiceX cannot be taken back out."
+msgstr "همهٔ مشتریان باشگاه همین حالا به دایس‌اکس ارسال شوند؟ شماره‌ای که به دایس‌اکس برسد دیگر از آنجا خارج نمی‌شود."
+
+msgid "A group with no conditions would hold every customer in the club, so it cannot be saved. Give it at least one condition."
+msgstr "گروهی بدون شرط، همهٔ مشتریان باشگاه را در بر می‌گیرد و ذخیره نمی‌شود. دست‌کم یک شرط برایش بگذارید."
+
+msgid "Nobody meets an age condition while the club knows no dates of birth. Ask for the date of birth below, or name the meta key another plugin keeps them under."
+msgstr "تا وقتی باشگاه تاریخ تولد کسی را نداند، هیچ‌کس شرط سن را برآورده نمی‌کند. پایین‌تر پرسیدن تاریخ تولد را روشن کنید، یا کلید متایی را بنویسید که افزونهٔ دیگری تاریخ تولد را در آن نگه می‌دارد."
+
+msgid "%s on the way"
+msgstr "%s در راه"
+
+msgid "%s no longer matching"
+msgstr "%s دیگر شرط را ندارند"
+
+msgid "They no longer match this group. DiceX has no way to take a contact out of a group, so they are still in it there."
+msgstr "این افراد دیگر شرط این گروه را ندارند. دایس‌اکس راهی برای بیرون آوردن مخاطب از گروه ندارد، پس آن‌جا همچنان در گروه می‌مانند."
+
+msgid "On its way to DiceX."
+msgstr "در راه دایس‌اکس."
+
+msgid "%s written"
+msgstr "%s نوشته شده"
+
+msgid "Move %s up"
+msgstr "انتقال %s به بالا"
+
+msgid "Move %s down"
+msgstr "انتقال %s به پایین"
+
+msgid "Apply"
+msgstr "اعمال"
+
+msgid "Level for %s"
+msgstr "سطح برای %s"
+
+msgid "%1$s is now kept in %2$s."
+msgstr "%1$s اکنون در سطح %2$s نگه داشته می‌شود."
+
+msgid "%1$s is back on automatic, in %2$s."
+msgstr "%1$s دوباره خودکار شد و اکنون در سطح %2$s است."
+
+msgid "Filter: %s"
+msgstr "جست‌وجو در %s"
+
+msgid "in %s"
+msgstr "در %s"
+
+msgid "Already listed as %s."
+msgstr "پیش‌تر به شکل «%s» آمده است."
+
+msgid "Members found: %s"
+msgstr "عضو پیداشده: %s"
+
+msgid "No members match."
+msgstr "عضوی با این مشخصات پیدا نشد."
+
+msgid "In DiceX"
+msgstr "در دایس‌اکس"
+
+msgid "No longer matching"
+msgstr "دیگر منطبق نیست"
+
+msgid "You are not allowed to do this."
+msgstr "شما اجازه دسترسی به این عملیات را ندارید."
+
+msgid "Connect your DiceX account on the Connection tab before switching the club on."
+msgstr "پیش از روشن کردن باشگاه، حساب دایس‌اکس خود را در تب اتصال وصل کنید."
+
+msgid "Save at least one level, and choose the level for everybody else, before switching the club on."
+msgstr "پیش از روشن کردن باشگاه، دست‌کم یک سطح ذخیره کنید و سطح بقیهٔ مشتریان را انتخاب کنید."
+
+msgid "Choose who joins the club, and save, before switching it on."
+msgstr "پیش از روشن کردن باشگاه، مشخص کنید چه کسانی عضو شوند و ذخیره کنید."
+
+msgid "Choose the level for removed numbers, and save, before switching the club on: customers can leave the club from their account, and that is where they go."
+msgstr "پیش از روشن کردن باشگاه، سطح شماره‌های حذف‌شده را انتخاب و ذخیره کنید: مشتریان می‌توانند از حساب کاربری‌شان از باشگاه خارج شوند و به همین سطح می‌روند."
+
+msgid "Choose at least one channel for the welcome message."
+msgstr "دست‌کم یک کانال برای پیام خوش‌آمد انتخاب کنید."
+
+msgid "Choose who joins the club."
+msgstr "مشخص کنید چه کسانی عضو باشگاه شوند."
+
+msgid "Choose the level for removed numbers: customers can leave the club from their account, and that is where they go."
+msgstr "سطح شماره‌های حذف‌شده را انتخاب کنید: مشتریان می‌توانند از حساب کاربری‌شان از باشگاه خارج شوند و به همین سطح می‌روند."
+
+msgid "Club settings saved."
+msgstr "تنظیمات باشگاه ذخیره شد."
+
+msgid "Switch the club on first."
+msgstr "اول باشگاه را روشن کنید."
+
+msgid "There is nobody to count yet. Import your existing customers first; nothing is sent to DiceX until you confirm."
+msgstr "هنوز کسی برای شمارش نیست. ابتدا مشتریان فعلی را وارد کنید؛ تا تأیید نکنید چیزی به دایس‌اکس ارسال نمی‌شود."
+
+msgid "%s customer will be sent again."
+msgid_plural "%s customers will be sent again."
+msgstr[0] "%s مشتری دوباره ارسال می‌شود."
+msgstr[1] "%s مشتری دوباره ارسال می‌شوند."
+
+msgid "%s group membership will be sent again."
+msgid_plural "%s group memberships will be sent again."
+msgstr[0] "%s عضویت در گروه دوباره فرستاده می‌شود."
+msgstr[1] "%s عضویت در گروه دوباره فرستاده می‌شود."
+
+msgid "That member was not found."
+msgstr "این عضو پیدا نشد."
+
+msgid "That level does not exist."
+msgstr "این سطح وجود ندارد."
+
+msgid "Any status"
+msgstr "همهٔ وضعیت‌ها"
+
+msgid "Being worked out"
+msgstr "در حال محاسبه"
+
+msgid "Waiting to be sent"
+msgstr "در انتظار ارسال"
+
+msgid "Sending"
+msgstr "در حال ارسال"
+
+msgid "Refused by DiceX"
+msgstr "ردشده از سوی دایس‌اکس"
+
+msgid "%s ago"
+msgstr "%s پیش"
+
+msgid "Not yet"
+msgstr "هنوز نه"
+
+msgid "Sending is paused: %1$s. It will try again in %2$s."
+msgstr "ارسال متوقف شده است: %1$s. %2$s دیگر دوباره تلاش می‌شود."
+
+msgid "Reading orders: %1$s of %2$s."
+msgstr "در حال خواندن سفارش‌ها: %1$s از %2$s."
+
+msgid "Reading users: %s read so far."
+msgstr "در حال خواندن کاربران: تا اینجا %s مورد خوانده شده است."
+
+msgid "Last import %1$s: %2$s orders and %3$s users read, %4$s without a usable mobile number, %5$s who have not joined the club."
+msgstr "آخرین وارد کردن در %1$s: %2$s سفارش و %3$s کاربر خوانده شد؛ %4$s مورد شمارهٔ موبایل قابل‌استفاده نداشت و %5$s مورد با عضویت در باشگاه موافقت نکرده بود."
+
+msgid "Last import %1$s: %2$s orders and %3$s users read, %4$s without a usable mobile number."
+msgstr "آخرین وارد کردن در %1$s: %2$s سفارش و %3$s کاربر خوانده شد؛ %4$s مورد شمارهٔ موبایل قابل‌استفاده نداشت."
+
+msgid "That integration was not recognised."
+msgstr "این یکپارچه‌سازی شناخته نشد."
+
+msgid "The plugin this card needs is not active on this site."
+msgstr "افزونهٔ مربوط به این کارت روی سایت فعال نیست."
+
+msgid "Choose at least one channel to send over."
+msgstr "دست‌کم یک مسیر ارسال انتخاب کنید."
+
+msgid "The message text cannot be empty."
+msgstr "متن پیام نمی‌تواند خالی باشد."
+
+msgid "%s number saved."
+msgid_plural "%s numbers saved."
+msgstr[0] "%s شماره ذخیره شد."
+msgstr[1] "%s شماره ذخیره شد."
+
+msgid "Connection"
+msgstr "اتصال به دایس‌اکس"
+
+msgid "Sender lines"
+msgstr "خطوط ارسال"
+
+msgid "Integrations"
+msgstr "یکپارچه‌سازی‌ها"
+
+msgid "Customer Club"
+msgstr "باشگاه مشتریان"
+
+msgid "Credit"
+msgstr "اعتبار"
+
+msgid "Support"
+msgstr "پشتیبانی"
+
+msgid "Please enter your API key."
+msgstr "لطفاً کلید API را وارد کنید."
+
+msgid "Nothing to save."
+msgstr "چیزی برای ذخیره نیست."
+
+msgid "Invalid channel."
+msgstr "کانال نامعتبر است."
+
+msgid "Lines cannot be chosen for that network."
+msgstr "این شبکه برای انتخاب خط پشتیبانی نمی‌شود."
+
+msgid "Enter a destination."
+msgstr "مقصد ارسال را وارد کنید."
+
+msgid "The %s channel cannot be used for a test send."
+msgstr "کانال %s برای ارسال تست پشتیبانی نمی‌شود."
+
+msgid "This is a test message from DiceX Connect."
+msgstr "این یک پیام آزمایشی از افزونه DiceX Connect است."
+
+msgid "Test message sent."
+msgstr "پیام تست با موفقیت ارسال شد."
+
+msgid "Unknown error from the DiceX gateway."
+msgstr "خطای ناشناخته از سمت درگاه دایس‌اکس."
+
+msgid "That tab is not valid."
+msgstr "تب انتخاب‌شده معتبر نیست."
+
+msgid "No provider was chosen."
+msgstr "provider انتخاب نشده است."
+
+msgid "Sent, but without the log: your site's mail does not take attachments this way. DiceX support will answer at %s."
+msgstr "ارسال شد، اما بدون لاگ: ایمیل سایت شما پیوست را به این شکل نمی‌پذیرد. پشتیبانی دایس‌اکس به %s پاسخ می‌دهد."
+
+msgid "Sent. DiceX support will answer at %s."
+msgstr "ارسال شد. پشتیبانی دایس‌اکس به %s پاسخ می‌دهد."
+
+msgid "Mobile number"
+msgstr "شمارهٔ موبایل"
+
+msgid "If this user is an administrator and a card sends to WordPress administrators, messages go to this number."
+msgstr "اگر این کاربر مدیر است و در تب یکپارچه‌سازی‌ها گیرندهٔ «مدیران وردپرس» انتخاب شده باشد، پیام‌ها به این شماره می‌رود."
+
+msgid "Date of birth"
+msgstr "تاریخ تولد"
+
+msgid "Year, month and day. It goes to the DiceX customer club with the rest of this customer's details."
+msgstr "سال، ماه و روز. همراه با بقیهٔ اطلاعات این مشتری به باشگاه مشتریان دایس‌اکس ارسال می‌شود."
+
+msgid "Customer club"
+msgstr "باشگاه مشتریان"
+
+msgid "Left the club: %s."
+msgstr "از باشگاه خارج شده: %s."
+
+msgid "Asked to join the club: %s."
+msgstr "با عضویت در باشگاه موافقت کرده: %s."
+
+msgid "Has not asked to join the club."
+msgstr "با عضویت در باشگاه موافقت نکرده است."
+
+msgid "In the club like every customer, unless they leave from their account."
+msgstr "مثل همهٔ مشتریان عضو باشگاه است، مگر اینکه از حساب کاربری‌اش خارج شود."
+
+msgid "Error:"
+msgstr "خطا:"
+
+msgid "<strong>Error</strong>: That is not a mobile number DiceX can deliver to. %s"
+msgstr "<strong>خطا</strong>: این شماره‌ای نیست که دایس‌اکس بتواند به آن ارسال کند. %s"
+
+msgid "<strong>Error</strong>: That mobile number is already on another account. Each account needs a number of its own."
+msgstr "<strong>خطا</strong>: این شمارهٔ موبایل روی حساب دیگری ثبت است. هر حساب باید شمارهٔ خودش را داشته باشد."
+
+msgid "DiceX logs"
+msgstr "لاگ‌های دایس‌اکس"
+
+msgid "Clear logs"
+msgstr "پاک‌سازی لاگ‌ها"
+
+msgid "Nothing has been logged yet."
+msgstr "هنوز لاگی ثبت نشده است."
+
+msgid "DiceX — communications connection"
+msgstr "دایس‌اکس - اتصال به زیرساخت ارتباطی"
+
+msgid "%1$s (%2$s)"
+msgstr "%1$s (%2$s)"
+
+msgid "From"
+msgstr "از"
+
+msgid "from"
+msgstr "از"
+
+msgid "To"
+msgstr "تا"
+
+msgid "to"
+msgstr "تا"
+
+msgid "Bought from categories"
+msgstr "خرید از دسته‌بندی‌ها"
+
+msgid "Bought products"
+msgstr "محصولات خریداری‌شده"
+
+msgid "Bought from brands"
+msgstr "خرید از برندها"
+
+msgid "Buyer's country"
+msgstr "کشور خریدار"
+
+msgid "Buyer's city"
+msgstr "شهر خریدار"
+
+msgid "Move up"
+msgstr "انتقال به بالا"
+
+msgid "Move down"
+msgstr "انتقال به پایین"
+
+msgid "Level name"
+msgstr "نام سطح"
+
+msgid "Group name"
+msgstr "نام گروه"
+
+msgid "Remove"
+msgstr "حذف"
+
+msgid "Purchases"
+msgstr "خرید"
+
+msgid "Orders"
+msgstr "سفارش‌ها"
+
+msgid "Days since the last purchase"
+msgstr "روز از آخرین خرید"
+
+msgid "days"
+msgstr "روز"
+
+msgid "Age"
+msgstr "سن"
+
+msgid "years"
+msgstr "سال"
+
+msgid "Description"
+msgstr "توضیح"
+
+msgid "Optional — shown in your DiceX panel"
+msgstr "اختیاری — در پنل دایس‌اکس نمایش داده می‌شود"
+
+msgid "Message on moving up"
+msgstr "پیام هنگام ارتقا"
+
+msgid "Optional — sent when a customer reaches this level from a lower one"
+msgstr "اختیاری — وقتی مشتری از سطحی پایین‌تر به این سطح می‌رسد فرستاده می‌شود"
+
+msgid "In another language"
+msgstr "به زبانی دیگر"
+
+msgid "Registers your WordPress users and WooCommerce customers in your DiceX club, each in a level you define. DiceX uses those numbers across its services: messages, online meetings, classes and live commerce."
+msgstr "کاربران وردپرس و مشتریان ووکامرس شما را در باشگاه دایس‌اکس ثبت می‌کند، هر کدام در سطحی که خودتان تعریف می‌کنید. دایس‌اکس این شماره‌ها را در همهٔ سرویس‌هایش به کار می‌گیرد: پیام، جلسات آنلاین، کلاس‌ها و لایو کامرس."
+
+msgid "Connect your DiceX account first. Nothing can reach the club without an API key."
+msgstr "اول حساب دایس‌اکس خود را وصل کنید. بدون کلید API هیچ چیزی به باشگاه نمی‌رسد."
+
+msgid "Open the Connection tab"
+msgstr "رفتن به تب اتصال"
+
+msgid "WooCommerce is not active, so the club takes in WordPress users only and levels cannot depend on purchases."
+msgstr "ووکامرس فعال نیست؛ بنابراین باشگاه فقط کاربران وردپرس را می‌پذیرد و سطح‌ها نمی‌توانند به خرید وابسته باشند."
+
+msgid "Nothing is ever deleted from the DiceX club. To take a number out, move it to the level you keep for removed numbers."
+msgstr "هیچ چیزی از باشگاه دایس‌اکس حذف نمی‌شود. برای خارج کردن یک شماره، آن را به سطحی که برای شماره‌های حذف‌شده در نظر گرفته‌اید منتقل کنید."
+
+msgid "Where the club stands"
+msgstr "وضعیت باشگاه"
+
+msgid "Members"
+msgstr "اعضا"
+
+msgid "Waiting"
+msgstr "در انتظار"
+
+msgid "Refused"
+msgstr "ردشده"
+
+msgid "Your existing customers are not in the club yet. Import them once; everyone after that joins on their own. Nothing is sent until you have seen who lands in which level."
+msgstr "مشتریان فعلی شما هنوز در باشگاه نیستند. یک بار واردشان کنید؛ از آن پس همه خودکار عضو می‌شوند. تا نبینید چه کسی در کدام سطح قرار می‌گیرد، چیزی ارسال نمی‌شود."
+
+msgid "Your customers are read and placed in levels, as counted above. Nothing has been sent to DiceX yet: a number that reaches the club stays there. Change the levels and save if the counts are not what you want, then send."
+msgstr "مشتریان شما خوانده شدند و مطابق شمارش بالا در سطح‌ها قرار گرفتند. هنوز چیزی به دایس‌اکس ارسال نشده است: شماره‌ای که به باشگاه برسد همان‌جا می‌ماند. اگر شمارش‌ها آن چیزی نیست که می‌خواهید، سطح‌ها را تغییر دهید و ذخیره کنید، سپس ارسال کنید."
+
+msgid "Send to DiceX"
+msgstr "ارسال به دایس‌اکس"
+
+msgid "Import existing customers"
+msgstr "وارد کردن مشتریان فعلی"
+
+msgid "Sync now"
+msgstr "همگام‌سازی همین حالا"
+
+msgid "Send refused customers again"
+msgstr "ارسال دوبارهٔ مشتریان ردشده"
+
+msgid "Compare with DiceX"
+msgstr "مقایسه با دایس‌اکس"
+
+msgid "Last sent:"
+msgstr "آخرین ارسال:"
+
+msgid "Next daily sync:"
+msgstr "همگام‌سازی روزانهٔ بعدی:"
+
+msgid "Contact groups"
+msgstr "گروه‌های مخاطب"
+
+msgid "Levels"
+msgstr "سطح‌ها"
+
+msgid "Name your levels and set what it takes to be in each. A customer joins the first level, from the top, whose conditions they all meet. Leave a box empty for no limit."
+msgstr "سطح‌هایتان را نام‌گذاری کنید و شرط عضویت در هر کدام را تعیین کنید. هر مشتری در اولین سطح از بالا قرار می‌گیرد که همهٔ شرط‌هایش را داشته باشد. برای «بدون محدودیت» کادر را خالی بگذارید."
+
+msgid "A level can also ask what a customer bought — from which categories or brands, which products — and where they buy from. Inside one list, any single entry is enough."
+msgstr "هر سطح می‌تواند دربارهٔ خریدهای مشتری هم شرط بگذارد — از کدام دسته‌بندی‌ها یا برندها، کدام محصولات — و اینکه از کجا خرید می‌کند. در هر فهرست، داشتن یکی از موارد کافی است."
+
+msgid "Days since the last purchase are whole days, and move customers on their own as time passes; somebody who never bought anything does not meet them."
+msgstr "روز از آخرین خرید با روزهای کامل شمرده می‌شود و با گذشت زمان مشتریان را خودکار جابه‌جا می‌کند؛ کسی که هرگز خریدی نکرده این شرط را ندارد."
+
+msgid "Age is counted in whole years from the date of birth, in the calendar the customer reads — Solar Hijri in Persian — and moves customers on their birthday. Somebody whose date of birth the club does not know meets no age condition."
+msgstr "سن به سال کامل و از روی تاریخ تولد حساب می‌شود، در تقویمی که مشتری با آن می‌خواند — برای فارسی شمسی — و مشتری روز تولدش جابه‌جا می‌شود. کسی که باشگاه تاریخ تولدش را نمی‌داند، هیچ شرط سنی را برآورده نمی‌کند."
+
+msgid "Purchases are counted in your store currency, %s, after refunds, from paid orders only."
+msgstr "خریدها به ارز فروشگاه شما (%s)، پس از کسر مرجوعی‌ها و فقط از سفارش‌های پرداخت‌شده شمرده می‌شوند."
+
+msgid "DiceX keeps a level name for good. Renaming a level here creates a new level in DiceX and moves its customers there; the old name stays behind, empty."
+msgstr "دایس‌اکس نام هر سطح را برای همیشه نگه می‌دارد. تغییر نام یک سطح در اینجا، سطح تازه‌ای در دایس‌اکس می‌سازد و مشتریانش را به آن منتقل می‌کند؛ نام قبلی خالی باقی می‌ماند."
+
+msgid "Add a level"
+msgstr "افزودن سطح"
+
+msgid "Start with Inactive, Gold, Silver, Bronze, Regular member and Removed"
+msgstr "شروع با غیرفعال، طلایی، نقره‌ای، برنزی، عضو عادی و حذف‌شده"
+
+msgid "Start with Gold, Silver, Bronze, Regular member and Removed"
+msgstr "شروع با طلایی، نقره‌ای، برنزی، عضو عادی و حذف‌شده"
+
+msgid "Count customers"
+msgstr "شمارش مشتریان"
+
+msgid "Customers who meet no conditions join"
+msgstr "مشتریانی که هیچ شرطی را ندارند به این سطح می‌روند"
+
+msgid "Numbers taken out of the club go to"
+msgstr "شماره‌هایی که از باشگاه خارج می‌شوند به این سطح می‌روند"
+
+msgid "Never by the conditions: a number comes here when you move it, or when the customer leaves the club from their account. Needed before the club can be switched on."
+msgstr "هیچ‌وقت با شرط‌ها نیست: شماره وقتی به اینجا می‌آید که شما منتقلش کنید، یا مشتری از حساب کاربری‌اش از باشگاه خارج شود. پیش از روشن کردن باشگاه لازم است."
+
+msgid "Groups sit alongside the levels. A customer is in one level, but in every group whose conditions they meet — so you can gather, say, everybody who buys coffee and everybody who buys from Tehran, and reach each in DiceX."
+msgstr "گروه‌ها در کنار سطح‌ها کار می‌کنند. هر مشتری در یک سطح است، اما در هر گروهی که شرط‌هایش را داشته باشد قرار می‌گیرد — مثلاً همهٔ کسانی که قهوه می‌خرند و همهٔ کسانی که از تهران خرید می‌کنند، و در دایس‌اکس به هر کدام جداگانه دسترسی دارید."
+
+msgid "A group needs at least one condition. Nobody in the level for removed numbers is put in a group."
+msgstr "هر گروه دست‌کم یک شرط می‌خواهد. هیچ‌کس در سطح شماره‌های حذف‌شده در گروهی قرار نمی‌گیرد."
+
+msgid "DiceX has no way to take a contact out of a group. A customer who stops matching stays in the group at DiceX; this screen says how many those are."
+msgstr "دایس‌اکس راهی برای بیرون آوردن مخاطب از گروه ندارد. مشتری‌ای که دیگر شرط را نداشته باشد، در دایس‌اکس همچنان در گروه می‌ماند؛ این صفحه می‌گوید چند نفرند."
+
+msgid "Add a group"
+msgstr "افزودن گروه"
+
+msgid "Who joins, and what is sent"
+msgstr "چه کسانی عضو می‌شوند و چه چیزی ارسال می‌شود"
+
+msgid "Who joins the club"
+msgstr "چه کسانی عضو باشگاه می‌شوند"
+
+msgid "Every customer: the users and guests chosen below"
+msgstr "همهٔ مشتریان: کاربران و مهمان‌هایی که در ادامه انتخاب می‌کنید"
+
+msgid "Only customers who agree: they tick a box at checkout, when registering, or in their account"
+msgstr "فقط مشتریانی که موافقت کنند: هنگام پرداخت، ثبت‌نام یا در حساب کاربری‌شان تیک عضویت را می‌زنند"
+
+msgid "Whether you need your customers' agreement depends on the law where you sell, so nothing is chosen for you. Either way, customers can leave the club from their account whenever they like."
+msgstr "اینکه به موافقت مشتریان نیاز دارید یا نه به قانون جایی که در آن می‌فروشید بستگی دارد، برای همین پیش‌فرضی انتخاب نشده است. در هر دو حالت، مشتریان هر وقت بخواهند می‌توانند از حساب کاربری‌شان از باشگاه خارج شوند."
+
+msgid "Words beside the club box"
+msgstr "متن کنار تیک باشگاه"
+
+msgid "Leave it empty for the wording shown, in the language of each visitor. Say what customers are agreeing to, the way your privacy policy does."
+msgstr "خالی بگذارید تا همان متن نمایش‌داده‌شده، به زبان هر بازدیدکننده، به کار برود. بنویسید مشتریان با چه چیزی موافقت می‌کنند، همان‌طور که سیاست حریم خصوصی شما می‌گوید."
+
+msgid "WordPress users with these roles"
+msgstr "کاربران وردپرس با این نقش‌ها"
+
+msgid "A user joins with the mobile number on their profile, or their billing phone."
+msgstr "هر کاربر با شمارهٔ موبایل پروفایلش یا تلفن صورت‌حسابش عضو می‌شود."
+
+msgid "Customers without an account"
+msgstr "مشتریان بدون حساب کاربری"
+
+msgid "Add guests who paid for an order, by their billing phone"
+msgstr "افزودن مهمان‌هایی که سفارشی را پرداخت کرده‌اند، با تلفن صورت‌حسابشان"
+
+msgid "Purchases that count towards a level"
+msgstr "خریدهایی که در تعیین سطح شمرده می‌شوند"
+
+msgid "All purchases, ever"
+msgstr "همهٔ خریدها، از ابتدا"
+
+msgid "The last %s month"
+msgid_plural "The last %s months"
+msgstr[0] "%s ماه اخیر"
+msgstr[1] "%s ماه اخیر"
+
+msgid "Sent to DiceX"
+msgstr "ارسال به دایس‌اکس"
+
+msgid "Always: mobile number, first and last name, level, the date of the first purchase, and the date of birth while the club asks for it. Add more only if you need it there."
+msgstr "همیشه: شمارهٔ موبایل، نام و نام خانوادگی، سطح، تاریخ اولین خرید، و تاریخ تولد تا وقتی باشگاه آن را می‌پرسد. موارد بیشتر را فقط اگر در آنجا لازم دارید اضافه کنید."
+
+msgid "Email address"
+msgstr "نشانی ایمیل"
+
+msgid "Company"
+msgstr "شرکت"
+
+msgid "Billing address"
+msgstr "نشانی صورت‌حساب"
+
+msgid "Ask customers for their date of birth, and send it to DiceX"
+msgstr "پرسیدن تاریخ تولد از مشتریان و ارسال آن به دایس‌اکس"
+
+msgid "Asked at checkout, when registering, in the customer's account and on the WordPress profile screen. It goes to DiceX with the year, so you can see how old your customers are."
+msgstr "هنگام پرداخت، هنگام ثبت‌نام، در حساب کاربری مشتری و در صفحهٔ پروفایل وردپرس پرسیده می‌شود. همراه با سال به دایس‌اکس می‌رود تا بتوانید ببینید مشتریانتان چند ساله‌اند."
+
+msgid "The checkout block shows the date of birth and the club box from WooCommerce 9.8. On this store only the classic checkout, the registration forms and the account page show them."
+msgstr "پرداخت بلوکی از ووکامرس 9.8 به بعد تاریخ تولد و تیک باشگاه را نشان می‌دهد. در این فروشگاه فقط پرداخت کلاسیک، فرم‌های ثبت‌نام و صفحهٔ حساب کاربری آن‌ها را نشان می‌دهند."
+
+msgid "Required: nobody checks out or registers without it"
+msgstr "اجباری: بدون آن نه پرداخت انجام می‌شود و نه ثبت‌نام"
+
+msgid "Calendar customers write it in"
+msgstr "تقویمی که مشتریان تاریخ را با آن می‌نویسند"
+
+msgid "By language: Solar Hijri in Persian, Gregorian otherwise"
+msgstr "بر اساس زبان: شمسی برای فارسی، و میلادی برای بقیه"
+
+msgid "Solar Hijri (Shamsi)"
+msgstr "هجری شمسی"
+
+msgid "Gregorian"
+msgstr "میلادی"
+
+msgid "This decides the example customers see and how a saved date is shown back to them. A date typed in either calendar is understood, and it is kept and sent as Gregorian."
+msgstr "این انتخاب نمونه‌ای را که مشتریان می‌بینند و شکل نمایش تاریخ ذخیره‌شده را تعیین می‌کند. تاریخی که با هر یک از دو تقویم نوشته شود پذیرفته می‌شود و به صورت میلادی نگهداری و ارسال می‌شود."
+
+msgid "Also read birthdays from this user meta key"
+msgstr "تاریخ تولد از این کلید متای کاربر هم خوانده شود"
+
+msgid "If another plugin already keeps your customers' birthdays, enter the key it stores them under. Dates written year first, in either calendar, and timestamps are read; anything else is left out."
+msgstr "اگر افزونهٔ دیگری از قبل تاریخ تولد مشتریان را نگهداری می‌کند، کلیدی را که با آن ذخیره می‌کند وارد کنید. تاریخ‌هایی که با سال شروع می‌شوند، در هر دو تقویم، و مهرهای زمانی خوانده می‌شوند؛ بقیه کنار گذاشته می‌شوند."
+
+msgid "When to sync"
+msgstr "زمان همگام‌سازی"
+
+msgid "As things happen, and once a day to catch anything missed (recommended)"
+msgstr "همزمان با هر رویداد، و روزی یک بار برای جبران موارد ازدست‌رفته (پیشنهادی)"
+
+msgid "Only as things happen"
+msgstr "فقط همزمان با رویدادها"
+
+msgid "Only once a day"
+msgstr "فقط روزی یک بار"
+
+msgid "Daily sync at"
+msgstr "ساعت همگام‌سازی روزانه"
+
+msgid "Site time, %s. A quiet site runs it at its first visit after this time."
+msgstr "به وقت سایت (%s). در سایت کم‌بازدید، این کار در اولین بازدید پس از این ساعت انجام می‌شود."
+
+msgid "Welcome message"
+msgstr "پیام خوش‌آمد"
+
+msgid "Greet customers when they join the club"
+msgstr "خوش‌آمدگویی به مشتریان هنگام عضویت در باشگاه"
+
+msgid "Sent once, when somebody joins for the first time. Never to customers brought in by an import, and never to the level for removed numbers."
+msgstr "فقط یک بار و هنگامی که کسی برای اولین بار عضو می‌شود ارسال می‌شود. هرگز برای مشتریانی که با وارد کردن اضافه شده‌اند و هرگز برای سطح شماره‌های حذف‌شده ارسال نمی‌شود."
+
+msgid "No messaging channel is available in the region this account is set to."
+msgstr "در منطقه‌ای که برای این حساب تنظیم شده، هیچ مسیر ارسال پیامی در دسترس نیست."
+
+msgid "Send over, in this order"
+msgstr "ارسال از این مسیرها، به همین ترتیب"
+
+msgid "Drag to reorder, or use the arrows. If the first one does not go through, the next is tried."
+msgstr "برای تغییر ترتیب بکشید یا از پیکان‌ها استفاده کنید. اگر مسیر اول نتیجه نداد، مسیر بعدی امتحان می‌شود."
+
+msgid "Message text"
+msgstr "متن پیام"
+
+msgid "Tags you can use:"
+msgstr "تگ‌های قابل استفاده:"
+
+msgid "Each customer is written to in their own language where the site knows it: the language they chose for their account, or the one they were reading when they ordered. Anything left empty falls back to the text above."
+msgstr "به هر مشتری، تا جایی که سایت زبانش را بداند، به زبان خودش نوشته می‌شود: زبانی که برای حساب خود انتخاب کرده یا زبانی که هنگام ثبت سفارش می‌خوانده است. هر جا خالی بماند، متن بالا فرستاده می‌شود."
+
+msgid "Save club settings"
+msgstr "ذخیرهٔ تنظیمات باشگاه"
+
+msgid "Choose a level for someone to keep them there, whatever their purchases. \"Automatic\" hands them back to the conditions."
+msgstr "با انتخاب سطح برای یک نفر، او صرف‌نظر از خریدهایش در همان سطح می‌ماند. «خودکار» او را دوباره به شرط‌ها می‌سپارد."
+
+msgid "Search by number or name"
+msgstr "جست‌وجو با شماره یا نام"
+
+msgid "Level"
+msgstr "سطح"
+
+msgid "Any level"
+msgstr "همهٔ سطح‌ها"
+
+msgid "Status"
+msgstr "وضعیت"
+
+msgid "Name"
+msgstr "نام"
+
+msgid "Location"
+msgstr "محل"
+
+msgid "Previous"
+msgstr "قبلی"
+
+msgid "Next"
+msgstr "بعدی"
+
+msgid "To use DiceX, create an account in the DiceX panel and then paste your API key in the field below."
+msgstr "برای استفاده از خدمات دایس‌اکس، ابتدا در پنل دایس‌اکس ثبت‌نام کنید و سپس کلید API خود را در فیلد زیر وارد کنید."
+
+msgid "API key"
+msgstr "کلید API"
+
+msgid "Paste your API key here"
+msgstr "کلید API خود را اینجا وارد کنید"
+
+msgid "You can find your API key in the DiceX panel."
+msgstr "کلید API از پنل کاربری دایس‌اکس قابل دریافت است."
+
+msgid "Region"
+msgstr "منطقه"
+
+msgid "Where your DiceX account operates. DiceX does not sell the same services everywhere, so this decides which channels and which payment gateways the plugin offers you. Nothing about the region is sent to DiceX."
+msgstr "حساب دایس‌اکس شما در کدام منطقه فعال است. دایس‌اکس همهٔ سرویس‌ها را در همه‌جا ارائه نمی‌دهد، بنابراین این گزینه تعیین می‌کند افزونه چه مسیرهای ارسال و چه درگاه‌های پرداختی به شما نشان بدهد. هیچ اطلاعاتی دربارهٔ منطقه به دایس‌اکس فرستاده نمی‌شود."
+
+msgid "Login code length"
+msgstr "طول کد ورود"
+
+msgid "%s digit"
+msgid_plural "%s digits"
+msgstr[0] "%s رقمی"
+msgstr[1] "%s رقمی"
+
+msgid "How many digits the two-step login code has. Longer is harder to guess; shorter is easier to read back over a phone call."
+msgstr "کد ورود دومرحله‌ای چند رقم داشته باشد. طولانی‌تر سخت‌تر حدس زده می‌شود؛ کوتاه‌تر را راحت‌تر می‌شود پای تلفن خواند."
+
+msgid "Message language"
+msgstr "زبان پیام‌ها"
+
+msgid "The language of the words this plugin puts into a message itself — when a code expires, when an event happened, and the month names in a date. Your own message templates are untouched; they go out exactly as you wrote them."
+msgstr "زبان کلماتی که خودِ این افزونه به پیام اضافه می‌کند — زمان انقضای کد، زمان رخ دادن رویداد، و نام ماه‌ها در تاریخ. قالب‌های پیام خودتان دست‌نخورده می‌مانند و دقیقاً همان‌طور که نوشته‌اید ارسال می‌شوند."
+
+msgid "Worth setting when the people receiving your messages do not read the language your dashboard is in. Only languages installed on this site are listed — WordPress cannot write in one it does not have."
+msgstr "وقتی به کار می‌آید که گیرندگان پیام‌های شما زبان پیشخوان شما را نمی‌خوانند. فقط زبان‌هایی فهرست می‌شوند که روی این سایت نصب شده‌اند — وردپرس نمی‌تواند به زبانی بنویسد که ندارد."
+
+msgid "Voice call language"
+msgstr "زبان تماس صوتی"
+
+msgid "%s — not available yet"
+msgstr "%s — هنوز در دسترس نیست"
+
+msgid "The language a voice call speaks in. Only this channel uses it — a written message goes out in whatever language you wrote the template in. Arabic and German are listed because DiceX is asked for them; they turn on here by themselves once the gateway accepts them."
+msgstr "زبانی که تماس صوتی با آن صحبت می‌کند. فقط همین کانال از آن استفاده می‌کند — پیام نوشتاری به همان زبانی می‌رود که قالبش را نوشته‌اید. عربی و آلمانی فهرست شده‌اند چون از دایس‌اکس خواسته شده‌اند؛ به‌محض اینکه گیت‌وی بپذیرد، خودشان اینجا فعال می‌شوند."
+
+msgid "Message detail"
+msgstr "جزئیات پیام"
+
+msgid "Add a line for when a code expires, and when an event happened"
+msgstr "افزودن یک سطر برای زمان انقضای کد و زمان رخ دادن رویداد"
+
+msgid "Worth knowing what it costs: Persian text is sent as UCS-2, which fits 70 characters in one SMS and 67 in each one after that, so an extra line can turn one paid message into two. On WhatsApp, Telegram and Bale it is free. Each message template shows its own count."
+msgstr "خوب است هزینه‌اش را بدانید: متن فارسی با UCS-2 ارسال می‌شود که ۷۰ کاراکتر در یک پیامک و ۶۷ کاراکتر در هر پیامک بعدی جا می‌گیرد، پس یک سطر اضافه می‌تواند یک پیام را به دو پیام تبدیل کند. روی واتساپ، تلگرام و بله رایگان است. هر قالب پیام شمارش خودش را نشان می‌دهد."
+
+msgid "Name in messages"
+msgstr "نام در پیام‌ها"
+
+msgid "What the {site_name} tag becomes in every message this plugin sends. Leave it empty to use %s."
+msgstr "برچسب {site_name} در هر پیامی که این افزونه می‌فرستد به این تبدیل می‌شود. خالی بگذارید تا %s به‌کار برود."
+
+msgid "Plugin language"
+msgstr "زبان افزونه"
+
+msgid "These screens follow your WordPress language, which is currently %s. There is nothing to set here."
+msgstr "این صفحه‌ها از زبان وردپرس شما پیروی می‌کنند که در حال حاضر %s است. اینجا چیزی برای تنظیم نیست."
+
+msgid "To read them in another language, change your own language under %1$sProfile → Language%2$s, or change the site language under Settings → General."
+msgstr "برای خواندن به زبانی دیگر، زبان خودتان را از %1$sنمایه ← زبان%2$s تغییر دهید، یا زبان سایت را از تنظیمات ← همگانی عوض کنید."
+
+msgid "The plugin is translated by the WordPress community. If your language is missing or incomplete, you can add it at %1$stranslate.wordpress.org%2$s and every site running this plugin receives it automatically."
+msgstr "این افزونه را جامعهٔ وردپرس ترجمه می‌کند. اگر زبان شما نیست یا کامل نیست، می‌توانید آن را در %1$stranslate.wordpress.org%2$s اضافه کنید و هر سایتی که این افزونه را دارد خودبه‌خود دریافتش می‌کند."
+
+msgid "Account credit"
+msgstr "اعتبار حساب"
+
+msgid "Top up"
+msgstr "خرید شارژ"
+
+msgid "Amount"
+msgstr "مبلغ"
+
+msgid "Amount in %s"
+msgstr "مبلغ به %s"
+
+msgid "Top up online"
+msgstr "افزایش اعتبار آنلاین"
+
+msgid "This sends you to the DiceX payment gateway. Try a small amount once before relying on it."
+msgstr "این بخش شما را به درگاه پرداخت دایس‌اکس منتقل می‌کند. لطفاً قبل از استفاده‌ی واقعی، یک بار با مبلغ کم آزمایش کنید."
+
+msgid "Another amount"
+msgstr "مبلغ دلخواه"
+
+msgid "The rial is pegged to the dollar, so that figure is exact. The euro figure is approximate, from the European Central Bank reference rate of %s."
+msgstr "ریال عمان به دلار میخکوب شده، پس آن رقم دقیق است. رقم یورو تقریبی است و از نرخ مرجع بانک مرکزی اروپا در تاریخ %s گرفته شده."
+
+msgid "No payment gateway is available for the %s region yet. You can still top up from the DiceX panel."
+msgstr "هنوز درگاه پرداختی برای منطقهٔ %s در دسترس نیست. می‌توانید از پنل دایس‌اکس شارژ کنید."
+
+msgid "Pay through"
+msgstr "درگاه پرداخت"
+
+msgid "Not available yet"
+msgstr "هنوز در دسترس نیست"
+
+msgid "Holding a discount coupon? A coupon can only be applied in the DiceX panel, not from here, so top up there instead and the discount is taken off the amount."
+msgstr "کد تخفیف دارید؟ کد تخفیف فقط در پنل دایس‌اکس اعمال می‌شود، نه از اینجا؛ پس شارژ را از آنجا انجام دهید تا تخفیف از مبلغ کم شود."
+
+msgid "Top up in the DiceX panel"
+msgstr "شارژ از پنل دایس‌اکس"
+
+msgid "Numbers in the admin list, further down this page"
+msgstr "شماره‌های فهرست مدیران (پایین همین صفحه)"
+
+msgid "WordPress administrators who added a mobile number to their profile"
+msgstr "مدیران وردپرس که شماره‌شان را در پروفایل ثبت کرده‌اند"
+
+msgid "The user or customer the event is about"
+msgstr "خودِ کاربر یا مشتری مربوط به رویداد"
+
+msgid "Every plugin DiceX can notify on has a card here. Switch a card on to use its settings."
+msgstr "هر افزونه‌ای که دایس‌اکس می‌تواند برایش اطلاع‌رسانی کند یک کارت اینجا دارد. برای استفاده از تنظیمات یک کارت، آن را روشن کنید."
+
+msgid "Admin numbers"
+msgstr "شماره‌های مدیران"
+
+msgid "One number per line. This list is shared by every card that sends to the admin list."
+msgstr "هر شماره در یک خط. این فهرست بین همهٔ کارت‌هایی که گیرندهٔ «فهرست مدیران» را انتخاب کرده‌اند مشترک است."
+
+msgid "%s number stored."
+msgid_plural "%s numbers stored."
+msgstr[0] "%s شماره ذخیره شده است."
+msgstr[1] "%s شماره ذخیره شده است."
+
+msgid "Not installed"
+msgstr "نصب نیست"
+
+msgid "%s — no line yet"
+msgstr "%s — هنوز خطی ندارد"
+
+msgid "Recipients"
+msgstr "گیرندگان"
+
+msgid "Cards only listen for events. They change nothing in the plugins themselves, and a failed DiceX send never breaks your site."
+msgstr "کارت‌ها فقط رویدادها را می‌شنوند؛ هیچ تغییری در کار خود افزونه‌ها ایجاد نمی‌کنند و اگر ارسال دایس‌اکس ناموفق باشد، سایت شما خطا نمی‌دهد."
+
+msgid "Choose the sender line for each channel on your DiceX account. One line per channel."
+msgstr "خط ارسال هر کانال را در حساب دایس‌اکس خود انتخاب کنید؛ برای هر کانال یک خط."
+
+msgid "Line number or sender ID"
+msgstr "شماره خط یا شناسه ارسال‌کننده"
+
+msgid "Social network lines"
+msgstr "خطوط شبکه‌های اجتماعی"
+
+msgid "No networks are enabled on this DiceX account."
+msgstr "روی این حساب دایس‌اکس هیچ شبکه‌ای فعال نیست."
+
+msgid "Choose a network, then its line. The choice is saved straight away."
+msgstr "یک شبکه انتخاب کنید، بعد خط آن را. انتخاب بلافاصله ذخیره می‌شود."
+
+msgid "Choose a network"
+msgstr "انتخاب شبکه"
+
+msgid "SMS, voice calls and Safir can go out on the DiceX shared line, so choose a line for them only when you want a particular one. WhatsApp, Telegram Bot and Bale Bot have no shared line: activate one for them in your DiceX panel first, then pick it here."
+msgstr "پیامک، تماس صوتی و سفیر می‌توانند از خط عمومی دایس‌اکس ارسال شوند، پس فقط وقتی برایشان خط انتخاب کنید که خط مشخصی می‌خواهید. واتساپ، تلگرام بات و بله بات خط عمومی ندارند: اول از پنل دایس‌اکس برایشان یک خط فعال کنید، بعد اینجا انتخابش کنید."
+
+msgid "Lines in use"
+msgstr "خط‌های انتخاب‌شده"
+
+msgid "Ready to send"
+msgstr "آمادهٔ ارسال"
+
+msgid "Channel"
+msgstr "کانال ارسال"
+
+msgid "Line"
+msgstr "خط"
+
+msgid "Test send"
+msgstr "ارسال آزمایشی"
+
+msgid "%s — shared line"
+msgstr "%s — خط عمومی"
+
+msgid "Destination mobile number"
+msgstr "شماره موبایل مقصد"
+
+msgid "Yes"
+msgstr "بله"
+
+msgid "No"
+msgstr "خیر"
+
+msgid "Site"
+msgstr "سایت"
+
+msgid "Address"
+msgstr "نشانی"
+
+msgid "DiceX Connect"
+msgstr "DiceX Connect"
+
+msgid "WordPress"
+msgstr "وردپرس"
+
+msgid "PHP"
+msgstr "PHP"
+
+msgid "WooCommerce"
+msgstr "ووکامرس"
+
+msgid "Not active"
+msgstr "فعال نیست"
+
+msgid "Site language"
+msgstr "زبان سایت"
+
+msgid "Multisite"
+msgstr "چندسایته"
+
+msgid "Connected to DiceX"
+msgstr "متصل به دایس‌اکس"
+
+msgid "Write to DiceX support"
+msgstr "پیام به پشتیبانی دایس‌اکس"
+
+msgid "A question, a problem, or an idea for the plugin? This form emails DiceX support at %s through your site's own mail, and the answer comes to the address you give."
+msgstr "پرسش، مشکل یا پیشنهادی دربارهٔ افزونه دارید؟ این فرم با ایمیل خود سایت شما به پشتیبانی دایس‌اکس در %s فرستاده می‌شود و پاسخ به نشانی‌ای می‌آید که وارد می‌کنید."
+
+msgid "Your email"
+msgstr "ایمیل شما"
+
+msgid "DiceX support answers here."
+msgstr "پشتیبانی دایس‌اکس به این نشانی پاسخ می‌دهد."
+
+msgid "Subject"
+msgstr "موضوع"
+
+msgid "Message"
+msgstr "پیام"
+
+msgid "What you did, what you expected, and what happened instead."
+msgstr "چه کردید، انتظار چه چیزی را داشتید و به‌جای آن چه شد."
+
+msgid "Log"
+msgstr "لاگ"
+
+msgid "Attach the plugin's log"
+msgstr "پیوست کردن لاگ افزونه"
+
+msgid "Its last %s events: messages sent, with numbers partly hidden, errors, and sign-in attempts. Email and IP addresses in it are shortened before it goes."
+msgstr "%s رویداد آخر آن: پیام‌های ارسال‌شده با شماره‌هایی که بخشی از آن‌ها پنهان است، خطاها و تلاش‌های ورود. نشانی‌های ایمیل و IP در آن پیش از ارسال کوتاه می‌شوند."
+
+msgid "Read the log"
+msgstr "دیدن لاگ"
+
+msgid "Sent with every message"
+msgstr "همراه هر پیام فرستاده می‌شود"
+
+msgid "So DiceX support knows which site is writing without having to ask. Your API key is never sent."
+msgstr "تا پشتیبانی دایس‌اکس بی‌آنکه بپرسد بداند پیام از کدام سایت است. کلید API شما هرگز فرستاده نمی‌شود."
+
+msgid "To keep this form from being misused, a site can send one message a minute and %s a day."
+msgstr "برای جلوگیری از سوءاستفاده از این فرم، هر سایت می‌تواند در هر دقیقه یک پیام و در هر روز %s پیام بفرستد."
+
+msgid "Welcome to DiceX"
+msgstr "به دایس‌اکس خوش آمدید"
+
+msgid "Version %s"
+msgstr "نسخهٔ %s"
+
+msgid "Connecting WordPress to the DiceX digital communications ecosystem"
+msgstr "اتصال وردپرس به اکوسیستم ارتباطات دیجیتال دایس‌اکس"
+
+msgid "This site is connected to DiceX. Choose your sender lines, switch on the cards you want, and set up your Customer Club."
+msgstr "این سایت به دایس‌اکس متصل است. خطوط ارسال خود را انتخاب کنید، کارت‌هایی را که می‌خواهید روشن کنید و باشگاه مشتریان خود را راه‌اندازی کنید."
+
+msgid "The DiceX plugin connects your WordPress site to the DiceX digital communications platform."
+msgstr "افزونهٔ دایس‌اکس ارتباط میان وردپرس شما و پلتفرم ارتباطات دیجیتال دایس‌اکس را برقرار می‌کند."
+
+msgid "DiceX is a single infrastructure for managing digital communications, offering services such as SMS, social messengers, Telegram Bot, Bale, WhatsApp, voice calls, online meetings and digital marketing tools in one ecosystem."
+msgstr "دایس‌اکس یک زیرساخت یکپارچه برای مدیریت ارتباطات دیجیتال است که سرویس‌هایی مانند پیامک، پیام‌رسان‌های اجتماعی، Telegram Bot، Bale، WhatsApp، تماس صوتی، جلسات آنلاین و ابزارهای بازاریابی دیجیتال را در یک اکوسیستم واحد ارائه می‌دهد."
+
+msgid "With this plugin your WordPress users and WooCommerce customers join your DiceX customer club, each in a level you define and in every contact group they match, and move between levels as they buy."
+msgstr "با این افزونه، کاربران وردپرس و مشتریان ووکامرس شما به باشگاه مشتریان دایس‌اکس می‌پیوندند؛ هر کدام در سطحی که خودتان تعریف می‌کنید و در هر گروه مخاطبی که با شرایطش جور باشند، و با خریدهایشان میان سطح‌ها جابه‌جا می‌شوند."
+
+msgid "It also sends a message over DiceX channels when something important happens in WordPress or in a compatible plugin: a new order, an order status change, a user registration, a form submission, an administrative alert, or a login that asks for a one-time code."
+msgstr "همچنین وقتی رویداد مهمی در وردپرس یا یک افزونهٔ سازگار رخ می‌دهد، از طریق کانال‌های ارتباطی دایس‌اکس پیام می‌فرستد؛ مانند ثبت سفارش، تغییر وضعیت سفارش، ثبت‌نام کاربر، ارسال فرم، هشدار مدیریتی یا ورودی که کد ورود یک‌بارمصرف می‌خواهد."
+
+msgid "To begin: if you do not have a DiceX account yet, create one first. If you are already a DiceX member, get your API key from your panel and enter it in the plugin settings."
+msgstr "برای شروع، اگر هنوز حساب کاربری دایس‌اکس ندارید، ابتدا یک حساب کاربری ایجاد کنید. اگر قبلاً عضو دایس‌اکس هستید، از پنل مدیریت خود API Key دریافت کرده و آن را در تنظیمات افزونه وارد کنید."
+
+msgid "Your customer club and your site's messages then live in one place: your DiceX account."
+msgstr "از آن پس باشگاه مشتریان و پیام‌های سایت شما یک‌جا، در حساب دایس‌اکس شما هستند."
+
+msgid "Create an account"
+msgstr "ایجاد حساب کاربری"
+
+msgid "Get your API key"
+msgstr "دریافت API Key"
+
+msgid "If you do not have a DiceX account yet, start with Create an account. If you are already a DiceX member, get your API key first and then enter it in the plugin settings."
+msgstr "اگر هنوز حساب کاربری دایس‌اکس ندارید، از گزینه «ایجاد حساب کاربری» شروع کنید. اگر قبلاً عضو دایس‌اکس هستید، ابتدا API Key خود را دریافت کرده و سپس آن را در تنظیمات افزونه وارد نمایید."
+
+msgid "Enter the key now"
+msgstr "همین حالا کلید را وارد کنید"
+
+msgid "What's new"
+msgstr "تغییرات تازه"
+
+msgid "installed"
+msgstr "نصب‌شده"
+
+msgid "WordPress tells you when a newer version is available and offers it on the Plugins screen — there is nothing to check here."
+msgstr "وردپرس خودش وقتی نسخهٔ تازه‌تری باشد به شما خبر می‌دهد و در صفحهٔ افزونه‌ها ارائه‌اش می‌کند — اینجا چیزی برای بررسی نیست."
+
+msgid "What this plugin does"
+msgstr "این افزونه چه می‌کند"
+
+msgid "Visit the DiceX website"
+msgstr "ورود به سایت رسمی دایس‌اکس"
+
+msgid "Open the DiceX panel"
+msgstr "ورود به پنل دایس‌اکس"
+
+msgid "%1$s %2$s"
+msgstr "%1$s %2$s"
+
+msgid "No DiceX API key is set."
+msgstr "کلید API دایس‌اکس تنظیم نشده است."
+
+msgid "Could not reach the API. URL: %1$s | Error: %2$s"
+msgstr "اتصال به API برقرار نشد. آدرس: %1$s | خطا: %2$s"
+
+msgid "DiceX server error (code %d)"
+msgstr "خطای سرور دایس‌اکس (کد %d)"
+
+msgid "DiceX refused the request."
+msgstr "درخواست از سوی دایس‌اکس رد شد."
+
+msgid "DiceX received an empty request."
+msgstr "درخواستی خالی به دایس‌اکس رسید."
+
+msgid "DiceX needs a name for every club level."
+msgstr "دایس‌اکس برای هر سطح باشگاه یک نام لازم دارد."
+
+msgid "DiceX needs a description for every club level."
+msgstr "دایس‌اکس برای هر سطح باشگاه یک توضیح لازم دارد."
+
+msgid "DiceX needs a mobile number for every customer."
+msgstr "دایس‌اکس برای هر مشتری یک شمارهٔ موبایل لازم دارد."
+
+msgid "DiceX needs a club level for every customer."
+msgstr "دایس‌اکس برای هر مشتری یک سطح باشگاه لازم دارد."
+
+msgid "DiceX did not accept this mobile number."
+msgstr "دایس‌اکس این شمارهٔ موبایل را نپذیرفت."
+
+msgid "That club level does not exist in DiceX yet."
+msgstr "این سطح باشگاه هنوز در دایس‌اکس وجود ندارد."
+
+msgid "Saman"
+msgstr "سامان"
+
+msgid "Sepehr"
+msgstr "سپهر"
+
+msgid "Digipay credit payment"
+msgstr "پرداخت اعتباری با دیجی‌پی"
+
+msgid "Paymob"
+msgstr "Paymob"
+
+msgid "Thawani"
+msgstr "Thawani"
+
+msgid "The minimum top-up is %s."
+msgstr "حداقل مبلغ شارژ %s است."
+
+msgid "The minimum top-up is %1$s %2$s."
+msgstr "حداقل مبلغ شارژ %1$s %2$s است."
+
+msgid "No payment gateway is available for the %s region yet."
+msgstr "هنوز درگاه پرداختی برای منطقهٔ %s در دسترس نیست."
+
+msgid "Write the date of birth as year, month and day, for example %s."
+msgstr "تاریخ تولد را به ترتیب سال، ماه و روز بنویسید؛ مثلاً %s."
+
+msgid "That date of birth does not exist. Check the day, month and year, for example %s."
+msgstr "این تاریخ تولد وجود ندارد. روز، ماه و سال را بررسی کنید؛ مثلاً %s."
+
+msgid "A date of birth cannot be in the future."
+msgstr "تاریخ تولد نمی‌تواند در آینده باشد."
+
+msgid "Check the year of birth; that date is too long ago."
+msgstr "سال تولد را بررسی کنید؛ این تاریخ بیش از حد قدیمی است."
+
+msgid "SMS"
+msgstr "پیامک (SMS)"
+
+msgid "WhatsApp"
+msgstr "واتس‌اپ"
+
+msgid "Voice call"
+msgstr "تماس صوتی"
+
+msgid "Telegram Bot"
+msgstr "Telegram Bot"
+
+msgid "Bale Bot"
+msgstr "Bale Bot"
+
+msgid "Safir"
+msgstr "سفیر"
+
+msgid "Valid until %1$s (%2$s)."
+msgstr "معتبر تا %1$s به وقت %2$s."
+
+msgid "Time: %1$s (%2$s)"
+msgstr "زمان: %1$s به وقت %2$s"
+
+msgid "Write every number with a plus and its country code, like %s."
+msgstr "هر شماره را با علامت مثبت و کد کشورش بنویسید، مثل %s."
+
+msgid "Invalid user."
+msgstr "کاربر نامعتبر است."
+
+msgid "This sign-in has expired. Please start again."
+msgstr "مهلت این ورود تمام شده است. لطفاً از ابتدا شروع کنید."
+
+msgid "Too many codes have been sent for this sign-in. Please start again."
+msgstr "برای این ورود، کدهای زیادی فرستاده شده است. لطفاً از ابتدا شروع کنید."
+
+msgid "Wait %s seconds before asking for a new code."
+msgstr "برای دریافت کد جدید %s ثانیه صبر کنید."
+
+msgid "That code is wrong or has expired."
+msgstr "کد وارد شده درست نیست یا منقضی شده است."
+
+msgid "Iran"
+msgstr "ایران"
+
+msgid "IRR"
+msgstr "ریال"
+
+msgid "GCC"
+msgstr "GCC"
+
+msgid "OMR"
+msgstr "ریال عمان"
+
+msgid "DiceX has no international SMS operator for this region yet. WhatsApp and Telegram are available; SMS and voice are not."
+msgstr "دایس‌اکس هنوز برای این منطقه اپراتور پیامک بین‌المللی ندارد. واتس‌اپ و تلگرام در دسترس‌اند؛ پیامک و تماس صوتی نه."
+
+msgid "World Wide"
+msgstr "World Wide"
+
+msgid "WhatsApp and Telegram are available for this region. DiceX does not offer SMS, voice or payment here yet."
+msgstr "واتس‌اپ و تلگرام برای این منطقه در دسترس‌اند. دایس‌اکس هنوز پیامک، تماس صوتی یا پرداخت در اینجا ارائه نمی‌دهد."
+
+msgid "Follow WordPress"
+msgstr "پیروی از وردپرس"
+
+msgid "No sending channel has been chosen."
+msgstr "هیچ مسیر ارسالی انتخاب نشده است."
+
+msgid "The %s channel is not available through the DiceX API yet."
+msgstr "کانال %s هنوز از طریق API دایس‌اکس در دسترس نیست."
+
+msgid "The %1$s channel is not available in the %2$s region."
+msgstr "مسیر %1$s در منطقهٔ %2$s در دسترس نیست."
+
+msgid "No line is set for %s, and DiceX has no shared line for it. Activate a line for this channel in your DiceX panel, then choose it on the Sender lines tab."
+msgstr "برای %s خطی تنظیم نشده و دایس‌اکس برای این کانال خط عمومی ندارد. اول از پنل دایس‌اکس برای این کانال یک خط فعال کنید، بعد در تب خطوط ارسال انتخابش کنید."
+
+msgid "That destination is not a number this plugin can deliver to. %s"
+msgstr "این افزونه نمی‌تواند به این شماره ارسال کند. %s"
+
+msgid "A site can send DiceX support one message a minute and %1$s a day. You can write again in %2$s, or write to %3$s from your own mailbox."
+msgstr "هر سایت می‌تواند در هر دقیقه یک پیام و در هر روز %1$s پیام برای پشتیبانی دایس‌اکس بفرستد. %2$s دیگر می‌توانید دوباره بنویسید، یا از صندوق ایمیل خودتان به %3$s بنویسید."
+
+msgid "Enter an email address DiceX support can answer."
+msgstr "نشانی ایمیلی وارد کنید که پشتیبانی دایس‌اکس بتواند به آن پاسخ دهد."
+
+msgid "Write a subject and a message."
+msgstr "یک موضوع و متن پیام بنویسید."
+
+msgid "Keep the subject to %1$s characters and the message to %2$s."
+msgstr "موضوع حداکثر %1$s نویسه و پیام حداکثر %2$s نویسه باشد."
+
+msgid "Your site could not send the email; its mail may not be set up. Write to %s from your own mailbox instead."
+msgstr "سایت شما نتوانست ایمیل را بفرستد؛ شاید ایمیل آن راه‌اندازی نشده باشد. به‌جای آن از صندوق ایمیل خودتان به %s بنویسید."
+
+msgid "%s failed login in a row"
+msgid_plural "%s failed logins in a row"
+msgstr[0] "%s ورود ناموفق پشت سر هم"
+msgstr[1] "%s ورود ناموفق پشت سر هم"
+
+msgid "Administrator signed in"
+msgstr "ورود مدیر"
+
+msgid "New user registered"
+msgstr "ثبت‌نام کاربر جدید"
+
+msgid "Password reset"
+msgstr "بازنشانی رمز عبور"
+
+msgid "Notify admins and the customer when an order changes status."
+msgstr "اطلاع‌رسانی تغییر وضعیت سفارش به مدیر و مشتری."
+
+msgid "Order status changed"
+msgstr "تغییر وضعیت سفارش"
+
+msgid "Which order statuses should send a message?"
+msgstr "برای کدام وضعیت‌های سفارش پیام برود؟"
+
+msgid "Order {order_id} on {site_name} changed to {order_status}."
+msgstr "سفارش {order_id} در {site_name} به وضعیت {order_status} تغییر کرد."
+
+msgid "WPForms"
+msgstr "WPForms"
+
+msgid "Send a message on every successful submission."
+msgstr "با هر ارسال موفق فرم، یک پیام بفرست."
+
+msgid "The sender number is found automatically in the submitted fields; there is nothing to map."
+msgstr "شمارهٔ فرستنده خودکار از فیلدهای فرم تشخیص داده می‌شود؛ نیازی به تنظیم فیلد نیست."
+
+msgid "Successful submission"
+msgstr "ارسال موفق فرم"
+
+msgid "Form {form_title} on {site_name} was completed."
+msgstr "فرم «{form_title}» در {site_name} تکمیل شد."
+
+msgid "Contact Form 7"
+msgstr "Contact Form 7"
+
+msgid "Gravity Forms"
+msgstr "Gravity Forms"
+
+msgid "Send a message on every entry."
+msgstr "با ثبت هر ورودی فرم، یک پیام بفرست."
+
+msgid "Entry created"
+msgstr "ثبت ورودی فرم"
+
+msgid "WordPress security events"
+msgstr "رویدادهای امنیتی وردپرس"
+
+msgid "Failed logins, administrator sign-ins, new users and password resets — independent of any security plugin."
+msgstr "ورود ناموفق، ورود مدیر، کاربر جدید و بازنشانی رمز — مستقل از هر افزونهٔ امنیتی."
+
+msgid "Failed login"
+msgstr "ورود ناموفق"
+
+msgid "Which events should send a message?"
+msgstr "کدام رویدادها پیام بدهند؟"
+
+msgid "Failed logins from one address"
+msgstr "ورودهای ناموفق از یک نشانی"
+
+msgid "An administrator signing in"
+msgstr "ورود موفق یک مدیر"
+
+msgid "Warn after this many failed logins from one address, within fifteen minutes"
+msgstr "پس از این تعداد ورود ناموفق از یک نشانی در پانزده دقیقه، هشدار بده"
+
+msgid "Every failed attempt"
+msgstr "هر تلاش ناموفق"
+
+msgid "3 attempts"
+msgstr "۳ تلاش"
+
+msgid "5 attempts"
+msgstr "۵ تلاش"
+
+msgid "10 attempts"
+msgstr "۱۰ تلاش"
+
+msgid "{site_name}: {event} — user {user_login} from {ip}"
+msgstr "{site_name}: {event} — کاربر {user_login} از آی‌پی {ip}"
+
+msgid "Digits"
+msgstr "Digits"
+
+msgid "Deliver the login codes Digits generates through DiceX."
+msgstr "کدهای ورودی که Digits می‌سازد را از طریق دایس‌اکس بفرست."
+
+msgid "One more step after switching this on: open Digits, go to its SMS gateway settings and choose DiceX. The wording and the recipient stay under Digits control — DiceX only delivers."
+msgstr "پس از روشن‌کردن این کارت یک گام دیگر مانده است: در Digits به تنظیمات درگاه پیامک بروید و دایس‌اکس را انتخاب کنید. متن پیام و گیرنده در اختیار Digits می‌ماند؛ دایس‌اکس فقط ارسال را انجام می‌دهد."
+
+msgid "Login and registration codes"
+msgstr "کدهای ورود و ثبت‌نام"
+
+msgid "DiceX two-step login"
+msgstr "ورود دو مرحله‌ای دایس‌اکس"
+
+msgid "An SMS code on the WordPress login page, with no other plugin needed."
+msgstr "کد ورود پیامکی روی صفحهٔ ورود وردپرس — بدون نیاز به هیچ افزونهٔ دیگری."
+
+msgid "The second step applies only to users with a mobile number on their profile. To switch it off in an emergency, set DICEX_CONNECT_DISABLE_LOGIN_OTP to true in wp-config.php."
+msgstr "مرحلهٔ دوم فقط برای کاربرانی اجرا می‌شود که شمارهٔ موبایلشان در پروفایل ثبت شده است. برای خاموش‌کردن اضطراری، در wp-config.php مقدار DICEX_CONNECT_DISABLE_LOGIN_OTP را true بگذارید."
+
+msgid "Login code by SMS"
+msgstr "کد ورود پیامکی"
+
+msgid "Login method"
+msgstr "روش ورود"
+
+msgid "An SMS code as a second step, after the password"
+msgstr "کد پیامکی به‌عنوان مرحلهٔ دوم، بعد از رمز عبور"
+
+msgid "Sign in with a number and a code, no password"
+msgstr "ورود فقط با شماره و کد، بدون رمز عبور"
+
+msgid "Both — the person chooses on the login page"
+msgstr "هر دو — کاربر روی صفحهٔ ورود انتخاب می‌کند"
+
+msgid "Your login code for {site_name}: {code}"
+msgstr "کد ورود شما به {site_name}: {code}"
+
+msgid "Add a mobile number to your profile before switching a card on. Until the plugin knows where to reach you, a card switched on now would do nothing."
+msgstr "قبل از روشن کردن کارت‌ها، یک شمارهٔ موبایل در پروفایل خودتان ثبت کنید. تا وقتی افزونه نداند از کجا به شما برسد، کارتی که الان روشن کنید کاری انجام نمی‌دهد."
+
+msgid "The mobile number on your profile is not in a form this plugin can use, so no card can be switched on yet. %s"
+msgstr "شمارهٔ موبایل پروفایل شما به شکلی نیست که این افزونه بتواند از آن استفاده کند، پس هنوز هیچ کارتی روشن نمی‌شود. %s"
+
+msgid "Open your profile"
+msgstr "رفتن به پروفایل"
+
+msgid "Switched off in wp-config.php by DICEX_CONNECT_DISABLE_LOGIN_OTP. Remove that line to use the second step."
+msgstr "با DICEX_CONNECT_DISABLE_LOGIN_OTP در wp-config.php خاموش شده است. برای استفاده از گام دوم، آن خط را بردارید."
+
+msgid "Your logins will not ask for a code until your own profile has a mobile number this plugin can use."
+msgstr "تا وقتی پروفایل خودتان شمارهٔ موبایلی نداشته باشد که این افزونه بتواند از آن استفاده کند، ورودهای شما کد نمی‌خواهند."
+
+msgid "None of the channels this card is set to use can send in your current region, so the second step is standing down and logins are working as normal. Choose a channel your region offers, or change the region on the Connection tab."
+msgstr "هیچ‌کدام از کانال‌هایی که برای این کارت انتخاب شده در منطقهٔ فعلی شما قابل ارسال نیست، پس مرحلهٔ دوم کنار کشیده و ورود به‌صورت عادی کار می‌کند. کانالی را انتخاب کنید که منطقهٔ شما ارائه می‌دهد، یا منطقه را در تب اتصال عوض کنید."
+
+msgid "You need to confirm an SMS code to sign in to this account. Please sign in from this page."
+msgstr "برای ورود به این حساب باید کد پیامکی را تأیید کنید. لطفاً از همین صفحه وارد شوید."
+
+msgid "Sign in with your mobile number"
+msgstr "ورود با شمارهٔ موبایل"
+
+msgid "A new code is on its way."
+msgstr "کد تازه در راه است."
+
+msgid "The login code could not be sent. Try again, or contact the site administrator."
+msgstr "ارسال کد ورود ممکن نشد. لطفاً دوباره تلاش کنید یا با مدیر سایت تماس بگیرید."
+
+msgid "This code is valid for another %s"
+msgstr "این کد تا %s دیگر معتبر است"
+
+msgid "Next code in %1$s, by %2$s"
+msgstr "کد بعدی تا %1$s، از طریق %2$s"
+
+msgid "Send a new code by %s"
+msgstr "ارسال کد تازه از طریق %s"
+
+msgid "Next code in %1$s"
+msgstr "کد بعدی تا %1$s"
+
+msgid "Send me a new code"
+msgstr "کد تازه برایم بفرست"
+
+msgid "The code has expired. Ask for a new one."
+msgstr "مهلت این کد تمام شد. کد تازه بخواهید."
+
+msgid "Confirm sign-in"
+msgstr "تأیید ورود"
+
+msgid "Back to the login page"
+msgstr "بازگشت به صفحهٔ ورود"
+
+msgid "You are being called with the code. Answer the call and enter what you hear."
+msgstr "کد با تماس تلفنی به شما گفته می‌شود. تماس را پاسخ دهید و آنچه می‌شنوید را وارد کنید."
+
+msgid "Enter the code sent to you by %s."
+msgstr "کدی را که از طریق %s برایتان ارسال شد وارد کنید."
+
+msgid "Enter the code that was sent to you."
+msgstr "کدی را که برایتان ارسال شد وارد کنید."
+
+msgid "Login code"
+msgstr "کد ورود"
+
+msgid "Confirm and sign in"
+msgstr "تأیید و ورود"
+
+msgid "Sign in with mobile"
+msgstr "ورود با موبایل"
+
+msgid "Send code"
+msgstr "ارسال کد"
+
+msgid "Sign in with a username and password"
+msgstr "ورود با نام کاربری و رمز عبور"
+
+msgid "Switched on"
+msgstr "روشن"
+
+msgid "Group memberships on the way"
+msgstr "عضویت‌های گروه در راه"
+
+msgid "Import"
+msgstr "وارد کردن"
+
+msgid "Running: %1$s of %2$s read"
+msgstr "در حال انجام: %1$s از %2$s خوانده شده"
+
+msgid "Never run"
+msgstr "هنوز اجرا نشده"
+
+msgid "Waiting for your release"
+msgstr "منتظر تأیید شما برای ارسال"
+
+msgid "Yes — run wp dicex club release"
+msgstr "بله — wp dicex club release را اجرا کنید"
+
+msgid "Paused"
+msgstr "متوقف"
+
+msgid "Last sent"
+msgstr "آخرین ارسال"
+
+msgid "Next daily run"
+msgstr "اجرای روزانهٔ بعدی"
+
+msgid "An import is already under way. Carrying it on."
+msgstr "یک وارد کردن در جریان است. همان ادامه پیدا می‌کند."
+
+msgid "Back in the queue: %1$s customers and %2$s group memberships. Run wp dicex club sync to send them now."
+msgstr "دوباره در صف: %1$s مشتری و %2$s عضویت گروه. برای ارسال همین حالا wp dicex club sync را اجرا کنید."
+
+msgid "Nothing is waiting for your release."
+msgstr "چیزی منتظر تأیید شما برای ارسال نیست."
+
+msgid "The Customer Club is switched off, or not set up yet. Switch it on in the DiceX > Customer Club tab."
+msgstr "باشگاه مشتریان خاموش است یا هنوز راه‌اندازی نشده. آن را در زبانهٔ دایس‌اکس > باشگاه مشتریان روشن کنید."
+
+msgid "Another run of the club has been working for two minutes. Try again when it is done."
+msgstr "اجرای دیگری از باشگاه دو دقیقه است که مشغول است. وقتی تمام شد دوباره امتحان کنید."
+
+msgid "Sending is paused: %1$s. The club tries again by itself in %2$s."
+msgstr "ارسال متوقف شده است: %1$s. باشگاه %2$s دیگر خودش دوباره تلاش می‌کند."
+
+msgid "Read and worked out. Nothing has been sent yet: check the counts with wp dicex club status, then run wp dicex club release."
+msgstr "خوانده و حساب شد. هنوز چیزی ارسال نشده است: تعدادها را با wp dicex club status ببینید، سپس wp dicex club release را اجرا کنید."
+
+msgid "Worked out, but nothing can be sent without an API key. Add one in the DiceX > Connection tab."
+msgstr "حساب شد، ولی بدون کلید API چیزی ارسال نمی‌شود. کلید را در زبانهٔ دایس‌اکس > اتصال وارد کنید."
+
+msgid "The club is up to date."
+msgstr "باشگاه به‌روز است."
+
+msgid "Reading: %1$s of %2$s"
+msgstr "در حال خواندن: %1$s از %2$s"
+
+msgid "To work out: %1$s · to send: %2$s · in DiceX: %3$s · group memberships on the way: %4$s"
+msgstr "برای محاسبه: %1$s · برای ارسال: %2$s · در دایس‌اکس: %3$s · عضویت‌های گروه در راه: %4$s"
+
+msgid "at checkout"
+msgstr "هنگام پرداخت"
+
+msgid "when registering"
+msgstr "هنگام ثبت‌نام"
+
+msgid "on their account page"
+msgstr "در صفحهٔ حساب کاربری"
+
+msgid "on their profile"
+msgstr "در پروفایل کاربری"
+
+msgid "through a request to erase their data"
+msgstr "با درخواست پاک کردن اطلاعات"
+
+msgid "%1$s, %2$s"
+msgstr "%1$s، %2$s"
+
+msgid "Date of birth (year/month/day)"
+msgstr "تاریخ تولد (سال/ماه/روز)"
+
+msgid "Date of birth (year/month/day, optional)"
+msgstr "تاریخ تولد (سال/ماه/روز، اختیاری)"
+
+msgid "For example %s"
+msgstr "مثلاً %s"
+
+msgid "Year, month and day."
+msgstr "سال، ماه و روز."
+
+msgid "Date of birth (optional)"
+msgstr "تاریخ تولد (اختیاری)"
+
+msgid "Please enter your date of birth."
+msgstr "لطفاً تاریخ تولد خود را وارد کنید."
+
+msgid "DiceX customer club"
+msgstr "باشگاه مشتریان دایس‌اکس"
+
+msgid "DiceX Connect sends customer details to DiceX when the customer club is switched on. Adjust this text to what you actually send, and to whether customers join the club by ticking a box."
+msgstr "وقتی باشگاه مشتریان روشن باشد، DiceX Connect اطلاعات مشتریان را به دایس‌اکس می‌فرستد. این متن را با آنچه واقعاً ارسال می‌کنید، و با اینکه مشتریان با زدن تیک عضو باشگاه می‌شوند یا نه، هماهنگ کنید."
+
+msgid "When you buy from us or create an account, your mobile number, your name and the date of your first purchase are added to our customer club at DiceX (dicex.me), which we use to stay in touch with you. If you give us your date of birth, it is added too. Depending on our settings your email address, company and billing address may be added as well. The club records which membership level you are in, based on your purchases. You can leave the club at any time from your account page, or ask us to take you out of it."
+msgstr "وقتی از ما خرید می‌کنید یا حساب کاربری می‌سازید، شمارهٔ موبایل، نام و تاریخ اولین خرید شما به باشگاه مشتریان ما در دایس‌اکس (dicex.me) افزوده می‌شود تا بتوانیم با شما در ارتباط بمانیم. اگر تاریخ تولدتان را به ما بدهید، آن هم افزوده می‌شود. بسته به تنظیمات ما ممکن است نشانی ایمیل، نام شرکت و نشانی صورت‌حساب شما هم افزوده شود. باشگاه ثبت می‌کند که بر اساس خریدهایتان در کدام سطح عضویت هستید. هر زمان بخواهید می‌توانید از صفحهٔ حساب کاربری‌تان از باشگاه خارج شوید، یا از ما بخواهید شما را از آن خارج کنیم."
+
+msgid "Club level"
+msgstr "سطح باشگاه"
+
+msgid "Orders counted"
+msgstr "سفارش‌های شمرده‌شده"
+
+msgid "Amount counted"
+msgstr "مبلغ شمرده‌شده"
+
+msgid "Last purchase"
+msgstr "آخرین خرید"
+
+msgid "Last sent to DiceX"
+msgstr "آخرین ارسال به دایس‌اکس"
+
+msgid "This person is in the DiceX customer club, but no level is set for removed numbers. Choose one on the Customer Club tab, then erase again."
+msgstr "این شخص در باشگاه مشتریان دایس‌اکس است، اما سطحی برای شماره‌های حذف‌شده تعیین نشده است. در تب باشگاه مشتریان یکی را انتخاب کنید و سپس دوباره پاک کنید."
+
+msgid "Moved to the \"%s\" level of the DiceX customer club: the number is no longer used, and nothing more about this person is sent. DiceX keeps the number and whatever details it was sent before; WordPress cannot delete them there."
+msgstr "به سطح «%s» باشگاه مشتریان دایس‌اکس منتقل شد: دیگر از این شماره استفاده نمی‌شود و چیز دیگری دربارهٔ این شخص فرستاده نمی‌شود. شماره و هر اطلاعاتی که پیش‌تر برای دایس‌اکس فرستاده شده، در دایس‌اکس می‌ماند و وردپرس نمی‌تواند آن‌ها را آنجا حذف کند."
+
+msgid "They are in no contact group here any more. A DiceX contact group they were added to still holds the number: DiceX has no way to take a contact out of a group."
+msgstr "این شخص دیگر در هیچ گروه مخاطبی این‌جا نیست. گروه‌های دایس‌اکس که پیش‌تر به آن‌ها افزوده شده بود همچنان شماره را دارند: دایس‌اکس راهی برای بیرون آوردن مخاطب از گروه ندارد."
+
+msgid "First name sent to DiceX"
+msgstr "نام فرستاده‌شده به دایس‌اکس"
+
+msgid "Last name sent to DiceX"
+msgstr "نام خانوادگی فرستاده‌شده به دایس‌اکس"
+
+msgid "Email sent to DiceX"
+msgstr "ایمیل فرستاده‌شده به دایس‌اکس"
+
+msgid "Company sent to DiceX"
+msgstr "شرکت فرستاده‌شده به دایس‌اکس"
+
+msgid "Address sent to DiceX"
+msgstr "نشانی فرستاده‌شده به دایس‌اکس"
+
+msgid "Date of birth sent to DiceX"
+msgstr "تاریخ تولد فرستاده‌شده به دایس‌اکس"
+
+msgid "First purchase date sent to DiceX"
+msgstr "تاریخ نخستین خرید فرستاده‌شده به دایس‌اکس"
+
+msgid "%s (no longer matching; DiceX keeps the contact)"
+msgstr "%s (دیگر شرط را ندارد؛ دایس‌اکس مخاطب را نگه می‌دارد)"
+
+msgid "Joined the customer club"
+msgstr "عضویت در باشگاه مشتریان"
+
+msgid "Left the customer club"
+msgstr "خروج از باشگاه مشتریان"
+
+msgid "Date of birth given with order %s"
+msgstr "تاریخ تولد ثبت‌شده در سفارش %s"
+
+msgid "Joined the customer club with order %s"
+msgstr "عضویت در باشگاه مشتریان با سفارش %s"
+
+msgid "Join our customer club and receive news and offers"
+msgstr "عضو باشگاه مشتریان ما شوید و از خبرها و پیشنهادها باخبر شوید"
+
+msgid "Add at least one level."
+msgstr "دست‌کم یک سطح اضافه کنید."
+
+msgid "A club can have at most %s levels."
+msgstr "باشگاه حداکثر %s سطح می‌تواند داشته باشد."
+
+msgid "Choose the level for customers who match none of the others."
+msgstr "سطحی را انتخاب کنید که مشتریانِ بدون شرطِ منطبق به آن بروند."
+
+msgid "The level for removed numbers cannot also be the level everybody else joins."
+msgstr "سطح شماره‌های حذف‌شده نمی‌تواند همان سطحی باشد که بقیهٔ مشتریان به آن می‌روند."
+
+msgid "Every level needs a name."
+msgstr "هر سطح باید نام داشته باشد."
+
+msgid "Two levels are called \"%s\". Every level needs a name of its own."
+msgstr "دو سطح با نام «%s» وجود دارد. هر سطح باید نامی مخصوص به خود داشته باشد."
+
+msgid "The purchase amounts for \"%s\" have to be numbers."
+msgstr "مبلغ‌های خرید در سطح «%s» باید عدد باشند."
+
+msgid "The number of orders for \"%s\" has to be a whole number."
+msgstr "تعداد سفارش در سطح «%s» باید عدد صحیح باشد."
+
+msgid "The days since the last purchase for \"%s\" have to be a whole number."
+msgstr "روز از آخرین خرید برای «%s» باید یک عدد صحیح باشد."
+
+msgid "The ages for \"%1$s\" have to be whole numbers of years, up to %2$s."
+msgstr "سن در «%1$s» باید عدد درست و بر حسب سال باشد، حداکثر %2$s."
+
+msgid "In \"%s\", a \"from\" value is larger than its \"to\" value."
+msgstr "در سطح «%s»، مقدار «از» بزرگ‌تر از مقدار «تا» است."
+
+msgid "Every group needs a name."
+msgstr "هر گروه به یک نام نیاز دارد."
+
+msgid "Two groups are called \"%s\". Every group needs a name of its own."
+msgstr "دو گروه «%s» نام دارند. هر گروه باید نام خودش را داشته باشد."
+
+msgid "The purchase amounts for the \"%s\" group have to be numbers."
+msgstr "مبلغ خرید در گروه «%s» باید عدد باشد."
+
+msgid "The number of orders for the \"%s\" group has to be a whole number."
+msgstr "تعداد سفارش در گروه «%s» باید عدد درست باشد."
+
+msgid "The days since the last purchase for the \"%s\" group have to be a whole number."
+msgstr "روزهای گذشته از آخرین خرید در گروه «%s» باید عدد درست باشد."
+
+msgid "The ages for the \"%1$s\" group have to be whole numbers of years, up to %2$s."
+msgstr "سن در گروه «%1$s» باید عدد درست و بر حسب سال باشد، حداکثر %2$s."
+
+msgid "In the \"%s\" group, a \"from\" value is larger than its \"to\" value."
+msgstr "در گروه «%s» مقدار «از» بزرگ‌تر از مقدار «تا» است."
+
+msgid "The \"%s\" group needs at least one condition. A group without conditions would hold every customer."
+msgstr "گروه «%s» دست‌کم یک شرط می‌خواهد. گروهی بدون شرط، همهٔ مشتریان را در بر می‌گیرد."
+
+msgid "A club can have at most %s groups."
+msgstr "هر باشگاه دست‌بالا %s گروه می‌تواند داشته باشد."
+
+msgid "Gold"
+msgstr "طلایی"
+
+msgid "Silver"
+msgstr "نقره‌ای"
+
+msgid "Bronze"
+msgstr "برنزی"
+
+msgid "Regular member"
+msgstr "عضو عادی"
+
+msgid "Removed"
+msgstr "حذف‌شده"
+
+msgid "Inactive"
+msgstr "غیرفعال"
+
+msgid "Numbers taken out of the club. Nobody in this level is contacted."
+msgstr "شماره‌هایی که از باشگاه خارج شده‌اند. با هیچ‌کس در این سطح تماس گرفته نمی‌شود."
+
+msgid "Customer club level on %s."
+msgstr "سطح باشگاه مشتریان در %s."
+
+msgid "Customer group on %s."
+msgstr "گروه مشتریان %s."
+
+msgid "Hi {first_name}, welcome to the {site_name} customer club. Your level: {level}."
+msgstr "سلام {first_name}، به باشگاه مشتریان {site_name} خوش آمدید. سطح شما: {level}."

@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Support question
+    url: https://wordpress.org/support/plugin/dicex-connect/
+    about: How to set something up, or why a message did not arrive. The forum is read by more people than this tracker.
+  - name: Write to DiceX support
+    url: mailto:wp-support@dicex.me
+    about: Anything about your DiceX account, your credit or your sender lines. The plugin's own Support tab does the same and attaches its log.
+  - name: Security problem
+    url: https://github.com/mydicex/dicex-connect/security/advisories/new
+    about: Report it privately. Please do not open a public issue.

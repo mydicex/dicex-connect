@@ -1,0 +1,714 @@
+/*
+ * The Customer Club tab. Builds on admin.css — its colour tokens, cards, switch
+ * and channel list — and only adds what this tab has that no other tab does.
+ * Logical properties throughout, so the same rules read right in Persian and
+ * in English.
+ */
+
+/*
+ * The tab shows and hides its notes with the hidden attribute. A class that
+ * sets its own display — .dicex-connect-region-note is a flex box — would
+ * otherwise win over the browser's [hidden] rule and leave an empty note on
+ * screen.
+ */
+.dicex-connect-club [hidden] {
+	display: none !important;
+}
+
+.dicex-connect-club .dicex-connect-card {
+	margin-block-end: 16px;
+}
+
+.dicex-connect-club h3 {
+	margin-block: 24px 8px;
+}
+
+.dicex-connect-club .dicex-connect-card > h3:first-child {
+	margin-block-start: 0;
+}
+
+.dicex-connect-club-intro-head {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 16px;
+}
+
+.dicex-connect-club-intro-head h2 {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 0 0 6px;
+}
+
+.dicex-connect-club-intro-head p {
+	margin: 0;
+	max-width: 70ch;
+}
+
+/* ---- Status ------------------------------------------------------------- */
+
+.dicex-connect-club-tiles {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+	gap: 12px;
+	margin-block-end: 12px;
+}
+
+.dicex-connect-club-tile {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	padding: 12px 14px;
+	border: 1px solid var(--dicex-border);
+	border-radius: var(--dicex-field-radius);
+	background: #f6f7f7;
+}
+
+.dicex-connect-club-tile-value {
+	font-size: 22px;
+	font-weight: 700;
+	line-height: 1.2;
+}
+
+.dicex-connect-club-tile-label {
+	color: #50575e;
+}
+
+.dicex-connect-club-tile.is-good .dicex-connect-club-tile-value {
+	color: #007017;
+}
+
+.dicex-connect-club-tile.is-bad .dicex-connect-club-tile-value {
+	color: var(--dicex-error);
+}
+
+.dicex-connect-club-level-counts,
+.dicex-connect-club-remote ul {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin: 0 0 12px;
+	padding: 0;
+	list-style: none;
+}
+
+.dicex-connect-club-level-counts li,
+.dicex-connect-club-remote li {
+	display: inline-flex;
+	gap: 6px;
+	margin: 0;
+	padding: 4px 10px;
+	border: 1px solid var(--dicex-border);
+	border-radius: 999px;
+	background: #fff;
+}
+
+.dicex-connect-club-import progress {
+	width: 100%;
+	max-width: 520px;
+	height: 12px;
+}
+
+.dicex-connect-club-actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px;
+}
+
+.dicex-connect-club-times {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px 24px;
+}
+
+.dicex-connect-club-remote {
+	margin-block-start: 8px;
+}
+
+/* ---- Levels ------------------------------------------------------------- */
+
+.dicex-connect-club-levels {
+	margin: 12px 0;
+	padding: 0;
+	list-style: none;
+}
+
+.dicex-connect-club-entry {
+	margin: 0 0 10px;
+	padding: 10px 12px;
+	border: 1px solid var(--dicex-border);
+	border-radius: var(--dicex-field-radius);
+	background: #fff;
+}
+
+.dicex-connect-club-entry.is-removed {
+	background: #f6f7f7;
+}
+
+.dicex-connect-club-level-head {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px;
+}
+
+.dicex-connect-club-level-order {
+	display: inline-flex;
+	flex-direction: column;
+}
+
+/* 24px square at least: two small targets stacked with no gap are hard to hit. */
+.dicex-connect-club-level-order .button-link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 24px;
+	min-height: 24px;
+	line-height: 1;
+	color: #50575e;
+}
+
+/* The top level cannot go up, nor the bottom one down. */
+.dicex-connect-club-level-order .button-link[aria-disabled="true"] {
+	color: #a7aaad;
+	cursor: default;
+}
+
+/* Darker than core's delete red, which is under 4.5:1 on the grey of a removed row. */
+.dicex-connect-club .dicex-connect-club-remove {
+	color: #b32d2e;
+}
+
+.dicex-connect-club-level-name {
+	flex: 1 1 220px;
+}
+
+.dicex-connect-club-level-name input {
+	width: 100%;
+	font-weight: 600;
+}
+
+.dicex-connect-club-level-tags {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: 4px;
+}
+
+.dicex-connect-club-tag {
+	padding: 2px 8px;
+	border-radius: 999px;
+	background: #e7f0f7;
+	/* The admin blue is 4.48:1 on this tint at 12px; this one is 5.93:1. */
+	color: #135e96;
+	font-size: 12px;
+}
+
+.dicex-connect-club-tag.is-removed {
+	background: #f0f0f1;
+	color: #50575e;
+}
+
+.dicex-connect-club-level-body {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px 20px;
+	margin-block-start: 8px;
+	padding-inline-start: 28px;
+}
+
+.dicex-connect-club-bound,
+.dicex-connect-club-description {
+	display: inline-flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 6px;
+}
+
+.dicex-connect-club-bound input {
+	width: 9em;
+}
+
+.dicex-connect-club-description {
+	flex: 1 1 260px;
+}
+
+.dicex-connect-club-description input {
+	flex: 1 1 auto;
+	min-width: 12em;
+}
+
+.dicex-connect-club-bound-label {
+	color: #50575e;
+}
+
+.dicex-connect-club-unit {
+	color: #50575e;
+	font-size: 12px;
+}
+
+/* ---- A level's lists ---------------------------------------------------- */
+
+.dicex-connect-club-lists {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 6px;
+	flex-basis: 100%;
+}
+
+.dicex-connect-club-list-button {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	max-width: 100%;
+	padding: 3px 10px;
+	border: 1px dashed var(--dicex-border);
+	border-radius: 999px;
+	background: #fff;
+	color: #50575e;
+	font: inherit;
+	font-size: 12px;
+	line-height: 1.8;
+	cursor: pointer;
+}
+
+.dicex-connect-club-list-button:hover,
+.dicex-connect-club-list-button[aria-expanded="true"] {
+	border-color: var(--dicex-primary);
+	color: var(--dicex-primary);
+}
+
+.dicex-connect-club-list-button:focus-visible {
+	outline: 2px solid var(--dicex-primary);
+	outline-offset: 1px;
+}
+
+.dicex-connect-club-list-button.is-set {
+	border-style: solid;
+	border-color: var(--dicex-primary);
+	background: #e7f0f7;
+	color: #1d2327;
+}
+
+.dicex-connect-club-list-button .dashicons {
+	width: 14px;
+	height: 14px;
+	font-size: 14px;
+}
+
+.dicex-connect-club-list-summary {
+	overflow: hidden;
+	max-width: 260px;
+	font-weight: 600;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.dicex-connect-club-list-panel {
+	flex-basis: 100%;
+	margin-block-start: 4px;
+	padding: 10px 12px;
+	border: 1px solid var(--dicex-border);
+	border-radius: var(--dicex-field-radius);
+	background: #f6f7f7;
+}
+
+.dicex-connect-wrap p.dicex-connect-club-panel-title {
+	margin: 0 0 6px;
+	font-weight: 600;
+}
+
+.dicex-connect-club-list-panel .dicex-connect-club-filter {
+	width: 100%;
+	max-width: 360px;
+	margin-block-end: 6px;
+}
+
+.dicex-connect-club-checklist,
+.dicex-connect-club-results {
+	overflow-y: auto;
+	max-height: 220px;
+	margin: 0;
+	padding: 4px 8px;
+	border: 1px solid var(--dicex-border);
+	border-radius: var(--dicex-field-radius);
+	background: #fff;
+	list-style: none;
+}
+
+.dicex-connect-club-results:empty {
+	display: none;
+}
+
+.dicex-connect-club-checklist li,
+.dicex-connect-club-results li {
+	margin: 0;
+	line-height: 2;
+}
+
+.dicex-connect-club-chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	margin-block-end: 6px;
+}
+
+.dicex-connect-club-chips:empty {
+	display: none;
+}
+
+.dicex-connect-club-chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	padding-block: 2px;
+	border-radius: 999px;
+	background: #e7f0f7;
+	font-size: 12px;
+	padding-inline: 10px 4px;
+}
+
+/* The spelling just typed is already here, in another form. */
+.dicex-connect-club-chip.is-duplicate {
+	outline: 2px solid #2271b1;
+	outline-offset: 1px;
+}
+
+.dicex-connect-club .dicex-connect-club-chip-remove {
+	min-width: 20px;
+	padding: 0 4px;
+	color: #50575e;
+	font-size: 16px;
+	line-height: 1;
+	text-decoration: none;
+}
+
+.dicex-connect-club-city-add {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+}
+
+.dicex-connect-club-city-add .dicex-connect-club-filter {
+	margin-block-end: 0;
+}
+
+.dicex-connect-wrap p.dicex-connect-club-panel-actions {
+	margin: 8px 0 0;
+}
+
+.dicex-connect-wrap p.dicex-connect-club-level-hint {
+	flex-basis: 100%;
+	margin: 0;
+	color: var(--dicex-warning);
+}
+
+.dicex-connect-club-level-actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 12px;
+}
+
+.dicex-connect-club-level-actions .dashicons {
+	vertical-align: middle;
+}
+
+.dicex-connect-club-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 0 24px;
+}
+
+.dicex-connect-club-grid label,
+.dicex-connect-club-settings p > label {
+	display: block;
+	margin-block-end: 4px;
+	font-weight: 600;
+}
+
+.dicex-connect-club-grid select {
+	width: 100%;
+	max-width: 360px;
+}
+
+.dicex-connect-club-grid .description {
+	display: block;
+	margin-block-start: 4px;
+}
+
+/* One choice per line: these are sentences, not tags. */
+.dicex-connect-club-settings .dicex-connect-recipient-set label {
+	display: block;
+}
+
+.dicex-connect-club-settings .dicex-connect-recipient-set .description {
+	display: block;
+	margin-block: 2px 4px;
+}
+
+/* Role names are short, and a site can have many: a grid reads faster. */
+.dicex-connect-club-settings .dicex-connect-club-roles {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+	column-gap: 16px;
+}
+
+.dicex-connect-club-settings .dicex-connect-club-roles legend,
+.dicex-connect-club-settings .dicex-connect-club-roles .description {
+	grid-column: 1 / -1;
+}
+
+.dicex-connect-club .dicex-connect-club-inline {
+	display: block;
+	font-weight: 600;
+}
+
+.dicex-connect-club-welcome-settings textarea {
+	width: 100%;
+	max-width: 640px;
+}
+
+.dicex-connect-club-save-row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 12px;
+	margin-block-start: 20px;
+}
+
+.dicex-connect-club-save-status.is-error,
+.dicex-connect-club-preview-status.is-error {
+	color: var(--dicex-error);
+}
+
+/* ---- Phase 3: contact groups and messages in other languages ------------ */
+
+.dicex-connect-club-group .dicex-connect-club-level-name input {
+	font-weight: 500;
+}
+
+.dicex-connect-club-group-status {
+	margin-block-start: 12px;
+}
+
+.dicex-connect-club-group-status h4 {
+	margin: 0 0 6px;
+}
+
+.dicex-connect-club-languages-wrap {
+	flex-basis: 100%;
+}
+
+.dicex-connect-club-language-panel {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px 20px;
+	margin-block-start: 8px;
+	padding: 10px 12px;
+	border: 1px solid var(--dicex-border);
+	border-radius: var(--dicex-field-radius);
+	background: #f6f7f7;
+}
+
+.dicex-connect-club-language-panel label {
+	display: flex;
+	flex: 1 1 260px;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.dicex-connect-club-language-panel textarea {
+	width: 100%;
+}
+
+.dicex-connect-wrap .dicex-connect-club-language-panel p.description {
+	flex-basis: 100%;
+	margin: 0;
+}
+
+.dicex-connect-club-message {
+	flex-basis: 100%;
+}
+
+.dicex-connect-club-message textarea {
+	width: 100%;
+}
+
+.dicex-connect-club-chips {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: 4px;
+	margin-inline-start: 6px;
+}
+
+.dicex-connect-club-chip {
+	padding: 1px 8px;
+	border-radius: 999px;
+	background: #e7f0f7;
+	color: #135e96;
+	font-size: 11px;
+}
+
+/* The mark that says a group chip's state without its colour. */
+.dicex-connect-club-table .dicex-connect-club-chip .dashicons {
+	width: 12px;
+	height: 12px;
+	font-size: 12px;
+	margin-inline-end: 2px;
+	vertical-align: -2px;
+}
+
+.dicex-connect-club-chip.is-waiting {
+	background: #fcf3e3;
+	color: #8a6116;
+}
+
+.dicex-connect-club-chip.is-left {
+	background: #f0f0f1;
+	color: #50575e;
+	text-decoration: line-through;
+}
+
+/* ---- Phase 2: counts, the first send, who joins, date of birth ---------- */
+
+.dicex-connect-club-level-count {
+	padding: 2px 8px;
+	border-radius: 999px;
+	background: #edfaef;
+	color: #1e6b2a;
+	font-size: 12px;
+	font-weight: 600;
+	white-space: nowrap;
+}
+
+.dicex-connect-wrap p.dicex-connect-club-preview-status {
+	margin-block: 4px 16px;
+}
+
+.dicex-connect-club-hold {
+	margin-block: 12px;
+	padding: 12px 16px;
+	border: 1px solid var(--dicex-success);
+	border-inline-start-width: 4px;
+	border-radius: 4px;
+	background: #f6fbf6;
+}
+
+.dicex-connect-club-hold p {
+	margin: 0;
+}
+
+.dicex-connect-club-hold p + p {
+	margin-block-start: 10px;
+}
+
+.dicex-connect-club-hold .dashicons {
+	color: var(--dicex-success);
+	vertical-align: text-bottom;
+}
+
+.dicex-connect-club-birthday-settings {
+	margin-inline-start: 24px;
+}
+
+.dicex-connect-club-birthday-settings select {
+	max-width: 100%;
+}
+
+.dicex-connect-club-birthday-settings p > .description,
+.dicex-connect-club-consent-label .description {
+	display: block;
+	margin-block-start: 4px;
+}
+
+/* ---- Members ------------------------------------------------------------ */
+
+.dicex-connect-club-filters {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-block-end: 12px;
+}
+
+.dicex-connect-club-table-wrap {
+	overflow-x: auto;
+}
+
+.dicex-connect-club-table th,
+.dicex-connect-club-table td {
+	text-align: start;
+	vertical-align: middle;
+}
+
+/* The number heads its row for a screen reader, and looks like the cells beside it. */
+.dicex-connect-club-table tbody th {
+	font-weight: 400;
+}
+
+.dicex-connect-club-move-apply {
+	margin-inline-start: 4px;
+}
+
+.dicex-connect-club-table select {
+	max-width: 220px;
+}
+
+.dicex-connect-club-lock {
+	margin-inline-start: 4px;
+	color: #50575e;
+}
+
+.dicex-connect-club-state {
+	display: inline-block;
+	padding: 2px 8px;
+	border-radius: 999px;
+	background: #f0f0f1;
+	font-size: 12px;
+}
+
+.dicex-connect-club-state.is-synced {
+	background: #edfaef;
+	color: #007017;
+}
+
+.dicex-connect-club-state.is-error {
+	background: #fcf0f1;
+	/* 5.67:1 here, where the admin red is 4.15:1. */
+	color: #b32d2e;
+}
+
+.dicex-connect-club-error,
+.dicex-connect-club-synced {
+	display: block;
+	margin-block-start: 4px;
+	color: #50575e;
+	font-size: 12px;
+}
+
+.dicex-connect-club-error {
+	color: #b32d2e;
+}
+
+.dicex-connect-club-pager {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+@media screen and (max-width: 782px) {
+	.dicex-connect-club-intro-head {
+		flex-direction: column;
+	}
+
+	.dicex-connect-club-level-body {
+		padding-inline-start: 0;
+	}
+
+	.dicex-connect-club-bound input {
+		width: 7em;
+	}
+}

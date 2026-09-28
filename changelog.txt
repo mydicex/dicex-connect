@@ -1,0 +1,729 @@
+== Changelog ==
+
+The full history. The current release is also in readme.txt, which the
+WordPress.org handbook asks to keep short.
+
+= 1.8.1 =
+
+A clearer Integrations tab when a card cannot be switched on yet.
+
+**Bugfixes**
+
+* Pressing a card's switch on the Integrations tab while your own profile has no mobile number the plugin can use now says so on that card, with a link to your profile, instead of doing nothing. The switch can be reached from the keyboard, and screen readers hear the reason.
+
+= 1.8.0 =
+
+A Support tab, so you can write to DiceX support without leaving your dashboard.
+
+**Enhancements**
+
+* Adds a Support tab after Credit. Its form emails DiceX support with your question, the site's name, address and versions, and, unless you untick it, the plugin's log. The answer comes to the email address you give.
+
+**Security**
+
+* The form writes to DiceX support and nobody else, and only an administrator can send it. A site can send one message a minute and five a day, and email and IP addresses in the attached log are shortened before it goes.
+
+**Other**
+
+* The example mobile number on the settings screens is now an Omani one, whatever the region.
+
+= 1.7.0 =
+
+One region for the rest of the world, and the fixes from a security review and an accessibility review of the Customer Club.
+
+**Enhancements**
+
+* Folds Europe and the United States into one region, World Wide — the name the product page uses — with WhatsApp and Telegram. A site that chose Europe keeps exactly what it had; a site that chose the United States, which offered nothing, now gets those two channels. Neither falls back to Iran.
+
+**Security**
+
+* An unpaid order no longer counts as proof of who a guest is. A guest's name, email, address and date of birth come from their newest paid order, so an order left unpaid under somebody else's number cannot change what DiceX holds for them.
+* Export Personal Data and Erase Personal Data answer only for the requester's own club records: the numbers on their account, and the guest numbers they paid under with that email. Before, an order placed with somebody else's number and your own email was enough to see that person's level and groups, or to take them out of the club.
+* An account that types a guest customer's number no longer takes that customer over, unless it has paid under the number itself or carries the email the guest paid with.
+* The welcome message goes to an account once, not to every number it types, and never to a number it dropped before it was greeted. A level's message reaches an account at most once in 30 days, however often its own city or date of birth moves it between levels. Only the first 50 characters of a customer's name go into either message.
+* The mobile number on a WordPress profile can no longer be one another account already has, since two accounts sharing a number stops both of them signing in with a code. A number already shared stays until it is changed.
+* Somebody who leaves the club, or is moved to the level for removed numbers, is from then on sent to DiceX as their number and that level, every other field empty, and the club's tables keep no name, place or date of birth for them.
+* Erase Personal Data also clears the details last sent to DiceX, the member's city and country, and the phone and city on the club's copy of their orders, and tells the admin plainly that DiceX keeps whatever it was sent before.
+* Uninstalling on a multisite network cleans up every site of it, not only the one the uninstall was started from.
+* The error shown when a tab cannot load is written into the page as text, never as markup.
+
+**Accessibility**
+
+* A member's level is changed with an Apply button. Before, arrowing through the list with the keyboard moved the member on every option it passed, and could send them a level's message.
+* The order of channels can be changed with up and down buttons, on the Customer Club tab and on every integration card, not only by dragging.
+* Keyboard focus stays where it belongs when a level, group, city or product is removed, when a panel closes, after the first import is sent or a refusal retried, and while a button is busy: a busy button now says so instead of being disabled.
+* Screen readers are told what happens: an import finishing, the first send waiting, sending paused, a count starting and its result, what a search found, a member moved, a city already listed, a level's new place. The member list is no longer redrawn under somebody working in it.
+* Each condition is a named group, so "From" and "To" are heard with Purchases, Orders, Days since the last purchase or Age, and their unit. Filter boxes, panels and each level's buttons say which list or level they belong to, and a subcategory says which category it is in. Escape closes a list.
+* The "In another language" buttons no longer open an empty conditions panel, or lose their count of written languages.
+* A group's state on the member list has a mark and words of its own, not only a colour, and a member held in a level by hand says so to a screen reader.
+* Tags, chips and error text meet WCAG AA contrast, the switch has a visible edge when off, and the level arrows are at least 24 pixels square.
+* Every date of birth field carries autocomplete="bday", and the WordPress registration form says in words how to write the date.
+
+**Bugfixes**
+
+* Moving a member by hand no longer hides their groups until the list is loaded again.
+* The admin numbers say "1 number stored" and "1 number saved", not "1 numbers", and translations get a plural form of their own.
+
+**Notes**
+
+* Nothing needs doing after the update. The first sync afterwards sends the members who left or were removed once more, without their details.
+* All eight screenshots on the plugin page are new, taken from 1.7.0.
+* The plugin page, its banner, the description on the Plugins screen and the Getting started screen now describe the whole plugin: the Customer Club first, then the messages for your site's events. The tags follow: customer club, crm, sms, whatsapp and woocommerce.
+* The plugin is now called DiceX Connect – Customer Club and Event Notifications. Only the name changes: its address on WordPress.org, its folder and its settings stay as they were, and nothing needs doing.
+
+= 1.6.0 =
+
+Stops checkouts and forms waiting on DiceX, and gives the Customer Club a command line.
+
+**Enhancements**
+
+* Sends the integration cards' messages — orders, forms, security alerts — after the visitor's page has gone out, the way WordPress runs its own scheduled tasks: the response is finished first where the server allows it, so a checkout or a form no longer waits on the gateway. Nothing is stored to be sent later, and a message that fails is logged and not sent twice. Login codes, Digits and the test button still send at once, since somebody is waiting for them. A site that needs the old behaviour can return false from the `dicex_connect_send_after_response` filter.
+* Adds `wp dicex club` for WP-CLI: `status` shows members, what is waiting, the levels and the groups; `import` reads customers and works through them with the club's own rules, waiting for release after the first import as the screen does; `sync` works through everything waiting; `retry` puts refused customers and memberships back in the queue; `release` sends the first import once you have checked it.
+* On a store, the ready-made levels now open with Inactive: customers who have not bought in 180 days, checked first, for win-back campaigns.
+
+**Bugfixes**
+
+* WordPress 6.7 and later no longer logs "Translation loading for the dicex-connect domain was triggered too early" on every request — a notice that a site with debugging on also saw at the top of every wp dicex command. The integration cards now start on after_setup_theme, still before anything they listen to happens.
+
+**Notes**
+
+* The readme gives the Customer Club a section of its own, and its list of what is sent now names the contact groups and the club's messages, which 1.4.0 added.
+
+= 1.5.0 =
+
+Lets the club ask how old a customer is.
+
+**Enhancements**
+
+* Adds an age condition to levels and groups, from and to, in whole years. It is counted from the customer's date of birth in the calendar they read — Solar Hijri in Persian, Gregorian otherwise — because 21 Mordad is 12 August in some years and 11 August in others, and a customer turns a year older on their own birthday, not a day beside it.
+* Moves customers on their birthday by itself, in every sync mode, as the daily run already does for days since the last purchase. A day the site slept through is caught up on the next run.
+* Counts ages in Count customers before anything is saved.
+* Works without WooCommerce too: a WordPress user's date of birth counts the same as a customer's.
+* Somebody born on 29 February is a year older on 28 February in a common year, and somebody born on 30 Esfand on 29 Esfand — the birthday stays in the month it belongs to.
+* Says on a level or group when nobody can meet its age condition because the club asks for no date of birth.
+
+**Notes**
+
+* The club's own copy of each date of birth is kept only while something needs it — DiceX, or an age condition — and Erase Personal Data removes it.
+* Birthday greetings are DiceX's: its panel sends them from the date of birth the club already sends, so the plugin sends none of its own.
+* Existing members are looked at once after the update to record their dates of birth. Nothing is sent to DiceX because of it.
+
+= 1.4.0 =
+
+Groups your customers by what they buy, alongside the levels, and writes to them in their own language.
+
+**Enhancements**
+
+* Adds contact groups. A group has the same conditions as a level, but a customer is in every group they match instead of one, so you can gather, say, everybody who buys coffee and everybody who buys from Tehran and reach each of them in DiceX. A group needs at least one condition, and nobody in the level for removed numbers is put in one.
+* Counts customers for the groups too, before anything is saved, and shows each group's size, how many memberships are still on their way, and how many contacts no longer match.
+* Says on each member's row which groups they are in.
+* Sends a message to a customer who moves up into a level, when you write one for that level. Only upwards, never on joining — the welcome covers that — and never for the level kept for removed numbers. It goes over the same channels as the welcome message.
+* Lets you write the welcome message and each level's message in any language the site is read in. Each customer is written to in the language of their account, or the one they were reading when they ordered, with the plain text as the fallback.
+* Creates each group in your DiceX account as it is first needed, and reuses a group of the same name that is already there.
+
+**What DiceX cannot do**
+
+* Nothing takes a contact out of a group: the DiceX API has no such call. A customer who stops matching a group stays in it at DiceX, and both the group and the member's row say so.
+
+= 1.3.0 =
+
+Asks customers for their date of birth and whether they want to be in the club, and lets a level ask how long ago somebody last bought.
+
+**Enhancements**
+
+* Asks for the date of birth at checkout, classic and block, on the WordPress and WooCommerce registration forms, in the customer's account and on the WordPress profile screen. It is optional unless you make it required, and goes to DiceX with the year.
+* Takes a date of birth typed in the Solar Hijri calendar or the Gregorian one, in Persian, Arabic-Indic or Latin digits. Persian visitors see a Shamsi example; every date is kept and sent as Gregorian. The conversion needs no PHP extension, and matches the official calendar for every year from 1206 to 1498.
+* Reads birthdays another plugin already keeps, from a user meta key you name.
+* Lets you choose who joins the club: every customer, or only customers who tick a box at checkout, when registering or in their account, with the date and the place of that choice recorded. There is no default; the club cannot be switched on before you choose. A club that is already on keeps taking everybody in.
+* Lets customers leave the club from their account, in both modes. They move to the level for removed numbers at once, and ticking the box again brings them back. The level for removed numbers is now needed before the club can be switched on.
+* Adds a condition on the days since the last purchase, from and to. A customer who never bought anything does not meet it. The daily run moves people as those days pass, now in every sync mode.
+* Adds Count customers to the levels: how many customers each level would hold with the levels on screen, and how many would move, before anything is saved.
+* Holds the first import once it has read your customers and placed them in levels. Nothing reaches DiceX until you have seen the counts and pressed Send to DiceX.
+* Covers the date of birth and the club choices in WordPress's Export and Erase Personal Data tools, and in the suggested privacy policy text.
+
+**Bugfixes**
+
+* In the "Only as things happen" sync mode, purchases leaving the counting window now lower customers' totals; the daily run used to skip that in this mode.
+
+= 1.2.0 =
+
+Lets a club level ask what a customer bought and where they buy from.
+
+**Enhancements**
+
+* Adds five conditions a level can use besides spend and orders: bought from product categories, where a subcategory counts too; bought products; bought from brands; the buyer's country; and the buyer's city. Inside one list any single entry is enough, and every condition a level sets must hold.
+* Matches cities however customers typed them. Capital letters, spaces and the Arabic or Persian forms of a letter are ignored, and you can list every spelling you want to count.
+* Looks at a product's buyers again when the product moves to another category or brand.
+* Shows each member's city and country in the members list.
+* Knows a registered customer by the phone on their newest order when their account has none saved.
+
+**Bugfixes**
+
+* Saving club settings while WooCommerce is switched off no longer clears the purchase conditions of your levels.
+
+**Other**
+
+* A site that installed 1.1.0 reads its orders once more after this update, so the new conditions apply to past purchases too.
+
+= 1.1.0 =
+
+Adds the Customer Club: your WordPress users and WooCommerce customers, registered in your DiceX club, in levels you define.
+
+**Enhancements**
+
+* Adds a Customer Club tab. You name your own levels, put them in order, and give each a purchase range in your store currency and a range of order counts. A customer joins the first level whose conditions they meet, and the level you choose for everybody else when they meet none.
+* Moves customers between levels by themselves. A new order, a refund or a cancellation is noticed as it happens, and a daily run catches anything missed and lowers totals when only recent purchases count.
+* Imports your existing customers in one go, with a progress bar. Guests who paid for an order join by their billing phone, completed with their billing country's code when they typed it without one.
+* Lets you put a member in a level by hand, where they stay until you hand them back to the conditions. That is how a number leaves the club: DiceX deletes nothing, so it moves to the level you keep for removed numbers.
+* Adds an optional welcome message, sent once when somebody joins, over the channels you choose — never to customers brought in by an import.
+* Covers the club in WordPress's Export and Erase Personal Data tools, and adds a suggested paragraph to the privacy policy guide.
+* Names the plugin, WordPress, PHP and WooCommerce versions, the site language, the region and the site address in the User-Agent of every request to DiceX.
+
+**Other**
+
+* Sends nothing during a customer's checkout. Changes are recorded and sent in the background, fifty customers to a request, and a customer DiceX refuses does not hold anybody else back.
+
+= 1.0.28 =
+
+Stops you switching on a card that would do nothing.
+
+**Enhancements**
+
+* A card can no longer be switched on while your own profile has no mobile number, or has one the plugin cannot use. The reason sits at the top of the Integrations tab and links straight to the field, instead of leaving you to find out later that nothing was sent.
+
+**Other**
+
+* Every warning that mentions your profile is now a link to it, so you are not sent hunting through the dashboard.
+
+= 1.0.27 =
+
+Sends each channel the number in the shape it actually accepts.
+
+**Bugfixes**
+
+* Fixes WhatsApp, voice calls, Telegram, Bale and Safir refusing to deliver. Those channels want the number with its plus and country code, and the plugin was sending it without. Numbers are now kept that way too, so what you see stored is what goes out.
+
+**Other**
+
+* SMS still goes out in the Iranian form, starting with a zero, because that is what the gateway takes there today.
+
+= 1.0.26 =
+
+Settles on one mobile number format, and says why a login code could not be sent.
+
+**Enhancements**
+
+* Every mobile number is now written the same way wherever it is asked for: a plus, then the country code, like +96891234567. A number entered without one is refused where it is typed, and the field shows the standard form back to you. This ends numbers that worked under one region and quietly stopped under another.
+
+**Bugfixes**
+
+* A number typed in the Iranian national form, with its leading 0, on a site set to Iran is still understood and is stored with its country code, so it keeps working if the region ever changes.
+
+**Other**
+
+* When a login code cannot be sent, an administrator now sees what the gateway said rather than only that it failed.
+
+= 1.0.25 =
+
+Finishes the lockout fix that 1.0.24 only half closed.
+
+**Bugfixes**
+
+* Fixes a sign-in still being refused when the code could not reach you. A mobile number written in the Iranian national form, with its leading 0, lost that zero outside Iran and became a number with no country code that nothing could deliver to — so the message never arrived and the login was refused with it. Such a number is now refused where it is entered, with the shape to use instead, and a sign-in is never taken apart for a code that cannot be sent.
+
+**Other**
+
+* The message about a number the plugin cannot deliver to now says how the number should be written.
+
+= 1.0.24 =
+
+Fixes a lockout, and makes three things on screen clearer.
+
+**Bugfixes**
+
+* Fixes being locked out of your own site. With the region set somewhere the two-step login's channel cannot reach — the Gulf, which does not offer SMS — every login code was refused before it left, and the sign-in was refused with it. The only ways back in were editing wp-config.php or switching the plugin off. The second step now stands down instead, sign-ins work as normal, and the card on the Integrations tab says why.
+
+**Other**
+
+* The refund and privacy links on the Credit tab now open the plugin's own site instead of the seller's.
+* Puts the converted dollar and euro amounts on the Credit tab in bold, so they stand out from the rest of the line.
+* A login code's expiry now names the clock it is on, for example "Valid until 14:32 (Tehran)", and so does the time on an event alert.
+
+= 1.0.23 =
+
+Puts the Credit tab on the right money for the region it is set to.
+
+**Enhancements**
+
+* Top-up amounts now follow the region. An account set to the Gulf is offered 5, 10, 20 and 50 Omani rial, with 5 as the smallest, instead of the Iranian figures it was shown before.
+* Shows what an amount is worth in US dollars and euros while you type it, so a currency you do not think in still tells you something. The dollar figure is exact, because the Omani rial is pegged to it; the euro figure is approximate and says which day its rate is from.
+
+= 1.0.22 =
+
+Puts the two Gulf payment gateways on screen, ahead of them going live.
+
+**Enhancements**
+
+* Adds Paymob and Thawani to the Credit tab for accounts set to the Gulf region, with Thawani's own mark. Both are shown greyed out and cannot be chosen: they switch on once DiceX accepts them.
+
+= 1.0.21 =
+
+Adds the terms that cover a top-up paid for outside Iran.
+
+**Enhancements**
+
+* Shows the seven-day money-back guarantee on the Credit tab before you pay, along with the refund terms, what happens to your details, and who the seller is. It appears on every dashboard that is not in Persian, and links to both full policies.
+
+= 1.0.20 =
+
+A small fix on the Sender lines screen.
+
+**Bugfixes**
+
+* The test box now keeps up with the table. Choosing a line updated the list of lines in use but left the test box naming the old state until the page was reloaded.
+
+= 1.0.19 =
+
+A housekeeping release that changes how the plugin is listed, not what it does.
+
+**Other**
+
+* Adds a link to the plugin's own site in the plugin header, so it shows on the plugin page and on the Plugins screen.
+* Changes the terms the plugin is filed under in the directory, so it turns up for people looking for one-time codes, two-step login and WhatsApp.
+
+= 1.0.18 =
+
+Corrects which channels can send without a line of their own, and adds two things people asked for.
+
+**Enhancements**
+
+* Adds a note on the Credit tab for anyone holding a discount coupon, which has to be spent in the DiceX panel rather than here.
+* Adds a link to the plugin's own page on the Getting started tab.
+
+**Bugfixes**
+
+* Only SMS, voice calls and Safir can send on the DiceX shared line. WhatsApp, Telegram Bot and Bale Bot need a line activated on your own DiceX account, and the Sender lines tab now says which channels are ready and which are still waiting for a line, instead of promising a default for all six.
+
+= 1.0.17 =
+
+A wording fix, ahead of the first release on the WordPress.org plugin directory.
+
+**Bugfixes**
+
+* Corrects the description at the top of the Integrations tab, which said switching a card on opens its settings. Every card's settings are always visible; switching the card on is what makes them editable.
+
+= 1.0.16 =
+
+A channel with no sender line of its own now sends on your account's default line, which is what DiceX does with it anyway.
+
+**Enhancements**
+
+* Channels you have not chosen a line for send on your account's default line for that channel. The Sender lines tab says so, and shows Account default against any channel you have left unset.
+* The test send now works without choosing a line, so you can see what your account's default actually does.
+
+**Bugfixes**
+
+* The plugin no longer refuses to send when no line is chosen.
+
+**Other**
+
+* Rewrites the release notes to say what changed rather than how it was done.
+
+= 1.0.15 =
+
+**Bugfixes**
+
+* Fixes the resend line on the two-step login screen, which could run past its panel and did not name the channel the next code would use.
+
+= 1.0.14 =
+
+**Bugfixes**
+
+* Fixes the layout of the two-step login screen: the countdown no longer overflows, and the confirm button sits centred with room above it.
+* The countdowns and the channel name are now bold, so they are easier to find.
+
+= 1.0.13 =
+
+**Enhancements**
+
+* Adds a setting for the language of the words the plugin puts into a message, such as when a code expires or when an event happened. Your own message templates are untouched. Useful when the people receiving your messages do not read the language of your dashboard.
+
+**Bugfixes**
+
+* Fixes spacing and alignment on the two-step login screen.
+
+= 1.0.12 =
+
+This release gives you control over the login code and the voice call, and puts more useful detail into the messages that go out.
+
+**Enhancements**
+
+* Adds a setting for the length of the two-step login code, from four to eight digits.
+* Adds a setting for the language a voice call speaks. Arabic and German are listed and turn on by themselves once DiceX supports them.
+* A login code now says when it expires, and an alert says when the event happened. Both can be switched off, since on a Persian SMS an extra line can cost a second message.
+* Getting started now shows the installed version and what changed in recent releases.
+* Channels and integration cards now show their own logos.
+
+**Other**
+
+* Moves the release history to changelog.txt, as the WordPress.org handbook recommends.
+
+= 1.0.11 =
+
+**Bugfixes**
+
+* Fixes the DiceX icon in the admin menu, which was drawing at full size and covering the menu items below it.
+
+= 1.0.10 =
+
+**Bugfixes**
+
+* Fixes the alignment of the text under the buttons on the Getting started tab.
+
+= 1.0.9 =
+
+**Enhancements**
+
+* Asking for a new login code now tries the next channel rather than repeating the one that did not reach you.
+* A voice call now says so on the code screen, instead of asking you to look for a message.
+
+= 1.0.8 =
+
+**Bugfixes**
+
+* Fixes two broken images introduced in 1.0.7.
+
+= 1.0.7 =
+
+**Other**
+
+* Updates the admin menu icon to the DiceX brand mark.
+
+= 1.0.6 =
+
+**Enhancements**
+
+* The two-step login screen now names the channel the code was sent through. A card tries its channels in order, so the code does not always arrive by SMS.
+
+= 1.0.5 =
+
+Translations now come from the WordPress community rather than being bundled with the plugin.
+
+**Enhancements**
+
+* The plugin's screens follow your WordPress language, and the Connection tab shows which language is in use and where to change it.
+* Translations come from translate.wordpress.org, so the plugin can appear in any language the community has translated, and new translations reach existing sites on their own.
+
+**Other**
+
+* Removes the separate "Plugin language" setting, which did the same job WordPress already does.
+
+= 1.0.4 =
+
+**Other**
+
+* Updates the admin menu icon to match the DiceX brand mark.
+
+= 1.0.3 =
+
+**Enhancements**
+
+* Bundles the Vazirmatn font and uses it on the plugin's screens, so Persian is readable without depending on the fonts installed on the reader's machine. It is served from the plugin; no font service is contacted.
+
+= 1.0.2 =
+
+**Other**
+
+* Code documentation for the WordPress.org review.
+
+= 1.0.1 =
+
+**Other**
+
+* Renames the plugin's classes to carry the full Dicex_Connect_ prefix, as the Plugin Review Team asks.
+* Annotations for the WordPress.org review.
+
+= 1.0.0 =
+
+First release submitted to the WordPress.org plugin directory.
+
+**Enhancements**
+
+* The External services section now names every DiceX address the plugin contacts or links to, what leaves your site and when.
+
+**Other**
+
+* Renames the plugin to DiceX Connect, so the name, the folder and the text domain agree.
+* Uninstalling now also removes the mobile numbers stored on user profiles.
+
+= 0.20.0 =
+
+**Enhancements**
+
+* Adds WhatsApp and Telegram to the GCC and Europe regions. SMS and voice remain available in Iran only.
+* Phone numbers now follow the region. Iran keeps the form it has always used; other regions expect the country code, in any of the usual ways of writing it.
+* The profile field, the admin numbers box and the error messages now show the number format the region actually wants.
+
+**Bugfixes**
+
+* A number the plugin cannot understand is now refused before it is sent, rather than reaching the gateway mangled.
+
+= 0.19.0 =
+
+The plugin now knows where your DiceX account operates, and offers only what is available there.
+
+**Enhancements**
+
+* Adds a region setting on the Connection tab — Iran, GCC, Europe or the United States. Existing sites are set to Iran and behave exactly as before.
+* Channels the region does not cover are refused when a message is sent, not merely hidden.
+* Payment gateways follow the region, and a region with nothing available says so rather than billing through the wrong bank.
+* Amounts and the account balance now use the currency of the region.
+
+**Other**
+
+* Nothing about the region is sent to DiceX. It only decides what the plugin offers you.
+
+= 0.18.0 =
+
+**Enhancements**
+
+* The DiceX menu now opens on Getting started. Every other tab keeps its own address.
+* The two-step login card carries the DiceX mark, and any card can now show a logo.
+
+**Bugfixes**
+
+* Fixes the icons and layout on the Getting started tab.
+
+**Other**
+
+* Removes two duplicated links, which now live on Getting started only.
+
+= 0.17.1 =
+
+**Enhancements**
+
+* The payment gateways now show their own logos, aligned with each other.
+
+= 0.17.0 =
+
+**Enhancements**
+
+* Online top-up now asks which bank to pay through: Saman, Sepehr, or credit payment with Digipay. Saman is chosen for you.
+* A bank logo dropped into the plugin's gateways folder is shown automatically; without one the bank name is shown.
+
+**Bugfixes**
+
+* Sends the payment provider the gateway now expects, so an unrecognised choice can no longer become a refused payment.
+
+= 0.16.0 =
+
+**Enhancements**
+
+* Adds a Getting started tab: what DiceX is, what the plugin does with it, and the two ways forward. There is a Getting started link on the Plugins screen, and no activation redirect or dashboard notice.
+* Renames Bale and Telegram to Bale Bot and Telegram Bot, the names the DiceX panel uses.
+
+**Bugfixes**
+
+* Fixes the spacing of the SMS field on the Sender lines tab.
+* Corrects the link to the DiceX panel.
+
+= 0.15.3 =
+
+**Bugfixes**
+
+* Fixes the Persian translation, which never loaded on any site — every screen fell back to English.
+* Fixes the spacing of the SMS label on the Sender lines tab.
+
+**Other**
+
+* Messages are now signed "DiceX WP" by default rather than the WordPress site title. The Connection tab still overrides it.
+
+= 0.15.2 =
+
+**Enhancements**
+
+* Adds a setting for the name used in messages, so the {site_name} tag no longer has to be your WordPress site title.
+
+**Bugfixes**
+
+* Choosing Persian turned the screens round but left the labels in English. Fixed.
+* Fixes an alert that read "1 failed logins in a row" after a single attempt.
+* Fixes the position of the SMS label, and of labels generally when the plugin is set to Persian on an English WordPress.
+
+= 0.15.1 =
+
+**Other**
+
+* The admin menu now carries the DiceX mark.
+
+= 0.15.0 =
+
+Top-up is fixed, and the settings screens have been tidied.
+
+**Enhancements**
+
+* Adds quick top-up amounts starting at the smallest the gateway accepts, with a box for any other amount. An amount below the minimum is refused straight away.
+* Adds a top-up button beside the credit shown on the Connection tab.
+* Sender lines are one table again, with a tick against every channel that has a line.
+* Rounds the corners of fields and buttons across the plugin, and gives each settings tab its own icon.
+
+**Bugfixes**
+
+* Fixes online top-up, which reported an error no matter what happened. A refused top-up now shows what the gateway said.
+
+= 0.14.1 =
+
+**Enhancements**
+
+* The failed-login warning now sends after a number of attempts you choose, including every attempt. It was fixed at five.
+* Each counted attempt is written to the log, so it is clear the counter is working before the warning is due.
+
+= 0.14.0 =
+
+Cards can now try more than one channel.
+
+**Enhancements**
+
+* Each card sends over a list of channels rather than one. Drag them into the order you want, and if the first does not get through the next is tried.
+* The log names each channel that was skipped and which one was tried next.
+
+**Other**
+
+* Cards saved before this release keep working; their single channel becomes a list of one.
+
+= 0.13.0 =
+
+**Enhancements**
+
+* The code screen now counts down how long the code is good for.
+* You can ask for a new code without starting the sign-in again — up to three per sign-in, one a minute.
+* Switching the two-step login card on now tells you straight away if it cannot work yet.
+
+= 0.12.1 =
+
+**Bugfixes**
+
+* A mobile number the plugin cannot use was accepted by the profile form and then discarded. WordPress now refuses the save and says why.
+* The two-step login card now says when it is switched on but cannot do anything.
+
+= 0.12.0 =
+
+**Enhancements**
+
+* Adds the Digits integration: switch the card on, choose DiceX in Digits' own gateway settings, and every code Digits sends goes out over DiceX. Digits keeps control of the wording and the recipient.
+
+= 0.11.0 =
+
+The plugin is now written in English with a Persian translation, rather than written in Persian.
+
+**Other**
+
+* Nothing changes for a Persian site. Translators of every other language now work from an English original, which is what translate.wordpress.org expects.
+
+**Bugfixes**
+
+* The account credit was always shown in Persian digits and rials whatever the site language. It now follows the site.
+
+= 0.10.0 =
+
+Two-step login over SMS, with no other plugin needed.
+
+**Enhancements**
+
+* Choose on the card: a code after the password, a code instead of the password, or both offered on the login page.
+* The second step applies to any user with a mobile number on their profile. Anyone without one signs in exactly as before, so turning it on cannot lock a site's users out.
+* Codes are six digits, stored only as a hash, valid for two minutes, dead after five wrong guesses and limited to one a minute.
+* If a code cannot be sent the login is refused rather than allowed through. A setting in wp-config.php stands the whole module down if you are ever locked out.
+
+= 0.9.0 =
+
+**Enhancements**
+
+* Ships a translation template, so the plugin can be translated into any language.
+* Rewritten listing page, including an External services section stating exactly what is sent to DiceX and when.
+
+**Other**
+
+* Renames the plugin on the directory listing so the name says what it does. Your saved data is untouched.
+
+= 0.8.0 =
+
+Security alerts, built on WordPress's own hooks rather than on any security plugin.
+
+**Enhancements**
+
+* Alerts for repeated failed logins, an administrator signing in, a new user registering, and a password reset. Each can be switched on separately.
+* Failed logins alert once per address every fifteen minutes, so a brute-force run cannot become a flood of messages.
+* Sites behind a CDN or reverse proxy can supply the real visitor address through a filter.
+
+= 0.7.0 =
+
+Form integrations are live.
+
+**Enhancements**
+
+* Adds WPForms, Contact Form 7 and Gravity Forms: a successful submission messages the admins, the person who submitted the form, or both.
+* The submitter's number is found automatically among the submitted fields, on any form, with no mapping to configure.
+* Spam entries in Gravity Forms no longer trigger a message.
+
+**Bugfixes**
+
+* Phone numbers written with Persian or Arabic-Indic digits are now understood instead of being discarded.
+* Numbers written with a leading 00 and the country code are now understood.
+
+= 0.6.0 =
+
+WooCommerce integration is live.
+
+**Enhancements**
+
+* Switch the card on and DiceX messages the admins, the customer, or both whenever an order changes status. Choose which statuses send; processing and completed are ticked by default.
+* Declares compatibility with WooCommerce High-Performance Order Storage.
+
+= 0.5.0 =
+
+**Enhancements**
+
+* Adds the Integrations tab: every plugin DiceX can notify on has a card with a switch, its own channel, its own recipients and its own message.
+* Recipients can be a shared list of admin numbers, WordPress administrators who filled in the new profile field, or the customer the event is about.
+* A card whose plugin is not installed is shown greyed out rather than hidden, so it is clear what is possible once that plugin is added.
+
+= 0.4.0 =
+
+**Other**
+
+* Renames the plugin to DiceX Connect. The previous name could not have been published, as WordPress.org does not allow "WordPress" or "WP" in a plugin name or slug.
+* Your API key, lines and logs are carried over automatically the first time the renamed plugin is activated.
+
+= 0.3.4 =
+
+**Enhancements**
+
+* Telegram, Bale and Safir can now be sent through, not just configured.
+* The test-send box lists every channel your account actually has, and labels any channel that has no line yet.
+
+= 0.3.3 =
+
+**Enhancements**
+
+* Rebuilds the Sender lines tab: pick a network, pick one of its lines, and it is stored straight away.
+* Telegram, Bale and Safir now have real line lists.
+
+**Bugfixes**
+
+* Fixes the social line lists, which were always empty.
+
+= 0.3.2 =
+
+**Bugfixes**
+
+* The line picked on the Lines tab is now saved as soon as it changes, so a test send can no longer use a stale line.
+* A gateway response reporting a failure while returning a success status is now treated as a failure.
+
+**Other**
+
+* The log now records the line number, send type and status for every send, so a rejection can be traced to the line used.
+
+= 0.1.0 =
+
+First working version: API key connection and verification, per-channel line selection, credit balance, a test-send tool and a debug log.

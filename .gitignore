@@ -1,0 +1,24 @@
+# This repository holds the plugin as it ships, and nothing else.
+# Everything below is either a build product or belongs to the private working
+# folder, which is not part of this repository.
+
+# Build products
+/dist/
+*.zip
+
+# Never in a release: the Persian .po and .mo belong in /translations, for
+# translate.wordpress.org, never in the plugin's own languages folder.
+/languages/*.po
+/languages/*.mo
+
+# Editors and operating systems
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+
+# Dependencies, if a build step is ever added
+node_modules/
+vendor/

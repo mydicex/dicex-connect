@@ -1,0 +1,1391 @@
+/*
+ * Vazirmatn, bundled in assets/fonts/ under the SIL Open Font License 1.1
+ * (OFL.txt sits beside the file). WordPress ships no Persian face, so the
+ * admin screens fell back to whatever the machine happened to have — which on
+ * Windows is usually Tahoma, and Persian set in Tahoma is hard to read for any
+ * length of time.
+ *
+ * One variable file covers every weight the screens use, which is smaller than
+ * the three static cuts it replaces.
+ */
+@font-face {
+	font-family: 'Vazirmatn';
+	font-style: normal;
+	font-weight: 100 900;
+	font-display: swap;
+	src: url('../fonts/vazirmatn-variable.woff2') format('woff2-variations'),
+		url('../fonts/vazirmatn-variable.woff2') format('woff2');
+}
+
+html {
+	--dicex-primary: #2271b1;
+	--dicex-success: #46b450;
+	--dicex-error: #dc3232;
+	--dicex-warning: #996800;
+	--dicex-border: #dcdcde;
+	--dicex-card-bg: #fff;
+	--dicex-shadow: rgba(30, 35, 40, 0.07);
+	--dicex-field-radius: 8px;
+}
+
+body {
+	font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+}
+
+.dicex-connect-wrap {
+	max-width: none;
+	margin-inline-end: 20px;
+	margin-inline-start: 2px;
+	font-family: 'Vazirmatn', 'IRANSans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Nothing on these screens has sharp corners: every field, select, textarea and
+   button picks the radius up from one token. */
+.dicex-connect-wrap input[type="text"],
+.dicex-connect-wrap input[type="password"],
+.dicex-connect-wrap input[type="email"],
+.dicex-connect-wrap input[type="tel"],
+.dicex-connect-wrap input[type="url"],
+.dicex-connect-wrap input[type="search"],
+.dicex-connect-wrap input[type="number"],
+.dicex-connect-wrap select,
+.dicex-connect-wrap textarea,
+.dicex-connect-wrap .button,
+.dicex-connect-wrap .button-primary,
+.dicex-connect-wrap .button-secondary,
+.dicex-connect-wrap .button-link {
+	border-radius: var(--dicex-field-radius);
+}
+
+.dicex-connect-wrap input[type="checkbox"] {
+	border-radius: 5px;
+}
+
+.dicex-connect-wrap textarea {
+	resize: vertical;
+}
+
+
+/* Direction follows the language the plugin is speaking, not the machine it is
+   installed on — an English admin should not read a mirrored screen. */
+.dicex-connect-wrap.is-rtl {
+	direction: rtl;
+}
+
+.dicex-connect-wrap.is-ltr {
+	direction: ltr;
+}
+
+.dicex-connect-card {
+	background: var(--dicex-card-bg);
+	border: 1px solid var(--dicex-border);
+	border-radius: 16px;
+	padding: 20px;
+	margin-top: 16px;
+	max-width: none;
+	box-shadow: 0 3px 14px var(--dicex-shadow);
+}
+
+.dicex-connect-wrap h1 {
+	font-size: 26px;
+	font-weight: 700;
+	color: #1d2327;
+}
+
+.dicex-connect-wrap .nav-tab-wrapper {
+	border-bottom-color: #dcdcde;
+}
+
+.dicex-connect-wrap .nav-tab {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 10px 16px;
+	border-radius: 8px 8px 0 0;
+	color: #646970;
+	transition: all 0.2s ease;
+}
+
+.dicex-connect-wrap .nav-tab:hover {
+	color: var(--dicex-primary);
+	background-color: #f0f0f0;
+}
+
+.dicex-connect-wrap .nav-tab-active {
+	color: var(--dicex-primary);
+	background-color: #f0f0f0;
+	border-bottom-color: var(--dicex-primary);
+}
+
+.dicex-connect-wrap .nav-tab .dashicons {
+	font-size: 18px;
+	width: 18px;
+	height: 18px;
+}
+
+.dicex-connect-api-key-row {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+
+.dicex-connect-status-icon {
+	font-size: 22px;
+	width: 22px;
+	height: 22px;
+}
+
+.dicex-connect-status-ok {
+	color: #46b450;
+}
+
+.dicex-connect-status-error {
+	color: #dc3232;
+}
+
+.dicex-connect-info-card {
+	display: none;
+	margin-top: 16px;
+	padding: 14px 18px;
+	border-radius: 12px;
+	background: #f6f7f7;
+	border-inline-start: 4px solid var(--dicex-primary);
+}
+
+.dicex-connect-info-card.is-visible {
+	display: flex;
+	gap: 24px;
+}
+
+.dicex-connect-info-label {
+	display: block;
+	font-size: 12px;
+	color: #646970;
+	margin-bottom: 4px;
+}
+
+.dicex-connect-info-value {
+	font-size: 18px;
+	font-weight: 600;
+	color: #135e96;
+}
+
+/* Credit and its top-up button read as one unit. */
+.dicex-connect-info-item {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 12px;
+}
+
+.dicex-connect-info-item .dicex-connect-info-label {
+	flex-basis: 100%;
+	margin-bottom: 0;
+}
+
+.dicex-connect-goto-tab {
+	display: inline-flex !important;
+	align-items: center;
+	gap: 4px;
+}
+
+.dicex-connect-goto-tab .dashicons {
+	font-size: 16px;
+	width: 16px;
+	height: 16px;
+}
+
+.dicex-connect-social-lines {
+	margin-top: 24px;
+	padding-top: 18px;
+	border-top: 1px solid #eee;
+}
+
+.dicex-connect-social-lines h3 {
+	display: flex;
+	align-items: center;
+	gap: 7px;
+}
+
+.dicex-connect-social-lines select {
+	margin-inline-end: 8px;
+}
+
+
+.dicex-connect-social-summary {
+	margin-top: 14px;
+	max-width: 640px;
+	border-radius: 12px;
+	overflow: hidden;
+}
+
+.dicex-connect-summary-heading {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	margin: 24px 0 0;
+	font-size: 15px;
+}
+
+/* Hidden rather than absent, so the column keeps its width and the rows do not
+   shift as lines are picked. */
+.dicex-connect-social-summary .dicex-connect-summary-state {
+	width: 34px;
+	text-align: center;
+	padding-inline-end: 0;
+}
+
+.dicex-connect-social-summary .dicex-connect-summary-state .dashicons {
+	color: var(--dicex-success);
+	visibility: hidden;
+}
+
+.dicex-connect-social-summary tr.is-configured .dicex-connect-summary-state .dashicons {
+	visibility: visible;
+}
+
+.dicex-connect-social-summary th,
+.dicex-connect-social-summary td {
+	text-align: start;
+}
+
+.dicex-connect-summary-number {
+	font-family: Consolas, Monaco, monospace;
+	unicode-bidi: isolate;
+}
+
+.dicex-connect-summary-name {
+	color: #646970;
+	font-style: normal;
+	margin-inline-start: 8px;
+}
+
+.dicex-connect-summary-default {
+	color: #a7aaad;
+}
+
+/* A channel with no shared line behind it is not merely unset, it cannot send,
+   so it reads in the same colour as the warning mark beside it. */
+.dicex-connect-summary-missing {
+	color: var(--dicex-warning);
+}
+
+.dicex-connect-social-summary tr.is-unset .dicex-connect-summary-state .dashicons {
+	color: var(--dicex-warning);
+	visibility: visible;
+}
+/* forms.css aligns .form-table th to the physical left. WordPress corrects that
+   from its own -rtl stylesheet, which an English install never loads — and this
+   plugin can be put into Persian on exactly such an install. Logical alignment
+   is right whichever way round the screen is. */
+.dicex-connect-wrap .form-table th {
+	text-align: start;
+}
+
+/* One short label over one control, so .form-table’s 200px label column only put
+   distance between them. Stacking the row closes the gap for good and reads the
+   same at any width.
+
+   Every selector here carries the wrapper class deliberately. Matching core with
+   the same specificity leaves the winner up to which stylesheet the browser saw
+   last, which is not something a plugin should be betting on. */
+.dicex-connect-wrap .dicex-connect-lines-table th,
+.dicex-connect-wrap .dicex-connect-lines-table td {
+	display: block;
+	width: auto;
+	min-width: 0;
+	padding-inline: 0;
+}
+
+.dicex-connect-wrap .dicex-connect-lines-table th {
+	padding-block: 0 6px;
+	white-space: nowrap;
+}
+
+.dicex-connect-wrap .dicex-connect-lines-table td {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	flex-wrap: wrap;
+	padding-block: 0;
+}
+
+.dicex-connect-line-saved {
+	color: #46b450;
+}
+
+.dicex-connect-test-box {
+	margin-top: 24px;
+	padding-top: 16px;
+	border-top: 1px solid #eee;
+}
+
+#dicex-connect-test-result {
+	margin-top: 10px;
+}
+
+#dicex-connect-test-result.notice {
+	padding: 8px 12px;
+}
+
+.dicex-connect-badge-soon {
+	display: inline-block;
+	font-size: 11px;
+	color: var(--dicex-warning);
+	background: #fcf0e0;
+	border: 1px solid #f0c869;
+	border-radius: 16px;
+	padding: 2px 10px;
+	margin-inline-start: 6px;
+	vertical-align: middle;
+}
+
+.dicex-connect-credit-options {
+	display: flex;
+	gap: 8px;
+	flex-wrap: wrap;
+}
+
+#dicex-connect-charge-result {
+	margin-top: 10px;
+}
+
+.dicex-connect-tab-content {
+	min-height: 240px;
+}
+
+.dicex-connect-tab-content.is-loading {
+	display: grid;
+	place-items: center;
+}
+
+.dicex-connect-loader .dashicons {
+	font-size: 30px;
+	width: 30px;
+	height: 30px;
+	color: var(--dicex-primary);
+	animation: dicex-connect-spin 0.9s linear infinite;
+}
+
+@keyframes dicex-connect-spin {
+	to { transform: rotate(360deg); }
+}
+
+.dicex-connect-log-box {
+	background: #1d2327;
+	color: var(--dicex-success);
+	font-family: Consolas, Menlo, monospace;
+	direction: ltr;
+	text-align: left;
+	padding: 16px;
+	margin-top: 12px;
+	max-height: 480px;
+	overflow-y: auto;
+	border-radius: 12px;
+}
+
+@media screen and (max-width: 782px) {
+	.dicex-connect-wrap {
+		margin-inline-end: 10px;
+		margin-inline-start: 0;
+	}
+	.dicex-connect-card {
+		padding: 14px;
+	}
+	.dicex-connect-social-lines select {
+		margin: 0 0 8px;
+		width: 100%;
+	}
+}
+
+/* ---- Integrations tab ---- */
+
+.dicex-connect-recipients-box {
+	border: 1px solid var(--dicex-border);
+	border-radius: 12px;
+	padding: 14px 16px;
+	margin: 16px 0 24px;
+	background: #fbfbfc;
+}
+
+.dicex-connect-recipients-box h3 {
+	margin: 0 0 4px;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 15px;
+}
+
+.dicex-connect-recipients-box textarea {
+	width: 100%;
+	max-width: 260px;
+	min-height: 74px;
+	margin: 8px 0;
+	padding: 8px 10px;
+	line-height: 1.6;
+}
+
+.dicex-connect-recipients-status {
+	margin-inline-start: 10px;
+	color: #646970;
+	font-size: 13px;
+}
+
+.dicex-connect-integration-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+	gap: 16px;
+}
+
+.dicex-connect-integration-card {
+	border: 1px solid var(--dicex-border);
+	border-radius: 14px;
+	padding: 16px;
+	background: var(--dicex-card-bg);
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.dicex-connect-integration-card.is-enabled {
+	border-color: var(--dicex-primary);
+	box-shadow: 0 2px 10px rgba(34, 113, 177, 0.10);
+}
+
+.dicex-connect-integration-card.is-unavailable {
+	opacity: 0.62;
+	background: #fbfbfc;
+}
+
+.dicex-connect-integration-head {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.dicex-connect-integration-head .dashicons {
+	color: var(--dicex-primary);
+	width: 22px;
+	height: 22px;
+	font-size: 22px;
+	flex: 0 0 auto;
+}
+
+.dicex-connect-integration-title {
+	flex: 1 1 auto;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	min-width: 0;
+}
+
+.dicex-connect-integration-title strong {
+	font-size: 14px;
+}
+
+.dicex-connect-badge-off {
+	background: #f0f0f1;
+	color: #646970;
+	border-radius: 999px;
+	padding: 1px 8px;
+	font-size: 11px;
+	white-space: nowrap;
+}
+
+.dicex-connect-integration-desc {
+	margin: 0;
+	color: #50575e;
+	font-size: 13px;
+	line-height: 1.8;
+}
+
+.dicex-connect-integration-events {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+}
+
+.dicex-connect-integration-events li {
+	margin: 0;
+	background: #f6f7f7;
+	border-radius: 999px;
+	padding: 2px 10px;
+	font-size: 12px;
+	color: #50575e;
+}
+
+.dicex-connect-integration-settings {
+	border-top: 1px solid var(--dicex-border);
+	padding-top: 12px;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.dicex-connect-integration-settings label {
+	display: block;
+	font-weight: 600;
+	font-size: 13px;
+	margin-bottom: 4px;
+}
+
+.dicex-connect-integration-settings select,
+.dicex-connect-integration-settings textarea {
+	width: 100%;
+}
+
+.dicex-connect-recipient-set {
+	border: 0;
+	padding: 0;
+	margin: 4px 0 8px;
+}
+
+.dicex-connect-recipient-set legend {
+	font-weight: 600;
+	font-size: 13px;
+	padding: 0;
+	margin-bottom: 4px;
+}
+
+.dicex-connect-recipient-set label {
+	font-weight: 400;
+	font-size: 13px;
+	line-height: 1.9;
+	margin-bottom: 0;
+}
+
+.dicex-connect-tag-list {
+	display: block;
+	margin-top: 6px;
+	font-size: 12px;
+	color: #646970;
+}
+
+.dicex-connect-tag-list code {
+	font-size: 11px;
+	padding: 1px 5px;
+	margin-inline-start: 4px;
+}
+
+.dicex-connect-integration-actions {
+	margin: 8px 0 0;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.dicex-connect-integration-note {
+	margin-top: 18px;
+}
+
+/* ---- on/off switch ---- */
+
+.dicex-connect-switch {
+	position: relative;
+	display: inline-block;
+	width: 42px;
+	height: 24px;
+	flex: 0 0 auto;
+	cursor: pointer;
+}
+
+.dicex-connect-switch input {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	margin: 0;
+	cursor: pointer;
+}
+
+.dicex-connect-switch input:disabled,
+.dicex-connect-switch input[aria-disabled="true"] {
+	cursor: not-allowed;
+}
+
+/* Locked until the profile has a number: still focusable, visibly not ready. */
+.dicex-connect-switch input[aria-disabled="true"] + .dicex-connect-switch-track {
+	opacity: 0.55;
+}
+
+/* The reason, on the card whose switch was pressed. */
+.dicex-connect-integration-blocked {
+	margin: 10px 0 0;
+}
+
+.dicex-connect-switch-track {
+	position: absolute;
+	inset: 0;
+	background: #c3c4c7;
+	border-radius: 999px;
+	/* The off track alone is 1.74:1 on white; its edge makes the switch findable. */
+	box-shadow: inset 0 0 0 1px #8c8f94;
+	transition: background 0.15s ease;
+}
+
+.dicex-connect-switch-track::before {
+	content: "";
+	position: absolute;
+	top: 3px;
+	inset-inline-start: 3px;
+	width: 18px;
+	height: 18px;
+	background: #fff;
+	border-radius: 50%;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+	transition: margin-inline-start 0.15s ease;
+}
+
+.dicex-connect-switch input:checked + .dicex-connect-switch-track {
+	background: var(--dicex-primary);
+}
+
+.dicex-connect-switch input:checked + .dicex-connect-switch-track::before {
+	margin-inline-start: 18px;
+}
+
+.dicex-connect-switch input:focus-visible + .dicex-connect-switch-track {
+	outline: 2px solid var(--dicex-primary);
+	outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.dicex-connect-switch-track,
+	.dicex-connect-switch-track::before {
+		transition: none;
+	}
+}
+
+.dicex-connect-integration-hint {
+	margin: 6px 0 0;
+	font-style: italic;
+}
+
+.dicex-connect-integration-warning {
+	margin: 6px 0 0;
+	display: flex;
+	align-items: flex-start;
+	gap: 6px;
+	font-size: 13px;
+	color: var(--dicex-warning);
+	line-height: 1.7;
+}
+
+.dicex-connect-integration-warning .dashicons {
+	flex: 0 0 auto;
+	font-size: 16px;
+	width: 16px;
+	height: 16px;
+	margin-top: 3px;
+}
+
+.dicex-connect-channel-list {
+	margin: 6px 0 0;
+	padding: 0;
+	list-style: none;
+	max-width: 420px;
+}
+
+.dicex-connect-channel-list li {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 0 0 4px;
+	padding: 6px 8px;
+	border: 1px solid var(--dicex-border);
+	border-radius: 8px;
+	background: #fbfbfc;
+	font-size: 13px;
+}
+
+.dicex-connect-channel-list li label {
+	font-weight: 400;
+	margin: 0;
+	flex: 1 1 auto;
+}
+
+.dicex-connect-channel-handle {
+	color: #a7aaad;
+	cursor: grab;
+	flex: 0 0 auto;
+}
+
+/* The keyboard way to reorder: up and down beside each channel. */
+.dicex-connect-channel-order {
+	display: inline-flex;
+	flex: 0 0 auto;
+	gap: 2px;
+}
+
+.dicex-connect-channel-order .button-link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 24px;
+	min-height: 24px;
+	color: #50575e;
+	text-decoration: none;
+}
+
+.dicex-connect-channel-order .button-link[aria-disabled="true"] {
+	color: #a7aaad;
+	cursor: default;
+}
+
+.dicex-connect-channel-list li.ui-sortable-helper {
+	box-shadow: 0 2px 8px rgba(30, 35, 40, 0.18);
+}
+
+.dicex-connect-channel-list li.ui-sortable-placeholder {
+	visibility: visible !important;
+	background: #f0f0f1;
+	border-style: dashed;
+}
+
+/* Credit tab: the preset the admin picked stays visibly picked. */
+.dicex-connect-credit-options {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	align-items: center;
+}
+
+.dicex-connect-credit-options .button {
+	font-variant-numeric: tabular-nums;
+}
+
+.dicex-connect-credit-quick.is-chosen {
+	border-color: var(--dicex-primary);
+	box-shadow: 0 0 0 1px var(--dicex-primary);
+	color: var(--dicex-primary);
+}
+
+/* ---- Getting started ---- */
+
+.dicex-connect-welcome {
+	max-width: 860px;
+	margin-inline: auto;
+	text-align: center;
+	padding: 32px 32px 28px;
+}
+
+.dicex-connect-welcome-head {
+	padding-bottom: 4px;
+}
+
+.dicex-connect-welcome-mark {
+	display: block;
+	margin: 0 auto 12px;
+	width: 56px;
+	height: 56px;
+}
+
+.dicex-connect-welcome h2 {
+	margin: 0;
+	font-size: 26px;
+	line-height: 1.3;
+	font-weight: 700;
+	color: #135e96;
+}
+
+.dicex-connect-welcome-sub {
+	margin: 6px 0 0;
+	font-size: 15px;
+	color: #646970;
+}
+
+.dicex-connect-welcome-connected {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	margin: 18px 0 0;
+	padding: 8px 16px;
+	border-radius: 999px;
+	background: #edfaef;
+	border: 1px solid #a7d8ae;
+	color: #1a4b23;
+	font-size: 13px;
+	text-align: start;
+}
+
+.dicex-connect-welcome-connected .dashicons {
+	color: var(--dicex-success);
+	flex: 0 0 auto;
+}
+
+.dicex-connect-welcome-body {
+	margin: 22px auto 0;
+	max-width: 680px;
+	text-align: start;
+}
+
+.dicex-connect-welcome-body p {
+	margin: 0 0 12px;
+	font-size: 14px;
+	line-height: 2;
+	color: #3c434a;
+}
+
+/* The channels, as a row of chips: a claim the prose makes, made scannable. */
+.dicex-connect-welcome-channels {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 8px;
+	margin: 18px 0 20px;
+	padding: 0;
+	list-style: none;
+}
+
+.dicex-connect-welcome-channel {
+	margin: 0;
+	padding: 5px 14px;
+	border-radius: 999px;
+	border: 1px solid var(--dicex-border);
+	background: #f6f7f7;
+	font-size: 12px;
+	color: #50575e;
+	white-space: nowrap;
+}
+
+.dicex-connect-welcome-actions {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 12px;
+	margin-top: 26px;
+}
+
+/* button-hero pushes the dashicon off the text baseline, hence the explicit box. */
+.dicex-connect-welcome-cta.button-hero {
+	display: inline-flex !important;
+	align-items: center;
+	gap: 8px;
+	height: auto;
+	padding: 10px 22px;
+	font-size: 15px;
+	line-height: 1.5;
+	border-radius: var(--dicex-field-radius);
+}
+
+.dicex-connect-welcome-cta .dashicons {
+	font-size: 18px;
+	width: 18px;
+	height: 18px;
+}
+
+/*
+ * Prefixed with the wrap, and with the element, on purpose.
+ *
+ * This paragraph also carries WordPress's own `description` class, and core
+ * styles that as `.form-wrap p, p.description { margin: 2px 0 5px }` — element
+ * plus class, which outranks a bare class of ours. Written as
+ * `.dicex-connect-welcome-hint` the margin below lost every time: `auto` never
+ * applied, so the 620px box sat flush against the left edge of a 926px card
+ * while the buttons above it were centred, and the 18px of air under those
+ * buttons collapsed to 2px.
+ */
+.dicex-connect-wrap p.dicex-connect-welcome-hint {
+	margin: 18px auto 0;
+	max-width: 620px;
+	line-height: 1.9;
+
+	/*
+	 * Centred text that wraps wherever the width runs out gives a long first
+	 * line and a stub of a second. Balancing evens them out; browsers without it
+	 * simply wrap as before.
+	 */
+	text-wrap: balance;
+}
+
+.dicex-connect-welcome-hint .button-link {
+	font-size: inherit;
+}
+
+/* Deliberately quieter than the two calls to action above them. */
+.dicex-connect-welcome-links {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 22px;
+	margin: 24px 0 0;
+	padding-top: 18px;
+	border-top: 1px solid var(--dicex-border);
+}
+
+.dicex-connect-welcome-links a {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	font-size: 13px;
+	color: #646970;
+	text-decoration: none;
+}
+
+.dicex-connect-welcome-links a:hover,
+.dicex-connect-welcome-links a:focus {
+	color: var(--dicex-primary);
+}
+
+.dicex-connect-welcome-links .dashicons {
+	font-size: 16px;
+	width: 16px;
+	height: 16px;
+}
+
+@media screen and (max-width: 782px) {
+	.dicex-connect-welcome {
+		padding: 24px 18px;
+	}
+
+	.dicex-connect-welcome-actions .button-hero {
+		width: 100%;
+		justify-content: center;
+	}
+}
+
+/* ---- Credit tab: which bank the payment goes through ---- */
+
+.dicex-connect-gateways {
+	border: 0;
+	padding: 0;
+	margin: 22px 0 4px;
+}
+
+.dicex-connect-gateways legend {
+	padding: 0 0 8px;
+	font-weight: 600;
+	font-size: 13px;
+	color: #1d2327;
+}
+
+.dicex-connect-gateway-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+/* The radio itself is the accessible control; the tile is what people click. */
+.dicex-connect-gateway {
+	position: relative;
+	display: block;
+	cursor: pointer;
+}
+
+.dicex-connect-gateway-input {
+	position: absolute;
+	opacity: 0;
+	width: 1px;
+	height: 1px;
+	margin: 0;
+}
+
+.dicex-connect-gateway-tile {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	min-width: 138px;
+	min-height: 100px;
+	padding: 14px 16px;
+	border: 1px solid var(--dicex-border);
+	border-radius: 12px;
+	background: #fbfbfc;
+	transition: border-color .12s ease-in-out, box-shadow .12s ease-in-out, background .12s ease-in-out;
+}
+
+/* A slot of its own so a square mark and a wide wordmark still leave the names
+   on the same line across the row. */
+.dicex-connect-gateway-mark {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 40px;
+}
+
+.dicex-connect-gateway-tile .dashicons {
+	font-size: 26px;
+	width: 26px;
+	height: 26px;
+	color: #8c8f94;
+}
+
+.dicex-connect-gateway-logo {
+	display: block;
+	max-width: 100px;
+	max-height: 40px;
+	width: auto;
+	height: auto;
+	object-fit: contain;
+}
+
+.dicex-connect-gateway-name {
+	font-size: 12px;
+	color: #50575e;
+	text-align: center;
+	line-height: 1.5;
+}
+
+.dicex-connect-gateway:hover .dicex-connect-gateway-tile {
+	border-color: #a7aaad;
+	background: #fff;
+}
+
+.dicex-connect-gateway-input:checked + .dicex-connect-gateway-tile {
+	border-color: var(--dicex-primary);
+	box-shadow: 0 0 0 1px var(--dicex-primary);
+	background: #fff;
+}
+
+.dicex-connect-gateway-input:checked + .dicex-connect-gateway-tile .dicex-connect-gateway-name {
+	color: var(--dicex-primary);
+	font-weight: 600;
+}
+
+/* Keyboard users get the same ring WordPress gives its own controls. */
+.dicex-connect-gateway-input:focus-visible + .dicex-connect-gateway-tile {
+	outline: 2px solid var(--dicex-primary);
+	outline-offset: 2px;
+}
+
+@media screen and (max-width: 600px) {
+	.dicex-connect-gateway {
+		flex: 1 1 100%;
+	}
+
+	.dicex-connect-gateway-tile {
+		min-width: 0;
+	}
+}
+
+/* buttons.css gives a Dashicon inside a button a line-height sized to the
+   button it was designed for — 2.3, or 46px, in a hero button — and lets the
+   glyph sit at the top of that box. That is right for core's inline layout and
+   wrong inside a flex button, where it lifts the icon well above the text. The
+   selectors below outweigh core rather than tie with it, so stylesheet order
+   does not decide the outcome. */
+.dicex-connect-wrap .dicex-connect-welcome-cta.button.button-hero .dashicons,
+.dicex-connect-wrap .dicex-connect-goto-tab.button .dashicons {
+	line-height: 1;
+	vertical-align: middle;
+}
+
+/* A card may carry a real mark instead of a Dashicon; it takes the same slot. */
+.dicex-connect-integration-logo {
+	width: 22px;
+	height: 22px;
+	object-fit: contain;
+	flex: 0 0 auto;
+}
+
+/* ---- Region ---- */
+
+/* Not a warning: nothing is broken, the region simply does not sell it yet. */
+.dicex-connect-region-note {
+	display: flex;
+	align-items: flex-start;
+	gap: 8px;
+	margin: 10px 0 0;
+	padding: 10px 14px;
+	border: 1px solid #c5d9ed;
+	border-radius: 10px;
+	background: #f0f6fc;
+	color: #2c3338;
+	font-size: 13px;
+	line-height: 1.7;
+}
+
+.dicex-connect-coupon-note {
+	margin-top: 18px;
+}
+
+.dicex-connect-region-note .dashicons {
+	color: var(--dicex-primary);
+	flex: 0 0 auto;
+	margin-top: 2px;
+}
+
+.dicex-connect-gateway.is-unavailable {
+	cursor: default;
+}
+
+.dicex-connect-gateway.is-unavailable .dicex-connect-gateway-tile,
+.dicex-connect-gateway.is-unavailable:hover .dicex-connect-gateway-tile {
+	opacity: 0.55;
+	background: #f6f7f7;
+	border-color: var(--dicex-border);
+}
+
+.dicex-connect-gateway-soon {
+	font-size: 11px;
+	color: #8c8f94;
+}
+
+/* --------------------------------------------------------------------------
+   Version and release notes on Getting started
+   -------------------------------------------------------------------------- */
+
+.dicex-connect-welcome-version {
+	margin: 0 0 4px;
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+	color: var(--dicex-primary);
+	text-transform: uppercase;
+}
+
+.dicex-connect-wrap .dicex-connect-whatsnew {
+	max-width: 620px;
+	margin: 24px auto 0;
+	border: 1px solid var(--dicex-border);
+	border-radius: 10px;
+	background: #fff;
+	text-align: start;
+}
+
+.dicex-connect-whatsnew > summary {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 12px 16px;
+	cursor: pointer;
+	font-weight: 600;
+	list-style: none;
+}
+
+/* Safari draws its own marker on summary unless this is set. */
+.dicex-connect-whatsnew > summary::-webkit-details-marker {
+	display: none;
+}
+
+.dicex-connect-whatsnew > summary .dashicons {
+	color: var(--dicex-primary);
+}
+
+.dicex-connect-whatsnew-latest {
+	margin-inline-start: auto;
+	padding: 2px 8px;
+	border-radius: 999px;
+	background: var(--dicex-primary);
+	color: #fff;
+	font-size: 11px;
+	font-weight: 700;
+}
+
+.dicex-connect-whatsnew-body {
+	padding: 0 16px 12px;
+	border-top: 1px solid var(--dicex-border);
+}
+
+.dicex-connect-release h4 {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 14px 0 6px;
+	font-size: 13px;
+}
+
+.dicex-connect-release-current {
+	padding: 1px 7px;
+	border-radius: 999px;
+	background: #e6f1fe;
+	color: #005bc4;
+	font-size: 10px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.dicex-connect-release ul {
+	margin: 0;
+	padding-inline-start: 18px;
+	list-style: disc;
+}
+
+/* Enhancements, Security, Bugfixes: the headings changelog.txt groups a release by. */
+.dicex-connect-release-group {
+	margin: 8px 0 2px;
+	font-size: 12px;
+	font-weight: 600;
+	color: #1d2327;
+	text-align: start;
+}
+
+.dicex-connect-release li {
+	margin: 0 0 4px;
+	font-size: 13px;
+	line-height: 1.7;
+	color: var(--dicex-text-soft, #50575e);
+}
+
+/* The line-defaulting note under the Sender lines table. */
+.dicex-connect-default-note {
+	display: flex;
+	align-items: flex-start;
+	gap: 6px;
+	margin-top: 14px;
+	max-width: 70ch;
+}
+
+.dicex-connect-default-note .dashicons {
+	flex: none;
+	margin-top: 2px;
+	color: var(--dicex-primary);
+}
+
+/* ---- Refund and privacy terms on the Credit tab ------------------------- */
+
+/* An English block inside a dashboard that may be right-to-left, so it sets its
+   own direction and is kept visually apart rather than reading as body copy. */
+.dicex-connect-paywords {
+	direction: ltr;
+	text-align: left;
+	margin: 18px 0 0;
+	padding: 14px 16px;
+	border: 1px solid var(--dicex-border);
+	border-radius: 10px;
+	background: #f6f7f7;
+	font-size: 13px;
+	line-height: 1.7;
+}
+
+.dicex-connect-paywords-headline {
+	display: flex;
+	align-items: flex-start;
+	gap: 8px;
+	margin: 0;
+	font-weight: 600;
+	color: #1d2327;
+}
+
+.dicex-connect-paywords-headline .dashicons {
+	color: var(--dicex-success);
+	flex: 0 0 auto;
+}
+
+.dicex-connect-paywords-seller {
+	margin: 6px 0 0;
+	color: #646970;
+}
+
+.dicex-connect-paywords-more {
+	margin-top: 10px;
+}
+
+.dicex-connect-paywords-more > summary {
+	cursor: pointer;
+	font-weight: 600;
+	color: var(--dicex-primary);
+	list-style: none;
+}
+
+/* Safari draws its own marker on summary unless this is set. */
+.dicex-connect-paywords-more > summary::-webkit-details-marker {
+	display: none;
+}
+
+.dicex-connect-paywords-more > summary::before {
+	content: "\203A";
+	display: inline-block;
+	margin-inline-end: 6px;
+	transition: transform 0.15s ease;
+}
+
+.dicex-connect-paywords-more[open] > summary::before {
+	transform: rotate(90deg);
+}
+
+.dicex-connect-paywords-body {
+	padding-top: 6px;
+	max-width: 70ch;
+}
+
+.dicex-connect-paywords-body h4 {
+	margin: 12px 0 4px;
+	font-size: 13px;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	color: #646970;
+}
+
+.dicex-connect-paywords-body p {
+	margin: 0 0 8px;
+	color: #1d2327;
+}
+
+.dicex-connect-paywords-links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 18px;
+	margin-top: 12px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.dicex-connect-paywords-more > summary::before {
+		transition: none;
+	}
+}
+
+/* ---- What a top-up is worth elsewhere ----------------------------------- */
+
+.dicex-connect-credit-worth {
+	display: flex;
+	align-items: flex-start;
+	gap: 6px;
+	margin: 4px 0 0;
+	font-size: 13px;
+	color: #1d2327;
+}
+
+.dicex-connect-credit-worth .dashicons {
+	color: var(--dicex-primary);
+	flex: 0 0 auto;
+}
+
+.dicex-connect-credit-worth-note {
+	margin-top: 2px;
+	max-width: 70ch;
+}
+
+/* ---- Support tab ---------------------------------------------------------- */
+
+.dicex-connect-support-facts {
+	margin-top: 10px;
+	max-width: 640px;
+	border-radius: 12px;
+	overflow: hidden;
+}
+
+.dicex-connect-support-facts th,
+.dicex-connect-support-facts td {
+	text-align: start;
+}
+
+.dicex-connect-support-facts th {
+	width: 40%;
+	font-weight: 600;
+}
+
+#dicex-connect-support-result {
+	margin: 0 0 12px;
+	max-width: 70ch;
+}
+
+#dicex-connect-support-result.notice {
+	padding: 4px 12px;
+}
+
+.dicex-connect-support [aria-invalid="true"] {
+	border-color: #d63638;
+	box-shadow: 0 0 0 1px #d63638;
+}
+
+.dicex-connect-support .button[aria-disabled="true"] {
+	opacity: 0.7;
+	cursor: progress;
+}

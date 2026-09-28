@@ -1,0 +1,60 @@
+name: Bug report
+description: Something in the plugin does not work
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please do not report a security problem here — see [SECURITY.md](https://github.com/mydicex/dicex-connect/blob/main/SECURITY.md).
+        For "how do I…" questions, the [support forum](https://wordpress.org/support/plugin/dicex-connect/) is the better place.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Go to DiceX → …
+        2. …
+        3. …
+    validations:
+      required: true
+  - type: input
+    id: plugin
+    attributes:
+      label: DiceX Connect version
+      placeholder: "1.8.1"
+    validations:
+      required: true
+  - type: input
+    id: wordpress
+    attributes:
+      label: WordPress and PHP versions
+      placeholder: "WordPress 6.9, PHP 8.2"
+    validations:
+      required: true
+  - type: input
+    id: woocommerce
+    attributes:
+      label: WooCommerce version, if the problem involves orders
+      placeholder: "10.4 — or leave empty"
+  - type: dropdown
+    id: region
+    attributes:
+      label: Region, on the Connection tab
+      options:
+        - Iran
+        - GCC
+        - World Wide
+        - Not sure
+  - type: textarea
+    id: log
+    attributes:
+      label: Anything from the plugin's log
+      description: DiceX → Logs. Remove anything that identifies a real person before pasting.
+      render: text

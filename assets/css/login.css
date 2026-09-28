@@ -1,0 +1,97 @@
+/* The two-step login screen. Loaded only on wp-login.php. */
+
+.dicex-connect-otp-timer {
+	margin: 8px 0 12px;
+	font-size: 13px;
+	color: #50575e;
+	text-align: center;
+}
+
+.dicex-connect-otp-timer.is-expired {
+	color: #d63638;
+	font-weight: 600;
+}
+
+#dicex-connect-resend-form {
+	margin-top: 12px;
+	text-align: center;
+}
+
+.dicex-connect-login-alt {
+	margin-top: 12px;
+	text-align: center;
+}
+
+/* Same rounded fields as the settings screens — the code box and its buttons
+   should not be the one sharp-cornered form the site owner meets. */
+#loginform input[type="text"],
+#loginform input[type="password"],
+#loginform input[type="tel"],
+#loginform .button,
+#loginform .button-primary,
+#dicex-connect-resend-form .button,
+.dicex-connect-login-alt .button {
+	border-radius: 8px;
+}
+
+#dicex_code {
+	letter-spacing: 4px;
+	text-align: center;
+	font-size: 20px;
+	padding: 6px 8px;
+}
+
+/* --------------------------------------------------------------------------
+   The confirm button
+   -------------------------------------------------------------------------- */
+
+/*
+ * WordPress floats the login submit right and gives it almost no room above,
+ * so the button sat tight against the countdown and off to one side while
+ * everything else on the card was centred.
+ *
+ * float: none is what the centring depends on — text-align cannot move a
+ * floated element.
+ */
+/*
+ * Two IDs, and the element, deliberately.
+ *
+ * WordPress styles this paragraph twice in login.css:
+ *  pulls the button up towards
+ * the field above it, and  — one id, one
+ * element, one class, one class — outranks anything written as
+ * . Written that way the float and the centring applied
+ * while the margin silently did not, which is why the button stayed jammed
+ * against the countdown after being asked twice to move down.
+ */
+#login #loginform p.submit {
+	float: none;
+	margin: 30px 0 0;
+	text-align: center;
+}
+
+#login #loginform p.submit .button {
+	float: none;
+	display: inline-block;
+	min-width: 180px;
+}
+
+/* The countdown for the next code, on its own line above the button. */
+.dicex-connect-resend-status {
+	margin: 0 0 10px;
+	text-align: center;
+	font-size: 13px;
+	line-height: 1.7;
+	color: #50575e;
+}
+
+.dicex-connect-resend-status:empty {
+	display: none;
+}
+
+/* Both counters and the channel name, so the eye finds them in the sentence. */
+.dicex-connect-resend-status strong,
+#dicex-connect-otp-timer strong {
+	font-weight: 700;
+	color: #1d2327;
+}

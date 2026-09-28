@@ -1,0 +1,2483 @@
+# Copyright (C) 2026 DiceX
+# This file is distributed under the same license as the DiceX Connect plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: DiceX Connect\n"
+"Report-Msgid-Bugs-To: https://dicex.me/\n"
+"POT-Creation-Date: 2026-09-19 20:06+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: dicex-connect\n"
+
+#. Plugin Name of the plugin
+#: dicex-connect.php:3
+msgid "DiceX Connect – Customer Club and Event Notifications"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: dicex-connect.php:4
+msgid "https://wp.dicex.me/"
+msgstr ""
+
+#. Description of the plugin
+#: dicex-connect.php:5
+msgid "A customer club with levels you define, plus SMS, WhatsApp and Telegram alerts for orders, forms and logins, through your own DiceX account."
+msgstr ""
+
+#. Author of the plugin
+#: dicex-connect.php:9 includes/admin/class-dicex-admin-menu.php:43 includes/admin/class-dicex-admin-menu.php:44 includes/admin/class-dicex-user-profile.php:43 includes/integrations/class-dicex-integration-digits.php:71 includes/integrations/class-dicex-integration-digits.php:72
+msgid "DiceX"
+msgstr ""
+
+#. Author URI of the plugin
+#: dicex-connect.php:10
+msgid "https://dicex.me/"
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:33 includes/admin/class-dicex-settings-page.php:23
+msgid "Getting started"
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:54 includes/admin/class-dicex-admin-menu.php:55
+msgid "Settings"
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:63 includes/admin/class-dicex-admin-menu.php:64
+msgid "Logs"
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:162
+msgid "Checking..."
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:163 includes/admin/views/tab-connection.php:54
+msgid "Check connection"
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:164
+msgid "Sending..."
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:165 includes/admin/views/tab-lines.php:245
+msgid "Send test"
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:166 includes/admin/views/tab-credit.php:196
+msgid "Pay online"
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:167
+msgid "Error"
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:168 includes/admin/views/tab-club.php:671
+msgid "Loading..."
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:169 includes/admin/views/tab-lines.php:145
+msgid "Choose a network first"
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:170
+msgid "Choose a line"
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:171 includes/admin/views/tab-lines.php:109 includes/admin/views/tab-lines.php:195
+msgid "Shared line"
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:172 includes/admin/views/tab-lines.php:197
+msgid "No line yet — activate one in your DiceX panel"
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:173
+msgid "Saving..."
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:174 includes/admin/views/tab-integrations.php:268
+msgid "Save this card"
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:175 includes/admin/views/tab-integrations.php:53
+msgid "Save numbers"
+msgstr ""
+
+#. translators: 1: amount with its currency, for example "5 OMR". 2: the same amount in US dollars, already emphasised. 3: the same amount in euros, already emphasised.
+#: includes/admin/class-dicex-admin-menu.php:178 includes/admin/views/tab-credit.php:89
+msgid "%1$s is roughly %2$s, or %3$s."
+msgstr ""
+
+#. translators: %s: an amount of money, for example 13.00
+#: includes/admin/class-dicex-admin-menu.php:180 includes/admin/views/tab-credit.php:74
+msgid "%s US dollars"
+msgstr ""
+
+#. translators: %s: an amount of money, for example 11.22
+#: includes/admin/class-dicex-admin-menu.php:182 includes/admin/views/tab-credit.php:82
+msgid "%s euros"
+msgstr ""
+
+#. translators: 1: a name, such as WhatsApp or a club level. 2: its place in the list. 3: how many there are.
+#: includes/admin/class-dicex-admin-menu.php:184 includes/admin/class-dicex-admin-menu.php:263
+msgid "%1$s: %2$s of %3$s"
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:185 includes/admin/views/tab-support.php:128
+msgid "Send to DiceX support"
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:186
+msgid "Fill in your email, a subject and a message."
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:207
+msgid "None"
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:208
+msgid "Add a level first"
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:209
+msgid "(no name yet)"
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:210
+msgid "Everybody else"
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:211
+msgid "Removed numbers"
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:212
+msgid "Conditions do not apply here. A number comes here when you move it, or when the customer leaves the club from their account."
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:213
+msgid "No conditions: everybody who reaches this level joins it, so the conditions of the levels below it are never checked."
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:214
+msgid "No members yet."
+msgstr ""
+
+#. translators: 1: this page number, 2: how many pages there are
+#: includes/admin/class-dicex-admin-menu.php:216
+msgid "Page %1$s of %2$s"
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:217
+msgid "Automatic"
+msgstr ""
+
+#. translators: %s: the level the conditions put this customer in
+#: includes/admin/class-dicex-admin-menu.php:219
+msgid "Automatic (now %s)"
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:220
+msgid "Placed by hand"
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:221
+msgid "(no name)"
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:222
+msgid "Guest"
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:223
+msgid "Levels in your DiceX club, and how many customers each holds there:"
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:224
+msgid "Your DiceX club has no levels yet."
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:225
+msgid "Filter"
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:226
+msgid "Search products by name or SKU"
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:227
+msgid "Nothing matches."
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:228
+msgid "City name"
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:229
+msgid "Add"
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:230
+msgid "Add every spelling your customers use, in each language — for example Tehran and تهران. Capital letters, spaces and the Arabic or Persian forms of a letter do not matter."
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:231 includes/modules/club/class-dicex-club-cli.php:93
+msgid "Done"
+msgstr ""
+
+#. translators: %s: one entry in a list, such as a city or a product
+#: includes/admin/class-dicex-admin-menu.php:233
+msgid "Remove %s"
+msgstr ""
+
+#. translators: %s: how many more entries are chosen than are shown
+#: includes/admin/class-dicex-admin-menu.php:235
+msgid "+%s more"
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:238
+msgid "There is nothing to choose from here yet."
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:239
+msgid "The store has none of these yet."
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:240
+msgid "Counting…"
+msgstr ""
+
+#. translators: 1: members counted so far, 2: all members
+#: includes/admin/class-dicex-admin-menu.php:242
+msgid "Counting: %1$s of %2$s"
+msgstr ""
+
+#. translators: %s: how many customers the level would hold
+#: includes/admin/class-dicex-admin-menu.php:244
+msgid "Customers: %s"
+msgstr ""
+
+#. translators: 1: members counted, 2: how many of them these levels would put in another level
+#: includes/admin/class-dicex-admin-menu.php:246
+msgid "Members counted: %1$s. Would move to another level if you save: %2$s. Nothing has been saved or sent."
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:247 includes/modules/club/class-dicex-club-cli.php:235
+msgid "Send every customer in the club to DiceX now? A number that reaches DiceX cannot be taken back out."
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:248
+msgid "A group with no conditions would hold every customer in the club, so it cannot be saved. Give it at least one condition."
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:249
+msgid "Nobody meets an age condition while the club knows no dates of birth. Ask for the date of birth below, or name the meta key another plugin keeps them under."
+msgstr ""
+
+#. translators: %s: how many memberships are still to reach DiceX
+#: includes/admin/class-dicex-admin-menu.php:251
+msgid "%s on the way"
+msgstr ""
+
+#. translators: %s: how many contacts are in the DiceX group but no longer match it
+#: includes/admin/class-dicex-admin-menu.php:253
+msgid "%s no longer matching"
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:254
+msgid "They no longer match this group. DiceX has no way to take a contact out of a group, so they are still in it there."
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:255
+msgid "On its way to DiceX."
+msgstr ""
+
+#. translators: %s: how many languages have a message written for them
+#: includes/admin/class-dicex-admin-menu.php:257
+msgid "%s written"
+msgstr ""
+
+#. translators: %s: a level's name
+#. translators: %s: a channel name, such as WhatsApp
+#: includes/admin/class-dicex-admin-menu.php:259 includes/admin/class-dicex-settings-page.php:56
+msgid "Move %s up"
+msgstr ""
+
+#. translators: %s: a level's name
+#. translators: %s: a channel name, such as WhatsApp
+#: includes/admin/class-dicex-admin-menu.php:261 includes/admin/class-dicex-settings-page.php:65
+msgid "Move %s down"
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:264
+msgid "Apply"
+msgstr ""
+
+#. translators: %s: a member's mobile number
+#: includes/admin/class-dicex-admin-menu.php:266
+msgid "Level for %s"
+msgstr ""
+
+#. translators: 1: a member's mobile number, 2: a level's name
+#: includes/admin/class-dicex-admin-menu.php:268
+msgid "%1$s is now kept in %2$s."
+msgstr ""
+
+#. translators: 1: a member's mobile number, 2: the level the conditions put them in
+#: includes/admin/class-dicex-admin-menu.php:270
+msgid "%1$s is back on automatic, in %2$s."
+msgstr ""
+
+#. translators: %s: the list being filtered, such as "Bought from categories"
+#: includes/admin/class-dicex-admin-menu.php:272
+msgid "Filter: %s"
+msgstr ""
+
+#. translators: %s: a parent category's name
+#: includes/admin/class-dicex-admin-menu.php:274
+msgid "in %s"
+msgstr ""
+
+#. translators: %s: a city, the way it is already listed
+#: includes/admin/class-dicex-admin-menu.php:276
+msgid "Already listed as %s."
+msgstr ""
+
+#. translators: %s: how many members match
+#: includes/admin/class-dicex-admin-menu.php:278
+msgid "Members found: %s"
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:279
+msgid "No members match."
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:280 includes/admin/class-dicex-club-page.php:693 includes/admin/views/tab-club.php:223 includes/modules/club/class-dicex-club-cli.php:69
+msgid "In DiceX"
+msgstr ""
+
+#: includes/admin/class-dicex-admin-menu.php:281
+msgid "No longer matching"
+msgstr ""
+
+#: includes/admin/class-dicex-club-page.php:40 includes/admin/class-dicex-integrations-page.php:28 includes/admin/class-dicex-logs-page.php:19 includes/admin/class-dicex-settings-page.php:81 includes/admin/class-dicex-support-page.php:28
+msgid "You are not allowed to do this."
+msgstr ""
+
+#: includes/admin/class-dicex-club-page.php:52
+msgid "Connect your DiceX account on the Connection tab before switching the club on."
+msgstr ""
+
+#: includes/admin/class-dicex-club-page.php:56
+msgid "Save at least one level, and choose the level for everybody else, before switching the club on."
+msgstr ""
+
+#: includes/admin/class-dicex-club-page.php:60
+msgid "Choose who joins the club, and save, before switching it on."
+msgstr ""
+
+#: includes/admin/class-dicex-club-page.php:64
+msgid "Choose the level for removed numbers, and save, before switching the club on: customers can leave the club from their account, and that is where they go."
+msgstr ""
+
+#: includes/admin/class-dicex-club-page.php:137
+msgid "Choose at least one channel for the welcome message."
+msgstr ""
+
+#: includes/admin/class-dicex-club-page.php:145
+msgid "Choose who joins the club."
+msgstr ""
+
+#: includes/admin/class-dicex-club-page.php:149
+msgid "Choose the level for removed numbers: customers can leave the club from their account, and that is where they go."
+msgstr ""
+
+#: includes/admin/class-dicex-club-page.php:237
+msgid "Club settings saved."
+msgstr ""
+
+#: includes/admin/class-dicex-club-page.php:287
+msgid "Switch the club on first."
+msgstr ""
+
+#: includes/admin/class-dicex-club-page.php:307
+msgid "There is nobody to count yet. Import your existing customers first; nothing is sent to DiceX until you confirm."
+msgstr ""
+
+#. translators: %s: how many customers will be sent again
+#: includes/admin/class-dicex-club-page.php:374
+msgid "%s customer will be sent again."
+msgid_plural "%s customers will be sent again."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %s: how many group memberships will be sent again
+#: includes/admin/class-dicex-club-page.php:381
+msgid "%s group membership will be sent again."
+msgid_plural "%s group memberships will be sent again."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/admin/class-dicex-club-page.php:461
+msgid "That member was not found."
+msgstr ""
+
+#: includes/admin/class-dicex-club-page.php:476
+msgid "That level does not exist."
+msgstr ""
+
+#: includes/admin/class-dicex-club-page.php:689
+msgid "Any status"
+msgstr ""
+
+#: includes/admin/class-dicex-club-page.php:690
+msgid "Being worked out"
+msgstr ""
+
+#: includes/admin/class-dicex-club-page.php:691
+msgid "Waiting to be sent"
+msgstr ""
+
+#: includes/admin/class-dicex-club-page.php:692
+msgid "Sending"
+msgstr ""
+
+#: includes/admin/class-dicex-club-page.php:694 includes/modules/club/class-dicex-club-cli.php:77
+msgid "Refused by DiceX"
+msgstr ""
+
+#. translators: %s: a length of time, such as "5 minutes"
+#: includes/admin/class-dicex-club-page.php:769
+msgid "%s ago"
+msgstr ""
+
+#: includes/admin/class-dicex-club-page.php:772 includes/modules/club/class-dicex-club-cli.php:105
+msgid "Not yet"
+msgstr ""
+
+#. translators: 1: the reason DiceX gave, 2: a length of time, such as "2 minutes"
+#: includes/admin/class-dicex-club-page.php:776
+msgid "Sending is paused: %1$s. It will try again in %2$s."
+msgstr ""
+
+#. translators: 1: orders read so far, 2: all orders
+#: includes/admin/class-dicex-club-page.php:798
+msgid "Reading orders: %1$s of %2$s."
+msgstr ""
+
+#. translators: %s: how many orders and users have been read
+#: includes/admin/class-dicex-club-page.php:804
+msgid "Reading users: %s read so far."
+msgstr ""
+
+#. translators: 1: a date and time, 2: orders read, 3: users read, 4: how many had no usable number, 5: how many had not ticked the club box
+#: includes/admin/class-dicex-club-page.php:812
+msgid "Last import %1$s: %2$s orders and %3$s users read, %4$s without a usable mobile number, %5$s who have not joined the club."
+msgstr ""
+
+#. translators: 1: a date and time, 2: orders read, 3: users read, 4: how many could not be added
+#: includes/admin/class-dicex-club-page.php:824
+msgid "Last import %1$s: %2$s orders and %3$s users read, %4$s without a usable mobile number."
+msgstr ""
+
+#: includes/admin/class-dicex-integrations-page.php:39
+msgid "That integration was not recognised."
+msgstr ""
+
+#: includes/admin/class-dicex-integrations-page.php:52
+msgid "The plugin this card needs is not active on this site."
+msgstr ""
+
+#: includes/admin/class-dicex-integrations-page.php:96
+msgid "Choose at least one channel to send over."
+msgstr ""
+
+#: includes/admin/class-dicex-integrations-page.php:119
+msgid "The message text cannot be empty."
+msgstr ""
+
+#. translators: %s: how many admin numbers were stored
+#: includes/admin/class-dicex-integrations-page.php:181
+msgid "%s number saved."
+msgid_plural "%s numbers saved."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/admin/class-dicex-settings-page.php:24
+msgid "Connection"
+msgstr ""
+
+#: includes/admin/class-dicex-settings-page.php:25
+msgid "Sender lines"
+msgstr ""
+
+#: includes/admin/class-dicex-settings-page.php:26
+msgid "Integrations"
+msgstr ""
+
+#: includes/admin/class-dicex-settings-page.php:27 includes/admin/views/tab-club.php:179 includes/admin/views/tab-club.php:187
+msgid "Customer Club"
+msgstr ""
+
+#: includes/admin/class-dicex-settings-page.php:28
+msgid "Credit"
+msgstr ""
+
+#: includes/admin/class-dicex-settings-page.php:29
+msgid "Support"
+msgstr ""
+
+#: includes/admin/class-dicex-settings-page.php:90
+msgid "Please enter your API key."
+msgstr ""
+
+#: includes/admin/class-dicex-settings-page.php:162
+msgid "Nothing to save."
+msgstr ""
+
+#: includes/admin/class-dicex-settings-page.php:188
+msgid "Invalid channel."
+msgstr ""
+
+#: includes/admin/class-dicex-settings-page.php:210
+msgid "Lines cannot be chosen for that network."
+msgstr ""
+
+#: includes/admin/class-dicex-settings-page.php:230
+msgid "Enter a destination."
+msgstr ""
+
+#. translators: %s: channel key such as sms, telegram
+#: includes/admin/class-dicex-settings-page.php:238
+msgid "The %s channel cannot be used for a test send."
+msgstr ""
+
+#: includes/admin/class-dicex-settings-page.php:253
+msgid "This is a test message from DiceX Connect."
+msgstr ""
+
+#: includes/admin/class-dicex-settings-page.php:259
+msgid "Test message sent."
+msgstr ""
+
+#: includes/admin/class-dicex-settings-page.php:306
+msgid "Unknown error from the DiceX gateway."
+msgstr ""
+
+#: includes/admin/class-dicex-settings-page.php:320
+msgid "That tab is not valid."
+msgstr ""
+
+#: includes/admin/class-dicex-settings-page.php:333
+msgid "No provider was chosen."
+msgstr ""
+
+#. translators: %s: the email address the answer goes to
+#: includes/admin/class-dicex-support-page.php:51
+msgid "Sent, but without the log: your site's mail does not take attachments this way. DiceX support will answer at %s."
+msgstr ""
+
+#. translators: %s: the email address the answer goes to
+#: includes/admin/class-dicex-support-page.php:57
+msgid "Sent. DiceX support will answer at %s."
+msgstr ""
+
+#: includes/admin/class-dicex-user-profile.php:47 includes/admin/views/tab-club.php:661 includes/modules/class-dicex-login.php:772 includes/modules/club/class-dicex-club-privacy.php:88
+msgid "Mobile number"
+msgstr ""
+
+#: includes/admin/class-dicex-user-profile.php:54
+msgid "If this user is an administrator and a card sends to WordPress administrators, messages go to this number."
+msgstr ""
+
+#: includes/admin/class-dicex-user-profile.php:81 includes/admin/views/tab-club.php:473 includes/modules/club/class-dicex-club-fields.php:624 includes/modules/club/class-dicex-club-fields.php:751 includes/modules/club/class-dicex-club-fields.php:810 includes/modules/club/class-dicex-club-fields.php:937 includes/modules/club/class-dicex-club-privacy.php:342
+msgid "Date of birth"
+msgstr ""
+
+#: includes/admin/class-dicex-user-profile.php:88
+msgid "Year, month and day. It goes to the DiceX customer club with the rest of this customer's details."
+msgstr ""
+
+#: includes/admin/class-dicex-user-profile.php:99 includes/modules/club/class-dicex-club-privacy.php:78 includes/modules/club/class-dicex-club-privacy.php:134
+msgid "Customer club"
+msgstr ""
+
+#. translators: %s: when and where, such as "May 2, 2026 10:15 am, on their account page"
+#: includes/admin/class-dicex-user-profile.php:128
+msgid "Left the club: %s."
+msgstr ""
+
+#. translators: %s: when and where, such as "May 2, 2026 10:15 am, at checkout"
+#: includes/admin/class-dicex-user-profile.php:136
+msgid "Asked to join the club: %s."
+msgstr ""
+
+#: includes/admin/class-dicex-user-profile.php:142
+msgid "Has not asked to join the club."
+msgstr ""
+
+#: includes/admin/class-dicex-user-profile.php:143
+msgid "In the club like every customer, unless they leave from their account."
+msgstr ""
+
+#: includes/admin/class-dicex-user-profile.php:191 includes/modules/club/class-dicex-club-fields.php:887
+msgid "Error:"
+msgstr ""
+
+#. translators: %s: how the number should be written in this region
+#: includes/admin/class-dicex-user-profile.php:266
+msgid "<strong>Error</strong>: That is not a mobile number DiceX can deliver to. %s"
+msgstr ""
+
+#: includes/admin/class-dicex-user-profile.php:274
+msgid "<strong>Error</strong>: That mobile number is already on another account. Each account needs a number of its own."
+msgstr ""
+
+#: includes/admin/views/logs-page.php:21
+msgid "DiceX logs"
+msgstr ""
+
+#: includes/admin/views/logs-page.php:26
+msgid "Clear logs"
+msgstr ""
+
+#: includes/admin/views/logs-page.php:31
+msgid "Nothing has been logged yet."
+msgstr ""
+
+#: includes/admin/views/settings-page.php:32
+msgid "DiceX — communications connection"
+msgstr ""
+
+#. translators: 1: a level condition, such as Purchases or Age. 2: its unit, such as IRR, days or years.
+#: includes/admin/views/tab-club.php:25
+msgid "%1$s (%2$s)"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:33
+msgid "From"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:35
+msgid "from"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:39
+msgid "To"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:41
+msgid "to"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:55
+msgid "Bought from categories"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:56
+msgid "Bought products"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:60
+msgid "Bought from brands"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:63
+msgid "Buyer's country"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:64
+msgid "Buyer's city"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:83
+msgid "Move up"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:87
+msgid "Move down"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:92 includes/admin/views/tab-club.php:94
+msgid "Level name"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:92 includes/admin/views/tab-club.php:94
+msgid "Group name"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:99
+msgid "Remove"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:105 includes/admin/views/tab-club.php:664
+msgid "Purchases"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:106 includes/admin/views/tab-club.php:663
+msgid "Orders"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:107
+msgid "Days since the last purchase"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:107
+msgid "days"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:109
+msgid "Age"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:109
+msgid "years"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:125
+msgid "Description"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:127
+msgid "Optional — shown in your DiceX panel"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:131 includes/admin/views/tab-club.php:148
+msgid "Message on moving up"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:133
+msgid "Optional — sent when a customer reaches this level from a lower one"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:141 includes/admin/views/tab-club.php:605
+msgid "In another language"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:181
+msgid "Registers your WordPress users and WooCommerce customers in your DiceX club, each in a level you define. DiceX uses those numbers across its services: messages, online meetings, classes and live commerce."
+msgstr ""
+
+#: includes/admin/views/tab-club.php:195
+msgid "Connect your DiceX account first. Nothing can reach the club without an API key."
+msgstr ""
+
+#: includes/admin/views/tab-club.php:196
+msgid "Open the Connection tab"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:204
+msgid "WooCommerce is not active, so the club takes in WordPress users only and levels cannot depend on purchases."
+msgstr ""
+
+#: includes/admin/views/tab-club.php:209
+msgid "Nothing is ever deleted from the DiceX club. To take a number out, move it to the level you keep for removed numbers."
+msgstr ""
+
+#: includes/admin/views/tab-club.php:214
+msgid "Where the club stands"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:219 includes/admin/views/tab-club.php:630 includes/modules/club/class-dicex-club-cli.php:65
+msgid "Members"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:227 includes/modules/club/class-dicex-club-cli.php:73
+msgid "Waiting"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:231
+msgid "Refused"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:247
+msgid "Your existing customers are not in the club yet. Import them once; everyone after that joins on their own. Nothing is sent until you have seen who lands in which level."
+msgstr ""
+
+#: includes/admin/views/tab-club.php:254
+msgid "Your customers are read and placed in levels, as counted above. Nothing has been sent to DiceX yet: a number that reaches the club stays there. Change the levels and save if the counts are not what you want, then send."
+msgstr ""
+
+#: includes/admin/views/tab-club.php:257
+msgid "Send to DiceX"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:268
+msgid "Import existing customers"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:269
+msgid "Sync now"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:270
+msgid "Send refused customers again"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:271
+msgid "Compare with DiceX"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:275
+msgid "Last sent:"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:277
+msgid "Next daily sync:"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:282 includes/admin/views/tab-club.php:364 includes/modules/club/class-dicex-club-privacy.php:128
+msgid "Contact groups"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:297
+msgid "Levels"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:299
+msgid "Name your levels and set what it takes to be in each. A customer joins the first level, from the top, whose conditions they all meet. Leave a box empty for no limit."
+msgstr ""
+
+#: includes/admin/views/tab-club.php:301
+msgid "A level can also ask what a customer bought — from which categories or brands, which products — and where they buy from. Inside one list, any single entry is enough."
+msgstr ""
+
+#: includes/admin/views/tab-club.php:302
+msgid "Days since the last purchase are whole days, and move customers on their own as time passes; somebody who never bought anything does not meet them."
+msgstr ""
+
+#: includes/admin/views/tab-club.php:304
+msgid "Age is counted in whole years from the date of birth, in the calendar the customer reads — Solar Hijri in Persian — and moves customers on their birthday. Somebody whose date of birth the club does not know meets no age condition."
+msgstr ""
+
+#. translators: %s: the store's currency code, such as IRR or OMR
+#: includes/admin/views/tab-club.php:309
+msgid "Purchases are counted in your store currency, %s, after refunds, from paid orders only."
+msgstr ""
+
+#: includes/admin/views/tab-club.php:317
+msgid "DiceX keeps a level name for good. Renaming a level here creates a new level in DiceX and moves its customers there; the old name stays behind, empty."
+msgstr ""
+
+#: includes/admin/views/tab-club.php:335
+msgid "Add a level"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:339
+msgid "Start with Inactive, Gold, Silver, Bronze, Regular member and Removed"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:341
+msgid "Start with Gold, Silver, Bronze, Regular member and Removed"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:346
+msgid "Count customers"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:354
+msgid "Customers who meet no conditions join"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:358
+msgid "Numbers taken out of the club go to"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:360
+msgid "Never by the conditions: a number comes here when you move it, or when the customer leaves the club from their account. Needed before the club can be switched on."
+msgstr ""
+
+#: includes/admin/views/tab-club.php:366
+msgid "Groups sit alongside the levels. A customer is in one level, but in every group whose conditions they meet — so you can gather, say, everybody who buys coffee and everybody who buys from Tehran, and reach each in DiceX."
+msgstr ""
+
+#: includes/admin/views/tab-club.php:367
+msgid "A group needs at least one condition. Nobody in the level for removed numbers is put in a group."
+msgstr ""
+
+#: includes/admin/views/tab-club.php:371
+msgid "DiceX has no way to take a contact out of a group. A customer who stops matching stays in the group at DiceX; this screen says how many those are."
+msgstr ""
+
+#: includes/admin/views/tab-club.php:389
+msgid "Add a group"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:393
+msgid "Who joins, and what is sent"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:396
+msgid "Who joins the club"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:399
+msgid "Every customer: the users and guests chosen below"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:403
+msgid "Only customers who agree: they tick a box at checkout, when registering, or in their account"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:406
+msgid "Whether you need your customers' agreement depends on the law where you sell, so nothing is chosen for you. Either way, customers can leave the club from their account whenever they like."
+msgstr ""
+
+#: includes/admin/views/tab-club.php:411
+msgid "Words beside the club box"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:414
+msgid "Leave it empty for the wording shown, in the language of each visitor. Say what customers are agreeing to, the way your privacy policy does."
+msgstr ""
+
+#: includes/admin/views/tab-club.php:418
+msgid "WordPress users with these roles"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:425
+msgid "A user joins with the mobile number on their profile, or their billing phone."
+msgstr ""
+
+#: includes/admin/views/tab-club.php:430
+msgid "Customers without an account"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:433
+msgid "Add guests who paid for an order, by their billing phone"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:438
+msgid "Purchases that count towards a level"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:443
+msgid "All purchases, ever"
+msgstr ""
+
+#. translators: %s: a number of months
+#: includes/admin/views/tab-club.php:446
+msgid "The last %s month"
+msgid_plural "The last %s months"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/admin/views/tab-club.php:456
+msgid "Sent to DiceX"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:457
+msgid "Always: mobile number, first and last name, level, the date of the first purchase, and the date of birth while the club asks for it. Add more only if you need it there."
+msgstr ""
+
+#: includes/admin/views/tab-club.php:460
+msgid "Email address"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:461
+msgid "Company"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:462
+msgid "Billing address"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:477
+msgid "Ask customers for their date of birth, and send it to DiceX"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:479
+msgid "Asked at checkout, when registering, in the customer's account and on the WordPress profile screen. It goes to DiceX with the year, so you can see how old your customers are."
+msgstr ""
+
+#: includes/admin/views/tab-club.php:484
+msgid "The checkout block shows the date of birth and the club box from WooCommerce 9.8. On this store only the classic checkout, the registration forms and the account page show them."
+msgstr ""
+
+#: includes/admin/views/tab-club.php:491
+msgid "Required: nobody checks out or registers without it"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:495
+msgid "Calendar customers write it in"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:499
+msgid "By language: Solar Hijri in Persian, Gregorian otherwise"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:500
+msgid "Solar Hijri (Shamsi)"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:501
+msgid "Gregorian"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:508
+msgid "This decides the example customers see and how a saved date is shown back to them. A date typed in either calendar is understood, and it is kept and sent as Gregorian."
+msgstr ""
+
+#: includes/admin/views/tab-club.php:512
+msgid "Also read birthdays from this user meta key"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:514
+msgid "If another plugin already keeps your customers' birthdays, enter the key it stores them under. Dates written year first, in either calendar, and timestamps are read; anything else is left out."
+msgstr ""
+
+#: includes/admin/views/tab-club.php:518 includes/admin/views/tab-club.php:521
+msgid "When to sync"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:524
+msgid "As things happen, and once a day to catch anything missed (recommended)"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:525
+msgid "Only as things happen"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:526
+msgid "Only once a day"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:538
+msgid "Daily sync at"
+msgstr ""
+
+#. translators: %s: the site's time zone, such as Asia/Tehran
+#: includes/admin/views/tab-club.php:544
+msgid "Site time, %s. A quiet site runs it at its first visit after this time."
+msgstr ""
+
+#: includes/admin/views/tab-club.php:551 includes/admin/views/tab-club.php:613
+msgid "Welcome message"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:555
+msgid "Greet customers when they join the club"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:557
+msgid "Sent once, when somebody joins for the first time. Never to customers brought in by an import, and never to the level for removed numbers."
+msgstr ""
+
+#: includes/admin/views/tab-club.php:567 includes/admin/views/tab-integrations.php:137 includes/admin/views/tab-lines.php:92
+msgid "No messaging channel is available in the region this account is set to."
+msgstr ""
+
+#: includes/admin/views/tab-club.php:571 includes/admin/views/tab-integrations.php:143
+msgid "Send over, in this order"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:572 includes/admin/views/tab-integrations.php:144
+msgid "Drag to reorder, or use the arrows. If the first one does not go through, the next is tried."
+msgstr ""
+
+#: includes/admin/views/tab-club.php:589 includes/admin/views/tab-integrations.php:240
+msgid "Message text"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:592 includes/admin/views/tab-integrations.php:243
+msgid "Tags you can use:"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:609
+msgid "Each customer is written to in their own language where the site knows it: the language they chose for their account, or the one they were reading when they ordered. Anything left empty falls back to the text above."
+msgstr ""
+
+#: includes/admin/views/tab-club.php:624
+msgid "Save club settings"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:631
+msgid "Choose a level for someone to keep them there, whatever their purchases. \"Automatic\" hands them back to the conditions."
+msgstr ""
+
+#: includes/admin/views/tab-club.php:635 includes/admin/views/tab-club.php:636
+msgid "Search by number or name"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:639 includes/admin/views/tab-club.php:666
+msgid "Level"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:641
+msgid "Any level"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:648 includes/admin/views/tab-club.php:667
+msgid "Status"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:662
+msgid "Name"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:665 includes/modules/club/class-dicex-club-privacy.php:116
+msgid "Location"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:677
+msgid "Previous"
+msgstr ""
+
+#: includes/admin/views/tab-club.php:679
+msgid "Next"
+msgstr ""
+
+#: includes/admin/views/tab-connection.php:42
+msgid "To use DiceX, create an account in the DiceX panel and then paste your API key in the field below."
+msgstr ""
+
+#: includes/admin/views/tab-connection.php:47
+msgid "API key"
+msgstr ""
+
+#: includes/admin/views/tab-connection.php:52
+msgid "Paste your API key here"
+msgstr ""
+
+#: includes/admin/views/tab-connection.php:58
+msgid "You can find your API key in the DiceX panel."
+msgstr ""
+
+#: includes/admin/views/tab-connection.php:62 includes/admin/views/tab-support.php:35
+msgid "Region"
+msgstr ""
+
+#: includes/admin/views/tab-connection.php:73
+msgid "Where your DiceX account operates. DiceX does not sell the same services everywhere, so this decides which channels and which payment gateways the plugin offers you. Nothing about the region is sent to DiceX."
+msgstr ""
+
+#: includes/admin/views/tab-connection.php:84
+msgid "Login code length"
+msgstr ""
+
+#. translators: %s: a number of digits, already in the reader's own numerals
+#: includes/admin/views/tab-connection.php:92
+msgid "%s digit"
+msgid_plural "%s digits"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/admin/views/tab-connection.php:101
+msgid "How many digits the two-step login code has. Longer is harder to guess; shorter is easier to read back over a phone call."
+msgstr ""
+
+#: includes/admin/views/tab-connection.php:106
+msgid "Message language"
+msgstr ""
+
+#: includes/admin/views/tab-connection.php:117
+msgid "The language of the words this plugin puts into a message itself — when a code expires, when an event happened, and the month names in a date. Your own message templates are untouched; they go out exactly as you wrote them."
+msgstr ""
+
+#: includes/admin/views/tab-connection.php:120
+msgid "Worth setting when the people receiving your messages do not read the language your dashboard is in. Only languages installed on this site are listed — WordPress cannot write in one it does not have."
+msgstr ""
+
+#: includes/admin/views/tab-connection.php:125
+msgid "Voice call language"
+msgstr ""
+
+#. translators: %s: a language name, such as العربية
+#: includes/admin/views/tab-connection.php:137
+msgid "%s — not available yet"
+msgstr ""
+
+#: includes/admin/views/tab-connection.php:145
+msgid "The language a voice call speaks in. Only this channel uses it — a written message goes out in whatever language you wrote the template in. Arabic and German are listed because DiceX is asked for them; they turn on here by themselves once the gateway accepts them."
+msgstr ""
+
+#: includes/admin/views/tab-connection.php:150
+msgid "Message detail"
+msgstr ""
+
+#: includes/admin/views/tab-connection.php:154
+msgid "Add a line for when a code expires, and when an event happened"
+msgstr ""
+
+#: includes/admin/views/tab-connection.php:158
+msgid "Worth knowing what it costs: Persian text is sent as UCS-2, which fits 70 characters in one SMS and 67 in each one after that, so an extra line can turn one paid message into two. On WhatsApp, Telegram and Bale it is free. Each message template shows its own count."
+msgstr ""
+
+#: includes/admin/views/tab-connection.php:163
+msgid "Name in messages"
+msgstr ""
+
+#. translators: %s: the name messages are signed with when the field is left empty
+#: includes/admin/views/tab-connection.php:174
+msgid "What the {site_name} tag becomes in every message this plugin sends. Leave it empty to use %s."
+msgstr ""
+
+#: includes/admin/views/tab-connection.php:182
+msgid "Plugin language"
+msgstr ""
+
+#. translators: %s: the language WordPress is currently showing this person, e.g. "English (United States)"
+#: includes/admin/views/tab-connection.php:188
+msgid "These screens follow your WordPress language, which is currently %s. There is nothing to set here."
+msgstr ""
+
+#. translators: 1: opening link tag to the WordPress profile screen, 2: closing link tag
+#: includes/admin/views/tab-connection.php:206
+msgid "To read them in another language, change your own language under %1$sProfile → Language%2$s, or change the site language under Settings → General."
+msgstr ""
+
+#. translators: 1: opening link tag to the plugin's translation project, 2: closing link tag
+#: includes/admin/views/tab-connection.php:216
+msgid "The plugin is translated by the WordPress community. If your language is missing or incomplete, you can add it at %1$stranslate.wordpress.org%2$s and every site running this plugin receives it automatically."
+msgstr ""
+
+#: includes/admin/views/tab-connection.php:228
+msgid "Account credit"
+msgstr ""
+
+#: includes/admin/views/tab-connection.php:239
+msgid "Top up"
+msgstr ""
+
+#: includes/admin/views/tab-credit.php:22
+msgid "Amount"
+msgstr ""
+
+#. translators: %s: currency such as IRR
+#: includes/admin/views/tab-credit.php:25
+msgid "Amount in %s"
+msgstr ""
+
+#: includes/admin/views/tab-credit.php:32
+msgid "Top up online"
+msgstr ""
+
+#: includes/admin/views/tab-credit.php:34
+msgid "This sends you to the DiceX payment gateway. Try a small amount once before relying on it."
+msgstr ""
+
+#: includes/admin/views/tab-credit.php:45
+msgid "Another amount"
+msgstr ""
+
+#. translators: %s: the date the euro rate was read, in the site's own date format.
+#: includes/admin/views/tab-credit.php:101
+msgid "The rial is pegged to the dollar, so that figure is exact. The euro figure is approximate, from the European Central Bank reference rate of %s."
+msgstr ""
+
+#. translators: %s: region name such as Iran, GCC
+#: includes/admin/views/tab-credit.php:113
+msgid "No payment gateway is available for the %s region yet. You can still top up from the DiceX panel."
+msgstr ""
+
+#: includes/admin/views/tab-credit.php:121
+msgid "Pay through"
+msgstr ""
+
+#: includes/admin/views/tab-credit.php:146
+msgid "Not available yet"
+msgstr ""
+
+#: includes/admin/views/tab-credit.php:203
+msgid "Holding a discount coupon? A coupon can only be applied in the DiceX panel, not from here, so top up there instead and the discount is taken off the amount."
+msgstr ""
+
+#: includes/admin/views/tab-credit.php:205
+msgid "Top up in the DiceX panel"
+msgstr ""
+
+#: includes/admin/views/tab-integrations.php:23
+msgid "Numbers in the admin list, further down this page"
+msgstr ""
+
+#: includes/admin/views/tab-integrations.php:24
+msgid "WordPress administrators who added a mobile number to their profile"
+msgstr ""
+
+#: includes/admin/views/tab-integrations.php:25
+msgid "The user or customer the event is about"
+msgstr ""
+
+#: includes/admin/views/tab-integrations.php:33
+msgid "Every plugin DiceX can notify on has a card here. Switch a card on to use its settings."
+msgstr ""
+
+#: includes/admin/views/tab-integrations.php:46
+msgid "Admin numbers"
+msgstr ""
+
+#: includes/admin/views/tab-integrations.php:48
+msgid "One number per line. This list is shared by every card that sends to the admin list."
+msgstr ""
+
+#. translators: %s: how many admin numbers are stored
+#: includes/admin/views/tab-integrations.php:58
+msgid "%s number stored."
+msgid_plural "%s numbers stored."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/admin/views/tab-integrations.php:93
+msgid "Not installed"
+msgstr ""
+
+#. translators: %s: channel name such as WhatsApp
+#. translators: %s: channel name, for example WhatsApp
+#: includes/admin/views/tab-integrations.php:164 includes/admin/views/tab-lines.php:232
+msgid "%s — no line yet"
+msgstr ""
+
+#: includes/admin/views/tab-integrations.php:227
+msgid "Recipients"
+msgstr ""
+
+#: includes/admin/views/tab-integrations.php:277
+msgid "Cards only listen for events. They change nothing in the plugins themselves, and a failed DiceX send never breaks your site."
+msgstr ""
+
+#: includes/admin/views/tab-lines.php:96
+msgid "Choose the sender line for each channel on your DiceX account. One line per channel."
+msgstr ""
+
+#: includes/admin/views/tab-lines.php:118
+msgid "Line number or sender ID"
+msgstr ""
+
+#: includes/admin/views/tab-lines.php:127
+msgid "Social network lines"
+msgstr ""
+
+#: includes/admin/views/tab-lines.php:132
+msgid "No networks are enabled on this DiceX account."
+msgstr ""
+
+#: includes/admin/views/tab-lines.php:134
+msgid "Choose a network, then its line. The choice is saved straight away."
+msgstr ""
+
+#: includes/admin/views/tab-lines.php:137
+msgid "Choose a network"
+msgstr ""
+
+#: includes/admin/views/tab-lines.php:154
+msgid "SMS, voice calls and Safir can go out on the DiceX shared line, so choose a line for them only when you want a particular one. WhatsApp, Telegram Bot and Bale Bot have no shared line: activate one for them in your DiceX panel first, then pick it here."
+msgstr ""
+
+#: includes/admin/views/tab-lines.php:158
+msgid "Lines in use"
+msgstr ""
+
+#: includes/admin/views/tab-lines.php:163
+msgid "Ready to send"
+msgstr ""
+
+#: includes/admin/views/tab-lines.php:164
+msgid "Channel"
+msgstr ""
+
+#: includes/admin/views/tab-lines.php:165
+msgid "Line"
+msgstr ""
+
+#: includes/admin/views/tab-lines.php:206
+msgid "Test send"
+msgstr ""
+
+#. translators: %s: channel name, for example SMS
+#: includes/admin/views/tab-lines.php:226
+msgid "%s — shared line"
+msgstr ""
+
+#: includes/admin/views/tab-lines.php:244
+msgid "Destination mobile number"
+msgstr ""
+
+#: includes/admin/views/tab-support.php:22 includes/modules/club/class-dicex-club-cli.php:62
+msgid "Yes"
+msgstr ""
+
+#: includes/admin/views/tab-support.php:23 includes/modules/club/class-dicex-club-cli.php:62 includes/modules/club/class-dicex-club-cli.php:97 includes/modules/club/class-dicex-club-cli.php:101
+msgid "No"
+msgstr ""
+
+#: includes/admin/views/tab-support.php:28
+msgid "Site"
+msgstr ""
+
+#: includes/admin/views/tab-support.php:29
+msgid "Address"
+msgstr ""
+
+#: includes/admin/views/tab-support.php:30 includes/modules/club/class-dicex-club-privacy.php:58
+msgid "DiceX Connect"
+msgstr ""
+
+#: includes/admin/views/tab-support.php:31
+msgid "WordPress"
+msgstr ""
+
+#: includes/admin/views/tab-support.php:32
+msgid "PHP"
+msgstr ""
+
+#: includes/admin/views/tab-support.php:33 includes/integrations/class-dicex-integration-registry.php:35
+msgid "WooCommerce"
+msgstr ""
+
+#: includes/admin/views/tab-support.php:33
+msgid "Not active"
+msgstr ""
+
+#: includes/admin/views/tab-support.php:34
+msgid "Site language"
+msgstr ""
+
+#: includes/admin/views/tab-support.php:36
+msgid "Multisite"
+msgstr ""
+
+#: includes/admin/views/tab-support.php:37
+msgid "Connected to DiceX"
+msgstr ""
+
+#: includes/admin/views/tab-support.php:41
+msgid "Write to DiceX support"
+msgstr ""
+
+#. translators: %s: the support email address, as a link
+#: includes/admin/views/tab-support.php:48
+msgid "A question, a problem, or an idea for the plugin? This form emails DiceX support at %s through your site's own mail, and the answer comes to the address you give."
+msgstr ""
+
+#: includes/admin/views/tab-support.php:56
+msgid "Your email"
+msgstr ""
+
+#: includes/admin/views/tab-support.php:62
+msgid "DiceX support answers here."
+msgstr ""
+
+#: includes/admin/views/tab-support.php:66
+msgid "Subject"
+msgstr ""
+
+#: includes/admin/views/tab-support.php:73
+msgid "Message"
+msgstr ""
+
+#: includes/admin/views/tab-support.php:78
+msgid "What you did, what you expected, and what happened instead."
+msgstr ""
+
+#: includes/admin/views/tab-support.php:82
+msgid "Log"
+msgstr ""
+
+#: includes/admin/views/tab-support.php:87
+msgid "Attach the plugin's log"
+msgstr ""
+
+#. translators: %s: how many events the log keeps
+#: includes/admin/views/tab-support.php:93
+msgid "Its last %s events: messages sent, with numbers partly hidden, errors, and sign-in attempts. Email and IP addresses in it are shortened before it goes."
+msgstr ""
+
+#: includes/admin/views/tab-support.php:97
+msgid "Read the log"
+msgstr ""
+
+#: includes/admin/views/tab-support.php:105
+msgid "Sent with every message"
+msgstr ""
+
+#: includes/admin/views/tab-support.php:107
+msgid "So DiceX support knows which site is writing without having to ask. Your API key is never sent."
+msgstr ""
+
+#. translators: %s: how many messages a site may send in a day
+#: includes/admin/views/tab-support.php:142
+msgid "To keep this form from being misused, a site can send one message a minute and %s a day."
+msgstr ""
+
+#: includes/admin/views/tab-welcome.php:35
+msgid "Welcome to DiceX"
+msgstr ""
+
+#. translators: %s: a version number, such as 1.0.12
+#: includes/admin/views/tab-welcome.php:40
+msgid "Version %s"
+msgstr ""
+
+#: includes/admin/views/tab-welcome.php:46
+msgid "Connecting WordPress to the DiceX digital communications ecosystem"
+msgstr ""
+
+#: includes/admin/views/tab-welcome.php:53
+msgid "This site is connected to DiceX. Choose your sender lines, switch on the cards you want, and set up your Customer Club."
+msgstr ""
+
+#: includes/admin/views/tab-welcome.php:58
+msgid "The DiceX plugin connects your WordPress site to the DiceX digital communications platform."
+msgstr ""
+
+#: includes/admin/views/tab-welcome.php:60
+msgid "DiceX is a single infrastructure for managing digital communications, offering services such as SMS, social messengers, Telegram Bot, Bale, WhatsApp, voice calls, online meetings and digital marketing tools in one ecosystem."
+msgstr ""
+
+#: includes/admin/views/tab-welcome.php:62
+msgid "With this plugin your WordPress users and WooCommerce customers join your DiceX customer club, each in a level you define and in every contact group they match, and move between levels as they buy."
+msgstr ""
+
+#: includes/admin/views/tab-welcome.php:64
+msgid "It also sends a message over DiceX channels when something important happens in WordPress or in a compatible plugin: a new order, an order status change, a user registration, a form submission, an administrative alert, or a login that asks for a one-time code."
+msgstr ""
+
+#: includes/admin/views/tab-welcome.php:80
+msgid "To begin: if you do not have a DiceX account yet, create one first. If you are already a DiceX member, get your API key from your panel and enter it in the plugin settings."
+msgstr ""
+
+#: includes/admin/views/tab-welcome.php:82
+msgid "Your customer club and your site's messages then live in one place: your DiceX account."
+msgstr ""
+
+#: includes/admin/views/tab-welcome.php:88
+msgid "Create an account"
+msgstr ""
+
+#: includes/admin/views/tab-welcome.php:92
+msgid "Get your API key"
+msgstr ""
+
+#: includes/admin/views/tab-welcome.php:97
+msgid "If you do not have a DiceX account yet, start with Create an account. If you are already a DiceX member, get your API key first and then enter it in the plugin settings."
+msgstr ""
+
+#: includes/admin/views/tab-welcome.php:99
+msgid "Enter the key now"
+msgstr ""
+
+#: includes/admin/views/tab-welcome.php:111
+msgid "What's new"
+msgstr ""
+
+#: includes/admin/views/tab-welcome.php:121
+msgid "installed"
+msgstr ""
+
+#: includes/admin/views/tab-welcome.php:140
+msgid "WordPress tells you when a newer version is available and offers it on the Plugins screen — there is nothing to check here."
+msgstr ""
+
+#: includes/admin/views/tab-welcome.php:149
+msgid "What this plugin does"
+msgstr ""
+
+#: includes/admin/views/tab-welcome.php:153
+msgid "Visit the DiceX website"
+msgstr ""
+
+#: includes/admin/views/tab-welcome.php:157
+msgid "Open the DiceX panel"
+msgstr ""
+
+#. translators: 1: an amount of money, already formatted for the locale. 2: currency such as IRR
+#: includes/core/class-dicex-account.php:90
+msgid "%1$s %2$s"
+msgstr ""
+
+#: includes/core/class-dicex-api-client.php:120
+msgid "No DiceX API key is set."
+msgstr ""
+
+#. translators: 1: API URL, 2: HTTP error message
+#: includes/core/class-dicex-api-client.php:153
+msgid "Could not reach the API. URL: %1$s | Error: %2$s"
+msgstr ""
+
+#. translators: %d: HTTP status code returned by the DiceX API
+#: includes/core/class-dicex-api-client.php:169
+msgid "DiceX server error (code %d)"
+msgstr ""
+
+#: includes/core/class-dicex-api-client.php:186
+msgid "DiceX refused the request."
+msgstr ""
+
+#: includes/core/class-dicex-club.php:339
+msgid "DiceX received an empty request."
+msgstr ""
+
+#: includes/core/class-dicex-club.php:340
+msgid "DiceX needs a name for every club level."
+msgstr ""
+
+#: includes/core/class-dicex-club.php:341
+msgid "DiceX needs a description for every club level."
+msgstr ""
+
+#: includes/core/class-dicex-club.php:342
+msgid "DiceX needs a mobile number for every customer."
+msgstr ""
+
+#: includes/core/class-dicex-club.php:343
+msgid "DiceX needs a club level for every customer."
+msgstr ""
+
+#: includes/core/class-dicex-club.php:344
+msgid "DiceX did not accept this mobile number."
+msgstr ""
+
+#: includes/core/class-dicex-club.php:345
+msgid "That club level does not exist in DiceX yet."
+msgstr ""
+
+#: includes/core/class-dicex-credit.php:52
+msgid "Saman"
+msgstr ""
+
+#: includes/core/class-dicex-credit.php:53
+msgid "Sepehr"
+msgstr ""
+
+#: includes/core/class-dicex-credit.php:54
+msgid "Digipay credit payment"
+msgstr ""
+
+#: includes/core/class-dicex-credit.php:55
+msgid "Paymob"
+msgstr ""
+
+#: includes/core/class-dicex-credit.php:56
+msgid "Thawani"
+msgstr ""
+
+#. translators: %s: minimum chargeable amount, formatted
+#: includes/core/class-dicex-credit.php:160
+msgid "The minimum top-up is %s."
+msgstr ""
+
+#. translators: 1: minimum chargeable amount, formatted. 2: currency such as IRR
+#: includes/core/class-dicex-credit.php:167
+msgid "The minimum top-up is %1$s %2$s."
+msgstr ""
+
+#. translators: %s: region name such as Iran, GCC
+#: includes/core/class-dicex-credit.php:194
+msgid "No payment gateway is available for the %s region yet."
+msgstr ""
+
+#. translators: %s: an example date, such as 1370/05/21 or 1991-08-12
+#: includes/core/class-dicex-dates.php:335
+msgid "Write the date of birth as year, month and day, for example %s."
+msgstr ""
+
+#. translators: %s: an example date, such as 1370/05/21 or 1991-08-12
+#: includes/core/class-dicex-dates.php:354
+msgid "That date of birth does not exist. Check the day, month and year, for example %s."
+msgstr ""
+
+#: includes/core/class-dicex-dates.php:364
+msgid "A date of birth cannot be in the future."
+msgstr ""
+
+#: includes/core/class-dicex-dates.php:370
+msgid "Check the year of birth; that date is too long ago."
+msgstr ""
+
+#: includes/core/class-dicex-lines.php:75
+msgid "SMS"
+msgstr ""
+
+#: includes/core/class-dicex-lines.php:76
+msgid "WhatsApp"
+msgstr ""
+
+#: includes/core/class-dicex-lines.php:77
+msgid "Voice call"
+msgstr ""
+
+#: includes/core/class-dicex-lines.php:78
+msgid "Telegram Bot"
+msgstr ""
+
+#: includes/core/class-dicex-lines.php:79
+msgid "Bale Bot"
+msgstr ""
+
+#: includes/core/class-dicex-lines.php:80
+msgid "Safir"
+msgstr ""
+
+#. translators: 1: a clock time, such as 14:32. 2: the place that clock belongs to, such as Tehran or UTC+04:00.
+#: includes/core/class-dicex-message.php:72
+msgid "Valid until %1$s (%2$s)."
+msgstr ""
+
+#. translators: 1: a date and time, such as 13 Sep 2026 at 14:32. 2: the place that clock belongs to, such as Tehran or UTC+04:00.
+#: includes/core/class-dicex-message.php:96
+msgid "Time: %1$s (%2$s)"
+msgstr ""
+
+#. translators: %s: an example mobile number, such as +96891234567
+#: includes/core/class-dicex-mobile.php:298
+msgid "Write every number with a plus and its country code, like %s."
+msgstr ""
+
+#: includes/core/class-dicex-otp.php:59 includes/modules/class-dicex-login.php:440
+msgid "Invalid user."
+msgstr ""
+
+#: includes/core/class-dicex-otp.php:90
+msgid "This sign-in has expired. Please start again."
+msgstr ""
+
+#: includes/core/class-dicex-otp.php:97
+msgid "Too many codes have been sent for this sign-in. Please start again."
+msgstr ""
+
+#. translators: %s: number of seconds to wait
+#: includes/core/class-dicex-otp.php:111
+msgid "Wait %s seconds before asking for a new code."
+msgstr ""
+
+#: includes/core/class-dicex-otp.php:222 includes/modules/class-dicex-login.php:374
+msgid "That code is wrong or has expired."
+msgstr ""
+
+#: includes/core/class-dicex-region.php:77
+msgid "Iran"
+msgstr ""
+
+#: includes/core/class-dicex-region.php:80
+msgid "IRR"
+msgstr ""
+
+#: includes/core/class-dicex-region.php:94
+msgid "GCC"
+msgstr ""
+
+#: includes/core/class-dicex-region.php:110
+msgid "OMR"
+msgstr ""
+
+#: includes/core/class-dicex-region.php:113
+msgid "DiceX has no international SMS operator for this region yet. WhatsApp and Telegram are available; SMS and voice are not."
+msgstr ""
+
+#. translators: A region name. DiceX's product page calls it World Wide and keeps those two words in English in every language.
+#: includes/core/class-dicex-region.php:117
+msgid "World Wide"
+msgstr ""
+
+#: includes/core/class-dicex-region.php:121
+msgid "WhatsApp and Telegram are available for this region. DiceX does not offer SMS, voice or payment here yet."
+msgstr ""
+
+#: includes/core/class-dicex-send-options.php:184
+msgid "Follow WordPress"
+msgstr ""
+
+#: includes/core/class-dicex-sender.php:116
+msgid "No sending channel has been chosen."
+msgstr ""
+
+#. translators: %s: channel name such as telegram, bale
+#: includes/core/class-dicex-sender.php:167 includes/core/class-dicex-sender.php:277
+msgid "The %s channel is not available through the DiceX API yet."
+msgstr ""
+
+#. translators: 1: channel name such as sms, whatsapp. 2: region name such as Iran, GCC
+#: includes/core/class-dicex-sender.php:184
+msgid "The %1$s channel is not available in the %2$s region."
+msgstr ""
+
+#. translators: %s: channel name such as WhatsApp, Telegram Bot
+#: includes/core/class-dicex-sender.php:211
+msgid "No line is set for %s, and DiceX has no shared line for it. Activate a line for this channel in your DiceX panel, then choose it on the Sender lines tab."
+msgstr ""
+
+#. translators: %s: how a number should be written here, such as "Include the country code, in a form like 96891234567."
+#: includes/core/class-dicex-sender.php:237
+msgid "That destination is not a number this plugin can deliver to. %s"
+msgstr ""
+
+#. translators: 1: how many messages a day, 2: how long until the next one may go, such as "3 mins", 3: the support email address
+#: includes/core/class-dicex-support.php:93
+msgid "A site can send DiceX support one message a minute and %1$s a day. You can write again in %2$s, or write to %3$s from your own mailbox."
+msgstr ""
+
+#: includes/core/class-dicex-support.php:118
+msgid "Enter an email address DiceX support can answer."
+msgstr ""
+
+#: includes/core/class-dicex-support.php:122
+msgid "Write a subject and a message."
+msgstr ""
+
+#. translators: 1: most characters in the subject, 2: most characters in the message
+#: includes/core/class-dicex-support.php:130
+msgid "Keep the subject to %1$s characters and the message to %2$s."
+msgstr ""
+
+#. translators: %s: the support email address
+#: includes/core/class-dicex-support.php:210
+msgid "Your site could not send the email; its mail may not be set up. Write to %s from your own mailbox instead."
+msgstr ""
+
+#. translators: %s: how many failed attempts were counted
+#: includes/integrations/class-dicex-integration-core-security.php:129
+msgid "%s failed login in a row"
+msgid_plural "%s failed logins in a row"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/integrations/class-dicex-integration-core-security.php:168 includes/integrations/class-dicex-integration-registry.php:127
+msgid "Administrator signed in"
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-core-security.php:185 includes/integrations/class-dicex-integration-registry.php:128 includes/integrations/class-dicex-integration-registry.php:139
+msgid "New user registered"
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-core-security.php:201 includes/integrations/class-dicex-integration-registry.php:129 includes/integrations/class-dicex-integration-registry.php:140
+msgid "Password reset"
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:37
+msgid "Notify admins and the customer when an order changes status."
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:43
+msgid "Order status changed"
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:49
+msgid "Which order statuses should send a message?"
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:57
+msgid "Order {order_id} on {site_name} changed to {order_status}."
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:61
+msgid "WPForms"
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:63 includes/integrations/class-dicex-integration-registry.php:82
+msgid "Send a message on every successful submission."
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:68 includes/integrations/class-dicex-integration-registry.php:87 includes/integrations/class-dicex-integration-registry.php:106
+msgid "The sender number is found automatically in the submitted fields; there is nothing to map."
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:70 includes/integrations/class-dicex-integration-registry.php:89
+msgid "Successful submission"
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:76 includes/integrations/class-dicex-integration-registry.php:95 includes/integrations/class-dicex-integration-registry.php:114
+msgid "Form {form_title} on {site_name} was completed."
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:80
+msgid "Contact Form 7"
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:99
+msgid "Gravity Forms"
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:101
+msgid "Send a message on every entry."
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:108
+msgid "Entry created"
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:118
+msgid "WordPress security events"
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:120
+msgid "Failed logins, administrator sign-ins, new users and password resets — independent of any security plugin."
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:126
+msgid "Failed login"
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:135
+msgid "Which events should send a message?"
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:137
+msgid "Failed logins from one address"
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:138
+msgid "An administrator signing in"
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:146
+msgid "Warn after this many failed logins from one address, within fifteen minutes"
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:148
+msgid "Every failed attempt"
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:149
+msgid "3 attempts"
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:150
+msgid "5 attempts"
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:151
+msgid "10 attempts"
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:159
+msgid "{site_name}: {event} — user {user_login} from {ip}"
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:163
+msgid "Digits"
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:165
+msgid "Deliver the login codes Digits generates through DiceX."
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:172
+msgid "One more step after switching this on: open Digits, go to its SMS gateway settings and choose DiceX. The wording and the recipient stay under Digits control — DiceX only delivers."
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:174
+msgid "Login and registration codes"
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:184
+msgid "DiceX two-step login"
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:186
+msgid "An SMS code on the WordPress login page, with no other plugin needed."
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:192
+msgid "The second step applies only to users with a mobile number on their profile. To switch it off in an emergency, set DICEX_CONNECT_DISABLE_LOGIN_OTP to true in wp-config.php."
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:194
+msgid "Login code by SMS"
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:200
+msgid "Login method"
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:202
+msgid "An SMS code as a second step, after the password"
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:203
+msgid "Sign in with a number and a code, no password"
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:204
+msgid "Both — the person chooses on the login page"
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:212
+msgid "Your login code for {site_name}: {code}"
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:425
+msgid "Add a mobile number to your profile before switching a card on. Until the plugin knows where to reach you, a card switched on now would do nothing."
+msgstr ""
+
+#. translators: %s: how a number should be written, such as "Write every number with a plus and its country code, like +96891234567."
+#: includes/integrations/class-dicex-integration-registry.php:428
+msgid "The mobile number on your profile is not in a form this plugin can use, so no card can be switched on yet. %s"
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:435 includes/integrations/class-dicex-integration-registry.php:467
+msgid "Open your profile"
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:457
+msgid "Switched off in wp-config.php by DICEX_CONNECT_DISABLE_LOGIN_OTP. Remove that line to use the second step."
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:465
+msgid "Your logins will not ask for a code until your own profile has a mobile number this plugin can use."
+msgstr ""
+
+#: includes/integrations/class-dicex-integration-registry.php:483
+msgid "None of the channels this card is set to use can send in your current region, so the second step is standing down and logins are working as normal. Choose a channel your region offers, or change the region on the Connection tab."
+msgstr ""
+
+#: includes/modules/class-dicex-login.php:280
+msgid "You need to confirm an SMS code to sign in to this account. Please sign in from this page."
+msgstr ""
+
+#: includes/modules/class-dicex-login.php:292
+msgid "Sign in with your mobile number"
+msgstr ""
+
+#: includes/modules/class-dicex-login.php:415
+msgid "A new code is on its way."
+msgstr ""
+
+#: includes/modules/class-dicex-login.php:489
+msgid "The login code could not be sent. Try again, or contact the site administrator."
+msgstr ""
+
+#. translators: %s: a countdown such as 1:45
+#: includes/modules/class-dicex-login.php:583
+msgid "This code is valid for another %s"
+msgstr ""
+
+#. translators: 1: a countdown such as 0:56, 2: a channel name such as WhatsApp
+#: includes/modules/class-dicex-login.php:615
+msgid "Next code in %1$s, by %2$s"
+msgstr ""
+
+#. translators: %s: a channel name such as WhatsApp
+#: includes/modules/class-dicex-login.php:618
+msgid "Send a new code by %s"
+msgstr ""
+
+#. translators: %1$s: a countdown such as 0:56
+#: includes/modules/class-dicex-login.php:623
+msgid "Next code in %1$s"
+msgstr ""
+
+#: includes/modules/class-dicex-login.php:624 includes/modules/class-dicex-login.php:745
+msgid "Send me a new code"
+msgstr ""
+
+#: includes/modules/class-dicex-login.php:643
+msgid "The code has expired. Ask for a new one."
+msgstr ""
+
+#: includes/modules/class-dicex-login.php:670
+msgid "Confirm sign-in"
+msgstr ""
+
+#: includes/modules/class-dicex-login.php:680
+msgid "Back to the login page"
+msgstr ""
+
+#: includes/modules/class-dicex-login.php:703
+msgid "You are being called with the code. Answer the call and enter what you hear."
+msgstr ""
+
+#. translators: %s: the channel the code was sent through, such as SMS, WhatsApp or Telegram Bot
+#: includes/modules/class-dicex-login.php:707
+msgid "Enter the code sent to you by %s."
+msgstr ""
+
+#: includes/modules/class-dicex-login.php:711
+msgid "Enter the code that was sent to you."
+msgstr ""
+
+#: includes/modules/class-dicex-login.php:716
+msgid "Login code"
+msgstr ""
+
+#: includes/modules/class-dicex-login.php:729
+msgid "Confirm and sign in"
+msgstr ""
+
+#: includes/modules/class-dicex-login.php:763
+msgid "Sign in with mobile"
+msgstr ""
+
+#: includes/modules/class-dicex-login.php:779
+msgid "Send code"
+msgstr ""
+
+#: includes/modules/class-dicex-login.php:783
+msgid "Sign in with a username and password"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-cli.php:61
+msgid "Switched on"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-cli.php:81
+msgid "Group memberships on the way"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-cli.php:85
+msgid "Import"
+msgstr ""
+
+#. translators: 1: how many orders and users have been read, 2: how many there are
+#: includes/modules/club/class-dicex-club-cli.php:89
+msgid "Running: %1$s of %2$s read"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-cli.php:93
+msgid "Never run"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-cli.php:96
+msgid "Waiting for your release"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-cli.php:97
+msgid "Yes — run wp dicex club release"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-cli.php:100
+msgid "Paused"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-cli.php:104
+msgid "Last sent"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-cli.php:108
+msgid "Next daily run"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-cli.php:152
+msgid "An import is already under way. Carrying it on."
+msgstr ""
+
+#. translators: 1: how many customers will be sent again, 2: how many group memberships
+#: includes/modules/club/class-dicex-club-cli.php:202
+msgid "Back in the queue: %1$s customers and %2$s group memberships. Run wp dicex club sync to send them now."
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-cli.php:231
+msgid "Nothing is waiting for your release."
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-cli.php:247
+msgid "The Customer Club is switched off, or not set up yet. Switch it on in the DiceX > Customer Club tab."
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-cli.php:268
+msgid "Another run of the club has been working for two minutes. Try again when it is done."
+msgstr ""
+
+#. translators: 1: the reason DiceX gave, 2: a length of time, such as "2 minutes"
+#: includes/modules/club/class-dicex-club-cli.php:297
+msgid "Sending is paused: %1$s. The club tries again by itself in %2$s."
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-cli.php:306
+msgid "Read and worked out. Nothing has been sent yet: check the counts with wp dicex club status, then run wp dicex club release."
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-cli.php:311
+msgid "Worked out, but nothing can be sent without an API key. Add one in the DiceX > Connection tab."
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-cli.php:315
+msgid "The club is up to date."
+msgstr ""
+
+#. translators: 1: orders and users read so far, 2: how many there are
+#: includes/modules/club/class-dicex-club-cli.php:330
+msgid "Reading: %1$s of %2$s"
+msgstr ""
+
+#. translators: 1: members still to work out, 2: members waiting to be sent, 3: members DiceX has, 4: group memberships on the way
+#: includes/modules/club/class-dicex-club-cli.php:340
+msgid "To work out: %1$s · to send: %2$s · in DiceX: %3$s · group memberships on the way: %4$s"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-fields.php:374
+msgid "at checkout"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-fields.php:375
+msgid "when registering"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-fields.php:376
+msgid "on their account page"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-fields.php:377
+msgid "on their profile"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-fields.php:378
+msgid "through a request to erase their data"
+msgstr ""
+
+#. translators: 1: a date and time, 2: where it happened, such as "at checkout"
+#: includes/modules/club/class-dicex-club-fields.php:389
+msgid "%1$s, %2$s"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-fields.php:445
+msgid "Date of birth (year/month/day)"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-fields.php:446
+msgid "Date of birth (year/month/day, optional)"
+msgstr ""
+
+#. translators: %s: an example date, such as 1370/05/21 or 1991-08-12
+#: includes/modules/club/class-dicex-club-fields.php:456 includes/modules/club/class-dicex-club-fields.php:814
+msgid "For example %s"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-fields.php:626 includes/modules/club/class-dicex-club-fields.php:753 includes/modules/club/class-dicex-club-fields.php:812 includes/modules/club/class-dicex-club-fields.php:939
+msgid "Year, month and day."
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-fields.php:810
+msgid "Date of birth (optional)"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-fields.php:881 includes/modules/club/class-dicex-club-fields.php:1003
+msgid "Please enter your date of birth."
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-privacy.php:27 includes/modules/club/class-dicex-club-privacy.php:40
+msgid "DiceX customer club"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-privacy.php:55
+msgid "DiceX Connect sends customer details to DiceX when the customer club is switched on. Adjust this text to what you actually send, and to whether customers join the club by ticking a box."
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-privacy.php:56
+msgid "When you buy from us or create an account, your mobile number, your name and the date of your first purchase are added to our customer club at DiceX (dicex.me), which we use to stay in touch with you. If you give us your date of birth, it is added too. Depending on our settings your email address, company and billing address may be added as well. The club records which membership level you are in, based on your purchases. You can leave the club at any time from your account page, or ask us to take you out of it."
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-privacy.php:92
+msgid "Club level"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-privacy.php:96
+msgid "Orders counted"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-privacy.php:103
+msgid "Amount counted"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-privacy.php:110
+msgid "Last purchase"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-privacy.php:124
+msgid "Last sent to DiceX"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-privacy.php:207
+msgid "This person is in the DiceX customer club, but no level is set for removed numbers. Choose one on the Customer Club tab, then erase again."
+msgstr ""
+
+#. translators: %s: the name of the club level for removed numbers
+#: includes/modules/club/class-dicex-club-privacy.php:223
+msgid "Moved to the \"%s\" level of the DiceX customer club: the number is no longer used, and nothing more about this person is sent. DiceX keeps the number and whatever details it was sent before; WordPress cannot delete them there."
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-privacy.php:228
+msgid "They are in no contact group here any more. A DiceX contact group they were added to still holds the number: DiceX has no way to take a contact out of a group."
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-privacy.php:256
+msgid "First name sent to DiceX"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-privacy.php:257
+msgid "Last name sent to DiceX"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-privacy.php:258
+msgid "Email sent to DiceX"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-privacy.php:259
+msgid "Company sent to DiceX"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-privacy.php:260
+msgid "Address sent to DiceX"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-privacy.php:261
+msgid "Date of birth sent to DiceX"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-privacy.php:262
+msgid "First purchase date sent to DiceX"
+msgstr ""
+
+#. translators: %s: the name of a contact group
+#: includes/modules/club/class-dicex-club-privacy.php:313
+msgid "%s (no longer matching; DiceX keeps the contact)"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-privacy.php:349
+msgid "Joined the customer club"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-privacy.php:356
+msgid "Left the customer club"
+msgstr ""
+
+#. translators: %s: an order number
+#: includes/modules/club/class-dicex-club-privacy.php:370
+msgid "Date of birth given with order %s"
+msgstr ""
+
+#. translators: %s: an order number
+#: includes/modules/club/class-dicex-club-privacy.php:378
+msgid "Joined the customer club with order %s"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-settings.php:220
+msgid "Join our customer club and receive news and offers"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-settings.php:789
+msgid "Add at least one level."
+msgstr ""
+
+#. translators: %s: the largest number of levels allowed
+#: includes/modules/club/class-dicex-club-settings.php:797
+msgid "A club can have at most %s levels."
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-settings.php:807
+msgid "Choose the level for customers who match none of the others."
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-settings.php:815
+msgid "The level for removed numbers cannot also be the level everybody else joins."
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-settings.php:949
+msgid "Every level needs a name."
+msgstr ""
+
+#. translators: %s: a level name
+#: includes/modules/club/class-dicex-club-settings.php:951
+msgid "Two levels are called \"%s\". Every level needs a name of its own."
+msgstr ""
+
+#. translators: %s: a level name
+#: includes/modules/club/class-dicex-club-settings.php:953
+msgid "The purchase amounts for \"%s\" have to be numbers."
+msgstr ""
+
+#. translators: %s: a level name
+#: includes/modules/club/class-dicex-club-settings.php:955
+msgid "The number of orders for \"%s\" has to be a whole number."
+msgstr ""
+
+#. translators: %s: a level name
+#: includes/modules/club/class-dicex-club-settings.php:957
+msgid "The days since the last purchase for \"%s\" have to be a whole number."
+msgstr ""
+
+#. translators: 1: a level name, 2: the greatest age, such as 120
+#: includes/modules/club/class-dicex-club-settings.php:959
+msgid "The ages for \"%1$s\" have to be whole numbers of years, up to %2$s."
+msgstr ""
+
+#. translators: %s: a level name
+#: includes/modules/club/class-dicex-club-settings.php:961
+msgid "In \"%s\", a \"from\" value is larger than its \"to\" value."
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-settings.php:965
+msgid "Every group needs a name."
+msgstr ""
+
+#. translators: %s: a group name
+#: includes/modules/club/class-dicex-club-settings.php:967
+msgid "Two groups are called \"%s\". Every group needs a name of its own."
+msgstr ""
+
+#. translators: %s: a group name
+#: includes/modules/club/class-dicex-club-settings.php:969
+msgid "The purchase amounts for the \"%s\" group have to be numbers."
+msgstr ""
+
+#. translators: %s: a group name
+#: includes/modules/club/class-dicex-club-settings.php:971
+msgid "The number of orders for the \"%s\" group has to be a whole number."
+msgstr ""
+
+#. translators: %s: a group name
+#: includes/modules/club/class-dicex-club-settings.php:973
+msgid "The days since the last purchase for the \"%s\" group have to be a whole number."
+msgstr ""
+
+#. translators: 1: a group name, 2: the greatest age, such as 120
+#: includes/modules/club/class-dicex-club-settings.php:975
+msgid "The ages for the \"%1$s\" group have to be whole numbers of years, up to %2$s."
+msgstr ""
+
+#. translators: %s: a group name
+#: includes/modules/club/class-dicex-club-settings.php:977
+msgid "In the \"%s\" group, a \"from\" value is larger than its \"to\" value."
+msgstr ""
+
+#. translators: %s: a group name
+#: includes/modules/club/class-dicex-club-settings.php:1032
+msgid "The \"%s\" group needs at least one condition. A group without conditions would hold every customer."
+msgstr ""
+
+#. translators: %s: the largest number of groups allowed
+#: includes/modules/club/class-dicex-club-settings.php:1046
+msgid "A club can have at most %s groups."
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-settings.php:1233
+msgid "Gold"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-settings.php:1234
+msgid "Silver"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-settings.php:1235
+msgid "Bronze"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-settings.php:1236
+msgid "Regular member"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-settings.php:1237
+msgid "Removed"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-settings.php:1250
+msgid "Inactive"
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-settings.php:1284
+msgid "Numbers taken out of the club. Nobody in this level is contacted."
+msgstr ""
+
+#. translators: %s: the site's name
+#: includes/modules/club/class-dicex-club-settings.php:1289
+msgid "Customer club level on %s."
+msgstr ""
+
+#. translators: %s: the site's name
+#: includes/modules/club/class-dicex-club-settings.php:1308
+msgid "Customer group on %s."
+msgstr ""
+
+#: includes/modules/club/class-dicex-club-settings.php:1322
+msgid "Hi {first_name}, welcome to the {site_name} customer club. Your level: {level}."
+msgstr ""
