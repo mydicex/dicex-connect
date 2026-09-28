@@ -1,4 +1,8 @@
 # WordPress Coding Standards, with the plugin's own ruleset in phpcs.xml.dist.
+#
+# PHPCS is installed here rather than taken from an action, so the versions are
+# visible and a failure is a real violation rather than a surprise in somebody
+# else's wrapper. cs2pr turns the report into annotations on the changed lines.
 name: Coding standards
 
 on:
@@ -16,13 +20,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+        uses: actions/checkout@v5
 
-      - name: WPCS check
-        uses: 10up/wpcs-action@stable
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
         with:
-          enable_warnings: true
-          use_local_config: 'true'
-          standard: 'WordPress'
+          php-version: '8.2'
+          coverage: none
+          tools: cs2pr
+
+      - name: Install PHP_CodeSniffer and the WordPress standards
+        run: |
+          composer global config --no-plugins allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
+          composer global require --no-interaction --no-progress --prefer-dist \
+            squizlabs/php_codesniffer:^3.13 \
+            wp-coding-standards/wpcs:^3.3 \
+            phpcompatibility/phpcompatibility-wp:^2.1
+          echo "$(composer global config bin-dir --absolute -q)" >> "$GITHUB_PATH"
+
+      - name: Which standards are installed
+        run: phpcs -i
+
+      - name: PHPCS
+        run: phpcs -q --report=checkstyle . | cs2pr --graceful-warnings
