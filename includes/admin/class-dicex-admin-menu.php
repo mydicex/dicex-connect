@@ -202,9 +202,44 @@ class Dicex_Connect_Admin_Menu {
 			'dicex-connect-club',
 			'DiceXClub',
 			array(
-				'woo'     => Dicex_Connect_Club_Sources::has_woocommerce(),
-				'starter' => Dicex_Connect_Club_Settings::starter_set(),
-				'i18n'    => array(
+				'woo'      => Dicex_Connect_Club_Sources::has_woocommerce(),
+				'starter'  => Dicex_Connect_Club_Settings::starter_set(),
+				// The store's currency code, beside amounts in a level's one-line summary.
+				'currency' => Dicex_Connect_Club_Sources::has_woocommerce() ? get_woocommerce_currency() : '',
+				'i18n'     => array(
+					'edit'              => __( 'Edit', 'dicex-connect' ),
+					'close'             => __( 'Close', 'dicex-connect' ),
+					/* translators: %s: a level's or a group's name */
+					'editNamed'         => __( 'Edit %s', 'dicex-connect' ),
+					/* translators: %s: a level's or a group's name */
+					'closeNamed'        => __( 'Close %s', 'dicex-connect' ),
+					'missingNames'      => __( 'Under Levels, give every level a name.', 'dicex-connect' ),
+					'sameNames'         => __( 'Under Levels, two levels have the same name.', 'dicex-connect' ),
+					'sameDefaultRemoved' => __( 'The level for everyone else and the level for people who leave must be different.', 'dicex-connect' ),
+					/* translators: 1: a condition, such as Orders. 2: a number, with its unit when it has one. */
+					'rangeMin'          => __( '%1$s: %2$s or more', 'dicex-connect' ),
+					/* translators: 1: a condition, such as Orders. 2: a number, with its unit when it has one. */
+					'rangeMax'          => __( '%1$s: up to %2$s', 'dicex-connect' ),
+					/* translators: 1: a condition, such as Age. 2: the lowest number. 3: the highest number. */
+					'rangeBoth'         => __( '%1$s: %2$s to %3$s', 'dicex-connect' ),
+					/* translators: 1: a condition, such as Orders. 2: a number, with its unit when it has one. */
+					'rangeExact'        => __( '%1$s: exactly %2$s', 'dicex-connect' ),
+					/* translators: 1: a list, such as "Buyer's country". 2: what is chosen in it. */
+					'listPart'          => __( '%1$s: %2$s', 'dicex-connect' ),
+					'noConditions'      => __( 'No conditions', 'dicex-connect' ),
+					'sendsMessage'      => __( 'Sends a message on moving up', 'dicex-connect' ),
+					/* translators: %s: the names of the levels just added, as a list */
+					'levelsAdded'       => __( 'Levels added: %s.', 'dicex-connect' ),
+					/* translators: %s: the names of the club's levels, as a list */
+					'levelsNamed'       => __( 'Your levels: %s.', 'dicex-connect' ),
+					'missingDefault'    => __( 'Under Levels, choose the level for everyone else.', 'dicex-connect' ),
+					'missingRemoved'    => __( 'Under Levels, choose the level for people who leave.', 'dicex-connect' ),
+					'stepDone'          => __( 'Done', 'dicex-connect' ),
+					'stepNext'          => __( 'Do this next', 'dicex-connect' ),
+					'switchedOn'        => __( 'The club is on.', 'dicex-connect' ),
+					'switchedOnReading' => __( 'The club is on. Your customers are being read into their levels; nothing is sent yet.', 'dicex-connect' ),
+					'switchedOff'       => __( 'The club is off.', 'dicex-connect' ),
+					'leaveUnsaved'      => __( 'Your Customer Club changes are not saved. Leave this tab anyway?', 'dicex-connect' ),
 					'noRemovedLevel'   => __( 'None', 'dicex-connect' ),
 					'addLevelFirst'    => __( 'Add a level first', 'dicex-connect' ),
 					'unnamedLevel'     => __( '(no name yet)', 'dicex-connect' ),

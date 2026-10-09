@@ -1229,20 +1229,33 @@ class Dicex_Connect_Club_Settings {
 	public static function starter_set() {
 		$blank = self::blank_level();
 
-		$levels = array(
-			array_merge( $blank, array( 'id' => 'gold', 'name' => __( 'Gold', 'dicex-connect' ) ) ),
-			array_merge( $blank, array( 'id' => 'silver', 'name' => __( 'Silver', 'dicex-connect' ) ) ),
-			array_merge( $blank, array( 'id' => 'bronze', 'name' => __( 'Bronze', 'dicex-connect' ) ) ),
-			array_merge( $blank, array( 'id' => 'member', 'name' => __( 'Regular member', 'dicex-connect' ) ) ),
-			array_merge( $blank, array( 'id' => 'removed', 'name' => __( 'Removed', 'dicex-connect' ) ) ),
-		);
+		/*
+		 * Without a store there is nothing to rank people by, and three tiers with no
+		 * conditions would all take everybody — so a site with users only starts
+		 * with one level for everyone and the one for people who leave.
+		 */
+		if ( ! Dicex_Connect_Club_Sources::has_woocommerce() ) {
+			return array(
+				'levels'        => array(
+					array_merge( $blank, array( 'id' => 'member', 'name' => __( 'Regular member', 'dicex-connect' ) ) ),
+					array_merge( $blank, array( 'id' => 'removed', 'name' => __( 'Removed', 'dicex-connect' ) ) ),
+				),
+				'default_level' => 'member',
+				'removed_level' => 'removed',
+			);
+		}
 
-		// Nobody who has not bought in half a year is anybody's gold customer: the
-		// level a win-back campaign is sent to, checked first. It needs purchases to
-		// mean anything, so only a store gets it.
-		if ( Dicex_Connect_Club_Sources::has_woocommerce() ) {
-			array_unshift(
-				$levels,
+		/*
+		 * The tiers are counted in orders, not money, since 1.9.0. A count means the
+		 * same in rial, dirham or euro, so the set works on any store the moment it
+		 * is added; before, Gold, Silver and Bronze arrived empty and each one took
+		 * everybody until the owner worked out amounts in their own currency.
+		 *
+		 * Nobody who has not bought in half a year is anybody's gold customer:
+		 * Inactive, the level a win-back campaign is sent to, is checked first.
+		 */
+		return array(
+			'levels'        => array(
 				array_merge(
 					$blank,
 					array(
@@ -1250,12 +1263,34 @@ class Dicex_Connect_Club_Settings {
 						'name'     => __( 'Inactive', 'dicex-connect' ),
 						'idle_min' => '180',
 					)
-				)
-			);
-		}
-
-		return array(
-			'levels'        => $levels,
+				),
+				array_merge(
+					$blank,
+					array(
+						'id'         => 'gold',
+						'name'       => __( 'Gold', 'dicex-connect' ),
+						'orders_min' => '10',
+					)
+				),
+				array_merge(
+					$blank,
+					array(
+						'id'         => 'silver',
+						'name'       => __( 'Silver', 'dicex-connect' ),
+						'orders_min' => '5',
+					)
+				),
+				array_merge(
+					$blank,
+					array(
+						'id'         => 'bronze',
+						'name'       => __( 'Bronze', 'dicex-connect' ),
+						'orders_min' => '2',
+					)
+				),
+				array_merge( $blank, array( 'id' => 'member', 'name' => __( 'Regular member', 'dicex-connect' ) ) ),
+				array_merge( $blank, array( 'id' => 'removed', 'name' => __( 'Removed', 'dicex-connect' ) ) ),
+			),
 			'default_level' => 'member',
 			'removed_level' => 'removed',
 		);

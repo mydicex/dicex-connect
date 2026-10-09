@@ -332,7 +332,8 @@ body {
 .dicex-connect-badge-soon {
 	display: inline-block;
 	font-size: 11px;
-	color: var(--dicex-warning);
+	/* The warning colour is 4.3:1 on this tint, short of 4.5 for text this small; this is 5.2:1. */
+	color: #8a5d00;
 	background: #fcf0e0;
 	border: 1px solid #f0c869;
 	border-radius: 16px;
@@ -1117,14 +1118,42 @@ body {
 
 .dicex-connect-gateway.is-unavailable .dicex-connect-gateway-tile,
 .dicex-connect-gateway.is-unavailable:hover .dicex-connect-gateway-tile {
-	opacity: 0.55;
 	background: #f6f7f7;
 	border-color: var(--dicex-border);
 }
 
+/* The mark and the name fade; "Coming soon" stays readable, because it is the news. */
+.dicex-connect-gateway.is-unavailable .dicex-connect-gateway-mark,
+.dicex-connect-gateway.is-unavailable .dicex-connect-gateway-name {
+	opacity: 0.55;
+}
+
 .dicex-connect-gateway-soon {
 	font-size: 11px;
-	color: #8c8f94;
+	color: #646970;
+}
+
+/* 1.9.0: "Coming soon: Discord" under a channel list, and on Getting started. */
+.dicex-connect-wrap p.dicex-connect-channels-soon {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 6px;
+	margin: 6px 0 0;
+}
+
+.dicex-connect-channels-soon .dicex-connect-badge-soon {
+	margin-inline-start: 0;
+}
+
+.dicex-connect-welcome-channel.is-soon {
+	border-style: dashed;
+	background: #fff;
+}
+
+.dicex-connect-welcome-channel.is-soon .dicex-connect-badge-soon {
+	padding: 0 8px;
+	font-size: 10px;
 }
 
 /* --------------------------------------------------------------------------

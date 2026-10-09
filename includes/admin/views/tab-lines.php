@@ -153,6 +153,7 @@ $social_providers = array_filter(
 			<span class="dashicons dashicons-info-outline" aria-hidden="true"></span>
 			<?php esc_html_e( 'SMS, voice calls and Safir can go out on the DiceX shared line, so choose a line for them only when you want a particular one. WhatsApp, Telegram Bot and Bale Bot have no shared line: activate one for them in your DiceX panel first, then pick it here.', 'dicex-connect' ); ?>
 		</p>
+		<?php Dicex_Connect_Settings_Page::upcoming_channels_note(); ?>
 	</div>
 
 	<h3 class="dicex-connect-summary-heading"><span class="dashicons dashicons-list-view"></span><?php esc_html_e( 'Lines in use', 'dicex-connect' ); ?></h3>

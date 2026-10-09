@@ -10,7 +10,10 @@ and is looked for first; `.png` is the fallback.
 | `Sepehr`  | `sepehr.svg` |
 | `Digipay` | `digipay.svg` |
 | `Thawani` | `thawani.svg` |
-| `Paymob`  | `paymob.svg` |
+| `Tap`     | none — Tap publishes no logo or rules for using one, so the tile shows its name until Tap provides the file and permission |
+
+Paymob was removed in 1.9.0 with its mark: DiceX did not sign with Paymob and
+signed with Tap instead.
 
 The tile gives each mark a 40px-tall slot and up to 100px of width, so the three
 different shapes — a wide wordmark, a near-square ribbon and a square icon — all

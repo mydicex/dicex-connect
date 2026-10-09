@@ -47,45 +47,65 @@ class Dicex_Connect_Club_Page {
 		$enabled  = isset( $_POST['enabled'] ) && '1' === sanitize_text_field( wp_unslash( $_POST['enabled'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Missing -- Nonce and capability are verified by $this->guard(), the first statement of this handler.
 		$settings = Dicex_Connect_Club_Settings::get();
 
+		/*
+		 * Each refusal names the setup step it belongs to, so the screen can point at
+		 * that step instead of only saying no. The screen saves the settings before
+		 * it asks, which is why none of these tells anybody to save.
+		 */
 		if ( $enabled ) {
 			if ( ! Dicex_Connect_Api_Client::has_api_key() ) {
-				wp_send_json_error( __( 'Connect your DiceX account on the Connection tab before switching the club on.', 'dicex-connect' ) );
-			}
-
-			if ( null === Dicex_Connect_Club_Settings::find_level( $settings, $settings['default_level'] ) ) {
-				wp_send_json_error( __( 'Save at least one level, and choose the level for everybody else, before switching the club on.', 'dicex-connect' ) );
+				self::refuse( 'connect', __( 'Connect your DiceX account on the Connection tab before switching the club on.', 'dicex-connect' ) );
 			}
 
 			if ( '' === $settings['join'] ) {
-				wp_send_json_error( __( 'Choose who joins the club, and save, before switching it on.', 'dicex-connect' ) );
+				self::refuse( 'join', __( 'Choose who joins the club before switching it on.', 'dicex-connect' ) );
+			}
+
+			if ( null === Dicex_Connect_Club_Settings::find_level( $settings, $settings['default_level'] ) ) {
+				self::refuse( 'levels', __( 'Add at least one level, and choose the level for everyone else, before switching the club on.', 'dicex-connect' ) );
 			}
 
 			if ( ! Dicex_Connect_Club_Settings::can_leave( $settings ) ) {
-				wp_send_json_error( __( 'Choose the level for removed numbers, and save, before switching the club on: customers can leave the club from their account, and that is where they go.', 'dicex-connect' ) );
+				self::refuse( 'levels', __( 'Choose the level for people who leave before switching the club on: customers can leave the club from their account, and that is where they go.', 'dicex-connect' ) );
 			}
 		}
 
 		$settings['enabled'] = $enabled;
 		Dicex_Connect_Club_Settings::save( $settings );
 
+		Dicex_Connect_Logger::log( 'CLUB: ' . ( $enabled ? 'enabled' : 'disabled' ) );
+
 		if ( $enabled ) {
 			Dicex_Connect_Club_Store::maybe_install();
 			// Anything could have changed while the club was off.
 			Dicex_Connect_Club_Store::mark_all_dirty();
 			Dicex_Connect_Club_Queue::schedule_daily( $settings['daily_time'] );
-			Dicex_Connect_Club_Queue::tick_soon();
+
+			$progress = Dicex_Connect_Club_Sync::progress();
+
+			/*
+			 * The first time the club is switched on, the customers already in the
+			 * store are read in straight away (1.9.0). Everybody who switched it on
+			 * went on to press Import anyway, and nothing leaves the site because of
+			 * it: a first full import holds everything until the owner presses Send.
+			 */
+			if ( empty( $progress['imported_once'] ) && empty( $progress['import']['running'] ) ) {
+				Dicex_Connect_Club_Sync::start_import( 'full' );
+				Dicex_Connect_Logger::log( 'CLUB IMPORT: started' );
+			} else {
+				Dicex_Connect_Club_Queue::tick_soon();
+			}
 		} else {
 			Dicex_Connect_Club_Queue::unschedule_all();
 		}
-
-		Dicex_Connect_Logger::log( 'CLUB: ' . ( $enabled ? 'enabled' : 'disabled' ) );
 
 		$progress = Dicex_Connect_Club_Sync::progress();
 
 		wp_send_json_success(
 			array(
 				'enabled'      => $enabled,
-				'needs_import' => $enabled && empty( $progress['imported_once'] ),
+				'needs_import' => $enabled && empty( $progress['imported_once'] ) && empty( $progress['import']['running'] ),
+				'status'       => self::status_data(),
 			)
 		);
 	}
@@ -235,6 +255,21 @@ class Dicex_Connect_Club_Page {
 				// else arrives with an import.
 				'suggest_import' => ! empty( $settings['enabled'] ) && ( $before['roles'] !== $settings['roles'] || $before['guests'] !== $settings['guests'] ),
 				'message'        => __( 'Club settings saved.', 'dicex-connect' ),
+			)
+		);
+	}
+
+	/**
+	 * Says no to switching the club on, and which setup step the reason belongs to.
+	 *
+	 * @param string $step    A step of the setup list: connect, join or levels.
+	 * @param string $message Translated, for the screen.
+	 */
+	private static function refuse( $step, $message ) {
+		wp_send_json_error(
+			array(
+				'step'    => $step,
+				'message' => $message,
 			)
 		);
 	}

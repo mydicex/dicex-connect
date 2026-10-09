@@ -29,12 +29,14 @@ class Dicex_Connect_Credit {
 	/**
 	 * Exactly what Account/ChargeAccount's paymentProvider enum accepts, read
 	 * from the live Swagger on 2026-09-06. A region may offer a provider that is
-	 * not in here — neither Thawani nor Paymob is — and the Credit tab shows it
-	 * disabled rather than sending a request the gateway will refuse.
+	 * not in here — neither Thawani nor Tap is — and the Credit tab shows it as
+	 * coming soon rather than sending a request the gateway will refuse.
 	 *
-	 * TODO: DiceX API — Paymob and Thawani are being onboarded for the Gulf. Both
-	 * stay out of this list until the enum actually carries them; adding a value
-	 * the gateway does not know turns a working screen into a rejected request.
+	 * TODO: DiceX API — Thawani (the Gulf) and Tap (cards from anywhere, signed
+	 * in October 2026 in place of Paymob) are being onboarded. Both stay out of
+	 * this list until the enum actually carries them, spelled the way it spells
+	 * them; adding a value the gateway does not know turns a working screen into
+	 * a rejected request.
 	 */
 	const GATEWAY_ACCEPTS = array( 'Saman', 'Sepehr', 'Digipay' );
 
@@ -52,9 +54,18 @@ class Dicex_Connect_Credit {
 			'Saman'   => __( 'Saman', 'dicex-connect' ),
 			'Sepehr'  => __( 'Sepehr', 'dicex-connect' ),
 			'Digipay' => __( 'Digipay credit payment', 'dicex-connect' ),
-			'Paymob'  => __( 'Paymob', 'dicex-connect' ),
 			'Thawani' => __( 'Thawani', 'dicex-connect' ),
+			'Tap'     => __( 'Tap', 'dicex-connect' ),
 		);
+	}
+
+	/**
+	 * Whether anything this region offers can be charged today.
+	 *
+	 * @return bool
+	 */
+	public static function can_pay() {
+		return '' !== self::clean_provider( '' );
 	}
 
 	/**

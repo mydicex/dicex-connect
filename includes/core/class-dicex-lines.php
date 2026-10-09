@@ -19,16 +19,29 @@ if ( ! defined( 'ABSPATH' ) ) {
  * at send time. See class-dicex-api-client.php.
  *
  * CHANNELS is the full product vision shown in the admin UI; SUPPORTED_CHANNELS
- * is what can actually be sent today, and it now covers all six because there
+ * is what can actually be sent today. Six of the seven are there because there
  * are two transports rather than one: Otp/Send carries sms, whatsapp and voice
  * (its sendType enum stops there), and Social/SendMessage carries the
  * provider-backed rest — telegram, bale and safir. Dicex_Connect_Sender picks the
  * transport per channel; a channel listed here that the account has no provider
  * for is refused by the gateway, not by this plugin.
+ *
+ * Discord is the seventh, and it is only in CHANNELS (1.9.0): the screens name
+ * it as coming, nothing offers it, and Dicex_Connect_Sender refuses it. Read in
+ * Discord's developer documentation on 2026-10-09: a webhook posts into a server's
+ * channel with no bot and no authentication, and nothing in Discord's terms
+ * charges for it; a bot reaches a person only by their Discord id, once they
+ * share a server with it — never by a phone number, which is how every other
+ * channel here is addressed. Its Developer Policy forbids messages nobody asked
+ * for, which suits a shop's own team being told about an order, not marketing.
+ *
+ * TODO: DiceX API — no Discord transport exists yet. When the gateway has one,
+ * Discord moves into SUPPORTED_CHANNELS together with its row in the sender, and
+ * the cards will need a recipient that is a Discord channel, not a mobile number.
  */
 class Dicex_Connect_Lines {
 
-	const CHANNELS = array( 'sms', 'whatsapp', 'voice', 'telegram', 'bale', 'safir' );
+	const CHANNELS = array( 'sms', 'whatsapp', 'voice', 'telegram', 'bale', 'safir', 'discord' );
 
 	const SUPPORTED_CHANNELS = array( 'sms', 'whatsapp', 'voice', 'telegram', 'bale', 'safir' );
 
@@ -78,7 +91,28 @@ class Dicex_Connect_Lines {
 			'telegram' => __( 'Telegram Bot', 'dicex-connect' ),
 			'bale'     => __( 'Bale Bot', 'dicex-connect' ),
 			'safir'    => __( 'Safir', 'dicex-connect' ),
+			'discord'  => __( 'Discord', 'dicex-connect' ),
 		);
+	}
+
+	/**
+	 * Channels the product names but nothing can send through yet.
+	 *
+	 * The screens show these as coming soon, so a site owner learns about them
+	 * where the other channels are, without being offered something that fails.
+	 *
+	 * @return array Channel keys, in CHANNELS order.
+	 */
+	public static function upcoming() {
+		return array_values( array_diff( self::CHANNELS, self::SUPPORTED_CHANNELS ) );
+	}
+
+	/**
+	 * @param string $channel Channel key.
+	 * @return bool Whether the product names it but nothing sends through it yet.
+	 */
+	public static function is_upcoming( $channel ) {
+		return in_array( strtolower( (string) $channel ), self::upcoming(), true );
 	}
 
 	/**

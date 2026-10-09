@@ -78,6 +78,7 @@ $message_name  = Dicex_Connect_Branding::get_override();
 						<?php echo esc_html( Dicex_Connect_Region::note() ); ?>
 					</p>
 				<?php endif; ?>
+				<?php Dicex_Connect_Settings_Page::upcoming_channels_note(); ?>
 			</td>
 		</tr>
 		<tr>

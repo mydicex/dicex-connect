@@ -18,6 +18,14 @@ $club_currency = $club_woo ? get_woocommerce_currency() : '';
 $club_labels   = Dicex_Connect_Lines::labels();
 $club_region   = Dicex_Connect_Region::channels();
 
+/*
+ * Since 1.9.0 the tab opens with the steps that get a club going, in order, and
+ * keeps them until the first import has been sent. Everything below them was
+ * always there; the steps say what to do with it first. A club that has been
+ * sent once never sees them again, even switched off.
+ */
+$club_setting_up = ! ( $club_status['imported_once'] && ! $club_status['hold'] );
+
 $club_bound_row = function ( $level, $bound_min, $bound_max, $label, $unit, $inputmode ) {
 	// Named for its condition, so "From" and "To" are heard as that condition's.
 	$club_group_name = '' === $unit ? $label : sprintf(
@@ -69,6 +77,10 @@ $club_locales = Dicex_Connect_Club_Language::available();
  * A level and a group are edited the same way: the same conditions, a name of its
  * own and a description. Only a level is in a list whose order matters, and only
  * a level carries the message for somebody who has just moved up into it.
+ *
+ * Since 1.9.0 a row opens closed: its name, a line saying what its conditions
+ * are, and a button that opens them. Six levels with every box showing was a
+ * page of empty fields before anybody had typed anything.
  */
 $club_entry_row = function ( $level, $kind ) use ( $club_woo, $club_currency, $club_bound_row, $club_lists, $club_locales ) {
 	$is_level = 'level' === $kind;
@@ -95,12 +107,21 @@ $club_entry_row = function ( $level, $kind ) use ( $club_woo, $club_currency, $c
 			</label>
 			<span class="dicex-connect-club-level-tags"></span>
 			<span class="dicex-connect-club-level-count" hidden></span>
+			<?php // Named after the row by club.js; it opens and closes the conditions below. ?>
+			<button type="button" class="button button-small dicex-connect-club-edit" aria-expanded="false">
+				<span class="dashicons dashicons-edit" aria-hidden="true"></span>
+				<span class="dicex-connect-club-edit-text"><?php esc_html_e( 'Edit', 'dicex-connect' ); ?></span>
+			</button>
 			<button type="button" class="button-link button-link-delete dicex-connect-club-remove">
 				<?php esc_html_e( 'Remove', 'dicex-connect' ); ?>
 			</button>
 		</div>
 
-		<div class="dicex-connect-club-level-body">
+		<?php // What the conditions add up to, in words; club.js writes it from the fields below. ?>
+		<p class="dicex-connect-club-level-summary"></p>
+		<p class="dicex-connect-club-level-hint" hidden></p>
+
+		<div class="dicex-connect-club-level-body" hidden>
 			<?php if ( $club_woo ) : ?>
 				<?php $club_bound_row( $level, 'spent_min', 'spent_max', __( 'Purchases', 'dicex-connect' ), $club_currency, 'decimal' ); ?>
 				<?php $club_bound_row( $level, 'orders_min', 'orders_max', __( 'Orders', 'dicex-connect' ), '', 'numeric' ); ?>
@@ -154,7 +175,6 @@ $club_entry_row = function ( $level, $kind ) use ( $club_woo, $club_currency, $c
 					</div>
 				<?php endif; ?>
 			<?php endif; ?>
-			<p class="dicex-connect-club-level-hint" hidden></p>
 		</div>
 	</li>
 	<?php
@@ -171,7 +191,7 @@ $club_group_row = function ( $group ) use ( $club_entry_row ) {
 $club_blank       = Dicex_Connect_Club_Settings::blank_level();
 $club_blank_group = Dicex_Connect_Club_Settings::blank_group();
 ?>
-<div class="dicex-connect-club" id="dicex-connect-club" data-enabled="<?php echo esc_attr( $club_on ? '1' : '0' ); ?>">
+<div class="dicex-connect-club" id="dicex-connect-club" data-enabled="<?php echo esc_attr( $club_on ? '1' : '0' ); ?>" data-has-key="<?php echo esc_attr( $club_has_key ? '1' : '0' ); ?>">
 
 	<div class="dicex-connect-card dicex-connect-club-intro">
 		<div class="dicex-connect-club-intro-head">
@@ -188,7 +208,7 @@ $club_blank_group = Dicex_Connect_Club_Settings::blank_group();
 			</label>
 		</div>
 
-		<?php if ( ! $club_has_key ) : ?>
+		<?php if ( ! $club_has_key && ! $club_setting_up ) : ?>
 			<p class="dicex-connect-region-note">
 				<span class="dashicons dashicons-warning" aria-hidden="true"></span>
 				<span>
@@ -205,13 +225,132 @@ $club_blank_group = Dicex_Connect_Club_Settings::blank_group();
 			</p>
 		<?php endif; ?>
 
+		<?php
+		/*
+		 * Why switching on could not go ahead: shown here, where somebody is looking,
+		 * never in an alert. Not a live region — club.js reads it out once with
+		 * wp.a11y.speak(), and a role here would read it a second time.
+		 */
+		?>
+		<div class="dicex-connect-club-setup-error" id="dicex-connect-club-setup-error" hidden></div>
+
+		<div class="dicex-connect-club-setup" id="dicex-connect-club-setup" <?php echo esc_attr( $club_setting_up ? '' : 'hidden' ); ?>
+			data-imported="<?php echo esc_attr( $club_status['imported_once'] ? '1' : '0' ); ?>"
+			data-hold="<?php echo esc_attr( $club_status['hold'] ? '1' : '0' ); ?>"
+			data-importing="<?php echo esc_attr( $club_status['importing'] ? '1' : '0' ); ?>">
+			<h3><?php esc_html_e( 'Get your club going', 'dicex-connect' ); ?></h3>
+			<p class="description"><?php esc_html_e( 'Five steps, in this order. Nothing reaches DiceX until you have seen who lands in which level and pressed Send.', 'dicex-connect' ); ?></p>
+
+			<ol class="dicex-connect-club-steps">
+				<li class="dicex-connect-club-step" data-step="connect">
+					<span class="dicex-connect-club-step-mark" aria-hidden="true"></span>
+					<div class="dicex-connect-club-step-body">
+						<p class="dicex-connect-club-step-title" tabindex="-1">
+							<?php esc_html_e( 'Connect your DiceX account', 'dicex-connect' ); ?>
+							<span class="screen-reader-text dicex-connect-club-step-state"></span>
+						</p>
+						<?php if ( ! $club_has_key ) : ?>
+							<p class="description">
+								<?php esc_html_e( 'The club lives in your DiceX account, so the plugin needs its API key first.', 'dicex-connect' ); ?>
+								<button type="button" class="button-link dicex-connect-goto-tab" data-goto="connection"><?php esc_html_e( 'Open the Connection tab', 'dicex-connect' ); ?></button>
+							</p>
+						<?php endif; ?>
+					</div>
+				</li>
+
+				<li class="dicex-connect-club-step" data-step="join">
+					<span class="dicex-connect-club-step-mark" aria-hidden="true"></span>
+					<div class="dicex-connect-club-step-body">
+						<fieldset class="dicex-connect-club-step-join">
+							<legend class="dicex-connect-club-step-title" tabindex="-1">
+								<?php esc_html_e( 'Choose who joins', 'dicex-connect' ); ?>
+								<span class="screen-reader-text dicex-connect-club-step-state"></span>
+							</legend>
+							<?php // A second copy of the choice under Club settings; club.js keeps the two in step. ?>
+							<label>
+								<input type="radio" name="dicex-connect-club-join-step" class="dicex-connect-club-join-step" value="everyone" <?php checked( $club['join'], 'everyone' ); ?>>
+								<?php esc_html_e( 'Every customer', 'dicex-connect' ); ?>
+							</label>
+							<label>
+								<input type="radio" name="dicex-connect-club-join-step" class="dicex-connect-club-join-step" value="consent" <?php checked( $club['join'], 'consent' ); ?>>
+								<?php esc_html_e( 'Only customers who agree, by ticking a box', 'dicex-connect' ); ?>
+							</label>
+							<span class="description"><?php esc_html_e( 'Whether you need your customers\' agreement depends on the law where you sell, so nothing is chosen for you.', 'dicex-connect' ); ?></span>
+						</fieldset>
+					</div>
+				</li>
+
+				<li class="dicex-connect-club-step" data-step="levels">
+					<span class="dicex-connect-club-step-mark" aria-hidden="true"></span>
+					<div class="dicex-connect-club-step-body">
+						<p class="dicex-connect-club-step-title" tabindex="-1">
+							<?php esc_html_e( 'Choose your levels', 'dicex-connect' ); ?>
+							<span class="screen-reader-text dicex-connect-club-step-state"></span>
+						</p>
+						<div class="dicex-connect-club-step-levels-none">
+							<p class="description">
+								<?php if ( $club_woo ) : ?>
+									<?php esc_html_e( 'The ready-made set ranks customers by how often they buy: Inactive (no purchase for six months), Gold (10 orders or more), Silver (5 or more), Bronze (2 or more), Regular member for everyone else, and Removed for people who leave. Change any of it later.', 'dicex-connect' ); ?>
+								<?php else : ?>
+									<?php esc_html_e( 'The ready-made set has Regular member, for everyone, and Removed, for people who leave. Add more levels later.', 'dicex-connect' ); ?>
+								<?php endif; ?>
+							</p>
+							<p class="dicex-connect-club-step-actions">
+								<button type="button" class="button button-primary dicex-connect-club-use-starter"><?php esc_html_e( 'Use the ready-made levels', 'dicex-connect' ); ?></button>
+								<button type="button" class="button-link dicex-connect-club-build-own"><?php esc_html_e( 'Build my own', 'dicex-connect' ); ?></button>
+							</p>
+						</div>
+						<div class="dicex-connect-club-step-levels-some">
+							<p class="description">
+								<span class="dicex-connect-club-step-levels-list"></span>
+								<button type="button" class="button-link dicex-connect-club-goto-levels"><?php esc_html_e( 'Change the levels', 'dicex-connect' ); ?></button>
+							</p>
+							<p class="description dicex-connect-club-step-levels-missing" hidden></p>
+						</div>
+					</div>
+				</li>
+
+				<li class="dicex-connect-club-step" data-step="switch">
+					<span class="dicex-connect-club-step-mark" aria-hidden="true"></span>
+					<div class="dicex-connect-club-step-body">
+						<p class="dicex-connect-club-step-title" tabindex="-1">
+							<?php esc_html_e( 'Switch the club on', 'dicex-connect' ); ?>
+							<span class="screen-reader-text dicex-connect-club-step-state"></span>
+						</p>
+						<p class="description"><?php esc_html_e( 'This saves your settings and reads your existing customers into their levels. Nothing is sent yet.', 'dicex-connect' ); ?></p>
+						<p class="dicex-connect-club-step-actions">
+							<button type="button" class="button button-primary" id="dicex-connect-club-switch-on"><?php esc_html_e( 'Switch the club on', 'dicex-connect' ); ?></button>
+						</p>
+					</div>
+				</li>
+
+				<li class="dicex-connect-club-step" data-step="send">
+					<span class="dicex-connect-club-step-mark" aria-hidden="true"></span>
+					<div class="dicex-connect-club-step-body">
+						<p class="dicex-connect-club-step-title" tabindex="-1">
+							<?php esc_html_e( 'Check the levels, then send to DiceX', 'dicex-connect' ); ?>
+							<span class="screen-reader-text dicex-connect-club-step-state"></span>
+						</p>
+						<p class="description"><?php esc_html_e( 'Once your customers are read, Club status below shows how many are in each level. If that is what you want, send them; if not, change the levels and save first. A number that reaches DiceX stays there.', 'dicex-connect' ); ?></p>
+						<?php // While the customers are being read, club.js puts the progress here. ?>
+						<p class="description dicex-connect-club-step-progress" tabindex="-1" hidden></p>
+						<p class="dicex-connect-club-step-actions">
+							<?php // Only for a club switched on before 1.9.0 and never imported: switching on reads customers in by itself now. ?>
+							<button type="button" class="button button-secondary" id="dicex-connect-club-import-step" hidden><?php esc_html_e( 'Read my customers', 'dicex-connect' ); ?></button>
+							<button type="button" class="button button-primary" id="dicex-connect-club-release-step" hidden><?php esc_html_e( 'Send to DiceX', 'dicex-connect' ); ?></button>
+						</p>
+					</div>
+				</li>
+			</ol>
+		</div>
+
 		<p class="description">
 			<?php esc_html_e( 'Nothing is ever deleted from the DiceX club. To take a number out, move it to the level you keep for removed numbers.', 'dicex-connect' ); ?>
 		</p>
 	</div>
 
 	<div class="dicex-connect-card dicex-connect-club-status" id="dicex-connect-club-status" <?php echo esc_attr( $club_on ? '' : 'hidden' ); ?>>
-		<h3><?php esc_html_e( 'Where the club stands', 'dicex-connect' ); ?></h3>
+		<h3><?php esc_html_e( 'Club status', 'dicex-connect' ); ?></h3>
 
 		<div class="dicex-connect-club-tiles">
 			<div class="dicex-connect-club-tile">
@@ -224,11 +363,11 @@ $club_blank_group = Dicex_Connect_Club_Settings::blank_group();
 			</div>
 			<div class="dicex-connect-club-tile">
 				<span class="dicex-connect-club-tile-value" data-status="waiting"><?php echo esc_html( $club_status['waiting'] ); ?></span>
-				<span class="dicex-connect-club-tile-label"><?php esc_html_e( 'Waiting', 'dicex-connect' ); ?></span>
+				<span class="dicex-connect-club-tile-label"><?php esc_html_e( 'Waiting to be sent', 'dicex-connect' ); ?></span>
 			</div>
 			<div class="dicex-connect-club-tile is-bad">
 				<span class="dicex-connect-club-tile-value" data-status="refused"><?php echo esc_html( $club_status['refused'] ); ?></span>
-				<span class="dicex-connect-club-tile-label"><?php esc_html_e( 'Refused', 'dicex-connect' ); ?></span>
+				<span class="dicex-connect-club-tile-label"><?php esc_html_e( 'Refused by DiceX', 'dicex-connect' ); ?></span>
 			</div>
 		</div>
 
@@ -248,7 +387,8 @@ $club_blank_group = Dicex_Connect_Club_Settings::blank_group();
 			</p>
 		</div>
 
-		<div class="dicex-connect-club-hold" id="dicex-connect-club-hold" <?php echo esc_attr( $club_status['hold'] && ! $club_status['importing'] ? '' : 'hidden' ); ?>>
+		<?php // Never beside the setup steps: their last step says this, with the same button. ?>
+		<div class="dicex-connect-club-hold" id="dicex-connect-club-hold" <?php echo esc_attr( $club_status['hold'] && ! $club_status['importing'] && ! $club_setting_up ? '' : 'hidden' ); ?>>
 			<p>
 				<span class="dashicons dashicons-yes-alt" aria-hidden="true"></span>
 				<?php esc_html_e( 'Your customers are read and placed in levels, as counted above. Nothing has been sent to DiceX yet: a number that reaches the club stays there. Change the levels and save if the counts are not what you want, then send.', 'dicex-connect' ); ?>
@@ -265,10 +405,10 @@ $club_blank_group = Dicex_Connect_Club_Settings::blank_group();
 
 		<p class="dicex-connect-club-actions">
 			<?php // aria-disabled rather than disabled: a disabled button drops the keyboard focus it holds. ?>
-			<button type="button" class="button button-primary" id="dicex-connect-club-import" <?php echo $club_status['importing'] ? 'aria-disabled="true"' : ''; ?>><?php esc_html_e( 'Import existing customers', 'dicex-connect' ); ?></button>
-			<button type="button" class="button button-secondary" id="dicex-connect-club-sync"><?php esc_html_e( 'Sync now', 'dicex-connect' ); ?></button>
+			<button type="button" class="button button-secondary" id="dicex-connect-club-import" <?php echo $club_status['importing'] ? 'aria-disabled="true"' : ''; ?>><?php esc_html_e( 'Import existing customers', 'dicex-connect' ); ?></button>
+			<button type="button" class="button button-secondary" id="dicex-connect-club-sync"><?php esc_html_e( 'Send changes now', 'dicex-connect' ); ?></button>
 			<button type="button" class="button button-secondary" id="dicex-connect-club-retry" <?php echo esc_attr( $club_status['refused_count'] > 0 ? '' : 'hidden' ); ?>><?php esc_html_e( 'Send refused customers again', 'dicex-connect' ); ?></button>
-			<button type="button" class="button-link" id="dicex-connect-club-remote"><?php esc_html_e( 'Compare with DiceX', 'dicex-connect' ); ?></button>
+			<button type="button" class="button-link" id="dicex-connect-club-remote"><?php esc_html_e( 'See the levels in DiceX', 'dicex-connect' ); ?></button>
 		</p>
 
 		<p class="description dicex-connect-club-times">
@@ -293,29 +433,40 @@ $club_blank_group = Dicex_Connect_Club_Settings::blank_group();
 		<div class="dicex-connect-club-remote" id="dicex-connect-club-remote-list" hidden></div>
 	</div>
 
-	<div class="dicex-connect-card dicex-connect-club-settings">
-		<h3><?php esc_html_e( 'Levels', 'dicex-connect' ); ?></h3>
+	<div class="dicex-connect-card dicex-connect-club-settings dicex-connect-club-levels-card" id="dicex-connect-club-levels-card">
+		<h3 id="dicex-connect-club-levels-title" tabindex="-1"><?php esc_html_e( 'Levels', 'dicex-connect' ); ?></h3>
 		<p class="description">
-			<?php esc_html_e( 'Name your levels and set what it takes to be in each. A customer joins the first level, from the top, whose conditions they all meet. Leave a box empty for no limit.', 'dicex-connect' ); ?>
-			<?php if ( $club_woo ) : ?>
-				<?php esc_html_e( 'A level can also ask what a customer bought — from which categories or brands, which products — and where they buy from. Inside one list, any single entry is enough.', 'dicex-connect' ); ?>
-				<?php esc_html_e( 'Days since the last purchase are whole days, and move customers on their own as time passes; somebody who never bought anything does not meet them.', 'dicex-connect' ); ?>
-			<?php endif; ?>
-			<?php esc_html_e( 'Age is counted in whole years from the date of birth, in the calendar the customer reads — Solar Hijri in Persian — and moves customers on their birthday. Somebody whose date of birth the club does not know meets no age condition.', 'dicex-connect' ); ?>
-			<?php if ( $club_woo ) : ?>
-				<?php
-				printf(
-					/* translators: %s: the store's currency code, such as IRR or OMR */
-					esc_html__( 'Purchases are counted in your store currency, %s, after refunds, from paid orders only.', 'dicex-connect' ),
-					'<span dir="ltr">' . esc_html( $club_currency ) . '</span>'
-				);
-				?>
-			<?php endif; ?>
+			<?php esc_html_e( 'A customer joins the first level, from the top, whose conditions they all meet. Press Edit on a level to change what it asks for.', 'dicex-connect' ); ?>
 		</p>
-		<p class="dicex-connect-region-note">
-			<span class="dashicons dashicons-info-outline" aria-hidden="true"></span>
-			<span><?php esc_html_e( 'DiceX keeps a level name for good. Renaming a level here creates a new level in DiceX and moves its customers there; the old name stays behind, empty.', 'dicex-connect' ); ?></span>
-		</p>
+
+		<details class="dicex-connect-club-howto">
+			<summary><?php esc_html_e( 'How levels work', 'dicex-connect' ); ?></summary>
+			<div class="dicex-connect-club-howto-body">
+				<p>
+					<?php esc_html_e( 'Name your levels and set what it takes to be in each. A customer joins the first level, from the top, whose conditions they all meet. Leave a box empty for no limit.', 'dicex-connect' ); ?>
+					<?php if ( $club_woo ) : ?>
+						<?php esc_html_e( 'A level can also ask what a customer bought — from which categories or brands, which products — and where they buy from. Inside one list, any single entry is enough.', 'dicex-connect' ); ?>
+					<?php endif; ?>
+				</p>
+				<?php if ( $club_woo ) : ?>
+					<p><?php esc_html_e( 'Days since the last purchase are whole days, and move customers on their own as time passes; somebody who never bought anything does not meet them.', 'dicex-connect' ); ?></p>
+					<p>
+						<?php
+						printf(
+							/* translators: %s: the store's currency code, such as IRR or OMR */
+							esc_html__( 'Purchases are counted in your store currency, %s, after refunds, from paid orders only.', 'dicex-connect' ),
+							'<span dir="ltr">' . esc_html( $club_currency ) . '</span>'
+						);
+						?>
+					</p>
+				<?php endif; ?>
+				<p><?php esc_html_e( 'Age is counted in whole years from the date of birth, in the calendar the customer reads — Solar Hijri in Persian — and moves customers on their birthday. Somebody whose date of birth the club does not know meets no age condition.', 'dicex-connect' ); ?></p>
+				<p class="dicex-connect-region-note">
+					<span class="dashicons dashicons-info-outline" aria-hidden="true"></span>
+					<span><?php esc_html_e( 'DiceX keeps a level name for good. Renaming a level here creates a new level in DiceX and moves its customers there; the old name stays behind, empty.', 'dicex-connect' ); ?></span>
+				</p>
+			</div>
+		</details>
 
 		<ol class="dicex-connect-club-levels" id="dicex-connect-club-levels">
 			<?php
@@ -334,11 +485,11 @@ $club_blank_group = Dicex_Connect_Club_Settings::blank_group();
 				<span class="dashicons dashicons-plus-alt2" aria-hidden="true"></span>
 				<?php esc_html_e( 'Add a level', 'dicex-connect' ); ?>
 			</button>
-			<button type="button" class="button-link" id="dicex-connect-club-starter" <?php echo esc_attr( empty( $club['levels'] ) ? '' : 'hidden' ); ?>>
+			<button type="button" class="button-link dicex-connect-club-use-starter" id="dicex-connect-club-starter" <?php echo esc_attr( empty( $club['levels'] ) ? '' : 'hidden' ); ?>>
 				<?php if ( $club_woo ) : ?>
 					<?php esc_html_e( 'Start with Inactive, Gold, Silver, Bronze, Regular member and Removed', 'dicex-connect' ); ?>
 				<?php else : ?>
-					<?php esc_html_e( 'Start with Gold, Silver, Bronze, Regular member and Removed', 'dicex-connect' ); ?>
+					<?php esc_html_e( 'Start with Regular member and Removed', 'dicex-connect' ); ?>
 				<?php endif; ?>
 			</button>
 			<button type="button" class="button button-secondary" id="dicex-connect-club-preview" <?php echo esc_attr( Dicex_Connect_Club_Store::exists() ? '' : 'hidden' ); ?>>
@@ -351,25 +502,37 @@ $club_blank_group = Dicex_Connect_Club_Settings::blank_group();
 
 		<div class="dicex-connect-club-grid">
 			<p>
-				<label for="dicex-connect-club-default"><?php esc_html_e( 'Customers who meet no conditions join', 'dicex-connect' ); ?></label>
+				<label for="dicex-connect-club-default"><?php esc_html_e( 'Level for everyone else', 'dicex-connect' ); ?></label>
 				<select id="dicex-connect-club-default" data-selected="<?php echo esc_attr( $club['default_level'] ); ?>"></select>
+				<span class="description"><?php esc_html_e( 'Customers who meet the conditions of no other level join this one.', 'dicex-connect' ); ?></span>
 			</p>
 			<p>
-				<label for="dicex-connect-club-removed"><?php esc_html_e( 'Numbers taken out of the club go to', 'dicex-connect' ); ?></label>
+				<label for="dicex-connect-club-removed"><?php esc_html_e( 'Level for people who leave', 'dicex-connect' ); ?></label>
 				<select id="dicex-connect-club-removed" data-selected="<?php echo esc_attr( $club['removed_level'] ); ?>"></select>
 				<span class="description"><?php esc_html_e( 'Never by the conditions: a number comes here when you move it, or when the customer leaves the club from their account. Needed before the club can be switched on.', 'dicex-connect' ); ?></span>
 			</p>
 		</div>
+	</div>
 
-		<h3><?php esc_html_e( 'Contact groups', 'dicex-connect' ); ?></h3>
+	<div class="dicex-connect-card dicex-connect-club-settings dicex-connect-club-groups-card">
+		<h3>
+			<?php esc_html_e( 'Contact groups', 'dicex-connect' ); ?>
+			<span class="dicex-connect-club-tag is-removed"><?php esc_html_e( 'Optional', 'dicex-connect' ); ?></span>
+		</h3>
 		<p class="description">
 			<?php esc_html_e( 'Groups sit alongside the levels. A customer is in one level, but in every group whose conditions they meet — so you can gather, say, everybody who buys coffee and everybody who buys from Tehran, and reach each in DiceX.', 'dicex-connect' ); ?>
-			<?php esc_html_e( 'A group needs at least one condition. Nobody in the level for removed numbers is put in a group.', 'dicex-connect' ); ?>
 		</p>
-		<p class="dicex-connect-region-note">
-			<span class="dashicons dashicons-info-outline" aria-hidden="true"></span>
-			<span><?php esc_html_e( 'DiceX has no way to take a contact out of a group. A customer who stops matching stays in the group at DiceX; this screen says how many those are.', 'dicex-connect' ); ?></span>
-		</p>
+
+		<details class="dicex-connect-club-howto">
+			<summary><?php esc_html_e( 'How groups work', 'dicex-connect' ); ?></summary>
+			<div class="dicex-connect-club-howto-body">
+				<p><?php esc_html_e( 'A group needs at least one condition. Nobody in the level for removed numbers is put in a group.', 'dicex-connect' ); ?></p>
+				<p class="dicex-connect-region-note">
+					<span class="dashicons dashicons-info-outline" aria-hidden="true"></span>
+					<span><?php esc_html_e( 'DiceX has no way to take a contact out of a group. A customer who stops matching stays in the group at DiceX; this screen says how many those are.', 'dicex-connect' ); ?></span>
+				</p>
+			</div>
+		</details>
 
 		<ol class="dicex-connect-club-levels dicex-connect-club-groups" id="dicex-connect-club-groups">
 			<?php
@@ -389,8 +552,10 @@ $club_blank_group = Dicex_Connect_Club_Settings::blank_group();
 				<?php esc_html_e( 'Add a group', 'dicex-connect' ); ?>
 			</button>
 		</p>
+	</div>
 
-		<h3><?php esc_html_e( 'Who joins, and what is sent', 'dicex-connect' ); ?></h3>
+	<div class="dicex-connect-card dicex-connect-club-settings dicex-connect-club-options-card">
+		<h3><?php esc_html_e( 'Club settings', 'dicex-connect' ); ?></h3>
 
 		<fieldset class="dicex-connect-recipient-set dicex-connect-club-join">
 			<legend><?php esc_html_e( 'Who joins the club', 'dicex-connect' ); ?></legend>
@@ -407,7 +572,8 @@ $club_blank_group = Dicex_Connect_Club_Settings::blank_group();
 			</span>
 		</fieldset>
 
-		<p class="dicex-connect-club-consent-label">
+		<?php // Only means something when customers have a box to tick. ?>
+		<p class="dicex-connect-club-consent-label" <?php echo esc_attr( 'consent' === $club['join'] ? '' : 'hidden' ); ?>>
 			<label for="dicex-connect-club-consent-label"><?php esc_html_e( 'Words beside the club box', 'dicex-connect' ); ?></label>
 			<input type="text" id="dicex-connect-club-consent-label" class="large-text" maxlength="250"
 				value="<?php echo esc_attr( $club['consent_label'] ); ?>" placeholder="<?php echo esc_attr( Dicex_Connect_Club_Settings::consent_label( array( 'consent_label' => '' ) ) ); ?>">
@@ -433,44 +599,9 @@ $club_blank_group = Dicex_Connect_Club_Settings::blank_group();
 					<?php esc_html_e( 'Add guests who paid for an order, by their billing phone', 'dicex-connect' ); ?>
 				</label>
 			</fieldset>
-
-			<p>
-				<label for="dicex-connect-club-window"><?php esc_html_e( 'Purchases that count towards a level', 'dicex-connect' ); ?></label>
-				<select id="dicex-connect-club-window">
-					<?php
-					foreach ( Dicex_Connect_Club_Settings::WINDOWS as $club_window ) :
-						if ( 0 === $club_window ) {
-							$club_window_label = __( 'All purchases, ever', 'dicex-connect' );
-						} else {
-							/* translators: %s: a number of months */
-							$club_window_label = sprintf( _n( 'The last %s month', 'The last %s months', $club_window, 'dicex-connect' ), number_format_i18n( $club_window ) );
-						}
-						?>
-						<option value="<?php echo esc_attr( $club_window ); ?>" <?php selected( (int) $club['window_months'], $club_window ); ?>><?php echo esc_html( $club_window_label ); ?></option>
-					<?php endforeach; ?>
-				</select>
-			</p>
 		<?php endif; ?>
 
-		<fieldset class="dicex-connect-recipient-set">
-			<legend><?php esc_html_e( 'Sent to DiceX', 'dicex-connect' ); ?></legend>
-			<p class="description"><?php esc_html_e( 'Always: mobile number, first and last name, level, the date of the first purchase, and the date of birth while the club asks for it. Add more only if you need it there.', 'dicex-connect' ); ?></p>
-			<?php
-			$club_field_labels = array(
-				'email'   => __( 'Email address', 'dicex-connect' ),
-				'company' => __( 'Company', 'dicex-connect' ),
-				'address' => __( 'Billing address', 'dicex-connect' ),
-			);
-			foreach ( $club_field_labels as $club_field => $club_field_label ) :
-				?>
-				<label>
-					<input type="checkbox" class="dicex-connect-club-field" value="<?php echo esc_attr( $club_field ); ?>" <?php checked( in_array( $club_field, $club['fields'], true ) ); ?>>
-					<?php echo esc_html( $club_field_label ); ?>
-				</label>
-			<?php endforeach; ?>
-		</fieldset>
-
-		<h3><?php esc_html_e( 'Date of birth', 'dicex-connect' ); ?></h3>
+		<h4><?php esc_html_e( 'Date of birth', 'dicex-connect' ); ?></h4>
 
 		<label class="dicex-connect-club-inline">
 			<input type="checkbox" id="dicex-connect-club-birthday" <?php checked( ! empty( $club['birthday']['enabled'] ) ); ?>>
@@ -478,14 +609,14 @@ $club_blank_group = Dicex_Connect_Club_Settings::blank_group();
 		</label>
 		<p class="description"><?php esc_html_e( 'Asked at checkout, when registering, in the customer\'s account and on the WordPress profile screen. It goes to DiceX with the year, so you can see how old your customers are.', 'dicex-connect' ); ?></p>
 
-		<?php if ( $club_woo && ! Dicex_Connect_Club_Fields::use_block_fields() ) : ?>
-			<p class="dicex-connect-region-note">
-				<span class="dashicons dashicons-info-outline" aria-hidden="true"></span>
-				<span><?php esc_html_e( 'The checkout block shows the date of birth and the club box from WooCommerce 9.8. On this store only the classic checkout, the registration forms and the account page show them.', 'dicex-connect' ); ?></span>
-			</p>
-		<?php endif; ?>
+		<div class="dicex-connect-club-birthday-settings" <?php echo esc_attr( empty( $club['birthday']['enabled'] ) ? 'hidden' : '' ); ?>>
+			<?php if ( $club_woo && ! Dicex_Connect_Club_Fields::use_block_fields() ) : ?>
+				<p class="dicex-connect-region-note">
+					<span class="dashicons dashicons-info-outline" aria-hidden="true"></span>
+					<span><?php esc_html_e( 'The checkout block shows the date of birth and the club box from WooCommerce 9.8. On this store only the classic checkout, the registration forms and the account page show them.', 'dicex-connect' ); ?></span>
+				</p>
+			<?php endif; ?>
 
-		<div class="dicex-connect-club-birthday-settings">
 			<label class="dicex-connect-club-inline">
 				<input type="checkbox" id="dicex-connect-club-birthday-required" <?php checked( ! empty( $club['birthday']['required'] ) ); ?>>
 				<?php esc_html_e( 'Required: nobody checks out or registers without it', 'dicex-connect' ); ?>
@@ -507,48 +638,9 @@ $club_blank_group = Dicex_Connect_Club_Settings::blank_group();
 				</select>
 				<span class="description"><?php esc_html_e( 'This decides the example customers see and how a saved date is shown back to them. A date typed in either calendar is understood, and it is kept and sent as Gregorian.', 'dicex-connect' ); ?></span>
 			</p>
-
-			<p>
-				<label for="dicex-connect-club-birthday-key"><?php esc_html_e( 'Also read birthdays from this user meta key', 'dicex-connect' ); ?></label>
-				<input type="text" id="dicex-connect-club-birthday-key" class="regular-text code" dir="ltr" maxlength="191" value="<?php echo esc_attr( $club['birthday']['meta_key'] ); ?>">
-				<span class="description"><?php esc_html_e( 'If another plugin already keeps your customers\' birthdays, enter the key it stores them under. Dates written year first, in either calendar, and timestamps are read; anything else is left out.', 'dicex-connect' ); ?></span>
-			</p>
 		</div>
 
-		<h3><?php esc_html_e( 'When to sync', 'dicex-connect' ); ?></h3>
-
-		<fieldset class="dicex-connect-recipient-set">
-			<legend class="screen-reader-text"><?php esc_html_e( 'When to sync', 'dicex-connect' ); ?></legend>
-			<?php
-			$club_modes = array(
-				'both'     => __( 'As things happen, and once a day to catch anything missed (recommended)', 'dicex-connect' ),
-				'realtime' => __( 'Only as things happen', 'dicex-connect' ),
-				'daily'    => __( 'Only once a day', 'dicex-connect' ),
-			);
-			foreach ( $club_modes as $club_mode => $club_mode_label ) :
-				?>
-				<label>
-					<input type="radio" name="dicex-connect-club-mode" class="dicex-connect-club-mode" value="<?php echo esc_attr( $club_mode ); ?>" <?php checked( $club['sync_mode'], $club_mode ); ?>>
-					<?php echo esc_html( $club_mode_label ); ?>
-				</label>
-			<?php endforeach; ?>
-		</fieldset>
-
-		<p>
-			<label for="dicex-connect-club-time"><?php esc_html_e( 'Daily sync at', 'dicex-connect' ); ?></label>
-			<input type="time" id="dicex-connect-club-time" dir="ltr" value="<?php echo esc_attr( $club['daily_time'] ); ?>">
-			<span class="description">
-				<?php
-				printf(
-					/* translators: %s: the site's time zone, such as Asia/Tehran */
-					esc_html__( 'Site time, %s. A quiet site runs it at its first visit after this time.', 'dicex-connect' ),
-					'<span dir="ltr">' . esc_html( wp_timezone_string() ) . '</span>'
-				);
-				?>
-			</span>
-		</p>
-
-		<h3><?php esc_html_e( 'Welcome message', 'dicex-connect' ); ?></h3>
+		<h4><?php esc_html_e( 'Welcome message', 'dicex-connect' ); ?></h4>
 
 		<label class="dicex-connect-club-inline">
 			<input type="checkbox" id="dicex-connect-club-welcome" <?php checked( ! empty( $club['welcome']['enabled'] ) ); ?>>
@@ -556,10 +648,10 @@ $club_blank_group = Dicex_Connect_Club_Settings::blank_group();
 		</label>
 		<p class="description"><?php esc_html_e( 'Sent once, when somebody joins for the first time. Never to customers brought in by an import, and never to the level for removed numbers.', 'dicex-connect' ); ?></p>
 
-		<div class="dicex-connect-club-welcome-settings dicex-connect-club-welcome">
+		<div class="dicex-connect-club-welcome-settings dicex-connect-club-welcome" <?php echo esc_attr( empty( $club['welcome']['enabled'] ) ? 'hidden' : '' ); ?>>
 			<?php
-			$club_chosen = array_values( array_intersect( (array) $club['welcome']['channels'], $club_region ) );
-			$club_order  = array_merge( $club_chosen, array_diff( $club_region, $club_chosen ) );
+			$club_chosen        = array_values( array_intersect( (array) $club['welcome']['channels'], $club_region ) );
+			$club_channel_order = array_merge( $club_chosen, array_diff( $club_region, $club_chosen ) );
 			?>
 			<?php if ( empty( $club_region ) ) : ?>
 				<p class="dicex-connect-region-note">
@@ -571,7 +663,7 @@ $club_blank_group = Dicex_Connect_Club_Settings::blank_group();
 					<legend><?php esc_html_e( 'Send over, in this order', 'dicex-connect' ); ?></legend>
 					<p class="description"><?php esc_html_e( 'Drag to reorder, or use the arrows. If the first one does not go through, the next is tried.', 'dicex-connect' ); ?></p>
 					<ol class="dicex-connect-channel-list">
-						<?php foreach ( $club_order as $club_channel ) : ?>
+						<?php foreach ( $club_channel_order as $club_channel ) : ?>
 							<li data-channel="<?php echo esc_attr( $club_channel ); ?>">
 								<span class="dashicons dashicons-menu dicex-connect-channel-handle" aria-hidden="true"></span>
 								<label>
@@ -582,6 +674,7 @@ $club_blank_group = Dicex_Connect_Club_Settings::blank_group();
 							</li>
 						<?php endforeach; ?>
 					</ol>
+					<?php Dicex_Connect_Settings_Page::upcoming_channels_note(); ?>
 				</fieldset>
 			<?php endif; ?>
 
@@ -620,10 +713,107 @@ $club_blank_group = Dicex_Connect_Club_Settings::blank_group();
 			<?php endif; ?>
 		</div>
 
-		<p class="dicex-connect-club-save-row">
-			<button type="button" class="button button-primary" id="dicex-connect-club-save"><?php esc_html_e( 'Save club settings', 'dicex-connect' ); ?></button>
-			<span class="dicex-connect-club-save-status" id="dicex-connect-club-save-status" role="status"></span>
-		</p>
+		<?php
+		/*
+		 * What most clubs never need to touch: each of these has a default that
+		 * suits a shop, so they wait behind one disclosure instead of standing
+		 * between the owner and the Save button.
+		 */
+		?>
+		<details class="dicex-connect-club-more" id="dicex-connect-club-more">
+			<summary><?php esc_html_e( 'More settings', 'dicex-connect' ); ?></summary>
+			<div class="dicex-connect-club-more-body">
+				<?php if ( $club_woo ) : ?>
+					<p>
+						<label for="dicex-connect-club-window"><?php esc_html_e( 'Purchases that count towards a level', 'dicex-connect' ); ?></label>
+						<select id="dicex-connect-club-window">
+							<?php
+							foreach ( Dicex_Connect_Club_Settings::WINDOWS as $club_window ) :
+								if ( 0 === $club_window ) {
+									$club_window_label = __( 'All purchases, ever', 'dicex-connect' );
+								} else {
+									/* translators: %s: a number of months */
+									$club_window_label = sprintf( _n( 'The last %s month', 'The last %s months', $club_window, 'dicex-connect' ), number_format_i18n( $club_window ) );
+								}
+								?>
+								<option value="<?php echo esc_attr( $club_window ); ?>" <?php selected( (int) $club['window_months'], $club_window ); ?>><?php echo esc_html( $club_window_label ); ?></option>
+							<?php endforeach; ?>
+						</select>
+					</p>
+				<?php endif; ?>
+
+				<fieldset class="dicex-connect-recipient-set">
+					<legend><?php esc_html_e( 'Sent to DiceX', 'dicex-connect' ); ?></legend>
+					<p class="description"><?php esc_html_e( 'Always: mobile number, first and last name, level, the date of the first purchase, and the date of birth while the club asks for it. Add more only if you need it there.', 'dicex-connect' ); ?></p>
+					<?php
+					$club_field_labels = array(
+						'email'   => __( 'Email address', 'dicex-connect' ),
+						'company' => __( 'Company', 'dicex-connect' ),
+						'address' => __( 'Billing address', 'dicex-connect' ),
+					);
+					foreach ( $club_field_labels as $club_field => $club_field_label ) :
+						?>
+						<label>
+							<input type="checkbox" class="dicex-connect-club-field" value="<?php echo esc_attr( $club_field ); ?>" <?php checked( in_array( $club_field, $club['fields'], true ) ); ?>>
+							<?php echo esc_html( $club_field_label ); ?>
+						</label>
+					<?php endforeach; ?>
+				</fieldset>
+
+				<p>
+					<label for="dicex-connect-club-birthday-key"><?php esc_html_e( 'Also read birthdays from this user meta key', 'dicex-connect' ); ?></label>
+					<input type="text" id="dicex-connect-club-birthday-key" class="regular-text code" dir="ltr" maxlength="191" value="<?php echo esc_attr( $club['birthday']['meta_key'] ); ?>">
+					<span class="description"><?php esc_html_e( 'If another plugin already keeps your customers\' birthdays, enter the key it stores them under. Dates written year first, in either calendar, and timestamps are read; anything else is left out.', 'dicex-connect' ); ?></span>
+				</p>
+
+				<fieldset class="dicex-connect-recipient-set">
+					<legend><?php esc_html_e( 'When to sync', 'dicex-connect' ); ?></legend>
+					<?php
+					$club_modes = array(
+						'both'     => __( 'As things happen, and once a day to catch anything missed (recommended)', 'dicex-connect' ),
+						'realtime' => __( 'Only as things happen', 'dicex-connect' ),
+						'daily'    => __( 'Only once a day', 'dicex-connect' ),
+					);
+					foreach ( $club_modes as $club_mode => $club_mode_label ) :
+						?>
+						<label>
+							<input type="radio" name="dicex-connect-club-mode" class="dicex-connect-club-mode" value="<?php echo esc_attr( $club_mode ); ?>" <?php checked( $club['sync_mode'], $club_mode ); ?>>
+							<?php echo esc_html( $club_mode_label ); ?>
+						</label>
+					<?php endforeach; ?>
+				</fieldset>
+
+				<p class="dicex-connect-club-daily-time" <?php echo esc_attr( 'realtime' === $club['sync_mode'] ? 'hidden' : '' ); ?>>
+					<label for="dicex-connect-club-time"><?php esc_html_e( 'Daily sync at', 'dicex-connect' ); ?></label>
+					<input type="time" id="dicex-connect-club-time" dir="ltr" value="<?php echo esc_attr( $club['daily_time'] ); ?>">
+					<span class="description">
+						<?php
+						printf(
+							/* translators: %s: the site's time zone, such as Asia/Tehran */
+							esc_html__( 'Site time, %s. A quiet site runs it at its first visit after this time.', 'dicex-connect' ),
+							'<span dir="ltr">' . esc_html( wp_timezone_string() ) . '</span>'
+						);
+						?>
+					</span>
+				</p>
+			</div>
+		</details>
+	</div>
+
+	<?php
+	/*
+	 * One Save for the levels, the groups and the settings, kept in view while
+	 * any of them is being edited: it sticks to the bottom of the window until the
+	 * page has scrolled past the settings. It says when there is something to save.
+	 */
+	?>
+	<div class="dicex-connect-club-savebar" id="dicex-connect-club-savebar">
+		<span class="dicex-connect-club-unsaved" id="dicex-connect-club-unsaved" hidden>
+			<span class="dashicons dashicons-edit" aria-hidden="true"></span>
+			<?php esc_html_e( 'You have changes that are not saved yet.', 'dicex-connect' ); ?>
+		</span>
+		<button type="button" class="button button-primary" id="dicex-connect-club-save"><?php esc_html_e( 'Save club settings', 'dicex-connect' ); ?></button>
+		<span class="dicex-connect-club-save-status" id="dicex-connect-club-save-status" role="status"></span>
 	</div>
 
 	<div class="dicex-connect-card dicex-connect-club-members" id="dicex-connect-club-members" <?php echo esc_attr( Dicex_Connect_Club_Store::exists() ? '' : 'hidden' ); ?>>

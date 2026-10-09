@@ -173,6 +173,7 @@ $enable_block  = Dicex_Connect_Integration_Registry::enable_blocker();
 								</li>
 							<?php endforeach; ?>
 						</ol>
+						<?php Dicex_Connect_Settings_Page::upcoming_channels_note(); ?>
 					</fieldset>
 
 					<?php

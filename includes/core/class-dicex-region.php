@@ -59,8 +59,11 @@ class Dicex_Connect_Region {
 	/**
 	 * Every region, and what DiceX can do in it.
 	 *
-	 * `channels`  channel keys from Dicex_Connect_Lines::SUPPORTED_CHANNELS. Empty means no
-	 *             messaging at all here yet, which is a real state, not a bug.
+	 * `channels`  channel keys from Dicex_Connect_Lines::CHANNELS. Empty means no
+	 *             messaging at all here yet, which is a real state, not a bug. A
+	 *             channel that is only coming (Discord, 1.9.0) may be listed: it
+	 *             is shown as coming soon and never offered — see channels() and
+	 *             upcoming_channels().
 	 * `gateways`  payment providers offered here, named the way
 	 *             Account/ChargeAccount spells them. One the gateway does not
 	 *             accept yet still belongs in the list — Dicex_Connect_Credit shows it
@@ -75,6 +78,11 @@ class Dicex_Connect_Region {
 		return array(
 			'ir'  => array(
 				'label'    => __( 'Iran', 'dicex-connect' ),
+				/*
+				 * Every channel that works, and not Discord: its Developer Terms
+				 * (§12(d), read 2026-10-09) bar using it from embargoed regions,
+				 * Iran among them, and OONI measures discord.com as blocked there.
+				 */
 				'channels' => Dicex_Connect_Lines::SUPPORTED_CHANNELS,
 				'gateways' => array( 'Saman', 'Sepehr', 'Digipay' ),
 				'currency' => __( 'IRR', 'dicex-connect' ),
@@ -93,10 +101,15 @@ class Dicex_Connect_Region {
 			),
 			'gcc' => array(
 				'label'    => __( 'GCC', 'dicex-connect' ),
-				'channels' => array( 'whatsapp', 'telegram' ),
-				'gateways' => array( 'Paymob', 'Thawani' ),
+				'channels' => array( 'whatsapp', 'telegram', 'discord' ),
 				/*
-				 * Both Gulf gateways price in Omani rial — stated by the account
+				 * Paymob was named here until 1.9.0. That deal fell through and DiceX
+				 * signed with Tap instead (account owner, 2026-10-09), which takes
+				 * cards from anywhere, so Tap is offered in the Gulf and World Wide.
+				 */
+				'gateways' => array( 'Thawani', 'Tap' ),
+				/*
+				 * Gulf top-ups are priced in Omani rial — stated by the account
 				 * owner on 2026-09-12, which settles what the old TODO here could
 				 * not.
 				 *
@@ -104,7 +117,7 @@ class Dicex_Connect_Region {
 				 * Account/ChargeAccount takes a bare int64 amount with no currency
 				 * field, and the rial has a minor unit of 1000 baisa. Whether 5
 				 * rial goes out as 5 or as 5000 has to come from the gateway before
-				 * either provider is moved into GATEWAY_ACCEPTS; guessing wrong
+				 * Thawani or Tap is moved into GATEWAY_ACCEPTS; guessing wrong
 				 * charges a thousandth of the intended amount, or a thousand times
 				 * it.
 				 */
@@ -117,11 +130,16 @@ class Dicex_Connect_Region {
 			'world' => array(
 				/* translators: A region name. DiceX's product page calls it World Wide and keeps those two words in English in every language. */
 				'label'    => __( 'World Wide', 'dicex-connect' ),
-				'channels' => array( 'whatsapp', 'telegram' ),
-				'gateways' => array(),
+				'channels' => array( 'whatsapp', 'telegram', 'discord' ),
+				'gateways' => array( 'Tap' ),
+				/*
+				 * TODO: DiceX API — the currency a World Wide top-up through Tap is
+				 * charged in has not been settled, so amounts stay bare and the
+				 * Credit tab offers no amount until it is.
+				 */
 				'currency' => '',
 				'code'     => '',
-				'note'     => __( 'WhatsApp and Telegram are available for this region. DiceX does not offer SMS, voice or payment here yet.', 'dicex-connect' ),
+				'note'     => __( 'WhatsApp and Telegram are available for this region. DiceX does not offer SMS or voice here yet, and online payment is coming soon.', 'dicex-connect' ),
 			),
 		);
 	}
@@ -189,6 +207,18 @@ class Dicex_Connect_Region {
 		$current = self::current();
 
 		return array_values( array_intersect( $current['channels'], Dicex_Connect_Lines::SUPPORTED_CHANNELS ) );
+	}
+
+	/**
+	 * Channels this region will have but nothing can send through yet — what the
+	 * screens list as coming soon, beside the channels that work.
+	 *
+	 * @return array Channel keys.
+	 */
+	public static function upcoming_channels() {
+		$current = self::current();
+
+		return array_values( array_intersect( $current['channels'], Dicex_Connect_Lines::upcoming() ) );
 	}
 
 	/**

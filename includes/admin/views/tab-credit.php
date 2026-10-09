@@ -29,26 +29,38 @@ $amount_placeholder = ( '' === $region_currency )
 	);
 
 $region_gateways = Dicex_Connect_Credit::payment_providers();
+
+/*
+ * Nothing this region offers can be charged yet — the Gulf and World Wide until
+ * DiceX takes Thawani and Tap. The amount, the quick amounts and the button are
+ * left out rather than shown and refused; the minimum and what it is worth stay,
+ * because they answer what a top-up here will cost.
+ */
+$can_pay = Dicex_Connect_Credit::can_pay();
 ?>
 <div class="dicex-connect-card">
 	<h3><?php esc_html_e( 'Top up online', 'dicex-connect' ); ?></h3>
-	<p class="description">
-		<?php esc_html_e( 'This sends you to the DiceX payment gateway. Try a small amount once before relying on it.', 'dicex-connect' ); ?>
-	</p>
+	<?php if ( $can_pay ) : ?>
+		<p class="description">
+			<?php esc_html_e( 'This sends you to the DiceX payment gateway. Try a small amount once before relying on it.', 'dicex-connect' ); ?>
+		</p>
 
-	<p>
-		<input type="text" id="dicex-connect-charge-amount" class="regular-text ltr" dir="ltr"
-			placeholder="<?php echo esc_attr( $amount_placeholder ); ?>">
-	</p>
-	<p class="dicex-connect-credit-options">
-		<?php foreach ( Dicex_Connect_Region::quick_amounts() as $quick_amount ) : ?>
-			<button type="button" class="button dicex-connect-credit-quick" data-amount="<?php echo esc_attr( $quick_amount ); ?>"><?php echo esc_html( number_format_i18n( $quick_amount ) ); ?></button>
-		<?php endforeach; ?>
-		<button type="button" class="button" id="dicex-connect-credit-custom"><?php esc_html_e( 'Another amount', 'dicex-connect' ); ?></button>
-	</p>
-	<p class="description">
-		<?php echo esc_html( Dicex_Connect_Credit::minimum_message() ); ?>
-	</p>
+		<p>
+			<input type="text" id="dicex-connect-charge-amount" class="regular-text ltr" dir="ltr"
+				placeholder="<?php echo esc_attr( $amount_placeholder ); ?>">
+		</p>
+		<p class="dicex-connect-credit-options">
+			<?php foreach ( Dicex_Connect_Region::quick_amounts() as $quick_amount ) : ?>
+				<button type="button" class="button dicex-connect-credit-quick" data-amount="<?php echo esc_attr( $quick_amount ); ?>"><?php echo esc_html( number_format_i18n( $quick_amount ) ); ?></button>
+			<?php endforeach; ?>
+			<button type="button" class="button" id="dicex-connect-credit-custom"><?php esc_html_e( 'Another amount', 'dicex-connect' ); ?></button>
+		</p>
+	<?php endif; ?>
+	<?php if ( '' !== $currency_code ) : ?>
+		<p class="description">
+			<?php echo esc_html( Dicex_Connect_Credit::minimum_message() ); ?>
+		</p>
+	<?php endif; ?>
 
 	<?php
 	/*
@@ -117,6 +129,16 @@ $region_gateways = Dicex_Connect_Credit::payment_providers();
 			);
 			?>
 		</p>
+	<?php elseif ( ! $can_pay ) : ?>
+		<p class="dicex-connect-region-note">
+			<span class="dashicons dashicons-clock" aria-hidden="true"></span>
+			<span>
+				<?php esc_html_e( 'Paying online from here is coming soon, through the gateways below. Until then:', 'dicex-connect' ); ?>
+				<a href="<?php echo esc_url( 'https://home.dicex.me/financial-operations/user-charge' ); ?>" target="_blank" rel="noopener noreferrer">
+					<?php esc_html_e( 'Top up in the DiceX panel', 'dicex-connect' ); ?>
+				</a>
+			</span>
+		</p>
 	<?php endif; ?>
 
 	<fieldset class="dicex-connect-gateways"<?php echo esc_attr( empty( $region_gateways ) ? 'hidden' : '' ); ?>>
@@ -145,7 +167,7 @@ $region_gateways = Dicex_Connect_Credit::payment_providers();
 						</span>
 						<span class="dicex-connect-gateway-name"><?php echo esc_html( $provider_label ); ?></span>
 						<?php if ( ! $chargeable ) : ?>
-							<span class="dicex-connect-gateway-soon"><?php esc_html_e( 'Not available yet', 'dicex-connect' ); ?></span>
+							<span class="dicex-connect-gateway-soon"><?php esc_html_e( 'Coming soon', 'dicex-connect' ); ?></span>
 						<?php endif; ?>
 					</span>
 				</label>
@@ -194,10 +216,12 @@ $region_gateways = Dicex_Connect_Credit::payment_providers();
 		</div>
 	<?php endif; ?>
 
-	<p>
-		<button type="button" id="dicex-connect-charge-submit" class="button button-primary"><?php esc_html_e( 'Pay online', 'dicex-connect' ); ?></button>
-	</p>
-	<div id="dicex-connect-charge-result"></div>
+	<?php if ( $can_pay ) : ?>
+		<p>
+			<button type="button" id="dicex-connect-charge-submit" class="button button-primary"><?php esc_html_e( 'Pay online', 'dicex-connect' ); ?></button>
+		</p>
+		<div id="dicex-connect-charge-result"></div>
+	<?php endif; ?>
 
 	<p class="dicex-connect-region-note dicex-connect-coupon-note">
 		<span class="dashicons dashicons-tickets-alt" aria-hidden="true"></span>

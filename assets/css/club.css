@@ -699,6 +699,312 @@
 	gap: 12px;
 }
 
+/* ---- 1.9.0: the setup steps ---------------------------------------------- */
+
+.dicex-connect-club-setup {
+	margin-block: 16px 4px;
+	padding: 16px 18px;
+	border: 1px solid #c5d9ed;
+	border-radius: 12px;
+	background: #f6fafd;
+}
+
+.dicex-connect-club .dicex-connect-club-setup h3 {
+	margin-block: 0 4px;
+}
+
+.dicex-connect-club-steps {
+	margin: 12px 0 0;
+	padding: 0;
+	list-style: none;
+	counter-reset: dicex-step;
+}
+
+.dicex-connect-club-step {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	margin: 0;
+	padding: 10px 0;
+	border-block-start: 1px solid #dbe6f0;
+	counter-increment: dicex-step;
+}
+
+.dicex-connect-club-step:first-child {
+	border-block-start: 0;
+}
+
+/* The step's number in a circle; a tick once it is done. */
+.dicex-connect-club-step-mark {
+	display: inline-flex;
+	flex: 0 0 auto;
+	align-items: center;
+	justify-content: center;
+	width: 26px;
+	height: 26px;
+	border: 2px solid #a7aaad;
+	border-radius: 50%;
+	background: #fff;
+	color: #50575e;
+	font-weight: 700;
+	font-size: 13px;
+	line-height: 1;
+}
+
+.dicex-connect-club-step-mark::before {
+	content: counter(dicex-step);
+}
+
+/* Persian readers count ۱، ۲، ۳ — CSS has the numbering built in. */
+:lang(fa) .dicex-connect-club-step-mark::before {
+	content: counter(dicex-step, persian);
+}
+
+.dicex-connect-club-step.is-current .dicex-connect-club-step-mark {
+	border-color: var(--dicex-primary);
+	background: var(--dicex-primary);
+	color: #fff;
+}
+
+.dicex-connect-club-step.is-done .dicex-connect-club-step-mark {
+	border-color: #007017;
+	background: #007017;
+	color: #fff;
+}
+
+.dicex-connect-club-step.is-done .dicex-connect-club-step-mark::before {
+	content: "\2713";
+}
+
+.dicex-connect-club-step.is-error .dicex-connect-club-step-mark {
+	border-color: #b32d2e;
+	background: #fff;
+	color: #b32d2e;
+}
+
+.dicex-connect-club-step-body {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+.dicex-connect-wrap p.dicex-connect-club-step-title,
+.dicex-connect-club-step-join legend.dicex-connect-club-step-title {
+	margin: 2px 0 4px;
+	padding: 0;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+/*
+ * What is done needs no more reading; what is still ahead is there to read. A
+ * done step keeps what it chose in view: who joins, and the levels by name.
+ */
+.dicex-connect-club-step.is-done .dicex-connect-club-step-body > :not(.dicex-connect-club-step-title):not(fieldset):not(.dicex-connect-club-step-levels-some),
+.dicex-connect-club-step.is-done .dicex-connect-club-step-join .description {
+	display: none;
+}
+
+.dicex-connect-club-step.is-todo .dicex-connect-club-step-title {
+	color: #50575e;
+}
+
+.dicex-connect-club-step .description {
+	margin-block: 2px 6px;
+}
+
+.dicex-connect-club-step-join {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.dicex-connect-club-step-join label {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	margin-block-end: 4px;
+	margin-inline-end: 18px;
+}
+
+.dicex-connect-club-step-join .description {
+	display: block;
+}
+
+.dicex-connect-club-step-actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 12px;
+	margin: 6px 0 0;
+}
+
+.dicex-connect-club-step-actions:empty {
+	display: none;
+}
+
+.dicex-connect-club-setup-error {
+	margin-block: 12px 0;
+	padding: 10px 14px;
+	border: 1px solid #f0b3b4;
+	border-inline-start-width: 4px;
+	border-radius: 8px;
+	background: #fcf0f1;
+	color: #8a2424;
+}
+
+/* ---- 1.9.0: closed rows, their summaries, the how-to notes --------------- */
+
+.dicex-connect-wrap p.dicex-connect-club-level-summary {
+	margin: 6px 0 0;
+	padding-inline-start: 28px;
+	color: #2c3338;
+	font-size: 13px;
+}
+
+.dicex-connect-club-group p.dicex-connect-club-level-summary,
+.dicex-connect-club-group p.dicex-connect-club-level-hint {
+	padding-inline-start: 0;
+}
+
+.dicex-connect-wrap p.dicex-connect-club-level-summary.is-empty {
+	color: #646970;
+	font-style: italic;
+}
+
+.dicex-connect-club-summary-message {
+	display: inline-flex;
+	align-items: center;
+	gap: 2px;
+	padding: 0 8px;
+	border-radius: 999px;
+	background: #f0f0f1;
+	color: #50575e;
+	font-size: 12px;
+	font-style: normal;
+}
+
+.dicex-connect-club-summary-message .dashicons {
+	width: 14px;
+	height: 14px;
+	font-size: 14px;
+}
+
+.dicex-connect-wrap p.dicex-connect-club-level-hint {
+	margin-block-start: 4px;
+	padding-inline-start: 28px;
+}
+
+.dicex-connect-club .dicex-connect-club-edit {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.dicex-connect-club-edit .dashicons {
+	width: 16px;
+	height: 16px;
+	font-size: 16px;
+	line-height: 1;
+}
+
+.dicex-connect-club-entry.is-open {
+	border-color: #8fb3d6;
+	box-shadow: 0 1px 6px rgba(34, 113, 177, 0.12);
+}
+
+.dicex-connect-club-entry.is-open .dicex-connect-club-level-body {
+	padding-block-start: 10px;
+	border-block-start: 1px dashed var(--dicex-border);
+}
+
+.dicex-connect-club-howto,
+.dicex-connect-club-more {
+	margin-block: 10px 4px;
+}
+
+.dicex-connect-club-howto > summary,
+.dicex-connect-club-more > summary {
+	width: fit-content;
+	color: var(--dicex-primary);
+	cursor: pointer;
+}
+
+.dicex-connect-club-more > summary {
+	font-weight: 600;
+}
+
+.dicex-connect-club-howto-body,
+.dicex-connect-club-more-body {
+	margin-block-start: 8px;
+	padding: 10px 14px;
+	border: 1px solid var(--dicex-border);
+	border-radius: var(--dicex-field-radius);
+	background: #f6f7f7;
+}
+
+.dicex-connect-wrap .dicex-connect-club-howto-body p {
+	margin-block: 0 8px;
+}
+
+.dicex-connect-wrap .dicex-connect-club-howto-body > :last-child {
+	margin-block-end: 0;
+}
+
+.dicex-connect-club h4 {
+	margin-block: 22px 6px;
+	font-size: 14px;
+}
+
+.dicex-connect-club h3 .dicex-connect-club-tag {
+	margin-inline-start: 6px;
+	font-weight: 400;
+	vertical-align: middle;
+}
+
+/* ---- 1.9.0: the Save bar, in view while anything is being edited --------- */
+
+/*
+ * In its place under the settings while nothing has changed; once something has,
+ * it follows the window down so Save is never more than a glance away.
+ */
+.dicex-connect-club-savebar {
+	z-index: 5;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 12px;
+	margin-block: 0 16px;
+	padding: 12px 20px;
+	border: 1px solid var(--dicex-border);
+	border-radius: 12px;
+	background: #fff;
+}
+
+/* While the bar sticks, a field the keyboard moves to stops above it, never under it. */
+html.dicex-connect-club-dirty {
+	scroll-padding-bottom: 96px;
+}
+
+.dicex-connect-club-savebar.is-dirty {
+	position: sticky;
+	bottom: 0;
+	border-color: #f0c869;
+	background: #fffbf0;
+	box-shadow: 0 -2px 12px rgba(30, 35, 40, 0.12);
+}
+
+.dicex-connect-club-unsaved {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	color: var(--dicex-warning);
+	font-weight: 600;
+}
+
+#dicex-connect-club-import-text.is-error {
+	color: #b32d2e;
+}
+
 @media screen and (max-width: 782px) {
 	.dicex-connect-club-intro-head {
 		flex-direction: column;
@@ -708,7 +1014,37 @@
 		padding-inline-start: 0;
 	}
 
+	.dicex-connect-wrap p.dicex-connect-club-level-summary,
+	.dicex-connect-wrap p.dicex-connect-club-level-hint {
+		padding-inline-start: 0;
+	}
+
+	/* On a phone a condition is its name on one line, then "from – to" and the unit. */
+	.dicex-connect-club-bound {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto;
+		width: 100%;
+	}
+
+	.dicex-connect-club-bound > .dicex-connect-club-bound-label {
+		grid-column: 1 / -1;
+	}
+
+	.dicex-connect-club-bound > label {
+		display: block;
+		min-width: 0;
+	}
+
 	.dicex-connect-club-bound input {
-		width: 7em;
+		width: 100%;
+	}
+
+	.dicex-connect-club-setup {
+		padding: 12px;
+	}
+
+	/* WordPress makes buttons taller on a phone; the bar stays one line where it can. */
+	.dicex-connect-club-savebar {
+		padding: 10px 12px;
 	}
 }

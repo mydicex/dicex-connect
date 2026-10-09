@@ -71,6 +71,30 @@ class Dicex_Connect_Settings_Page {
 	}
 
 	/**
+	 * The channels this region will have but cannot send through yet, as one
+	 * line under a channel list — "Coming soon: Discord". Outside the list on
+	 * purpose: nothing in it can be ticked, dragged or moved. Prints nothing when
+	 * no channel is coming.
+	 */
+	public static function upcoming_channels_note() {
+		$upcoming = Dicex_Connect_Region::upcoming_channels();
+
+		if ( empty( $upcoming ) ) {
+			return;
+		}
+
+		$names = array_map( array( 'Dicex_Connect_Lines', 'label_for' ), $upcoming );
+		// WordPress's own list separator ("، " in Persian) arrived in 6.0; the plugin runs from 5.8.
+		$comma = function_exists( 'wp_get_list_item_separator' ) ? wp_get_list_item_separator() : ', ';
+		?>
+		<p class="description dicex-connect-channels-soon">
+			<span class="dicex-connect-badge-soon"><?php esc_html_e( 'Coming soon', 'dicex-connect' ); ?></span>
+			<?php echo esc_html( implode( $comma, $names ) ); ?>
+		</p>
+		<?php
+	}
+
+	/**
 	 * Verifies the AJAX nonce and admin capability for every handler below.
 	 * Fixes a real bug found in the old plugin, where the equivalent handler
 	 * had neither check and any logged-in user could overwrite the API key.
@@ -184,7 +208,8 @@ class Dicex_Connect_Settings_Page {
 		$channel = isset( $_POST['channel'] ) ? sanitize_key( wp_unslash( $_POST['channel'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Missing -- Nonce and capability are verified by $this->guard(), the first statement of this handler.
 		$line    = isset( $_POST['line'] ) ? sanitize_text_field( wp_unslash( $_POST['line'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Missing -- Nonce and capability are verified by $this->guard(), the first statement of this handler.
 
-		if ( ! in_array( $channel, Dicex_Connect_Lines::CHANNELS, true ) ) {
+		// Supported, not merely named: a channel that is still coming has no line to keep.
+		if ( ! Dicex_Connect_Lines::is_supported( $channel ) ) {
 			wp_send_json_error( __( 'Invalid channel.', 'dicex-connect' ) );
 		}
 

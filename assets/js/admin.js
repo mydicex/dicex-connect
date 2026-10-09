@@ -5,6 +5,11 @@ jQuery( function ( $ ) {
 		event.preventDefault();
 		var $tab = $( this );
 		var tab = $tab.data( 'tab' );
+
+		// A tab with unsaved work can ask to stay — the Customer Club does.
+		if ( false === $( document ).triggerHandler( 'dicex-connect-before-tab', [ tab ] ) ) {
+			return;
+		}
 		$tab.siblings().removeClass( 'nav-tab-active' );
 		$tab.addClass( 'nav-tab-active' );
 		$( '#dicex-connect-tab-content' ).addClass( 'is-loading' ).html( '<div class="dicex-connect-loader"><span class="dashicons dashicons-update"></span></div>' );

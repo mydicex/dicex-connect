@@ -25,6 +25,11 @@ jQuery( function ( $ ) {
 	var previewRun = 0;
 	// What the status said last time, so only a change is announced, never a poll.
 	var lastStatus = null;
+	// Something on the screen differs from what is saved. Leaving then asks first.
+	var dirty = false;
+	var revision = 0;
+	// The setup step the last refusal named; putting that step right takes the message away.
+	var setupErrorStep = '';
 
 	/*
 	 * What a level's lists are chosen from. Asked for once per tab load; until it
@@ -57,6 +62,25 @@ jQuery( function ( $ ) {
 		return Number( value ).toLocaleString( lang );
 	}
 
+	/*
+	 * A number as somebody typed it into a condition, read the way the server's
+	 * parse_amount() reads it: Persian and Arabic-Indic digits, and the separators
+	 * either keyboard puts in. NaN when it is still not a number.
+	 */
+	function typedNumber( value ) {
+		var ascii = String( value )
+			.replace( /[۰-۹]/g, function ( d ) {
+				return String( d.charCodeAt( 0 ) - 0x06F0 );
+			} )
+			.replace( /[٠-٩]/g, function ( d ) {
+				return String( d.charCodeAt( 0 ) - 0x0660 );
+			} )
+			.replace( /[,٬،\s  ]/g, '' )
+			.replace( /٫/g, '.' );
+
+		return '' === ascii ? NaN : Number( ascii );
+	}
+
 	// WordPress's own announcer, for a change a screen reader would otherwise miss.
 	function speak( message ) {
 		if ( message && window.wp && window.wp.a11y ) {
@@ -75,6 +99,38 @@ jQuery( function ( $ ) {
 
 	function isBusy( $button ) {
 		return 'true' === $button.attr( 'aria-disabled' );
+	}
+
+	// A refusal arrives as words, or as { step, message } when switching on was refused.
+	function errorText( error ) {
+		return error && 'object' === typeof error ? String( error.message || DiceXAdmin.i18n.error ) : String( error || DiceXAdmin.i18n.error );
+	}
+
+	/* ---- Unsaved changes ------------------------------------------------- */
+
+	/*
+	 * The Save button is far from most of what it saves, so the bar it sits in says
+	 * when there is something to save, and leaving the tab or the page asks first.
+	 */
+	function markDirty() {
+		if ( ! root().length ) {
+			return;
+		}
+
+		dirty = true;
+		// Counts every change, so a save can tell whether anything moved while it ran.
+		revision++;
+		$( '#dicex-connect-club-unsaved' ).prop( 'hidden', false );
+		$( '#dicex-connect-club-savebar' ).addClass( 'is-dirty' );
+		// The bar now sticks to the bottom; a field the keyboard reaches must not land under it.
+		$( document.documentElement ).addClass( 'dicex-connect-club-dirty' );
+	}
+
+	function markClean() {
+		dirty = false;
+		$( '#dicex-connect-club-unsaved' ).prop( 'hidden', true );
+		$( '#dicex-connect-club-savebar' ).removeClass( 'is-dirty' );
+		$( document.documentElement ).removeClass( 'dicex-connect-club-dirty' );
 	}
 
 	/* ---- Choices for the lists ------------------------------------------- */
@@ -191,6 +247,7 @@ jQuery( function ( $ ) {
 		updateSummaries( $row );
 		updateTags( kindOf( $row ) );
 		clearPreview();
+		markDirty();
 	}
 
 	function readMap( $input ) {
@@ -203,7 +260,13 @@ jQuery( function ( $ ) {
 		}
 	}
 
-	function addRow( kind, entry ) {
+	/*
+	 * @param {string}  kind  'level' or 'group'.
+	 * @param {Object}  entry What the row holds; empty for a new one.
+	 * @param {boolean} open  Show its conditions: a new row is opened to be filled
+	 *                        in, a saved one arrives closed, as its summary.
+	 */
+	function addRow( kind, entry, open ) {
 		var template = document.getElementById( 'dicex-connect-club-' + kind + '-template' );
 
 		if ( ! template || ! template.content ) {
@@ -231,12 +294,152 @@ jQuery( function ( $ ) {
 		$( listId( kind ) ).append( $row );
 		updateSummaries( $row );
 		drawMessages( $row );
+		setOpen( $row, !! open );
 
 		return $row;
 	}
 
-	function addLevel( level ) {
-		return addRow( 'level', level );
+	function addLevel( level, open ) {
+		return addRow( 'level', level, open );
+	}
+
+	/* ---- A row closed to one line, or open for editing ------------------ */
+
+	function isOpen( $row ) {
+		return ! $row.children( '.dicex-connect-club-level-body' ).prop( 'hidden' );
+	}
+
+	function setOpen( $row, open ) {
+		var $body = $row.children( '.dicex-connect-club-level-body' );
+		var $edit = $row.find( '.dicex-connect-club-edit' ).first();
+
+		// Its id follows the row's, so the button can say which part of the page it opens.
+		$body.attr( 'id', 'dicex-connect-club-body-' + kindOf( $row ) + '-' + $row.attr( 'data-id' ) ).prop( 'hidden', ! open );
+		$edit.attr( { 'aria-expanded': open ? 'true' : 'false', 'aria-controls': $body.attr( 'id' ) } );
+		$edit.find( '.dicex-connect-club-edit-text' ).text( open ? i18n.close : i18n.edit );
+		$edit.find( '.dashicons' ).attr( 'class', 'dashicons ' + ( open ? 'dashicons-arrow-up-alt2' : 'dashicons-edit' ) );
+		$row.toggleClass( 'is-open', open );
+		labelEdit( $row );
+
+		if ( ! open ) {
+			closePanel( $row );
+		}
+	}
+
+	/*
+	 * The button's name starts with the word it shows — "Edit Gold", "Close Gold" —
+	 * so somebody who says what they see by voice reaches it.
+	 */
+	function labelEdit( $row ) {
+		var name = String( $row.find( '.dicex-connect-club-input[data-key="name"]' ).val() || '' ).trim() || i18n.unnamedLevel;
+
+		$row.find( '.dicex-connect-club-edit' ).first().attr(
+			'aria-label',
+			( ( isOpen( $row ) ? i18n.closeNamed : i18n.editNamed ) || '%s' ).replace( '%s', name )
+		);
+	}
+
+	function openIds( kind ) {
+		return rowsOf( kind ).filter( function () {
+			return isOpen( $( this ) );
+		} ).map( function () {
+			return String( $( this ).attr( 'data-id' ) );
+		} ).get();
+	}
+
+	$( document ).on( 'click', '.dicex-connect-club-edit', function () {
+		var $row = $( this ).closest( '.dicex-connect-club-entry' );
+		var open = ! isOpen( $row );
+
+		setOpen( $row, open );
+
+		// Opening takes the keyboard to the first condition; closing leaves it on the button.
+		if ( open ) {
+			$row.children( '.dicex-connect-club-level-body' ).find( 'input:not([type="hidden"]), textarea, button' ).first().trigger( 'focus' );
+		}
+	} );
+
+	/*
+	 * What a row's conditions add up to, in one line, so a closed row still says
+	 * what it does: "Orders: 10 or more · Buyer's country: Oman". The labels are the
+	 * ones already on the fields, so nothing is worded twice.
+	 */
+	function rangeText( label, min, max, unit ) {
+		var withUnit = function ( value ) {
+			var parsed = typedNumber( value );
+
+			// Kept whole and in its own direction: "۲۰۰ OMR" must not split in a Persian line.
+			// Something that is not a number yet is shown as typed; saving will say why.
+			return '⁨' + ( isNaN( parsed ) ? String( value ) : number( parsed ) ) + ( unit ? ' ' + unit : '' ) + '⁩';
+		};
+
+		if ( '' !== min && '' !== max ) {
+			return typedNumber( min ) === typedNumber( max )
+				? ( i18n.rangeExact || '%1$s: %2$s' ).replace( '%1$s', label ).replace( '%2$s', withUnit( min ) )
+				: ( i18n.rangeBoth || '%1$s: %2$s – %3$s' ).replace( '%1$s', label ).replace( '%2$s', withUnit( min ) ).replace( '%3$s', withUnit( max ) );
+		}
+
+		if ( '' !== min ) {
+			return ( i18n.rangeMin || '%1$s: %2$s+' ).replace( '%1$s', label ).replace( '%2$s', withUnit( min ) );
+		}
+
+		return ( i18n.rangeMax || '%1$s: ≤ %2$s' ).replace( '%1$s', label ).replace( '%2$s', withUnit( max ) );
+	}
+
+	function summarize( $row ) {
+		var parts = [];
+		var $summary = $row.children( '.dicex-connect-club-level-summary' );
+
+		// The level for people who leave has no conditions to sum up; its hint says why.
+		if ( 'level' === kindOf( $row ) && $row.attr( 'data-id' ) === ( $( '#dicex-connect-club-removed' ).val() || null ) ) {
+			$summary.addClass( 'is-empty' ).text( '' ).prop( 'hidden', true );
+			return;
+		}
+
+		$summary.prop( 'hidden', false );
+
+		$row.find( '.dicex-connect-club-bound' ).each( function () {
+			var $bound = $( this );
+			var $inputs = $bound.find( '.dicex-connect-club-input' );
+			var min = String( $inputs.eq( 0 ).val() || '' ).trim();
+			var max = String( $inputs.eq( 1 ).val() || '' ).trim();
+			// Only money carries its unit here: days and years are in the label already.
+			var unit = 'spent_min' === $inputs.eq( 0 ).attr( 'data-key' ) ? String( club.currency || '' ) : '';
+
+			if ( '' === min && '' === max ) {
+				return;
+			}
+
+			parts.push( rangeText( $bound.find( '.dicex-connect-club-bound-label' ).first().text().trim(), min, max, unit ) );
+		} );
+
+		$row.find( '.dicex-connect-club-list-button[data-list]' ).each( function () {
+			var $button = $( this );
+			var text = $button.find( '.dicex-connect-club-list-summary' ).text();
+
+			if ( ! $button.hasClass( 'is-set' ) || '' === text ) {
+				return;
+			}
+
+			parts.push( ( i18n.listPart || '%1$s: %2$s' ).replace( '%1$s', $button.find( '.dicex-connect-club-list-name' ).text().trim() ).replace( '%2$s', text ) );
+		} );
+
+		$summary.toggleClass( 'is-empty', ! parts.length ).text( parts.length ? parts.join( ' · ' ) : i18n.noConditions );
+
+		// A message for moving up is worth knowing about without opening the row.
+		if ( '' !== String( $row.find( '.dicex-connect-club-input[data-key="message"]' ).val() || '' ).trim() ) {
+			$summary.append( ' ' ).append(
+				$( '<span>' ).addClass( 'dicex-connect-club-summary-message' )
+					.append( $( '<span>' ).addClass( 'dashicons dashicons-email-alt' ).attr( 'aria-hidden', 'true' ) )
+					.append( document.createTextNode( i18n.sendsMessage ) )
+			);
+		}
+	}
+
+	function summarizeAll() {
+		$( '.dicex-connect-club-entry' ).each( function () {
+			summarize( $( this ) );
+		} );
 	}
 
 	function collect( kind ) {
@@ -308,6 +511,7 @@ jQuery( function ( $ ) {
 		$( '#dicex-connect-club-starter' ).prop( 'hidden', list.length > 0 );
 
 		updateLevelTags();
+		summarizeAll();
 	}
 
 	/*
@@ -341,6 +545,7 @@ jQuery( function ( $ ) {
 		$row.find( '.dicex-connect-club-up' ).attr( 'aria-label', ( i18n.moveUpNamed || '%s' ).replace( '%s', name ) );
 		$row.find( '.dicex-connect-club-down' ).attr( 'aria-label', ( i18n.moveDownNamed || '%s' ).replace( '%s', name ) );
 		$row.find( '.dicex-connect-club-remove' ).attr( 'aria-label', ( i18n.removeItem || '%s' ).replace( '%s', name ) );
+		labelEdit( $row );
 		$row.find( '.dicex-connect-club-level-hint' ).attr( 'id', hintId );
 		$name.attr( 'aria-describedby', hintId );
 	}
@@ -468,6 +673,8 @@ jQuery( function ( $ ) {
 			$button.find( '.dashicons' ).attr( 'class', 'dashicons ' + ( values.length ? 'dashicons-edit' : 'dashicons-plus-alt2' ) );
 			$button.find( '.dicex-connect-club-list-summary' ).text( text );
 		} );
+
+		summarize( $row );
 	}
 
 	function closePanel( $row ) {
@@ -789,10 +996,13 @@ jQuery( function ( $ ) {
 	/* ---- Adding, removing and ordering levels ---------------------------- */
 
 	function rebuildLevels( list, defaultId, removedId ) {
+		// A row somebody had open stays open after a save draws them all again.
+		var open = openIds( 'level' );
+
 		$( '#dicex-connect-club-levels' ).empty();
 
 		( list || [] ).forEach( function ( level ) {
-			addLevel( level );
+			addLevel( level, open.indexOf( String( level.id ) ) !== -1 );
 		} );
 
 		$( '#dicex-connect-club-default' ).data( 'ready', false ).attr( 'data-selected', defaultId || '' );
@@ -813,29 +1023,66 @@ jQuery( function ( $ ) {
 	}
 
 	$( document ).on( 'click', '#dicex-connect-club-add-level', function () {
-		var $row = addLevel( {} );
+		// A new level opens, ready to be filled in.
+		var $row = addLevel( {}, true );
 
 		refreshLevelSelects();
+		markDirty();
+		refreshSetup();
 
 		if ( $row ) {
 			$row.find( '[data-key="name"]' ).trigger( 'focus' );
 		}
 	} );
 
-	$( document ).on( 'click', '#dicex-connect-club-starter', function () {
+	/*
+	 * The ready-made set, from the Levels card or from the setup steps. Its levels
+	 * arrive closed: each already says what it asks for, so there is nothing to
+	 * fill in before switching the club on.
+	 */
+	$( document ).on( 'click', '.dicex-connect-club-use-starter', function () {
 		var set = club.starter || {};
+		var fromSteps = $( this ).closest( '.dicex-connect-club-setup' ).length > 0;
+
+		// Only ever onto an empty list; both buttons hide once there are levels.
+		if ( levelRows().length ) {
+			return;
+		}
 
 		( set.levels || [] ).forEach( function ( level ) {
-			addLevel( level );
+			addLevel( level, false );
 		} );
 
 		$( '#dicex-connect-club-default' ).data( 'ready', false ).attr( 'data-selected', set.default_level || '' );
 		$( '#dicex-connect-club-removed' ).data( 'ready', false ).attr( 'data-selected', set.removed_level || '' );
 
 		refreshLevelSelects();
+		markDirty();
+		refreshSetup();
 
-		// The button hides itself once there are levels; the first of them takes its place.
-		levelRows().first().find( '[data-key="name"]' ).trigger( 'focus' );
+		speak( ( i18n.levelsAdded || '%s' ).replace( '%s', levels.map( function ( level ) {
+			return level.name;
+		} ).join( i18n.listSeparator || ', ' ) ) );
+
+		// The button is gone now. From the steps the keyboard goes on to the next
+		// step; in the Levels card, to the first of the new levels.
+		if ( fromSteps ) {
+			nextStepFocus();
+		} else {
+			levelRows().first().find( '[data-key="name"]' ).trigger( 'focus' );
+		}
+	} );
+
+	// "Build my own": one empty level, open, under Levels.
+	$( document ).on( 'click', '.dicex-connect-club-build-own', function () {
+		$( '#dicex-connect-club-add-level' ).trigger( 'click' );
+	} );
+
+	$( document ).on( 'click', '.dicex-connect-club-goto-levels', function () {
+		var $title = $( '#dicex-connect-club-levels-title' );
+
+		$title[ 0 ].scrollIntoView( { block: 'start' } );
+		$title.trigger( 'focus' );
 	} );
 
 	$( document ).on( 'click', '.dicex-connect-club-remove', function () {
@@ -845,6 +1092,7 @@ jQuery( function ( $ ) {
 		var $focus = $next.length ? $next : $row.prev( '.dicex-connect-club-entry' );
 
 		$row.remove();
+		markDirty();
 
 		// The keyboard goes to the row that took its place, or to the button that adds one.
 		if ( $focus.length ) {
@@ -859,6 +1107,7 @@ jQuery( function ( $ ) {
 		}
 
 		refreshLevelSelects();
+		refreshSetup();
 	} );
 
 	$( document ).on( 'click', '.dicex-connect-club-up, .dicex-connect-club-down', function () {
@@ -876,6 +1125,7 @@ jQuery( function ( $ ) {
 		}
 
 		refreshLevelSelects();
+		markDirty();
 		$button.trigger( 'focus' );
 
 		speak(
@@ -891,8 +1141,10 @@ jQuery( function ( $ ) {
 
 		if ( 'name' === key ) {
 			refreshLevelSelects();
+			refreshSetup();
 		} else {
 			updateLevelTags();
+			summarize( $( this ).closest( '.dicex-connect-club-entry' ) );
 		}
 
 		if ( 'name' !== key && 'description' !== key ) {
@@ -902,6 +1154,10 @@ jQuery( function ( $ ) {
 
 	$( document ).on( 'input', '#dicex-connect-club-groups .dicex-connect-club-input', function () {
 		updateGroupTags();
+
+		if ( 'name' !== $( this ).attr( 'data-key' ) ) {
+			summarize( $( this ).closest( '.dicex-connect-club-entry' ) );
+		}
 
 		if ( 'name' !== $( this ).attr( 'data-key' ) && 'description' !== $( this ).attr( 'data-key' ) ) {
 			clearPreview();
@@ -913,20 +1169,23 @@ jQuery( function ( $ ) {
 			return;
 		}
 
+		var open = openIds( 'group' );
+
 		$( '#dicex-connect-club-groups' ).empty();
 
 		( list || [] ).forEach( function ( group ) {
-			addRow( 'group', group );
+			addRow( 'group', group, open.indexOf( String( group.id ) ) !== -1 );
 		} );
 
 		updateGroupTags();
 	}
 
 	$( document ).on( 'click', '#dicex-connect-club-add-group', function () {
-		var $row = addRow( 'group', {} );
+		var $row = addRow( 'group', {}, true );
 
 		updateGroupTags();
 		clearPreview();
+		markDirty();
 
 		if ( $row ) {
 			$row.find( '[data-key="name"]' ).trigger( 'focus' );
@@ -996,25 +1255,36 @@ jQuery( function ( $ ) {
 
 	$( document ).on( 'change', '#dicex-connect-club-default, #dicex-connect-club-removed', function () {
 		updateLevelTags();
+		summarizeAll();
 		clearPreview();
+		refreshSetup();
 	} );
 
 	$( document ).on( 'change', '#dicex-connect-club-window', clearPreview );
 
 	// Adding, removing and reordering levels changes who lands where.
-	$( document ).on( 'click', '#dicex-connect-club-add-level, #dicex-connect-club-starter, .dicex-connect-club-remove, .dicex-connect-club-up, .dicex-connect-club-down', function () {
+	$( document ).on( 'click', '#dicex-connect-club-add-level, .dicex-connect-club-use-starter, .dicex-connect-club-remove, .dicex-connect-club-up, .dicex-connect-club-down', function () {
 		clearPreview();
 	} );
 
 	/* ---- Saving ---------------------------------------------------------- */
 
-	$( document ).on( 'click', '#dicex-connect-club-save', function () {
-		var $button = $( this );
+	/*
+	 * Saves everything on the tab: levels, groups and settings. The Save button
+	 * calls it, and so does switching the club on, so nobody has to know that the
+	 * one waits for the other.
+	 *
+	 * @param {Function} [done] After a save that went through.
+	 * @param {Function} [fail] With the reason, after one that did not.
+	 * @return {boolean} False when a save is already under way and this one was not sent.
+	 */
+	function saveSettings( done, fail ) {
+		var $button = $( '#dicex-connect-club-save' );
 		var $status = $( '#dicex-connect-club-save-status' );
 		var channels = [];
 
 		if ( isBusy( $button ) ) {
-			return;
+			return false;
 		}
 
 		// The list is the priority: ticked channels, in the order they appear.
@@ -1058,6 +1328,9 @@ jQuery( function ( $ ) {
 			request.welcome_templates = $templates.val() || '{}';
 		}
 
+		// What the screen looked like when this save left; see below.
+		var sent = revision;
+
 		call(
 			'dicex_connect_club_save',
 			request,
@@ -1066,9 +1339,19 @@ jQuery( function ( $ ) {
 				$status.text( data.message );
 				clearPreview();
 
-				// The server settles ids, spelling and what exists; show what it kept.
-				rebuildLevels( data.levels, data.default_level, data.removed_level );
-				rebuildGroups( data.groups );
+				/*
+				 * Anything typed while the request was out is not in what was saved.
+				 * Then the rows stay as they are on screen, and so does the warning
+				 * about unsaved changes; the next save sends them. Otherwise the server
+				 * settles ids, spelling and what exists, and the rows show what it kept.
+				 */
+				if ( revision === sent ) {
+					markClean();
+					rebuildLevels( data.levels, data.default_level, data.removed_level );
+					rebuildGroups( data.groups );
+				}
+
+				refreshSetup();
 
 				if ( data.suggest_import ) {
 					$( '#dicex-connect-club-import-prompt' ).prop( 'hidden', false );
@@ -1079,50 +1362,384 @@ jQuery( function ( $ ) {
 				}
 
 				loadMembers( members.page );
+
+				if ( done ) {
+					done( data );
+				}
 			},
 			function ( message ) {
 				setBusy( $button, false );
-				$status.addClass( 'is-error' ).text( message );
+				$status.addClass( 'is-error' ).text( errorText( message ) );
+
+				if ( fail ) {
+					fail( message );
+				}
 			}
 		);
+
+		return true;
+	}
+
+	$( document ).on( 'click', '#dicex-connect-club-save', function () {
+		saveSettings();
 	} );
+
+	/* ---- Switching the club on and off ----------------------------------- */
+
+	/*
+	 * Why switching on did not go ahead, said beside the steps — and the step it
+	 * belongs to marked, so it is plain where to look. Never an alert.
+	 */
+	function showSetupError( error ) {
+		var step = error && 'object' === typeof error ? String( error.step || '' ) : '';
+		var $box = $( '#dicex-connect-club-setup-error' );
+
+		$( '.dicex-connect-club-step' ).removeClass( 'is-error' );
+		setupErrorStep = step;
+
+		if ( step ) {
+			$( '.dicex-connect-club-step[data-step="' + step + '"]' ).addClass( 'is-error' );
+		}
+
+		$box.text( errorText( error ) ).prop( 'hidden', false );
+	}
+
+	function clearSetupError() {
+		setupErrorStep = '';
+		$( '#dicex-connect-club-setup-error' ).prop( 'hidden', true ).text( '' );
+		$( '.dicex-connect-club-step' ).removeClass( 'is-error' );
+	}
+
+	function setSwitchBusy( on ) {
+		setBusy( $( '#dicex-connect-club-toggle' ), on );
+		setBusy( $( '#dicex-connect-club-switch-on' ), on );
+	}
+
+	function switchIsBusy() {
+		return isBusy( $( '#dicex-connect-club-toggle' ) ) || isBusy( $( '#dicex-connect-club-switch-on' ) );
+	}
+
+	/*
+	 * Switching on saves first, then asks the server, which checks the steps again
+	 * and — the first time — starts reading the store's customers in.
+	 */
+	function switchOn( $focusAfter ) {
+		var $toggle = $( '#dicex-connect-club-toggle' );
+
+		clearSetupError();
+		setSwitchBusy( true );
+		$toggle.prop( 'checked', true );
+
+		/*
+		 * @param {*}       error
+		 * @param {boolean} said  The save's own status line has already read it out.
+		 */
+		function refused( error, said ) {
+			setSwitchBusy( false );
+			$toggle.prop( 'checked', false );
+			showSetupError( error );
+
+			if ( ! said ) {
+				speak( errorText( error ) );
+			}
+		}
+
+		function ask() {
+			call(
+				'dicex_connect_club_toggle',
+				{ enabled: '1' },
+				function ( data ) {
+					setSwitchBusy( false );
+					root().attr( 'data-enabled', '1' );
+					$( '#dicex-connect-club-status' ).prop( 'hidden', false );
+					$( '#dicex-connect-club-members' ).prop( 'hidden', false );
+					$( '#dicex-connect-club-import-prompt' ).prop( 'hidden', ! data.needs_import );
+
+					if ( data.status ) {
+						renderStatus( data.status );
+					}
+
+					refreshSetup();
+					speak( data.status && data.status.importing ? i18n.switchedOnReading : i18n.switchedOn );
+
+					if ( $focusAfter && $focusAfter.length ) {
+						$focusAfter.trigger( 'focus' );
+					}
+
+					refreshStatus( true );
+					loadMembers( 1 );
+				},
+				refused
+			);
+		}
+
+		// Nothing unsaved: straight to the server. Otherwise the settings go first,
+		// and a refusal there is the reason given.
+		if ( ! dirty ) {
+			ask();
+			return;
+		}
+
+		// A save already on its way: let it land, say so, and let this be pressed again.
+		if ( ! saveSettings( ask, function ( error ) {
+			refused( error, true );
+		} ) ) {
+			setSwitchBusy( false );
+			$toggle.prop( 'checked', '1' === root().attr( 'data-enabled' ) );
+			speak( DiceXAdmin.i18n.saving );
+		}
+	}
+
+	function switchOff() {
+		var $toggle = $( '#dicex-connect-club-toggle' );
+
+		setSwitchBusy( true );
+
+		call(
+			'dicex_connect_club_toggle',
+			{ enabled: '0' },
+			function () {
+				setSwitchBusy( false );
+				root().attr( 'data-enabled', '0' );
+				$( '#dicex-connect-club-status' ).prop( 'hidden', true );
+				stopPolling();
+				refreshSetup();
+				speak( i18n.switchedOff );
+			},
+			function ( error ) {
+				// Put the switch back: the server did not accept the change.
+				setSwitchBusy( false );
+				$toggle.prop( 'checked', true );
+				showSetupError( error );
+				speak( errorText( error ) );
+			}
+		);
+	}
 
 	$( document ).on( 'change', '#dicex-connect-club-toggle', function () {
 		var $toggle = $( this );
 		var enabled = $toggle.is( ':checked' );
 
 		// Still answering the last flip: this one does not count.
-		if ( isBusy( $toggle ) ) {
+		if ( switchIsBusy() ) {
 			$toggle.prop( 'checked', ! enabled );
 			return;
 		}
 
-		setBusy( $toggle, true );
+		if ( enabled ) {
+			switchOn( $toggle );
+		} else {
+			switchOff();
+		}
+	} );
 
-		call(
-			'dicex_connect_club_toggle',
-			{ enabled: enabled ? '1' : '0' },
-			function ( data ) {
-				setBusy( $toggle, false );
-				root().attr( 'data-enabled', data.enabled ? '1' : '0' );
-				$( '#dicex-connect-club-status' ).prop( 'hidden', ! data.enabled );
-				$( '#dicex-connect-club-import-prompt' ).prop( 'hidden', ! data.needs_import );
+	$( document ).on( 'click', '#dicex-connect-club-switch-on', function () {
+		if ( ! switchIsBusy() ) {
+			// The step's button is about to go; the keyboard waits on the step that follows.
+			switchOn( $( '.dicex-connect-club-step[data-step="send"] .dicex-connect-club-step-title' ) );
+		}
+	} );
 
-				if ( data.enabled ) {
-					$( '#dicex-connect-club-members' ).prop( 'hidden', false );
-					refreshStatus( true );
-					loadMembers( 1 );
-				} else {
-					stopPolling();
-				}
-			},
-			function ( message ) {
-				// Put the switch back: the server did not accept the change.
-				setBusy( $toggle, false );
-				$toggle.prop( 'checked', ! enabled );
-				window.alert( message );
-			}
+	/* ---- The setup steps ------------------------------------------------- */
+
+	function stepState( $step, state ) {
+		$step.removeClass( 'is-done is-current is-todo' ).addClass( 'is-' + state );
+		$step.find( '.dicex-connect-club-step-state' ).first().text(
+			'done' === state ? ' ' + i18n.stepDone : ( 'current' === state ? ' ' + i18n.stepNext : '' )
 		);
+	}
+
+	/*
+	 * Where the club stands, as the five steps: done, the one to do now, and the
+	 * ones after it. Read from the page itself — the radios, the levels, the switch
+	 * and the last status — so it follows every change without asking the server.
+	 */
+	function refreshSetup() {
+		var $setup = $( '#dicex-connect-club-setup' );
+
+		if ( ! $setup.length ) {
+			return;
+		}
+
+		var imported = '1' === $setup.attr( 'data-imported' );
+		var hold = '1' === $setup.attr( 'data-hold' );
+		var importing = '1' === $setup.attr( 'data-importing' );
+		var enabled = '1' === root().attr( 'data-enabled' );
+		var rows = levelRows();
+		var defaultId = $( '#dicex-connect-club-default' ).val() || '';
+		var removedId = $( '#dicex-connect-club-removed' ).val() || '';
+		var missing = [];
+
+		// The same things saving refuses, so the step is never Done when the save is not.
+		var names = levels.map( function ( level ) {
+			return String( level.name || '' ).trim().toLowerCase();
+		} );
+
+		if ( names.indexOf( '' ) !== -1 ) {
+			missing.push( i18n.missingNames );
+		} else if ( names.some( function ( name, index ) {
+			return names.indexOf( name ) !== index;
+		} ) ) {
+			missing.push( i18n.sameNames );
+		}
+
+		if ( rows.length && ! defaultId ) {
+			missing.push( i18n.missingDefault );
+		}
+
+		if ( rows.length && ! removedId ) {
+			missing.push( i18n.missingRemoved );
+		} else if ( rows.length && removedId === defaultId ) {
+			missing.push( i18n.sameDefaultRemoved );
+		}
+
+		var done = {
+			connect: '1' === root().attr( 'data-has-key' ),
+			join: $( '.dicex-connect-club-join:checked' ).length > 0,
+			levels: rows.length > 0 && ! missing.length,
+			'switch': enabled,
+			send: imported && ! hold
+		};
+		var current = '';
+
+		if ( setupErrorStep && done[ setupErrorStep ] ) {
+			clearSetupError();
+		}
+
+		[ 'connect', 'join', 'levels', 'switch', 'send' ].forEach( function ( key ) {
+			var $step = $setup.find( '.dicex-connect-club-step[data-step="' + key + '"]' );
+
+			if ( done[ key ] ) {
+				stepState( $step, 'done' );
+			} else if ( ! current ) {
+				current = key;
+				stepState( $step, 'current' );
+			} else {
+				stepState( $step, 'todo' );
+			}
+		} );
+
+		// The levels step: a button for the ready-made set, or the levels by name.
+		$setup.find( '.dicex-connect-club-step-levels-none' ).prop( 'hidden', rows.length > 0 );
+		$setup.find( '.dicex-connect-club-step-levels-some' ).prop( 'hidden', ! rows.length );
+		$setup.find( '.dicex-connect-club-step-levels-list' ).text(
+			( i18n.levelsNamed || '%s' ).replace( '%s', levels.map( function ( level ) {
+				return '⁨' + ( level.name || i18n.unnamedLevel ) + '⁩';
+			} ).join( i18n.listSeparator || ', ' ) )
+		);
+		$setup.find( '.dicex-connect-club-step-levels-missing' ).text( missing.join( ' ' ) ).prop( 'hidden', ! missing.length );
+
+		// Switching on is offered once the steps before it are done. The switch at
+		// the top does the same thing, and says what is missing if pressed early.
+		$( '#dicex-connect-club-switch-on' ).prop( 'hidden', 'switch' !== current );
+
+		// The last step: reading, then the counts and the button that sends.
+		$setup.find( '.dicex-connect-club-step-progress' )
+			.text( importing && lastStatus ? lastStatus.import_text : '' )
+			.prop( 'hidden', ! importing );
+		$( '#dicex-connect-club-import-step' ).prop( 'hidden', ! enabled || imported || importing );
+		$( '#dicex-connect-club-release-step' ).prop( 'hidden', ! enabled || ! hold || importing );
+
+		// Done once the first import has gone to DiceX; after that the steps step aside.
+		$setup.prop( 'hidden', done.send );
+	}
+
+	// Where the keyboard goes when the step button just pressed has gone away.
+	function nextStepFocus() {
+		var $current = $( '.dicex-connect-club-step.is-current' ).first();
+		var $target = $current.find( 'button:visible, input:visible' ).first();
+
+		( $target.length ? $target : $current.find( '.dicex-connect-club-step-title' ).first() ).trigger( 'focus' );
+	}
+
+	/*
+	 * The choice in the steps and the one under Club settings are the same choice.
+	 * "input." because the fieldset around the settings' radios carries their class
+	 * too, and a change bubbling up to it has no value.
+	 */
+	$( document ).on( 'change', 'input.dicex-connect-club-join-step', function () {
+		$( 'input.dicex-connect-club-join[value="' + this.value + '"]' ).prop( 'checked', true ).trigger( 'change' );
+		markDirty();
+	} );
+
+	$( document ).on( 'change', 'input.dicex-connect-club-join', function () {
+		$( 'input.dicex-connect-club-join-step[value="' + this.value + '"]' ).prop( 'checked', true );
+		$( '.dicex-connect-club-consent-label' ).prop( 'hidden', 'consent' !== this.value );
+		refreshSetup();
+	} );
+
+	$( document ).on( 'click', '#dicex-connect-club-release-step', function () {
+		$( '#dicex-connect-club-release' ).trigger( 'click', [ 'step' ] );
+	} );
+
+	$( document ).on( 'click', '#dicex-connect-club-import-step', function () {
+		$( '#dicex-connect-club-import' ).trigger( 'click', [ 'step' ] );
+	} );
+
+	/* ---- Showing only what applies ---------------------------------------- */
+
+	// Each of these opens what belongs to it, and closes it again, without a save.
+	$( document ).on( 'change', '#dicex-connect-club-birthday', function () {
+		$( '.dicex-connect-club-birthday-settings' ).prop( 'hidden', ! this.checked );
+	} );
+
+	$( document ).on( 'change', '#dicex-connect-club-welcome', function () {
+		var $channels = $( '#dicex-connect-club .dicex-connect-club-channel' );
+
+		$( '.dicex-connect-club-welcome-settings' ).prop( 'hidden', ! this.checked );
+
+		// A welcome needs a channel to go over, and saving refuses one without: the
+		// first in the list is ticked for a start, rather than left to a refusal.
+		if ( this.checked && $channels.length && ! $channels.filter( ':checked' ).length ) {
+			$channels.first().prop( 'checked', true );
+		}
+	} );
+
+	$( document ).on( 'change', '.dicex-connect-club-mode', function () {
+		$( '.dicex-connect-club-daily-time' ).prop( 'hidden', 'realtime' === this.value );
+	} );
+
+	/* ---- Noticing changes ------------------------------------------------- */
+
+	$( document ).on( 'input change', '#dicex-connect-club .dicex-connect-club-settings :input', function () {
+		var $field = $( this );
+
+		// A filter box only narrows a list; what a list holds changes through writeList().
+		if ( $field.hasClass( 'dicex-connect-club-filter' ) || $field.closest( '.dicex-connect-club-list-panel' ).length ) {
+			return;
+		}
+
+		markDirty();
+	} );
+
+	// The welcome's channel order is part of what is saved — when an arrow actually moved something.
+	$( document ).on( 'click', '#dicex-connect-club .dicex-connect-channel-up, #dicex-connect-club .dicex-connect-channel-down', function () {
+		if ( ! isBusy( $( this ) ) ) {
+			markDirty();
+		}
+	} );
+	$( document ).on( 'sortupdate', '#dicex-connect-club .dicex-connect-channel-list', markDirty );
+
+	// Another tab replaces this one without a page load: ask before work is lost.
+	$( document ).on( 'dicex-connect-before-tab', function () {
+		if ( ! dirty || ! root().length ) {
+			return true;
+		}
+
+		if ( ! window.confirm( i18n.leaveUnsaved ) ) {
+			return false;
+		}
+
+		markClean();
+		return true;
+	} );
+
+	window.addEventListener( 'beforeunload', function ( event ) {
+		if ( dirty && root().length ) {
+			event.preventDefault();
+			// Older browsers want a value here before they will ask.
+			event.returnValue = '';
+		}
 	} );
 
 	/* ---- Status ---------------------------------------------------------- */
@@ -1172,15 +1789,16 @@ jQuery( function ( $ ) {
 			.attr( 'max', Math.max( 1, data.import_total ) )
 			.val( data.import_done );
 
-		$( '#dicex-connect-club-import-text' ).text( data.import_text || '' );
-		setBusy( $( '#dicex-connect-club-import' ), !! data.importing );
+		$( '#dicex-connect-club-import-text' ).removeClass( 'is-error' ).text( data.import_text || '' );
+		setBusy( $( '#dicex-connect-club-import, #dicex-connect-club-import-step' ), !! data.importing );
 
 		if ( data.importing || data.imported_once ) {
 			$( '#dicex-connect-club-import-prompt' ).prop( 'hidden', true );
 		}
 
-		// The first import, read and worked out, waiting for the owner to send it.
-		$( '#dicex-connect-club-hold' ).prop( 'hidden', ! data.hold || !! data.importing );
+		// The first import, read and worked out, waiting for the owner to send it. While
+		// the setup steps are showing, their last step is where that is said and done.
+		$( '#dicex-connect-club-hold' ).prop( 'hidden', ! data.hold || !! data.importing || $( '#dicex-connect-club-setup' ).length > 0 );
 		$( '#dicex-connect-club-preview' ).prop( 'hidden', ! data.member_count );
 
 		$( '#dicex-connect-club-paused' ).prop( 'hidden', ! data.paused ).children( 'span' ).last().text( data.paused || '' );
@@ -1191,6 +1809,25 @@ jQuery( function ( $ ) {
 
 		announceStatus( lastStatus, data );
 		lastStatus = data;
+
+		// The setup steps follow the same status.
+		$( '#dicex-connect-club-setup' ).attr( {
+			'data-imported': data.imported_once ? '1' : '0',
+			'data-hold': data.hold ? '1' : '0',
+			'data-importing': data.importing ? '1' : '0'
+		} );
+		refreshSetup();
+	}
+
+	/*
+	 * A status button that could not do its job says so in the line under the
+	 * counts, where somebody pressing it is looking — not in an alert.
+	 */
+	function showStatusError( error ) {
+		var message = errorText( error );
+
+		$( '#dicex-connect-club-import-text' ).addClass( 'is-error' ).text( message );
+		speak( message );
 	}
 
 	/*
@@ -1271,14 +1908,19 @@ jQuery( function ( $ ) {
 		);
 	}
 
-	$( document ).on( 'click', '#dicex-connect-club-import', function () {
-		var $button = $( this );
+	/*
+	 * The status card's button and its twin in the setup steps are one action,
+	 * busy together. `from` is 'step' when the twin was pressed: its failures are
+	 * said beside the steps, and the keyboard goes to the line that shows progress.
+	 */
+	$( document ).on( 'click', '#dicex-connect-club-import', function ( event, from ) {
+		var $both = $( '#dicex-connect-club-import, #dicex-connect-club-import-step' );
 
-		if ( isBusy( $button ) ) {
+		if ( isBusy( $( this ) ) ) {
 			return;
 		}
 
-		setBusy( $button, true );
+		setBusy( $both, true );
 
 		call(
 			'dicex_connect_club_import',
@@ -1287,11 +1929,22 @@ jQuery( function ( $ ) {
 				renderStatus( data );
 				$( '#dicex-connect-club-import-prompt' ).prop( 'hidden', true );
 				speak( data.import_text );
+
+				if ( 'step' === from ) {
+					$( '.dicex-connect-club-step-progress' ).trigger( 'focus' );
+				}
+
 				refreshStatus( true );
 			},
 			function ( message ) {
-				setBusy( $button, false );
-				window.alert( message );
+				setBusy( $both, false );
+
+				if ( 'step' === from ) {
+					showSetupError( message );
+					speak( errorText( message ) );
+				} else {
+					showStatusError( message );
+				}
 			}
 		);
 	} );
@@ -1316,7 +1969,7 @@ jQuery( function ( $ ) {
 			},
 			function ( message ) {
 				setBusy( $button, false );
-				window.alert( message );
+				showStatusError( message );
 			}
 		);
 	} );
@@ -1329,10 +1982,11 @@ jQuery( function ( $ ) {
 		$( '#dicex-connect-club-import-text' ).trigger( 'focus' );
 	}
 
-	$( document ).on( 'click', '#dicex-connect-club-release', function () {
-		var $button = $( this );
+	// Like the import above: one action, two buttons, busy together.
+	$( document ).on( 'click', '#dicex-connect-club-release', function ( event, from ) {
+		var $both = $( '#dicex-connect-club-release, #dicex-connect-club-release-step' );
 
-		if ( isBusy( $button ) ) {
+		if ( isBusy( $( this ) ) ) {
 			return;
 		}
 
@@ -1341,21 +1995,27 @@ jQuery( function ( $ ) {
 			return;
 		}
 
-		setBusy( $button, true );
+		setBusy( $both, true );
 
 		call(
 			'dicex_connect_club_release',
 			{},
 			function ( data ) {
-				setBusy( $button, false );
+				setBusy( $both, false );
 				renderStatus( data );
-				// The box this button was in is gone now.
+				// The box or the step this button was in is gone now.
 				focusStatusLine();
 				refreshStatus( true );
 			},
 			function ( message ) {
-				setBusy( $button, false );
-				window.alert( message );
+				setBusy( $both, false );
+
+				if ( 'step' === from ) {
+					showSetupError( message );
+					speak( errorText( message ) );
+				} else {
+					showStatusError( message );
+				}
 			}
 		);
 	} );
@@ -1497,7 +2157,7 @@ jQuery( function ( $ ) {
 			},
 			function ( message ) {
 				setBusy( $button, false );
-				window.alert( message );
+				showStatusError( message );
 			}
 		);
 	} );
@@ -1734,7 +2394,10 @@ jQuery( function ( $ ) {
 			},
 			function ( message ) {
 				setBusy( $button, false );
-				window.alert( message );
+				// The row says what went wrong, under the level that did not change.
+				$row.find( '.dicex-connect-club-move-error' ).remove();
+				$select.closest( 'td' ).append( $( '<span>' ).addClass( 'dicex-connect-club-error dicex-connect-club-move-error' ).text( errorText( message ) ) );
+				speak( errorText( message ) );
 			}
 		);
 	} );
@@ -1785,7 +2448,14 @@ jQuery( function ( $ ) {
 			updateSummaries( $( this ) );
 			drawMessages( $( this ) );
 		} );
+		// Rows arrive from the server closed; this names their buttons and bodies.
+		$( '.dicex-connect-club-entry' ).each( function () {
+			setOpen( $( this ), false );
+		} );
 		updateGroupTags();
+		summarizeAll();
+		markClean();
+		refreshSetup();
 		loadChoices();
 		loadMembers( 1 );
 

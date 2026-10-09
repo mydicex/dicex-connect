@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: DiceX Connect\n"
-"PO-Revision-Date: 2026-09-28 11:50+0000\n"
+"PO-Revision-Date: 2026-10-09 20:42+0000\n"
 "Last-Translator: DiceX\n"
 "Language-Team: Persian\n"
 "Language: fa_IR\n"
@@ -97,6 +97,78 @@ msgstr "ارسال به پشتیبانی دایس‌اکس"
 msgid "Fill in your email, a subject and a message."
 msgstr "ایمیل خود، یک موضوع و متن پیام را بنویسید."
 
+msgid "Edit"
+msgstr "ویرایش"
+
+msgid "Close"
+msgstr "بستن"
+
+msgid "Edit %s"
+msgstr "ویرایش %s"
+
+msgid "Close %s"
+msgstr "بستن %s"
+
+msgid "Under Levels, give every level a name."
+msgstr "در بخش «سطح‌ها»، برای هر سطح نامی بنویسید."
+
+msgid "Under Levels, two levels have the same name."
+msgstr "در بخش «سطح‌ها»، دو سطح نام یکسانی دارند."
+
+msgid "The level for everyone else and the level for people who leave must be different."
+msgstr "سطح بقیهٔ مشتریان و سطح کسانی که خارج می‌شوند باید با هم فرق داشته باشند."
+
+msgid "%1$s: %2$s or more"
+msgstr "%1$s: %2$s یا بیشتر"
+
+msgid "%1$s: up to %2$s"
+msgstr "%1$s: تا %2$s"
+
+msgid "%1$s: %2$s to %3$s"
+msgstr "%1$s: از %2$s تا %3$s"
+
+msgid "%1$s: exactly %2$s"
+msgstr "%1$s: دقیقاً %2$s"
+
+msgid "%1$s: %2$s"
+msgstr "%1$s: %2$s"
+
+msgid "No conditions"
+msgstr "بدون شرط"
+
+msgid "Sends a message on moving up"
+msgstr "هنگام ارتقا پیام می‌فرستد"
+
+msgid "Levels added: %s."
+msgstr "سطح‌ها اضافه شدند: %s."
+
+msgid "Your levels: %s."
+msgstr "سطح‌های شما: %s."
+
+msgid "Under Levels, choose the level for everyone else."
+msgstr "در بخش «سطح‌ها»، سطح بقیهٔ مشتریان را انتخاب کنید."
+
+msgid "Under Levels, choose the level for people who leave."
+msgstr "در بخش «سطح‌ها»، سطح کسانی را که خارج می‌شوند انتخاب کنید."
+
+msgid "Done"
+msgstr "تمام"
+
+msgid "Do this next"
+msgstr "قدم بعدی"
+
+msgid "The club is on."
+msgstr "باشگاه روشن است."
+
+msgid "The club is on. Your customers are being read into their levels; nothing is sent yet."
+msgstr "باشگاه روشن است. مشتریان شما در حال قرار گرفتن در سطح‌هایشان هستند؛ هنوز چیزی ارسال نشده است."
+
+msgid "The club is off."
+msgstr "باشگاه خاموش است."
+
+msgid "Your Customer Club changes are not saved. Leave this tab anyway?"
+msgstr "تغییرات باشگاه مشتریان ذخیره نشده‌اند. با این حال از این تب خارج می‌شوید؟"
+
 msgid "None"
 msgstr "هیچ‌کدام"
 
@@ -162,9 +234,6 @@ msgstr "افزودن"
 
 msgid "Add every spelling your customers use, in each language — for example Tehran and تهران. Capital letters, spaces and the Arabic or Persian forms of a letter do not matter."
 msgstr "هر املایی را که مشتریان به کار می‌برند، به هر زبانی، اضافه کنید — مثلاً Tehran و تهران. حروف بزرگ و کوچک، فاصله‌ها و شکل عربی یا فارسی حروف اهمیتی ندارد."
-
-msgid "Done"
-msgstr "تمام"
 
 msgid "Remove %s"
 msgstr "حذف %s"
@@ -259,14 +328,14 @@ msgstr "شما اجازه دسترسی به این عملیات را نداری�
 msgid "Connect your DiceX account on the Connection tab before switching the club on."
 msgstr "پیش از روشن کردن باشگاه، حساب دایس‌اکس خود را در تب اتصال وصل کنید."
 
-msgid "Save at least one level, and choose the level for everybody else, before switching the club on."
-msgstr "پیش از روشن کردن باشگاه، دست‌کم یک سطح ذخیره کنید و سطح بقیهٔ مشتریان را انتخاب کنید."
+msgid "Choose who joins the club before switching it on."
+msgstr "پیش از روشن کردن باشگاه، مشخص کنید چه کسانی عضو شوند."
 
-msgid "Choose who joins the club, and save, before switching it on."
-msgstr "پیش از روشن کردن باشگاه، مشخص کنید چه کسانی عضو شوند و ذخیره کنید."
+msgid "Add at least one level, and choose the level for everyone else, before switching the club on."
+msgstr "پیش از روشن کردن باشگاه، دست‌کم یک سطح بسازید و سطح بقیهٔ مشتریان را انتخاب کنید."
 
-msgid "Choose the level for removed numbers, and save, before switching the club on: customers can leave the club from their account, and that is where they go."
-msgstr "پیش از روشن کردن باشگاه، سطح شماره‌های حذف‌شده را انتخاب و ذخیره کنید: مشتریان می‌توانند از حساب کاربری‌شان از باشگاه خارج شوند و به همین سطح می‌روند."
+msgid "Choose the level for people who leave before switching the club on: customers can leave the club from their account, and that is where they go."
+msgstr "پیش از روشن کردن باشگاه، سطح کسانی را که خارج می‌شوند انتخاب کنید: مشتریان می‌توانند از حساب کاربری‌شان از باشگاه خارج شوند و به همین سطح می‌روند."
 
 msgid "Choose at least one channel for the welcome message."
 msgstr "دست‌کم یک کانال برای پیام خوش‌آمد انتخاب کنید."
@@ -372,6 +441,9 @@ msgstr "اعتبار"
 
 msgid "Support"
 msgstr "پشتیبانی"
+
+msgid "Coming soon"
+msgstr "به‌زودی"
 
 msgid "Please enter your API key."
 msgstr "لطفاً کلید API را وارد کنید."
@@ -550,20 +622,74 @@ msgstr "رفتن به تب اتصال"
 msgid "WooCommerce is not active, so the club takes in WordPress users only and levels cannot depend on purchases."
 msgstr "ووکامرس فعال نیست؛ بنابراین باشگاه فقط کاربران وردپرس را می‌پذیرد و سطح‌ها نمی‌توانند به خرید وابسته باشند."
 
+msgid "Get your club going"
+msgstr "راه‌اندازی باشگاه"
+
+msgid "Five steps, in this order. Nothing reaches DiceX until you have seen who lands in which level and pressed Send."
+msgstr "پنج مرحله، به همین ترتیب. تا وقتی نبینید چه کسی در کدام سطح قرار می‌گیرد و دکمهٔ ارسال را نزنید، چیزی به دایس‌اکس نمی‌رسد."
+
+msgid "Connect your DiceX account"
+msgstr "اتصال حساب دایس‌اکس"
+
+msgid "The club lives in your DiceX account, so the plugin needs its API key first."
+msgstr "باشگاه در حساب دایس‌اکس شما قرار دارد، برای همین افزونه اول به کلید API آن نیاز دارد."
+
+msgid "Choose who joins"
+msgstr "تعیین اعضای باشگاه"
+
+msgid "Every customer"
+msgstr "همهٔ مشتریان"
+
+msgid "Only customers who agree, by ticking a box"
+msgstr "فقط مشتریانی که با زدن یک تیک موافقت کنند"
+
+msgid "Whether you need your customers' agreement depends on the law where you sell, so nothing is chosen for you."
+msgstr "اینکه به موافقت مشتریان نیاز دارید یا نه به قانون جایی که در آن می‌فروشید بستگی دارد، برای همین پیش‌فرضی انتخاب نشده است."
+
+msgid "Choose your levels"
+msgstr "انتخاب سطح‌ها"
+
+msgid "The ready-made set ranks customers by how often they buy: Inactive (no purchase for six months), Gold (10 orders or more), Silver (5 or more), Bronze (2 or more), Regular member for everyone else, and Removed for people who leave. Change any of it later."
+msgstr "مجموعهٔ آماده مشتریان را بر اساس دفعات خرید رتبه‌بندی می‌کند: غیرفعال (شش ماه بدون خرید)، طلایی (۱۰ سفارش یا بیشتر)، نقره‌ای (۵ یا بیشتر)، برنزی (۲ یا بیشتر)، عضو عادی برای بقیهٔ مشتریان و حذف‌شده برای کسانی که خارج می‌شوند. هر کدام را بعداً می‌توانید تغییر دهید."
+
+msgid "The ready-made set has Regular member, for everyone, and Removed, for people who leave. Add more levels later."
+msgstr "مجموعهٔ آماده «عضو عادی» را برای همه و «حذف‌شده» را برای کسانی که خارج می‌شوند دارد. سطح‌های بیشتر را بعداً اضافه کنید."
+
+msgid "Use the ready-made levels"
+msgstr "استفاده از سطح‌های آماده"
+
+msgid "Build my own"
+msgstr "خودم می‌سازم"
+
+msgid "Change the levels"
+msgstr "تغییر سطح‌ها"
+
+msgid "Switch the club on"
+msgstr "روشن کردن باشگاه"
+
+msgid "This saves your settings and reads your existing customers into their levels. Nothing is sent yet."
+msgstr "این کار تنظیمات شما را ذخیره می‌کند و مشتریان فعلی را در سطح‌هایشان قرار می‌دهد. هنوز چیزی ارسال نمی‌شود."
+
+msgid "Check the levels, then send to DiceX"
+msgstr "بررسی سطح‌ها و ارسال به دایس‌اکس"
+
+msgid "Once your customers are read, Club status below shows how many are in each level. If that is what you want, send them; if not, change the levels and save first. A number that reaches DiceX stays there."
+msgstr "وقتی مشتریان خوانده شدند، «وضعیت باشگاه» در پایین نشان می‌دهد چند نفر در هر سطح هستند. اگر همان است که می‌خواهید، ارسالشان کنید؛ اگر نه، اول سطح‌ها را تغییر دهید و ذخیره کنید. شماره‌ای که به دایس‌اکس برسد همان‌جا می‌ماند."
+
+msgid "Read my customers"
+msgstr "خواندن مشتریانم"
+
+msgid "Send to DiceX"
+msgstr "ارسال به دایس‌اکس"
+
 msgid "Nothing is ever deleted from the DiceX club. To take a number out, move it to the level you keep for removed numbers."
 msgstr "هیچ چیزی از باشگاه دایس‌اکس حذف نمی‌شود. برای خارج کردن یک شماره، آن را به سطحی که برای شماره‌های حذف‌شده در نظر گرفته‌اید منتقل کنید."
 
-msgid "Where the club stands"
+msgid "Club status"
 msgstr "وضعیت باشگاه"
 
 msgid "Members"
 msgstr "اعضا"
-
-msgid "Waiting"
-msgstr "در انتظار"
-
-msgid "Refused"
-msgstr "ردشده"
 
 msgid "Your existing customers are not in the club yet. Import them once; everyone after that joins on their own. Nothing is sent until you have seen who lands in which level."
 msgstr "مشتریان فعلی شما هنوز در باشگاه نیستند. یک بار واردشان کنید؛ از آن پس همه خودکار عضو می‌شوند. تا نبینید چه کسی در کدام سطح قرار می‌گیرد، چیزی ارسال نمی‌شود."
@@ -571,20 +697,17 @@ msgstr "مشتریان فعلی شما هنوز در باشگاه نیستند. 
 msgid "Your customers are read and placed in levels, as counted above. Nothing has been sent to DiceX yet: a number that reaches the club stays there. Change the levels and save if the counts are not what you want, then send."
 msgstr "مشتریان شما خوانده شدند و مطابق شمارش بالا در سطح‌ها قرار گرفتند. هنوز چیزی به دایس‌اکس ارسال نشده است: شماره‌ای که به باشگاه برسد همان‌جا می‌ماند. اگر شمارش‌ها آن چیزی نیست که می‌خواهید، سطح‌ها را تغییر دهید و ذخیره کنید، سپس ارسال کنید."
 
-msgid "Send to DiceX"
-msgstr "ارسال به دایس‌اکس"
-
 msgid "Import existing customers"
 msgstr "وارد کردن مشتریان فعلی"
 
-msgid "Sync now"
-msgstr "همگام‌سازی همین حالا"
+msgid "Send changes now"
+msgstr "ارسال تغییرات همین حالا"
 
 msgid "Send refused customers again"
 msgstr "ارسال دوبارهٔ مشتریان ردشده"
 
-msgid "Compare with DiceX"
-msgstr "مقایسه با دایس‌اکس"
+msgid "See the levels in DiceX"
+msgstr "دیدن سطح‌ها در دایس‌اکس"
 
 msgid "Last sent:"
 msgstr "آخرین ارسال:"
@@ -598,6 +721,12 @@ msgstr "گروه‌های مخاطب"
 msgid "Levels"
 msgstr "سطح‌ها"
 
+msgid "A customer joins the first level, from the top, whose conditions they all meet. Press Edit on a level to change what it asks for."
+msgstr "هر مشتری در اولین سطح از بالا قرار می‌گیرد که همهٔ شرط‌هایش را داشته باشد. برای تغییر شرط‌های هر سطح، «ویرایش» آن را بزنید."
+
+msgid "How levels work"
+msgstr "سطح‌ها چطور کار می‌کنند"
+
 msgid "Name your levels and set what it takes to be in each. A customer joins the first level, from the top, whose conditions they all meet. Leave a box empty for no limit."
 msgstr "سطح‌هایتان را نام‌گذاری کنید و شرط عضویت در هر کدام را تعیین کنید. هر مشتری در اولین سطح از بالا قرار می‌گیرد که همهٔ شرط‌هایش را داشته باشد. برای «بدون محدودیت» کادر را خالی بگذارید."
 
@@ -607,11 +736,11 @@ msgstr "هر سطح می‌تواند دربارهٔ خریدهای مشتری �
 msgid "Days since the last purchase are whole days, and move customers on their own as time passes; somebody who never bought anything does not meet them."
 msgstr "روز از آخرین خرید با روزهای کامل شمرده می‌شود و با گذشت زمان مشتریان را خودکار جابه‌جا می‌کند؛ کسی که هرگز خریدی نکرده این شرط را ندارد."
 
-msgid "Age is counted in whole years from the date of birth, in the calendar the customer reads — Solar Hijri in Persian — and moves customers on their birthday. Somebody whose date of birth the club does not know meets no age condition."
-msgstr "سن به سال کامل و از روی تاریخ تولد حساب می‌شود، در تقویمی که مشتری با آن می‌خواند — برای فارسی شمسی — و مشتری روز تولدش جابه‌جا می‌شود. کسی که باشگاه تاریخ تولدش را نمی‌داند، هیچ شرط سنی را برآورده نمی‌کند."
-
 msgid "Purchases are counted in your store currency, %s, after refunds, from paid orders only."
 msgstr "خریدها به ارز فروشگاه شما (%s)، پس از کسر مرجوعی‌ها و فقط از سفارش‌های پرداخت‌شده شمرده می‌شوند."
+
+msgid "Age is counted in whole years from the date of birth, in the calendar the customer reads — Solar Hijri in Persian — and moves customers on their birthday. Somebody whose date of birth the club does not know meets no age condition."
+msgstr "سن به سال کامل و از روی تاریخ تولد حساب می‌شود، در تقویمی که مشتری با آن می‌خواند — برای فارسی شمسی — و مشتری روز تولدش جابه‌جا می‌شود. کسی که باشگاه تاریخ تولدش را نمی‌داند، هیچ شرط سنی را برآورده نمی‌کند."
 
 msgid "DiceX keeps a level name for good. Renaming a level here creates a new level in DiceX and moves its customers there; the old name stays behind, empty."
 msgstr "دایس‌اکس نام هر سطح را برای همیشه نگه می‌دارد. تغییر نام یک سطح در اینجا، سطح تازه‌ای در دایس‌اکس می‌سازد و مشتریانش را به آن منتقل می‌کند؛ نام قبلی خالی باقی می‌ماند."
@@ -622,23 +751,32 @@ msgstr "افزودن سطح"
 msgid "Start with Inactive, Gold, Silver, Bronze, Regular member and Removed"
 msgstr "شروع با غیرفعال، طلایی، نقره‌ای، برنزی، عضو عادی و حذف‌شده"
 
-msgid "Start with Gold, Silver, Bronze, Regular member and Removed"
-msgstr "شروع با طلایی، نقره‌ای، برنزی، عضو عادی و حذف‌شده"
+msgid "Start with Regular member and Removed"
+msgstr "شروع با عضو عادی و حذف‌شده"
 
 msgid "Count customers"
 msgstr "شمارش مشتریان"
 
-msgid "Customers who meet no conditions join"
-msgstr "مشتریانی که هیچ شرطی را ندارند به این سطح می‌روند"
+msgid "Level for everyone else"
+msgstr "سطح بقیهٔ مشتریان"
 
-msgid "Numbers taken out of the club go to"
-msgstr "شماره‌هایی که از باشگاه خارج می‌شوند به این سطح می‌روند"
+msgid "Customers who meet the conditions of no other level join this one."
+msgstr "مشتریانی که شرط‌های هیچ سطح دیگری را ندارند به این سطح می‌روند."
+
+msgid "Level for people who leave"
+msgstr "سطح کسانی که خارج می‌شوند"
 
 msgid "Never by the conditions: a number comes here when you move it, or when the customer leaves the club from their account. Needed before the club can be switched on."
 msgstr "هیچ‌وقت با شرط‌ها نیست: شماره وقتی به اینجا می‌آید که شما منتقلش کنید، یا مشتری از حساب کاربری‌اش از باشگاه خارج شود. پیش از روشن کردن باشگاه لازم است."
 
+msgid "Optional"
+msgstr "اختیاری"
+
 msgid "Groups sit alongside the levels. A customer is in one level, but in every group whose conditions they meet — so you can gather, say, everybody who buys coffee and everybody who buys from Tehran, and reach each in DiceX."
 msgstr "گروه‌ها در کنار سطح‌ها کار می‌کنند. هر مشتری در یک سطح است، اما در هر گروهی که شرط‌هایش را داشته باشد قرار می‌گیرد — مثلاً همهٔ کسانی که قهوه می‌خرند و همهٔ کسانی که از تهران خرید می‌کنند، و در دایس‌اکس به هر کدام جداگانه دسترسی دارید."
+
+msgid "How groups work"
+msgstr "گروه‌ها چطور کار می‌کنند"
 
 msgid "A group needs at least one condition. Nobody in the level for removed numbers is put in a group."
 msgstr "هر گروه دست‌کم یک شرط می‌خواهد. هیچ‌کس در سطح شماره‌های حذف‌شده در گروهی قرار نمی‌گیرد."
@@ -649,8 +787,8 @@ msgstr "دایس‌اکس راهی برای بیرون آوردن مخاطب ا�
 msgid "Add a group"
 msgstr "افزودن گروه"
 
-msgid "Who joins, and what is sent"
-msgstr "چه کسانی عضو می‌شوند و چه چیزی ارسال می‌شود"
+msgid "Club settings"
+msgstr "تنظیمات باشگاه"
 
 msgid "Who joins the club"
 msgstr "چه کسانی عضو باشگاه می‌شوند"
@@ -682,32 +820,6 @@ msgstr "مشتریان بدون حساب کاربری"
 msgid "Add guests who paid for an order, by their billing phone"
 msgstr "افزودن مهمان‌هایی که سفارشی را پرداخت کرده‌اند، با تلفن صورت‌حسابشان"
 
-msgid "Purchases that count towards a level"
-msgstr "خریدهایی که در تعیین سطح شمرده می‌شوند"
-
-msgid "All purchases, ever"
-msgstr "همهٔ خریدها، از ابتدا"
-
-msgid "The last %s month"
-msgid_plural "The last %s months"
-msgstr[0] "%s ماه اخیر"
-msgstr[1] "%s ماه اخیر"
-
-msgid "Sent to DiceX"
-msgstr "ارسال به دایس‌اکس"
-
-msgid "Always: mobile number, first and last name, level, the date of the first purchase, and the date of birth while the club asks for it. Add more only if you need it there."
-msgstr "همیشه: شمارهٔ موبایل، نام و نام خانوادگی، سطح، تاریخ اولین خرید، و تاریخ تولد تا وقتی باشگاه آن را می‌پرسد. موارد بیشتر را فقط اگر در آنجا لازم دارید اضافه کنید."
-
-msgid "Email address"
-msgstr "نشانی ایمیل"
-
-msgid "Company"
-msgstr "شرکت"
-
-msgid "Billing address"
-msgstr "نشانی صورت‌حساب"
-
 msgid "Ask customers for their date of birth, and send it to DiceX"
 msgstr "پرسیدن تاریخ تولد از مشتریان و ارسال آن به دایس‌اکس"
 
@@ -735,30 +847,6 @@ msgstr "میلادی"
 msgid "This decides the example customers see and how a saved date is shown back to them. A date typed in either calendar is understood, and it is kept and sent as Gregorian."
 msgstr "این انتخاب نمونه‌ای را که مشتریان می‌بینند و شکل نمایش تاریخ ذخیره‌شده را تعیین می‌کند. تاریخی که با هر یک از دو تقویم نوشته شود پذیرفته می‌شود و به صورت میلادی نگهداری و ارسال می‌شود."
 
-msgid "Also read birthdays from this user meta key"
-msgstr "تاریخ تولد از این کلید متای کاربر هم خوانده شود"
-
-msgid "If another plugin already keeps your customers' birthdays, enter the key it stores them under. Dates written year first, in either calendar, and timestamps are read; anything else is left out."
-msgstr "اگر افزونهٔ دیگری از قبل تاریخ تولد مشتریان را نگهداری می‌کند، کلیدی را که با آن ذخیره می‌کند وارد کنید. تاریخ‌هایی که با سال شروع می‌شوند، در هر دو تقویم، و مهرهای زمانی خوانده می‌شوند؛ بقیه کنار گذاشته می‌شوند."
-
-msgid "When to sync"
-msgstr "زمان همگام‌سازی"
-
-msgid "As things happen, and once a day to catch anything missed (recommended)"
-msgstr "همزمان با هر رویداد، و روزی یک بار برای جبران موارد ازدست‌رفته (پیشنهادی)"
-
-msgid "Only as things happen"
-msgstr "فقط همزمان با رویدادها"
-
-msgid "Only once a day"
-msgstr "فقط روزی یک بار"
-
-msgid "Daily sync at"
-msgstr "ساعت همگام‌سازی روزانه"
-
-msgid "Site time, %s. A quiet site runs it at its first visit after this time."
-msgstr "به وقت سایت (%s). در سایت کم‌بازدید، این کار در اولین بازدید پس از این ساعت انجام می‌شود."
-
 msgid "Welcome message"
 msgstr "پیام خوش‌آمد"
 
@@ -785,6 +873,62 @@ msgstr "تگ‌های قابل استفاده:"
 
 msgid "Each customer is written to in their own language where the site knows it: the language they chose for their account, or the one they were reading when they ordered. Anything left empty falls back to the text above."
 msgstr "به هر مشتری، تا جایی که سایت زبانش را بداند، به زبان خودش نوشته می‌شود: زبانی که برای حساب خود انتخاب کرده یا زبانی که هنگام ثبت سفارش می‌خوانده است. هر جا خالی بماند، متن بالا فرستاده می‌شود."
+
+msgid "More settings"
+msgstr "تنظیمات بیشتر"
+
+msgid "Purchases that count towards a level"
+msgstr "خریدهایی که در تعیین سطح شمرده می‌شوند"
+
+msgid "All purchases, ever"
+msgstr "همهٔ خریدها، از ابتدا"
+
+msgid "The last %s month"
+msgid_plural "The last %s months"
+msgstr[0] "%s ماه اخیر"
+msgstr[1] "%s ماه اخیر"
+
+msgid "Sent to DiceX"
+msgstr "ارسال به دایس‌اکس"
+
+msgid "Always: mobile number, first and last name, level, the date of the first purchase, and the date of birth while the club asks for it. Add more only if you need it there."
+msgstr "همیشه: شمارهٔ موبایل، نام و نام خانوادگی، سطح، تاریخ اولین خرید، و تاریخ تولد تا وقتی باشگاه آن را می‌پرسد. موارد بیشتر را فقط اگر در آنجا لازم دارید اضافه کنید."
+
+msgid "Email address"
+msgstr "نشانی ایمیل"
+
+msgid "Company"
+msgstr "شرکت"
+
+msgid "Billing address"
+msgstr "نشانی صورت‌حساب"
+
+msgid "Also read birthdays from this user meta key"
+msgstr "تاریخ تولد از این کلید متای کاربر هم خوانده شود"
+
+msgid "If another plugin already keeps your customers' birthdays, enter the key it stores them under. Dates written year first, in either calendar, and timestamps are read; anything else is left out."
+msgstr "اگر افزونهٔ دیگری از قبل تاریخ تولد مشتریان را نگهداری می‌کند، کلیدی را که با آن ذخیره می‌کند وارد کنید. تاریخ‌هایی که با سال شروع می‌شوند، در هر دو تقویم، و مهرهای زمانی خوانده می‌شوند؛ بقیه کنار گذاشته می‌شوند."
+
+msgid "When to sync"
+msgstr "زمان همگام‌سازی"
+
+msgid "As things happen, and once a day to catch anything missed (recommended)"
+msgstr "همزمان با هر رویداد، و روزی یک بار برای جبران موارد ازدست‌رفته (پیشنهادی)"
+
+msgid "Only as things happen"
+msgstr "فقط همزمان با رویدادها"
+
+msgid "Only once a day"
+msgstr "فقط روزی یک بار"
+
+msgid "Daily sync at"
+msgstr "ساعت همگام‌سازی روزانه"
+
+msgid "Site time, %s. A quiet site runs it at its first visit after this time."
+msgstr "به وقت سایت (%s). در سایت کم‌بازدید، این کار در اولین بازدید پس از این ساعت انجام می‌شود."
+
+msgid "You have changes that are not saved yet."
+msgstr "تغییراتی دارید که هنوز ذخیره نشده‌اند."
 
 msgid "Save club settings"
 msgstr "ذخیرهٔ تنظیمات باشگاه"
@@ -917,17 +1061,17 @@ msgstr "ریال عمان به دلار میخکوب شده، پس آن رقم �
 msgid "No payment gateway is available for the %s region yet. You can still top up from the DiceX panel."
 msgstr "هنوز درگاه پرداختی برای منطقهٔ %s در دسترس نیست. می‌توانید از پنل دایس‌اکس شارژ کنید."
 
-msgid "Pay through"
-msgstr "درگاه پرداخت"
-
-msgid "Not available yet"
-msgstr "هنوز در دسترس نیست"
-
-msgid "Holding a discount coupon? A coupon can only be applied in the DiceX panel, not from here, so top up there instead and the discount is taken off the amount."
-msgstr "کد تخفیف دارید؟ کد تخفیف فقط در پنل دایس‌اکس اعمال می‌شود، نه از اینجا؛ پس شارژ را از آنجا انجام دهید تا تخفیف از مبلغ کم شود."
+msgid "Paying online from here is coming soon, through the gateways below. Until then:"
+msgstr "پرداخت آنلاین از اینجا به‌زودی از طریق درگاه‌های زیر فعال می‌شود. تا آن زمان:"
 
 msgid "Top up in the DiceX panel"
 msgstr "شارژ از پنل دایس‌اکس"
+
+msgid "Pay through"
+msgstr "درگاه پرداخت"
+
+msgid "Holding a discount coupon? A coupon can only be applied in the DiceX panel, not from here, so top up there instead and the discount is taken off the amount."
+msgstr "کد تخفیف دارید؟ کد تخفیف فقط در پنل دایس‌اکس اعمال می‌شود، نه از اینجا؛ پس شارژ را از آنجا انجام دهید تا تخفیف از مبلغ کم شود."
 
 msgid "Numbers in the admin list, further down this page"
 msgstr "شماره‌های فهرست مدیران (پایین همین صفحه)"
@@ -1189,11 +1333,11 @@ msgstr "سپهر"
 msgid "Digipay credit payment"
 msgstr "پرداخت اعتباری با دیجی‌پی"
 
-msgid "Paymob"
-msgstr "Paymob"
-
 msgid "Thawani"
 msgstr "Thawani"
+
+msgid "Tap"
+msgstr "Tap"
 
 msgid "The minimum top-up is %s."
 msgstr "حداقل مبلغ شارژ %s است."
@@ -1233,6 +1377,9 @@ msgstr "Bale Bot"
 
 msgid "Safir"
 msgstr "سفیر"
+
+msgid "Discord"
+msgstr "دیسکورد"
 
 msgid "Valid until %1$s (%2$s)."
 msgstr "معتبر تا %1$s به وقت %2$s."
@@ -1276,8 +1423,8 @@ msgstr "دایس‌اکس هنوز برای این منطقه اپراتور پ�
 msgid "World Wide"
 msgstr "World Wide"
 
-msgid "WhatsApp and Telegram are available for this region. DiceX does not offer SMS, voice or payment here yet."
-msgstr "واتس‌اپ و تلگرام برای این منطقه در دسترس‌اند. دایس‌اکس هنوز پیامک، تماس صوتی یا پرداخت در اینجا ارائه نمی‌دهد."
+msgid "WhatsApp and Telegram are available for this region. DiceX does not offer SMS or voice here yet, and online payment is coming soon."
+msgstr "واتس‌اپ و تلگرام برای این منطقه در دسترس‌اند. دایس‌اکس هنوز پیامک و تماس صوتی را در اینجا ارائه نمی‌دهد و پرداخت آنلاین به‌زودی فعال می‌شود."
 
 msgid "Follow WordPress"
 msgstr "پیروی از وردپرس"
@@ -1521,6 +1668,9 @@ msgstr "ورود با نام کاربری و رمز عبور"
 msgid "Switched on"
 msgstr "روشن"
 
+msgid "Waiting"
+msgstr "در انتظار"
+
 msgid "Group memberships on the way"
 msgstr "عضویت‌های گروه در راه"
 
@@ -1749,15 +1899,6 @@ msgstr "گروه «%s» دست‌کم یک شرط می‌خواهد. گروهی 
 msgid "A club can have at most %s groups."
 msgstr "هر باشگاه دست‌بالا %s گروه می‌تواند داشته باشد."
 
-msgid "Gold"
-msgstr "طلایی"
-
-msgid "Silver"
-msgstr "نقره‌ای"
-
-msgid "Bronze"
-msgstr "برنزی"
-
 msgid "Regular member"
 msgstr "عضو عادی"
 
@@ -1766,6 +1907,15 @@ msgstr "حذف‌شده"
 
 msgid "Inactive"
 msgstr "غیرفعال"
+
+msgid "Gold"
+msgstr "طلایی"
+
+msgid "Silver"
+msgstr "نقره‌ای"
+
+msgid "Bronze"
+msgstr "برنزی"
 
 msgid "Numbers taken out of the club. Nobody in this level is contacted."
 msgstr "شماره‌هایی که از باشگاه خارج شده‌اند. با هیچ‌کس در این سطح تماس گرفته نمی‌شود."

@@ -30,6 +30,8 @@ between them as they buy.
   language.
 - **Date of birth** — asked at checkout, on registration and in the account, in the Solar Hijri or
   the Gregorian calendar.
+- **Ready in five steps** — choose who joins, take the ready-made levels (ranked by orders, so they
+  work in any currency), switch on, check the counts, send. Each level reads as one line.
 - **Consent and control** — everybody joins, or only those who tick the box, and anyone can leave
   from their account. The first import waits until you have checked the counts.
 - **Big stores** — `wp dicex club` imports, syncs and reports from the command line.
@@ -47,8 +49,8 @@ between them as they buy.
 - **Two-step login** — a one-time code on the login screen, after the password or instead of it. One
   line in `wp-config.php` turns it off, so a lost phone never locks you out.
 - **More than SMS** — the same message can go over WhatsApp, voice call, Telegram, Bale or Safir,
-  depending on what your DiceX account has. Each card is given an ordered list of channels and tries
-  the next one when the first does not get through.
+  depending on what your DiceX account has, with Discord on its way. Each card is given an ordered
+  list of channels and tries the next one when the first does not get through.
 
 ![A card's settings](.wordpress-org/screenshot-4.png)
 

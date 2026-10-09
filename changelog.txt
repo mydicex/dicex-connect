@@ -3,6 +3,30 @@
 The full history. The current release is also in readme.txt, which the
 WordPress.org handbook asks to keep short.
 
+= 1.9.0 =
+
+The Customer Club is easier to start and to read. Tap takes the place of Paymob, and Discord is named as a channel that is coming.
+
+**Enhancements**
+
+* Adds five setup steps to the Customer Club tab: choose who joins, take the ready-made levels, switch on, check the counts, send. Switching on saves your settings and reads your existing customers in; nothing reaches DiceX until you press Send.
+* Shows each level and group as one line that says what it asks for, with an Edit button that opens its conditions.
+* Ranks the ready-made levels by number of orders — Gold 10, Silver 5, Bronze 2 — so they work in any currency the moment they are added.
+* Keeps Save in view while club changes are unsaved, and asks before you leave the tab with them. Settings most clubs never change wait under More settings.
+* Lists Tap, which takes cards from anywhere, beside Thawani in the Gulf and for World Wide. Both show as coming soon until DiceX accepts them.
+* Names Discord as a channel that is coming, in the GCC and World Wide regions.
+
+**Bugfixes**
+
+* Says why the club cannot be switched on beside the step that is missing, and why a club button did not work beside that button, instead of in a pop-up.
+* The Credit tab no longer offers an amount and a Pay button where no gateway can take a payment yet; it says payment is coming and links to the DiceX panel.
+* A level's conditions fit a phone screen.
+
+**Other**
+
+* Removes Paymob, which DiceX did not sign with.
+* New Customer Club screenshots.
+
 = 1.8.2 =
 
 A Persian screen gets back the line saying what a Gulf top-up is worth elsewhere.

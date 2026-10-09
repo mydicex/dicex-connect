@@ -28,6 +28,10 @@ class Dicex_Connect_Marks {
 	 *
 	 * Bale and Safir share a file deliberately: two services, one brand behind
 	 * them.
+	 *
+	 * Discord's is a speech bubble holding a channel's hash sign, drawn here like
+	 * the others — not Discord's own logo, which its brand rules do not let anyone
+	 * redraw.
 	 */
 	const CHANNELS = array(
 		'sms'      => 'sms.svg',
@@ -36,6 +40,7 @@ class Dicex_Connect_Marks {
 		'telegram' => 'telegram.svg',
 		'bale'     => 'bale.png',
 		'safir'    => 'safir.png',
+		'discord'  => 'discord.svg',
 	);
 
 	/**

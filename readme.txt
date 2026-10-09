@@ -4,7 +4,7 @@ Tags: customer club, crm, sms, whatsapp, woocommerce
 Requires at least: 5.8
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.8.2
+Stable tag: 1.9.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,7 +24,8 @@ DiceX Connect keeps your customers and your site's messages together, in your ow
 * **Groups beside the levels** — a customer is in every group they match, such as coffee buyers or shoppers from Tehran.
 * **Messages that fit** — a welcome on joining and a note on moving up a level, in the customer's own language.
 * **Date of birth** — asked at checkout, on registration and in the account, in the Solar Hijri or the Gregorian calendar.
-* **Consent and control** — everybody joins, or only those who tick the box, and anyone can leave from their account. The first import waits until you have checked the counts.
+* **Ready in five steps** — ready-made levels ranked by orders; switch on, check, send.
+* **Consent and control** — everybody joins, or only those who tick the box, and anyone can leave from their account.
 * **Big stores** — `wp dicex club` imports, syncs and reports from the command line.
 
 = Messages for your site's events =
@@ -97,7 +98,7 @@ Yes. DiceX is a separate service, it is not free, and the plugin cannot send any
 
 = Which channels can it send over? =
 
-SMS, WhatsApp, voice call, Telegram Bot, Bale Bot and Safir, depending on what your DiceX account and your region cover. Each card is given an ordered list of channels and tries the next one when the first does not get through.
+SMS, WhatsApp, voice call, Telegram Bot, Bale Bot and Safir, depending on what your DiceX account and your region cover. Discord is coming. Each card is given an ordered list of channels and tries the next one when the first does not get through.
 
 = How does it know the customer's phone number on a form? =
 
@@ -123,16 +124,16 @@ DiceX does not sell the same services everywhere. The region you pick — Iran, 
 4. A card's settings — the channels in the order to try them, the order statuses that send, who is notified, and the message.
 5. The Sender lines tab — choose a line per channel, or leave SMS, voice and Safir on the DiceX shared line, and send a test message.
 6. The Credit tab — top up online through Saman, Sepehr or Digipay.
-7. The Customer Club tab — where the club stands, what is waiting, and the levels you define, first match wins.
-8. A level's conditions — spend, orders, days since the last purchase, age, and what a customer bought and where.
+7. The Customer Club tab — five steps to a running club, and the counts to check before anything is sent.
+8. A level in one line, and opened: spend, orders, days since the last purchase, age, what was bought and where.
 
 == Changelog ==
 
-= 1.8.2 =
+= 1.9.0 =
 
-A Persian screen gets back the line saying what a Gulf top-up is worth elsewhere. The full notes, and every earlier release, are in changelog.txt.
+Five setup steps for the Customer Club, each level in one line, Tap in place of Paymob, and Discord on its way. Full notes in changelog.txt.
 
 == Upgrade Notice ==
 
-= 1.8.2 =
-On a Persian screen with the region set to GCC, the Credit tab shows again what an amount is worth in dollars and euros.
+= 1.9.0 =
+The Customer Club opens with five setup steps. Tap replaces Paymob; Discord is coming.

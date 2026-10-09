@@ -67,12 +67,21 @@ $verified = Dicex_Connect_Account::is_verified();
 			<?php
 			foreach ( Dicex_Connect_Lines::labels() as $channel_key => $channel_label ) :
 				$channel_mark = Dicex_Connect_Marks::channel( $channel_key );
+				$channel_soon = Dicex_Connect_Lines::is_upcoming( $channel_key );
+
+				// A channel still to come is announced only where it will come: not Discord in Iran.
+				if ( $channel_soon && ! in_array( $channel_key, Dicex_Connect_Region::upcoming_channels(), true ) ) {
+					continue;
+				}
 				?>
-				<li class="dicex-connect-welcome-channel dicex-connect-channel-<?php echo esc_attr( $channel_key ); ?>">
+				<li class="dicex-connect-welcome-channel dicex-connect-channel-<?php echo esc_attr( $channel_key ); ?><?php echo $channel_soon ? ' is-soon' : ''; ?>">
 					<?php if ( '' !== $channel_mark ) : ?>
 						<img src="<?php echo esc_url( $channel_mark ); ?>" alt="" width="18" height="18" loading="lazy">
 					<?php endif; ?>
 					<?php echo esc_html( $channel_label ); ?>
+					<?php if ( $channel_soon ) : ?>
+						<span class="dicex-connect-badge-soon"><?php esc_html_e( 'Coming soon', 'dicex-connect' ); ?></span>
+					<?php endif; ?>
 				</li>
 			<?php endforeach; ?>
 		</ul>
