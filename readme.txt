@@ -4,7 +4,7 @@ Tags: customer club, crm, sms, whatsapp, woocommerce
 Requires at least: 5.8
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.9.0
+Stable tag: 1.9.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -129,11 +129,11 @@ DiceX does not sell the same services everywhere. The region you pick — Iran, 
 
 == Changelog ==
 
-= 1.9.0 =
+= 1.9.1 =
 
-Five setup steps for the Customer Club, each level in one line, Tap in place of Paymob, and Discord on its way. Full notes in changelog.txt.
+Tap's logo on its tile, and Discord as coming in every region. Full notes in changelog.txt.
 
 == Upgrade Notice ==
 
-= 1.9.0 =
-The Customer Club opens with five setup steps. Tap replaces Paymob; Discord is coming.
+= 1.9.1 =
+Tap's logo, and Discord announced in every region.

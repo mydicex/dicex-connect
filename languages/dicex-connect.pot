@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DiceX Connect\n"
 "Report-Msgid-Bugs-To: https://dicex.me/\n"
-"POT-Creation-Date: 2026-10-09 20:42+0000\n"
+"POT-Creation-Date: 2026-10-10 04:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1954,28 +1954,28 @@ msgstr ""
 msgid "Iran"
 msgstr ""
 
-#: includes/core/class-dicex-region.php:88
+#: includes/core/class-dicex-region.php:91
 msgid "IRR"
 msgstr ""
 
-#: includes/core/class-dicex-region.php:103
+#: includes/core/class-dicex-region.php:106
 msgid "GCC"
 msgstr ""
 
-#: includes/core/class-dicex-region.php:124
+#: includes/core/class-dicex-region.php:127
 msgid "OMR"
 msgstr ""
 
-#: includes/core/class-dicex-region.php:128
+#: includes/core/class-dicex-region.php:131
 msgid "DiceX has no international SMS operator for this region yet. WhatsApp and Telegram are available; SMS and voice are not."
 msgstr ""
 
 #. translators: A region name. DiceX's product page calls it World Wide and keeps those two words in English in every language.
-#: includes/core/class-dicex-region.php:132
+#: includes/core/class-dicex-region.php:135
 msgid "World Wide"
 msgstr ""
 
-#: includes/core/class-dicex-region.php:142
+#: includes/core/class-dicex-region.php:145
 msgid "WhatsApp and Telegram are available for this region. DiceX does not offer SMS or voice here yet, and online payment is coming soon."
 msgstr ""
 

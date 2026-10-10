@@ -10,10 +10,18 @@ and is looked for first; `.png` is the fallback.
 | `Sepehr`  | `sepehr.svg` |
 | `Digipay` | `digipay.svg` |
 | `Thawani` | `thawani.svg` |
-| `Tap`     | none — Tap publishes no logo or rules for using one, so the tile shows its name until Tap provides the file and permission |
+| `Tap`     | `tap.png` — Tap's app icon, supplied by the account owner (a Tap merchant) on 2026-10-10 |
 
 Paymob was removed in 1.9.0 with its mark: DiceX did not sign with Paymob and
 signed with Tap instead.
+
+`tap.png` is cut out of the image the owner supplied, which sat the dark icon on
+a white square: the white surround was made transparent by a flood fill from the
+four corners — so the white lettering inside the icon is never touched — and the
+grey rim it left became the icon's own dark colour at partial opacity, which
+keeps the rounded corners smooth on any background. 160px square, four times the
+tile's height. Tap publishes no SVG; the full-size cut-out and the supplied
+original are in the landing's `design/source-images/`.
 
 The tile gives each mark a 40px-tall slot and up to 100px of width, so the three
 different shapes — a wide wordmark, a near-square ribbon and a square icon — all

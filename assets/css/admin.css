@@ -837,7 +837,8 @@ body {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	gap: 8px;
+	/* Rows sit further apart than chips: a "Coming soon" ribbon rises above its chip. */
+	gap: 16px 8px;
 	margin: 18px 0 20px;
 	padding: 0;
 	list-style: none;
@@ -1146,14 +1147,29 @@ body {
 	margin-inline-start: 0;
 }
 
+/*
+ * A channel still to come: dashed, with "Coming soon" as a ribbon pinned to its
+ * top corner, so it reads as news rather than as one more channel to choose.
+ */
 .dicex-connect-welcome-channel.is-soon {
-	border-style: dashed;
+	position: relative;
+	border: 1px dashed #5865f2;
 	background: #fff;
+	color: #1d2327;
+	padding-inline-end: 18px;
 }
 
 .dicex-connect-welcome-channel.is-soon .dicex-connect-badge-soon {
-	padding: 0 8px;
+	position: absolute;
+	top: -11px;
+	inset-inline-end: -10px;
+	margin: 0;
+	padding: 1px 8px;
 	font-size: 10px;
+	font-weight: 600;
+	line-height: 1.6;
+	white-space: nowrap;
+	box-shadow: 0 1px 2px rgba(30, 35, 40, 0.12);
 }
 
 /* --------------------------------------------------------------------------

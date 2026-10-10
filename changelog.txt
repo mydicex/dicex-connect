@@ -3,6 +3,16 @@
 The full history. The current release is also in readme.txt, which the
 WordPress.org handbook asks to keep short.
 
+= 1.9.1 =
+
+Tap gets its own logo, and Discord is announced everywhere.
+
+**Enhancements**
+
+* Shows Tap's logo on its tile in the Credit tab.
+* Lists Discord as coming in every region, Iran included, since DiceX will reach Discord from servers outside Iran.
+* Getting started shows Discord with its icon and a Coming soon ribbon.
+
 = 1.9.0 =
 
 The Customer Club is easier to start and to read. Tap takes the place of Paymob, and Discord is named as a channel that is coming.

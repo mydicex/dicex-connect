@@ -69,7 +69,7 @@ $verified = Dicex_Connect_Account::is_verified();
 				$channel_mark = Dicex_Connect_Marks::channel( $channel_key );
 				$channel_soon = Dicex_Connect_Lines::is_upcoming( $channel_key );
 
-				// A channel still to come is announced only where it will come: not Discord in Iran.
+				// A channel still to come is announced only in a region that will have it.
 				if ( $channel_soon && ! in_array( $channel_key, Dicex_Connect_Region::upcoming_channels(), true ) ) {
 					continue;
 				}

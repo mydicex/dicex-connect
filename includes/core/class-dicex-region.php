@@ -79,11 +79,14 @@ class Dicex_Connect_Region {
 			'ir'  => array(
 				'label'    => __( 'Iran', 'dicex-connect' ),
 				/*
-				 * Every channel that works, and not Discord: its Developer Terms
-				 * (§12(d), read 2026-10-09) bar using it from embargoed regions,
-				 * Iran among them, and OONI measures discord.com as blocked there.
+				 * Every channel, Discord included as coming soon. 1.9.0 left Discord
+				 * out of Iran: Discord is blocked there, and its Developer Terms
+				 * (§12(d)) speak of use in embargoed regions. The account owner
+				 * decided otherwise on 2026-10-10 — DiceX calls Discord from servers
+				 * outside Iran, so no request reaches it from an Iranian address —
+				 * and that is a business call this file records, not one it makes.
 				 */
-				'channels' => Dicex_Connect_Lines::SUPPORTED_CHANNELS,
+				'channels' => Dicex_Connect_Lines::CHANNELS,
 				'gateways' => array( 'Saman', 'Sepehr', 'Digipay' ),
 				'currency' => __( 'IRR', 'dicex-connect' ),
 				/*
